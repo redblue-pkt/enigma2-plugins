@@ -44,7 +44,7 @@ else:
 	print("[VLC] Checking for existing and usable servicets.so ... ",)
 	try:
 		import servicets
-	except Exception, e:
+	except Exception as e:
 		print(e)
 		print("[VLC] Checking for usable gstreamer service ... ",)
 		if isValidServiceId(ENIGMA_SERVICEGS_ID):
@@ -141,7 +141,7 @@ class VlcService(Source, iPlayableServicePtr, iSeekableService):
 			self.lastrefresh = time()
 			if self.stats and self.stats.has_key("time"):
 				print("Time: ", self.stats["time"])
-		except Exception, e:
+		except Exception as e:
 			print(e)
 
 	def refresh(self):
@@ -365,7 +365,7 @@ class VlcPlayer(Screen, InfoBarNotifications, InfoBarAudioSelection, InfoBarSubt
 		try:
 			url = self.server.playFile(self.filename, DEFAULT_VIDEO_PID, DEFAULT_AUDIO_PID)
 			print("[VLC] url: " + url)
-		except Exception, e:
+		except Exception as e:
 			self.hide()
 			self.session.open(
 					MessageBox, (_("Error with VLC server:\n%s") % e), MessageBox.TYPE_ERROR
@@ -451,7 +451,7 @@ class VlcPlayer(Screen, InfoBarNotifications, InfoBarAudioSelection, InfoBarSubt
 		try:
 			self.server.seek("-2")
 			self.server.unpause()
-		except Exception, e:
+		except Exception as e:
 			self.session.open(
 				MessageBox, (_("Error with VLC server:\n%s") % e), MessageBox.TYPE_ERROR
 			)
@@ -479,7 +479,7 @@ class VlcPlayer(Screen, InfoBarNotifications, InfoBarAudioSelection, InfoBarSubt
 		try:
 			self.server.stop()
 			self.server.deleteCurrentTree()
-		except Exception, e:
+		except Exception as e:
 			#self.session.open(
 			#	MessageBox, _("Error with VLC server:\n%s" % e), MessageBox.TYPE_ERROR
 			#)

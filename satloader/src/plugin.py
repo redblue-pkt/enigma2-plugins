@@ -236,7 +236,7 @@ class SatloaderBouquet(Screen):
 			if self.list is not None:
 				self["info"].setText("%s" %(_("Press ok button to select bouquet")))
 
-		except Exception, e:
+		except Exception as e:
 			print("Error:", e)
 			self["info"].setText("%s\n%s" %(_("Parsing failed!"),e))
 
@@ -366,7 +366,7 @@ class SatloaderMultiSat(Screen):
 			if self.list is not None:
 				self["info"].setText("%s" %(_("Press ok button to select satellite")))
 
-		except Exception, e:
+		except Exception as e:
 			print("Error:", e)
 			self["info"].setText("%s\n%s" %(_("Parsing failed!"),e))
 

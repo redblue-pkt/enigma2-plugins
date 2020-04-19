@@ -48,7 +48,7 @@ config.plugins.mc_ap.whichjpg = ConfigSelection(screensaverlist)
 playlist = []
 #try:
 #	from enigma import evfd
-#except Exception, e:
+#except Exception as e:
 #	print("Media Center: Import evfd failed")
 radirl = "http://ipkserver.hdmedia-universe.com/bmcradio/"
 #for lyrics
@@ -176,7 +176,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 				config.av.downmix_ac3.value = True
 				config.av.downmix_ac3.save()
 				Console().ePopen("touch /tmp/.ac3on")
-		except Exception, e:
+		except Exception as e:
 			print("Media Center: no ac3")
 		self["play"] = Pixmap()
 		self["green"] = Pixmap()
@@ -633,7 +633,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 				config.av.downmix_ac3.value = True
 				config.av.downmix_ac3.save()
 				Console().ePopen("touch /tmp/.ac3on")
-		except Exception, e:
+		except Exception as e:
 			print("Media Center: no ac3")
 		self["play"] = Pixmap()
 		self["screensaver"] = MediaPixmap()
@@ -1137,7 +1137,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		try:
 			for i in os_listdir(playlistdir):
 				listpath.append((i,playlistdir + i))
-		except IOError,e:
+		except IOError as e:
 			print("Error while scanning subdirs ",e)
 		self.session.openWithCallback(self.load_pls, ChoiceBox, title=_("Please select a playlist..."), list = listpath)
 	def load_pls(self,path):
@@ -1156,7 +1156,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		try:
 			for i in os_listdir(playlistdir):
 				listpath.append((i,playlistdir + i))
-		except IOError,e:
+		except IOError as e:
 			print("Error while scanning subdirs ",e)
 		self.session.openWithCallback(self.delete_saved_pls, ChoiceBox, title=_("Please select a playlist to delete..."), list = listpath)
 	def delete_saved_pls(self,path):
@@ -1167,7 +1167,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		if confirmed:
 			try:
 				os_remove(self.delname)
-			except OSError,e:
+			except OSError as e:
 				self.session.open(MessageBox, _("Delete failed!"), MessageBox.TYPE_ERROR)
 	def addPlaylistParser(self, parser, extension):
 		self.playlistparsers[extension] = parser

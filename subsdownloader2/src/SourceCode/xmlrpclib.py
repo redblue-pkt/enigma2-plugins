@@ -1528,7 +1528,7 @@ if __name__ == "__main__":
 
     try:
         print(server.currentTime.getCurrentTime())
-    except Error, v:
+    except Error as v:
         print("ERROR", v)
 
     multi = MultiCall(server)
@@ -1537,5 +1537,5 @@ if __name__ == "__main__":
     try:
         for response in multi():
             print(response)
-    except Error, v:
+    except Error as v:
         print("ERROR", v)

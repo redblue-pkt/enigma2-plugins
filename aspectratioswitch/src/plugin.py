@@ -170,7 +170,8 @@ class AspectRatioSwitch:
 		self.unload_keymap()
 		try:
 			keymapparser.readKeymap(KEYMAPPINGS[keymap])
-		except IOError, (errno, strerror):
+		except IOError as error_no_error_str:
+			(error_no, error_str) = error_no_error_str
 			config.plugins.AspectRatioSwitch.enabled.setValue(False)
 			self.disable()
 			Notifications.AddPopup(text=_("Changing keymap failed (%s).") % strerror, type=MessageBox.TYPE_ERROR, timeout=10, id='AspectRatioSwitch')

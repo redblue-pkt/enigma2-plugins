@@ -201,7 +201,7 @@ def setup(session, **kwargs):
 	# Display next x timers also if deactivated
 	try:
 		session.open(InfoBarTunerStateConfiguration)
-	except Exception, e:
+	except Exception as e:
 		print("InfoBarTunerStateMenu exception " + str(e))
 
 
@@ -216,7 +216,7 @@ def start(reason, **kwargs):
 				session = kwargs["session"]
 				try:
 					gInfoBarTunerState = InfoBarTunerState(session)
-				except Exception, e:
+				except Exception as e:
 					print("InfoBarTunerState start exception " + str(e))
 	# Do not cleanup on session shutdown, it will break the movie player integration
 
@@ -228,7 +228,7 @@ def show(session, **kwargs):
 	if gInfoBarTunerState:
 		try:
 			gInfoBarTunerState.show(True, forceshow=True)
-		except Exception, e:
+		except Exception as e:
 			print("InfoBarTunerState show exception " + str(e))
 	else:
 		# No InfoBarTunerState Instance running

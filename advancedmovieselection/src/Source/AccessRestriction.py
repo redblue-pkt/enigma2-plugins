@@ -41,7 +41,7 @@ class AccessRestriction:
     def decodeAccess(self, access):
         try:
             return int(access[4:])
-        except Exception, e:
+        except Exception as e:
             print(e)
             return -1 # type as error
     
@@ -92,7 +92,7 @@ class AccessRestriction:
             metafile = open(meta_file, "w")
             metafile.write("%s\n%s\n%s\n%s\n%s\n%s" % (sid, title, descr, time, tags, rest))
             metafile.close()
-        except Exception, e:
+        except Exception as e:
             print(e)
 
 accessRestriction = AccessRestriction();

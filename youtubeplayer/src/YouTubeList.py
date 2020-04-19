@@ -320,7 +320,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 					categories = [ searchContext.categories.value ],
 					sortOrder = searchContext.sortOrder.value,
 					format = config.plugins.youtubeplayer.quality)
-		except Exception, e:
+		except Exception as e:
 			feed = None
 			self.session.open(MessageBox, _("Error querying feed for search term %s:\n%s" %
 					(searchContext.searchTerm.value, e)), MessageBox.TYPE_ERROR)
@@ -337,7 +337,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 	def loadPlaylistFeedReal(self, playlist):
 		try:
 			feed = interface.getUserPlaylistFeed(playlist)
-		except Exception, e:
+		except Exception as e:
 			feed = None
 			self.session.open(MessageBox, _("Error querying playlist-feed for playlist %s:\n%s" %
 					(playlist.getTitle(), e)), MessageBox.TYPE_ERROR)
@@ -353,7 +353,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 	def loadFavoritesFeedReal(self, userName = "default"):
 		try:
 			feed = interface.getUserFavoritesFeed(userName)
-		except Exception, e:
+		except Exception as e:
 			feed = None
 			self.session.open(MessageBox, _("Error querying favorites feed:\n%s" %
 					e), MessageBox.TYPE_ERROR)
@@ -374,7 +374,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 	def loadFeedReal(self, feedUrl, feedName, append = False, addToHistory = True):
 		try:
 			feed = interface.getFeed(feedUrl)
-		except Exception, e:
+		except Exception as e:
 			feed = None
 			self.session.open(MessageBox, _("Error querying feed %s:\n%s" %
 					(feedName, e)), MessageBox.TYPE_ERROR)
@@ -483,7 +483,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 	def addToFavoritesReal(self):
 		try:
 			interface.addToFavorites(self["list"].getCurrent()[0])
-		except Exception, e:
+		except Exception as e:
 			self.session.open(MessageBox, _("Error adding video to favorites:\n%s" %
 					e), MessageBox.TYPE_ERROR)
 
@@ -509,7 +509,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 			if interface.removeFromFavorites(self["list"].getCurrent()[0]):
 				self.list.remove(self["list"].getCurrent())
 				self["list"].setList(self.list)
-		except Exception, e:
+		except Exception as e:
 			self.session.open(MessageBox, _("Error removing video from favorites:\n%s" %
 					e), MessageBox.TYPE_ERROR)
 
@@ -535,7 +535,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 			if interface.removeFromPlaylist(self["list"].getCurrent()[0]):
 				self.list.remove(self["list"].getCurrent())
 				self["list"].setList(self.list)
-		except Exception, e:
+		except Exception as e:
 			self.session.open(MessageBox, _("Error removing video from playlist:\n%s" %
 					e), MessageBox.TYPE_ERROR)
 
@@ -560,7 +560,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 		if playlist is not None:
 			try:
 				interface.addToPlaylist(playlist, self["list"].getCurrent()[0])
-			except Exception, e:
+			except Exception as e:
 				self.session.open(MessageBox, _("Error adding video to playlist:\n%s" %
 					e), MessageBox.TYPE_ERROR)
 

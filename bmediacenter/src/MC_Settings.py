@@ -16,7 +16,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 mcpath = resolveFilename(SCOPE_PLUGINS, "Extensions/BMediaCenter/skins/defaultHD/images/")
 #try:
 #	from enigma import evfd
-#except Exception, e:
+#except Exception as e:
 #	print "Media Center: Import evfd failed"
 class MC_Settings(Screen):
 	def __init__(self, session):
