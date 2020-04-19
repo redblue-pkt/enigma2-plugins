@@ -20,6 +20,7 @@ For example, if you distribute copies of such a program, whether gratis or for a
 must pass on to the recipients the same freedoms that you received. You must make sure 
 that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 """
+from __future__ import print_function
 from Components.EpgList import EPGList
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
@@ -63,7 +64,7 @@ class EPGListExtension:
         self.current_name = ''
 
     def setEnabled(self, enabled):
-        print '[AdvancedMovieSelection] Set epg extension:', str(enabled)
+        print('[AdvancedMovieSelection] Set epg extension:', str(enabled))
         if enabled:
             EPGList.getPixmapForEntry = getPixmapForEntry
             EPGList.buildSingleEntry = buildSingleEntry

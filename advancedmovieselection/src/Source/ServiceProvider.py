@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 from Components.Element import cached
 from Components.Sources.ServiceEvent import ServiceEvent as eServiceEvent
@@ -187,9 +188,9 @@ def checkCreateMetaFile(serviceref):
             else:
                 title = serviceref.getName()
             lt = long(os.stat(serviceref.getPath()).st_mtime)
-            print 'create new metafile'
-            print serviceref.toString()
-            print lt
+            print('create new metafile')
+            print(serviceref.toString())
+            print(lt)
             sid = '%d:%d:0:0:0:0:0:0:0:0:' % (serviceref.type, serviceref.flags)
             descr = ''
             time = lt
@@ -212,7 +213,7 @@ class ServiceInfo:
             try:
                 meta_path = checkCreateMetaFile(serviceref)
             except Exception as e:
-                print e
+                print(e)
                 if os.path.isfile(serviceref.getPath()):
                     self.name = os.path.basename(serviceref.getPath()).split('.')[0]
                 else:
@@ -228,7 +229,7 @@ class ServiceInfo:
                 self.tags = meta_file.readline().rstrip('\r\n')
                 meta_file.close()
         except Exception as e:
-            print 'Exception in load meta data: ' + str(e)
+            print('Exception in load meta data: ' + str(e))
             printStackTrace()
 
         return
@@ -299,7 +300,7 @@ class Info:
                     return getFolderSize(os.path.dirname(dvd))
                 return os.path.getsize(serviceref.getPath())
             except Exception as e:
-                print e
+                print(e)
                 return -1
 
         return

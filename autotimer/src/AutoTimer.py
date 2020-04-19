@@ -449,7 +449,7 @@ class AutoTimer:
 
 			# If event starts in less than 60 seconds skip it
 			# if begin < time() + 60:
-			# 	print ("[AutoTimer] Skipping " + name + " because it starts in less than 60 seconds")
+			# 	print("[AutoTimer] Skipping " + name + " because it starts in less than 60 seconds")
 			# 	skipped += 1
 			# 	continue
 
@@ -556,7 +556,7 @@ class AutoTimer:
 					
 					if (evtBegin - offsetBegin != rtimer.begin) or (evtEnd + offsetEnd != rtimer.end) or (shortdesc != rtimer.description):
 						if rtimer.isAutoTimer and eit == rtimer.eit:
-							print ("[AutoTimer] AutoTimer %s modified this automatically generated timer." % (timer.name))
+							print("[AutoTimer] AutoTimer %s modified this automatically generated timer." % (timer.name))
 							# rtimer.log(501, "[AutoTimer] AutoTimer %s modified this automatically generated timer." % (timer.name))
 							preveit = eit
 						else:
@@ -676,7 +676,7 @@ class AutoTimer:
 							elif change_begin:
 								newEntry.begin -= 30
 						else:
-							print ("[AutoTimer] The conflict is resolved by offset time begin/end (30 sec) for %s." % newEntry.name)
+							print("[AutoTimer] The conflict is resolved by offset time begin/end (30 sec) for %s." % newEntry.name)
 
 				if conflicts:
 					# Maybe use newEntry.log

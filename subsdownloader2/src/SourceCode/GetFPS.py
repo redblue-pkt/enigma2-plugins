@@ -1,4 +1,5 @@
-﻿import sys
+﻿from __future__ import print_function
+import sys
 import struct
 
 # GetFPS function by areq propably
@@ -49,7 +50,7 @@ class GetFPS(object):
         self.file.seek(0)
         while 1:
                 class_id, length = self.eblm()
-                # print "class_id: %X length %i position:%i" % (class_id, length,self.file.tell())
+                # print("class_id: %X length %i position:%i" % (class_id, length,self.file.tell()))
                 if (class_id == 0x83):
                         track = ord( self.file.read(1) )
                 elif (class_id == 0x23E383 and track == 1):

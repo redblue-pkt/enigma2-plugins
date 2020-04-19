@@ -1,5 +1,3 @@
-import zipfile
-
 #from Plugins.Extensions.SubsDownloader2.SourceCode import rarfile
 
 #  Copyright (C) 2011 Dawid Bankowski <enigma2subsdownloader@gmail.com>
@@ -16,6 +14,9 @@ import zipfile
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
+import zipfile
+
 class zip_extractor():
      def __init__(self, zip__path, destination_dir = None, extracted_extension_filter = None):
           self.__zip__path = zip__path
@@ -29,7 +30,7 @@ class zip_extractor():
                return zip_data, zip_file_list
                zip_data.close()
           except:
-               print "There is problem with %s reading" % zip__path
+               print("There is problem with %s reading" % zip__path)
                return False
 
      def zipped_file_list(self, zip_file_temp_list, extraction_filter = None):
@@ -54,14 +55,14 @@ class zip_extractor():
                     extracted_files_path =[]
                     for x in extraction_file_list:
                          zip_data.extract(x, destination_dir)
-                         print "Files %s from zip %s extracted to dir: %s.\n" % (x,self.__zip__path,destination_dir)  
+                         print("Files %s from zip %s extracted to dir: %s.\n" % (x,self.__zip__path,destination_dir))
                          extracted_files_path.append(destination_dir+"/"+x)
                     return extracted_files_path   
                except:
-                    print "Zip %s was not extracted to dir: %s" % (self.__zip__path,destination_dir) 
+                    print("Zip %s was not extracted to dir: %s" % (self.__zip__path,destination_dir))
                     return False
           else:
-               print "%s is not a zip file." % zip__path
+               print("%s is not a zip file." % zip__path)
                return False
 """ 
 class rar_extractor():
@@ -77,7 +78,7 @@ class rar_extractor():
                return rar_data,  rar_file_list     
                rar_data.close()
           except:
-               print "There is problem with %s reading" % rar__path
+               print("There is problem with %s reading" % rar__path)
                return False
              
      
@@ -104,14 +105,14 @@ class rar_extractor():
                extracted_files_path =[]
                for x in extraction_file_list:
                     rar_data.extract(x, destination_dir)
-                    print "Files %s from rar %s extracted to dir: %s.\n" % (x,self.__rar__path,destination_dir)  
+                    print("Files %s from rar %s extracted to dir: %s.\n" % (x,self.__rar__path,destination_dir))
                     extracted_files_path.append(destination_dir+"/"+x)
                     return extracted_files_path   
                #except:
-               #    print "Rar %s was not extracted to dir: %s" % (self.__rar__path,destination_dir) 
+               #    print("Rar %s was not extracted to dir: %s" % (self.__rar__path,destination_dir))
                #    return False
           else:
-               print "%s is not a rar file." % rar__path
+               print("%s is not a rar file." % rar__path)
                return False"""
  
 #USE

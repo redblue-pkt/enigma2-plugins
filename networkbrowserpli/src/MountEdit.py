@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # for localized messages
+from __future__ import print_function
 from __init__ import _
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -101,7 +102,7 @@ class AutoMountEdit(Screen, ConfigListScreen):
 		try:
 			ip = convertIP(self.mountinfo['ip'])
 		except Exception, ex:
-			print "[NWB] Invalid IP", ex
+			print("[NWB] Invalid IP", ex)
 			ip = [0, 0, 0, 0]
 		sharename = self.mountinfo.get('sharename', "Sharename")
 		sharedir = self.mountinfo.get('sharedir', "/media/hdd")

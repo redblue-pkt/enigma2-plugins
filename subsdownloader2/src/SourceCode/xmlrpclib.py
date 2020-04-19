@@ -89,6 +89,7 @@
 # things to look into some day:
 
 # TODO: sort out True/False/boolean issues for Python 2.3
+from __future__ import print_function
 
 """
 An XML-RPC client interface for Python.
@@ -1383,7 +1384,7 @@ class Transport:
             if not response:
                 break
             if self.verbose:
-                print "body:", repr(response)
+                print("body:", repr(response))
             p.feed(response)
 
         file.close()
@@ -1523,18 +1524,18 @@ if __name__ == "__main__":
     # server = ServerProxy("http://localhost:8000") # local server
     server = ServerProxy("http://time.xmlrpc.com/RPC2")
 
-    print server
+    print(server)
 
     try:
-        print server.currentTime.getCurrentTime()
+        print(server.currentTime.getCurrentTime())
     except Error, v:
-        print "ERROR", v
+        print("ERROR", v)
 
     multi = MultiCall(server)
     multi.currentTime.getCurrentTime()
     multi.currentTime.getCurrentTime()
     try:
         for response in multi():
-            print response
+            print(response)
     except Error, v:
-        print "ERROR", v
+        print("ERROR", v)

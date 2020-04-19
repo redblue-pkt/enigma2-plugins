@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 from traceback import print_exc
 from sys import stdout, exc_info
 from . import _
@@ -19,7 +20,7 @@ def _print(outtxt):
 	ltim = localtime()
 	headerstr = "[AdvHdmiCec] %04d%02d%02d-%02d%02d%02d " %(ltim[0],ltim[1],ltim[2],ltim[3],ltim[4],ltim[5])
 	outtxt = headerstr + outtxt
-	print outtxt
+	print(outtxt)
 
 try:
 	from Plugins.SystemPlugins.AdvHdmi.AdvHdmiCecSetup import AdvHdmiCecSetup

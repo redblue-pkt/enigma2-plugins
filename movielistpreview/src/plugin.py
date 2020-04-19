@@ -2,6 +2,7 @@
 ## Movielist Preview
 ## by AliAbdul
 ##
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, ConfigInteger, ConfigSelection, ConfigSubsection, ConfigYesNo, getConfigListEntry
@@ -45,7 +46,7 @@ def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
 		return gettext.dgettext(PluginLanguageDomain, txt)
 	else:
-		print "[" + PluginLanguageDomain + "] fallback to default translation for " + txt
+		print("[" + PluginLanguageDomain + "] fallback to default translation for " + txt)
 		return gettext.gettext(txt)
 
 language.addCallback(localeInit())
@@ -282,7 +283,7 @@ class PreviewCreator:
 
 	def grabDone(self, result, retval, extra_args):
 		if retval != 0:
-			print result
+			print(result)
 		if self.callback:
 			self.callback()
 previewcreator = PreviewCreator()
@@ -543,7 +544,7 @@ try:
 	Show2 = MovieSelectionSP.show
 	MovieSelectionSP.show = showMovieSelection2
 except ImportError:
-	print "[Movielist Preview] Could not import Suomipoeka Plugin, maybe not installed or too old version?"
+	print("[Movielist Preview] Could not import Suomipoeka Plugin, maybe not installed or too old version?")
 
 ##############################################################################
 

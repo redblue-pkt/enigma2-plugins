@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
 '''
 Copyright (C) 2011 cmikula
 
@@ -36,7 +39,7 @@ def getIpAddress(iface):
         interfaces = fp.readlines()
         fp.close()
     except:
-        print "[AdvancedMovieSelection] interfaces - opening failed"
+        print("[AdvancedMovieSelection] interfaces - opening failed")
 
     currif = ""
     for i in interfaces:
@@ -62,11 +65,11 @@ class TCPHandler(SocketServer.BaseRequestHandler):
             from Client import MessageQueue
             # self.request is the TCP socket connected to the client
             data = self.request.recv(1024).strip()
-            #print str(self.client_address[0]), "wrote"
-            #print data
+            #print(str(self.client_address[0]), "wrote")
+            #print(data)
             self.request.send(MessageQueue.getRequest(data))
         except Exception, e:
-            print e
+            print(e)
 
 class MessageServer():
     def __init__(self):
@@ -82,7 +85,7 @@ class MessageServer():
 
     def start(self):
         if not self.host:
-            print "[AdvancedMovieSelection] Could not start server, no static host ip"
+            print("[AdvancedMovieSelection] Could not start server, no static host ip")
             return
         import threading
         self.shutdown()
@@ -90,12 +93,12 @@ class MessageServer():
         self.t = threading.Thread(target=self.server.serve_forever)
         self.t.setDaemon(True) # don't hang on exit
         self.t.start()
-        print "[AdvancedMovieSelection] Server started:", self.host, self.port
+        print("[AdvancedMovieSelection] Server started:", self.host, self.port)
 
     def shutdown(self):
         if self.server:
             self.server.shutdown()
-            print "[AdvancedMovieSelection] Server stopped:"
+            print("[AdvancedMovieSelection] Server stopped:")
         
     def reconnect(self, host=None, port=None):
         if host:
@@ -122,7 +125,7 @@ class MessageServer():
             try:
                 # Connect to server and send data
                 host = "%s.%s" % (ip, x)
-                print "[AdvancedMovieSelection] Try connect to: %s:%s" % (host, self.port)
+                print("[AdvancedMovieSelection] Try connect to: %s:%s" % (host, self.port))
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 sock.settimeout(0.1)
                 sock.connect((host, self.port))

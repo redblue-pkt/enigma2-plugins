@@ -1,3 +1,4 @@
+from __future__ import print_function
 from . import _
 from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
@@ -95,9 +96,9 @@ def setDeinterlacer(mode):
 		f = open('/proc/stb/vmpeg/deinterlace' , "w")
 		f.write("%s\n" % mode)
 		f.close()
-		print "[AutoRes] switch deinterlacer mode to %s" % mode
+		print("[AutoRes] switch deinterlacer mode to %s" % mode)
 	except:
-		print "[AutoRes] failed switch deinterlacer mode to %s" % mode
+		print("[AutoRes] failed switch deinterlacer mode to %s" % mode)
 
 frqdic = { 23976: '24', \
 		24000: '24', \
@@ -170,7 +171,7 @@ class AutoRes(Screen):
 
 	def __evUpdatedInfo(self):
 		if self.newService and config.plugins.autoresolution.mode.value == "manual":
-			print "[AutoRes] service changed"
+			print("[AutoRes] service changed")
 			self.after_switch_delay = False
 			if int(config.plugins.autoresolution.delay_switch_mode.value) > 0:
 				resolutionlabel.hide()
@@ -186,7 +187,7 @@ class AutoRes(Screen):
 		global usable
 		port_changed = configEntry == config.av.videoport
 		if port_changed:
-			print "[AutoRes] port changed to", configEntry.value
+			print("[AutoRes] port changed to", configEntry.value)
 			if port:
 				config.av.videomode[port].notifiers.remove(self.defaultModeChanged)
 			port = config.av.videoport.value
@@ -195,12 +196,12 @@ class AutoRes(Screen):
 			usable = config.plugins.autoresolution.enable.value and not port in ('DVI-PC', 'Scart')
 		else: # videomode changed in normal av setup
 			global videoresolution_dictionary
-			print "[AutoRes] mode changed to", configEntry.value
+			print("[AutoRes] mode changed to", configEntry.value)
 			default = (configEntry.value, _("default"))
 			preferedmodes = [mode[0] for mode in video_hw.getModeList(port) if mode[0] != default[0]]
 			preferedmodes.append(default)
-			print "[AutoRes] default", default
-			print "[AutoRes] preferedmodes", preferedmodes
+			print("[AutoRes] default", default)
+			print("[AutoRes] preferedmodes", preferedmodes)
 			videoresolution_dictionary = {}
 			config.plugins.autoresolution.videoresolution = ConfigSubDict()
 			if self.extra_mode720p60 and '720p60' not in preferedmodes:
@@ -249,24 +250,24 @@ class AutoRes(Screen):
 			self.changeVideomode()
 
 	def __evVideoFramerateChanged(self):
-		print "[AutoRes] got event evFramerateChanged"
+		print("[AutoRes] got event evFramerateChanged")
 		if not self.timer.isActive() or self.after_switch_delay:
 			self.timer.start(200, True) # give other pending events a chance..
 
 	def __evVideoSizeChanged(self):
-		print "[AutoRes] got event evVideoSizeChanged"
+		print("[AutoRes] got event evVideoSizeChanged")
 		if not self.timer.isActive() or self.after_switch_delay:
 			self.timer.start(200, True) # give other pending events a chance..
 
 	def __evVideoProgressiveChanged(self):
-		print "[AutoRes] got event evVideoProgressiveChanged"
+		print("[AutoRes] got event evVideoProgressiveChanged")
 		if not self.timer.isActive() or self.after_switch_delay:
 			self.timer.start(200, True) # give other pending events a chance..
 
 	def determineContent(self):
 		if config.plugins.autoresolution.mode.value != "manual":
 			return
-		print "[AutoRes] determineContent"
+		print("[AutoRes] determineContent")
 		self.timer.stop()
 		resolutionlabel.hide()
 		self.after_switch_delay = True
@@ -316,11 +317,11 @@ class AutoRes(Screen):
 				else:
 					setDeinterlacer("auto")
 
-				print "[AutoRes] new content is %sx%s%s%s" %(width, height, prog, frate)
+				print("[AutoRes] new content is %sx%s%s%s" %(width, height, prog, frate))
 
 				if videoresolution_dictionary.has_key(new_mode):
 					new_mode = videoresolution_dictionary[new_mode].value
-					print '[AutoRes] determined videomode', new_mode
+					print('[AutoRes] determined videomode', new_mode)
 					old = resolutionlabel["content"].getText()
 					codec_info = "%s %s" % (videocodec, width)
 					resolutionlabel["content"].setText(_("Videocontent: %sx%s%s %sHZ") % (codec_info, height, prog, frate))
@@ -340,9 +341,9 @@ class AutoRes(Screen):
 					v = open('/proc/stb/video/videomode' , "w")
 					v.write("%s\n" % mode)
 					v.close()
-					print "[AutoRes] switching to", mode
+					print("[AutoRes] switching to", mode)
 				except:
-					print "[AutoRes] failed switching to", mode
+					print("[AutoRes] failed switching to", mode)
 				resolutionlabel["restxt"].setText(_("Videomode: %s") % mode)
 				if config.plugins.autoresolution.showinfo.value:
 					resolutionlabel.show()
@@ -374,13 +375,13 @@ class AutoRes(Screen):
 		port_txt = "HDMI" if port == "DVI" else port
 		resolutionlabel["restxt"].setText(_("Videomode: %s %s %s") % (port_txt, mode, rate))
 		if set:
-			print "[AutoRes] switching to %s %s %s" % (port_txt, mode, rate)
+			print("[AutoRes] switching to %s %s %s" % (port_txt, mode, rate))
 			if config.plugins.autoresolution.showinfo.value:
 				resolutionlabel.show()
 			try:
 				video_hw.setMode(port, mode, rate)
 			except:
-				print "[AutoRes] Videomode: failed switching to", mode
+				print("[AutoRes] Videomode: failed switching to", mode)
 				return
 		self.lastmode = mode
 
@@ -602,14 +603,14 @@ class AutoFrameRate(Screen):
 			if not self.init:
 				self.init = True
 		except IOError:
-			print "[AutoFrameRate] error at reading/writing /proc/stb/video.. files"
+			print("[AutoFrameRate] error at reading/writing /proc/stb/video.. files")
 
 	def changeFramerateCallback(self, ret=True):
 		if ret:
 			f = open("/proc/stb/video/videomode", "w")
 			f.write(self.new_mode)
 			f.close()
-			print "[AutoFramerate] set resolution/framerate: %s" % self.new_mode
+			print("[AutoFramerate] set resolution/framerate: %s" % self.new_mode)
 			service = self.session.nav.getCurrentlyPlayingServiceReference()
 			if service:
 				path = service.getPath()
@@ -649,7 +650,7 @@ class ManualResolution(Screen):
 					self.choices.append(entry)
 			f.close()
 		except:
-			print"[ManualResolution] Error open /proc/stb/video/videomode_choices"
+			print("[ManualResolution] Error open /proc/stb/video/videomode_choices")
 		else:
 			self.choices and self.choices.sort()
 
@@ -668,7 +669,7 @@ class ManualResolution(Screen):
 				fpsString = f.read()
 				f.close()
 			except:
-				print "[ManualResolution] Error open /proc/stb/vmpeg/0/framerate"
+				print("[ManualResolution] Error open /proc/stb/vmpeg/0/framerate")
 				fpsString = '50000'
 			xres = int(xresString, 16)
 			yres = int(yresString, 16)
@@ -676,7 +677,7 @@ class ManualResolution(Screen):
 			fpsFloat = float(fps)
 			fpsFloat = fpsFloat/1000
 		except:
-			print "[ManualResolution] Error reading current mode!Stop!"
+			print("[ManualResolution] Error reading current mode!Stop!")
 			return
 		selection = 0
 		tlist = []
@@ -691,7 +692,7 @@ class ManualResolution(Screen):
 			try:
 				self.old_mode = open("/proc/stb/video/videomode").read()[:-1]
 			except:
-				print "[ManualResolution] Error open /proc/stb/video/videomode"
+				print("[ManualResolution] Error open /proc/stb/video/videomode")
 		if self.old_mode:
 			for x in range(len(tlist)):
 				if tlist[x][1] == self.old_mode:
@@ -717,7 +718,7 @@ class ManualResolution(Screen):
 			f.write(mode)
 			f.close()
 		except:
-			print "[ManualResolution] Error write /proc/stb/video/videomode"
+			print("[ManualResolution] Error write /proc/stb/video/videomode")
 
 def openManualResolution(session, **kwargs):
 	if config.av.videoport.value not in ('DVI-PC', 'Scart'):

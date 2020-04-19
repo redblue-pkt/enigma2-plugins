@@ -1,3 +1,4 @@
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Sources.List import List
 from Components.Sources.StaticText import StaticText
@@ -23,12 +24,12 @@ loadSkin(resolveFilename(SCOPE_PLUGINS, "Extensions/BMediaCenter/skins/defaultHD
 #	config.plugins.mc_global.vfd.value = 'on'
 #	config.plugins.mc_global.save()
 #except Exception as e:
-#	print 'Media Center: Import evfd failed'
+#	print('Media Center: Import evfd failed')
 try:
 	from Plugins.Extensions.DVDPlayer.plugin import *
 	dvdplayer = True
 except:
-	print "Media Center: Import DVDPlayer failed"
+	print("Media Center: Import DVDPlayer failed")
 	dvdplayer = False
 
 mcpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/BMediaCenter/skins/defaultHD/images/')
@@ -178,7 +179,7 @@ class DMC_MainMenu(Screen):
 					trans = commands.getoutput('cat /etc/enigma2/settings | grep config.osd.alpha | cut -d "=" -f2')
 				open("/proc/stb/video/alpha", "w").write(str(trans))
 			except:
-				print "Set OSD Transparacy failed"
+				print("Set OSD Transparacy failed")
 #		if config.plugins.mc_global.vfd.value == "on":
 #			evfd.getInstance().vfd_write_string(_("Media Center"))
 		Console().ePopen('umount /media/upnp')

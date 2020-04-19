@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*- 
 
+from __future__ import print_function
 import sys
 import os
 #---
@@ -83,7 +84,7 @@ def regex_tvshow(compare, file, sub = ""):
     for regex in regex_expressions:
       response_file = re.findall(regex, file)                  
       if len(response_file) > 0 : 
-        print "Regex File Se: %s, Ep: %s," % (str(response_file[0][0]),str(response_file[0][1]),)
+        print("Regex File Se: %s, Ep: %s," % (str(response_file[0][0]),str(response_file[0][1]),))
         tvshow = 1
         if not compare :
             title = re.split(regex, file)[0]

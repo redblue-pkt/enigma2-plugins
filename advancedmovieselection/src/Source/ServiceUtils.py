@@ -22,6 +22,7 @@ For example, if you distribute copies of such a program, whether gratis or for a
 must pass on to the recipients the same freedoms that you received. You must make sure 
 that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 """
+from __future__ import print_function
 import os, glob, shutil, time, operator, threading
 
 def realSize(bytes, digits=1, factor=1024):
@@ -68,7 +69,7 @@ def getFolderSize(loadPath):
                     folder_size += os.path.getsize(filename)
 
     except Exception as e:
-        print e
+        print(e)
 
     return folder_size
 
@@ -82,7 +83,7 @@ def getDirSize(root):
                 folder_size += os.path.getsize(p)
 
     except Exception as e:
-        print e
+        print(e)
 
     return folder_size
 
@@ -98,10 +99,10 @@ class ServiceFileInfo:
         self.destination_path = os.path.normpath(dst)
         self.source_path, self.file_name = os.path.split(service.getPath())
         self.status = self.STAT_WAITING
-        print 'ServiceFileInfo'
-        print 'Name:', self.file_name
-        print 'From:', self.source_path
-        print 'To:', self.destination_path
+        print('ServiceFileInfo')
+        print('Name:', self.file_name)
+        print('From:', self.source_path)
+        print('To:', self.destination_path)
         if os.path.isfile(service.getPath()):
             filename = service.getPath().rsplit('.', 1)[0] + '.*'
             l = self.listAllFromSource(filename)
@@ -115,8 +116,8 @@ class ServiceFileInfo:
         for item in self.file_list:
             self.total += item[1]
 
-        print 'Total:', realSize(self.total, 3)
-        print 'Files:', self.file_list
+        print('Total:', realSize(self.total, 3))
+        print('Files:', self.file_list)
 
     def listAllFromSource(self, filename):
         l = []
@@ -206,7 +207,7 @@ class Job:
             self.error = e
         finally:
             if self.error:
-                print 'Job failed:', self.error
+                print('Job failed:', self.error)
             self.end_time = time.time()
             self.current_name = ''
             if self.cb:
@@ -230,24 +231,24 @@ class Job:
                         raise Exception('File already exists: %s' % os.path.basename(dst))
                     self.setCurrentFile(src[0], dst)
                     if do_move:
-                        print 'move: "%s" -> "%s"' % (src[0], dst)
+                        print('move: "%s" -> "%s"' % (src[0], dst))
                         cmd = 'mv "%s" "%s"' % (src[0], dst)
                     else:
-                        print 'copy: "%s" -> "%s"' % (src[0], dst)
+                        print('copy: "%s" -> "%s"' % (src[0], dst))
                         if os.path.isfile(src[0]):
                             cmd = 'cp -p "%s" "%s"' % (src[0], dst)
                         else:
                             cmd = 'cp -p -r "%s" "%s"' % (src[0], dst)
-                    print cmd
+                    print(cmd)
                     l = os.popen(cmd)
-                    print l.readlines()
+                    print(l.readlines())
                     l.close()
                     self.setCurrentFile(None, None)
                     self.copied += src[1]
 
             finally:
                 if os.path.exists(old):
-                    print 'rename: "%s" -> "%s"' % (old, new)
+                    print('rename: "%s" -> "%s"' % (old, new))
                     os.rename(old, new)
 
             return
@@ -382,7 +383,7 @@ class ServiceUtil:
         self.list = []
 
     def jobFinished(self, job):
-        print 'Job finished:'
+        print('Job finished:')
 
     def cleanup(self):
         self.proc = filter(lambda job: not job.isFinished(), self.proc)
@@ -458,13 +459,13 @@ class JobMonitor:
                     elapsed_time = job.getElapsedTime()
                     progress = copied * 100 / full
                     b_per_sec = copied / elapsed_time
-                    print '%0s,%s' % job.getFileInfo()
-                    print '%s: %0d%%, %s, %s, %s/S - %.3f S (%d/%d)' % (job.getMovieName(), progress, realSize(full), realSize(copied), realSize(b_per_sec, 3), elapsed_time, job.getCurrentIndex(), job.getFileCount())
+                    print('%0s,%s' % job.getFileInfo())
+                    print('%s: %0d%%, %s, %s, %s/S - %.3f S (%d/%d)' % (job.getMovieName(), progress, realSize(full), realSize(copied), realSize(b_per_sec, 3), elapsed_time, job.getCurrentIndex(), job.getFileCount()))
                     if job.isFinished():
                         monitor.removeJob(job)
                         continue
                 except Exception as e:
-                    print e
+                    print(e)
 
             time.sleep(update_time)
 

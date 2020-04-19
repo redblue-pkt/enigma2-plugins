@@ -9,6 +9,7 @@
 # version.
 #===============================================================================
 
+from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -257,7 +258,7 @@ class Sudoku(Screen):
 				color = get_attr("value")
 				if name and color:
 					colorNames[name] = color
-					#print "Color:", name, color
+					#print("Color:", name, color)
 
 		# find colors for skinned window...
 		for windowstyle in actualSkin.findall("windowstyle"):
@@ -271,7 +272,7 @@ class Sudoku(Screen):
 					if color[0] != '#':
 						# is "named" color, have to look in dictionary... 
 						color = colorNames[color]
-					#print type, color
+					#print(type, color)
 					# at least get the background color...
 					if type == "Background":
 						bgcolor = int(color[1:], 0x10)

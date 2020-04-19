@@ -18,6 +18,8 @@
 #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
 ############################################################################
 
+from __future__ import print_function
+
 from Plugins.Plugin import PluginDescriptor
 
 from YouTubeList import YouTubeListScreen
@@ -36,7 +38,7 @@ import os, gettext
 def _(txt):
 	t = gettext.dgettext("YouTube", txt)
 	if t == txt:
-		print "[YTB] fallback to default translation for", txt
+		print("[YTB] fallback to default translation for", txt)
 		t = gettext.gettext(txt)
 	return t
 
@@ -52,7 +54,7 @@ class YouTubeManager():
 
 
 	def searchDialogClosed(self, what, searchContext = None):
-		print "[YTB] searchDialogClosed: ", what
+		print("[YTB] searchDialogClosed: ", what)
 		if what == SEARCH:
 			dlg = self.session.openWithCallback(self.youTubeListScreenClosed, YouTubeListScreen)
 			dlg.searchFeed(searchContext)
@@ -85,11 +87,11 @@ class YouTubeManager():
 
 	def openPlaylists(self, loginState):
 		if loginState == YouTubeUserListScreen.LOGIN_SUCCESS:
-			print "[YTB] logged in"
+			print("[YTB] logged in")
 			dlg = self.session.openWithCallback(self.playlistChoosen, YouTubePlaylistScreen)
 			dlg.loadPlaylist()
 		elif loginState == YouTubeUserListScreen.LOGIN_FAILED:
-			print "[YTB] not logged in"
+			print("[YTB] not logged in")
 			self.session.openWithCallback(self.backToSearchDialog, MessageBox, _("Login not successful"), MessageBox.TYPE_INFO)
 		else:
 			self.backToSearchDialog()
@@ -105,11 +107,11 @@ class YouTubeManager():
 
 	def openFavorites(self, loginState):
 		if loginState == YouTubeUserListScreen.LOGIN_SUCCESS:
-			print "[YTB] logged in"
+			print("[YTB] logged in")
 			dlg = self.session.openWithCallback(self.youTubeListScreenClosed, YouTubeListScreen)
 			dlg.loadFavoritesFeed("default")
 		elif loginState == YouTubeUserListScreen.LOGIN_FAILED:
-			print "[YTB] not logged in"
+			print("[YTB] not logged in")
 			self.session.openWithCallback(self.backToSearchDialog, MessageBox, _("Login not successful"), MessageBox.TYPE_INFO)
 		else:
 			self.backToSearchDialog()

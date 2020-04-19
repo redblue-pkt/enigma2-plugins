@@ -57,6 +57,6 @@ To_Display += u"\r\n\r\nClose\r\n"
 
 MI.Close()
 aa = To_Display.encode('ascii','replace')
-print To_Display.encode('ascii','replace')    # replaces non ASCII letters by ? so it can be printed on screen
+print(To_Display.encode('ascii','replace')    # replaces non ASCII letters by ? so it can be printed on screen)
 """
 

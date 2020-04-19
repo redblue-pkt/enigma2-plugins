@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 """
 Copyright (C) 2013 cmikula
 
@@ -27,13 +29,13 @@ def setPosterSize(size):
     global config
     value = size.value
     if value in poster_sizes:
-        print '[AdvancedMovieSelection] Set tmdb poster size to', value
+        print('[AdvancedMovieSelection] Set tmdb poster size to', value)
         config['poster_size'] = value
 
 
 def setLocale(lng):
     global config
-    print '[AdvancedMovieSelection] Set tmdb locale to', lng
+    print('[AdvancedMovieSelection] Set tmdb locale to', lng)
     config = {}
     config['locale'] = lng
     config['apikey'] = '1f834eb425728133b9a2c1c0c82980eb'
@@ -131,7 +133,7 @@ def init_tmdb3():
         tmdb3.set_locale(lng, 'NL')
     else:
         tmdb3.set_locale(lng, lng.upper())
-    print 'tmdbv3 locale', tmdb3.get_locale()
+    print('tmdbv3 locale', tmdb3.get_locale())
     return tmdb3
 
 
@@ -139,50 +141,50 @@ def main():
     setLocale('de')
     tmdb3 = init_tmdb3()
     res = tmdb3.searchMovie('James Bond 007 - Skyfall')
-    print res
+    print(res)
     movie = res[0]
-    print movie.title
-    print movie.releasedate.year
-    print movie.overview
+    print(movie.title)
+    print(movie.releasedate.year)
+    print(movie.overview)
     for p in movie.poster_urls:
-        print p
+        print(p)
 
     for p in movie.posters:
-        print p
+        print(p)
 
     for p in movie.backdrops:
-        print p
+        print(p)
 
     p = movie.poster
-    print p
-    print p.sizes()
-    print p.geturl()
-    print p.geturl('w185')
+    print(p)
+    print(p.sizes())
+    print(p.geturl())
+    print(p.geturl('w185'))
     p = movie.backdrop
-    print p
-    print p.sizes()
-    print p.geturl()
-    print p.geturl('w300')
+    print(p)
+    print(p.sizes())
+    print(p.geturl())
+    print(p.geturl('w300'))
     crew = [ x.name for x in movie.crew if x.job == 'Director' ]
-    print crew
+    print(crew)
     crew = [ x.name for x in movie.crew if x.job == 'Author' ]
-    print crew
+    print(crew)
     crew = [ x.name for x in movie.crew if x.job == 'Producer' ]
-    print crew
+    print(crew)
     crew = [ x.name for x in movie.crew if x.job == 'Director of Photography' ]
-    print crew
+    print(crew)
     crew = [ x.name for x in movie.crew if x.job == 'Editor' ]
-    print crew
+    print(crew)
     crew = [ x.name for x in movie.crew if x.job == 'Production Design' ]
-    print crew
+    print(crew)
     cast = [ x.name for x in movie.cast ]
-    print cast
+    print(cast)
     genres = [ x.name for x in movie.genres ]
-    print genres
+    print(genres)
     studios = [ x.name for x in movie.studios ]
-    print studios
+    print(studios)
     countries = [ x.name for x in movie.countries ]
-    print countries
+    print(countries)
 
 
 if __name__ == '__main__':

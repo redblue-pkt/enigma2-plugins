@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # code by GeminiTeam
 
+from __future__ import print_function
 from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
@@ -103,7 +104,7 @@ class FEconf(Screen):
 		list = []
 		for x in listdir("/sys/block"):
 			if x[0:2] == 'sd' or x[0:2] == 'hd':
-				print "[FlashExpander] device",x
+				print("[FlashExpander] device",x)
 				devices = Harddisk(x)
 				for y in range(devices.numPartitions()):
 					fstype = self.__getPartitionType(devices.partitionPath(str(y+1)))
@@ -123,10 +124,10 @@ class FEconf(Screen):
 				if len(entry)>3 and entry[2]=="nfs":
 					server = entry[0].split(':')
 					if len(server)==2:
-						print "[FlashExpander] server",server
+						print("[FlashExpander] server",server)
 						list.append(("Server (%s) - Path (%s)" %(server[0], server[1]),server))
 		except:
-			print "[FlashExpander] <getMountPoints>"
+			print("[FlashExpander] <getMountPoints>")
 
 		if len(list)==0:
 			list.append((_("No HDD-, SSD- or USB-Device found. Please first initialized."),None))
@@ -159,7 +160,7 @@ class FEconf(Screen):
 						fstype = fstobj.group(1)
 
 		except:
-			print "[FlashExpander] <error get fstype>"
+			print("[FlashExpander] <error get fstype>")
 			return False
 		return fstype
 
@@ -186,7 +187,7 @@ class FEconf(Screen):
 				return device
 
 		except:
-			print "[FlashExpander] <error get UUID>"
+			print("[FlashExpander] <error get UUID>")
 		return None
 
 	def __startFE_device(self, val, result):
@@ -194,7 +195,7 @@ class FEconf(Screen):
 			partitionPath = val[0].partitionPath(str(val[1]))
 			uuidPath = self.__getPartitionUUID(partitionPath)
 			fstype=val[2]
-			print "[FlashExpander]",partitionPath,uuidPath,fstype
+			print("[FlashExpander]",partitionPath,uuidPath,fstype)
 
 			if uuidPath == None:
 				self.session.open(MessageBox, _("read UUID"), MessageBox.TYPE_ERROR, timeout=5)
@@ -217,7 +218,7 @@ class FEconf(Screen):
 		if result:
 			server = val[0]
 			path = val[1]
-			print "[FlashExpander]",server,path
+			print("[FlashExpander]",server,path)
 
 			mountpoint = ismounted("%s:%s" %(server,path),"")
 			self.__copyFlash(mountpoint,("%s:%s" %(server,path),None,"nfs"))
@@ -236,7 +237,7 @@ class FEconf(Screen):
 		if path.exists(mp)==False:
 			createDir(mp,True)
 		cmd = "mount " + dev + " " + mp
-		#print "[FlashExpander]",cmd
+		#print("[FlashExpander]",cmd)
 		res = Console().ePopen(cmd)
 		return (res >> 8)
 
@@ -283,7 +284,7 @@ class FEconf(Screen):
 					fp.write(x + "\n")
 				fp.close()
 
-				print "[FlashExpander] write new /etc/fstab"
+				print("[FlashExpander] write new /etc/fstab")
 				self.session.openWithCallback(self.Exit, MessageBox, _("Do you want to reboot your STB_BOX?"))
 			except:
 				self.session.open(MessageBox, _("error adding fstab entry for: %s") % (devPath), MessageBox.TYPE_ERROR, timeout=5)

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # for localized messages     
+from __future__ import print_function
 from . import _x
 
 from Screens.Screen import Screen
@@ -38,13 +39,13 @@ def setPreferredTagEditor(te):
 	try:
 		if preferredTagEditor == None:
 			preferredTagEditor = te
-			print "Preferred tag editor changed to ", preferredTagEditor
+			print("Preferred tag editor changed to ", preferredTagEditor)
 		else:
-			print "Preferred tag editor already set to ", preferredTagEditor
-			print "ignoring ", te
+			print("Preferred tag editor already set to ", preferredTagEditor)
+			print("ignoring ", te)
 	except:
 		preferredTagEditor = te
-		print "Preferred tag editor set to ", preferredTagEditor
+		print("Preferred tag editor set to ", preferredTagEditor)
 
 def getPreferredTagEditor():
 	global preferredTagEditor
@@ -116,7 +117,7 @@ class MovieContextMenu(Screen):
 		self.close()
 
 	def showTimes(self, newType):
-#		print "[SF-Plugin] MovieContextMenu:showTimes"
+#		print("[SF-Plugin] MovieContextMenu:showTimes")
 		config.movielist.sftimes.value ^= newType
 		self.csel.setShowTimes(config.movielist.sftimes.value)
 		if newType == MovieList.SHOW_DIRECTORIES:
@@ -125,7 +126,7 @@ class MovieContextMenu(Screen):
 		self.close()
 
 	def sfconfigured(self, arg = None):
-#		print "[SF-Plugin] MovieContextMenu.sfconfigure: arg = >%s<" % (arg)
+#		print("[SF-Plugin] MovieContextMenu.sfconfigure: arg = >%s<" % (arg))
 		if config.movielist.sftitle_episode_separator.value != arg:
 			config.movielist.sftitle_episode_separator.value = arg
 			config.movielist.sftitle_episode_separator.save()
@@ -164,11 +165,11 @@ class MovieContextMenu(Screen):
 	def deleteVirtDirConfirmed(self, confirmed):
 		if not confirmed:
 #			for l in self.virtlist[1:]:
-#				print "[SF-Plugin] MovieSelectin:deleteVirtDirConfirmed would delete " + l[3][2]
+#				print("[SF-Plugin] MovieSelectin:deleteVirtDirConfirmed would delete " + l[3][2])
 			return self.close()
 		self.csel["list"].moveTo(self.service)	# put removeService in virtual Directory
 		for l in self.virtlist[1:]:
-#			print "[SF-Plugin] MovieSelectin:deleteVirtDirConfirmed deletes " + (l[3][2])
+#			print("[SF-Plugin] MovieSelectin:deleteVirtDirConfirmed deletes " + (l[3][2]))
 			self.service = l[0]
 			self.deleteConfirmed(True)
 
@@ -193,7 +194,7 @@ class MovieContextMenu(Screen):
 
 class SelectionEventInfo:
 	def __init__(self):
-		print "[SF-Plugin] SF:SelectionEventInfo init"
+		print("[SF-Plugin] SF:SelectionEventInfo init")
 		self["Service"] = ServiceEvent()
 		self.list.connectSelChanged(self.__selectionChanged)
 		self.timer = eTimer()
@@ -210,7 +211,7 @@ class SelectionEventInfo:
 
 class MovieSelection(Screen, HelpableScreen, SelectionEventInfo):
 	def __init__(self, session, selectedmovie = None):
-#		print "[SF-Plugin] SF:MovieSelection.init, PWD=%s; selmv=%s" % (config.movielist.last_videodir.value, str(selectedmovie))
+#		print("[SF-Plugin] SF:MovieSelection.init, PWD=%s; selmv=%s" % (config.movielist.last_videodir.value, str(selectedmovie)))
 		Screen.__init__(self, session)
 		HelpableScreen.__init__(self)
 
@@ -237,7 +238,7 @@ class MovieSelection(Screen, HelpableScreen, SelectionEventInfo):
 		if not fileExists(config.movielist.last_videodir.value):
 			config.movielist.last_videodir.value = defaultMoviePath()
 			config.movielist.last_videodir.save()
-#			print "[SF-Plugin] MovieSelection.MovieSelection: save" + config.movielist.last_videodir.value
+#			print("[SF-Plugin] MovieSelection.MovieSelection: save" + config.movielist.last_videodir.value)
 		self.current_ref = eServiceReference("2:0:1:0:0:0:0:0:0:0:" + config.movielist.last_videodir.value)
 
 		self["list"] = MovieList(None,
@@ -321,7 +322,7 @@ class MovieSelection(Screen, HelpableScreen, SelectionEventInfo):
 		self["list"].moveToIndex(-1)
 
 	def updateDescription(self):
-#		print "[SF-Plugin] MovieSelection.updateDescription DescriptionBorder height =" + str(self["DescriptionBorder"].instance.size().height())
+#		print("[SF-Plugin] MovieSelection.updateDescription DescriptionBorder height =" + str(self["DescriptionBorder"].instance.size().height()))
 		self["DescriptionBorder"].show()
 		self["list"].instance.resize(eSize(self.listWidth, self.listHeight-self["DescriptionBorder"].instance.size().height()))
 
@@ -443,7 +444,7 @@ class MovieSelection(Screen, HelpableScreen, SelectionEventInfo):
 			title += " - " + ','.join(self.selected_tags)
 		self.setTitle(title)
 		self["list"].saveTitle(title)
-#		print "[SF-Plugin] MovieSelection:setTitle(%s)" % (str(title))
+#		print("[SF-Plugin] MovieSelection:setTitle(%s)" % (str(title)))
  		if not (sel and self["list"].moveTo(sel)):
 			if home:
 				self["list"].moveToIndex(0)
@@ -463,7 +464,7 @@ class MovieSelection(Screen, HelpableScreen, SelectionEventInfo):
 			if fileExists(res):
 				config.movielist.last_videodir.value = res
 				config.movielist.last_videodir.save()
-#				print "[SF-Plugin] MovieSelection.gotFilename: save" + res
+#				print("[SF-Plugin] MovieSelection.gotFilename: save" + res)
 				self.current_ref = eServiceReference("2:0:1:0:0:0:0:0:0:0:" + res)
 				self["freeDiskSpace"].path = res
 				self.reloadList(home = True)

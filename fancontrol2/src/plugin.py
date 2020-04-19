@@ -2,6 +2,7 @@
 # joergm6 IHAD
 # PID-controller by Lukasz S.
 
+from __future__ import print_function
 import time
 import os
 from __init__ import _
@@ -71,7 +72,7 @@ def skal(x, x1, x2, y1, y2):
 
 def FClog(wert):
 	if config.plugins.FanControl.EnableConsoleLog.value:
-		print "[FanControl2]",wert
+		print("[FanControl2]",wert)
 	while len(FC2Log) > config.plugins.FanControl.LogCount.value:
 		del FC2Log[5]
 	FC2Log.append(strftime("%H:%M:%S ") + wert)
@@ -925,7 +926,7 @@ class FC2Worker(Thread):
 	def run(self): 
 		global FritzTime
 		while True:
-#			print "worker a", self.index
+#			print("worker a", self.index)
 			zahl = Briefkasten.get()
 			if zahl == 1:
 				self.s.queryRun()

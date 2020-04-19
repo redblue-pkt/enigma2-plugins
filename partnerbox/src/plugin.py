@@ -17,6 +17,7 @@
 #  GNU General Public License for more details.
 #
 
+from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -1150,7 +1151,7 @@ class RemotePlayer(Screen, InfoBarAudioSelection):
 		self["DateTime"].setText(e2eventservicename + tt)
 
 	def CurrentEPGCallbackError(self, error = None):
-		print "[RemotePlayer] Error: ",error.getErrorMessage()
+		print("[RemotePlayer] Error: ",error.getErrorMessage())
 
 #	def readXMSubChanelList(self, xmlstring):
 #		BouquetList = []

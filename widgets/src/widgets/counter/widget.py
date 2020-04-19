@@ -1,3 +1,4 @@
+from __future__ import print_function
 from Plugins.Extensions.Widgets.Widget import Widget
 from Components.Label import Label
 from enigma import eTimer
@@ -12,7 +13,7 @@ class CounterWidget(Widget):
        
     def onLoadFinished(self,instance):
         self.instance = instance
-        print "refresh CounterWidget"
+        print("refresh CounterWidget")
         
         self.getElement("counter_title").setText("###")
         self.Timer.start(200)
@@ -21,7 +22,7 @@ class CounterWidget(Widget):
         self.Timer.stop()
         
     def TimerFire(self):
-        #print "TimerFire"
+        #print("TimerFire")
         self.counter += 1
         try:
             self.getElement("counter_title").setText(str(self.counter))

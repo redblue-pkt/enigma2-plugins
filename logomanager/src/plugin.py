@@ -1,3 +1,4 @@
+from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
@@ -21,12 +22,12 @@ add_type("image/mvi", ".mvi")
 
 
 def filescan_open(list, session, **kwargs):
-    print "filescan_open", list,kwargs
+    print("filescan_open", list,kwargs)
     session.open(LogoManagerScreen,file=list[0].path)
 
 def start_from_filescan(**kwargs):
     from Components.Scanner import Scanner, ScanPath
-    print "start_from_filescan",kwargs
+    print("start_from_filescan",kwargs)
     return \
         Scanner(mimetypes=["image/jpeg","image/mvi"],
             paths_to_scan =
@@ -110,7 +111,7 @@ class LogoManagerScreen(Screen):
         for target in self.targets:
             file = target[1].split("/")[-1]
             if os_path.isfile(plugin_path+file) is not True:
-                print "backing up original ",target[0]," from ",file
+                print("backing up original ",target[0]," from ",file)
                 Console().ePopen("cp '%s' '%s'/%s" % (target[1], plugin_path, file))
 
     def restoreOriginal(self):
@@ -119,7 +120,7 @@ class LogoManagerScreen(Screen):
         for target in self.targets:
             file = target[1].split("/")[-1]
             if os_path.isfile(plugin_path+"/"+file) is True:
-                print "restoring original ",target[0]," from ",plugin_path+"/"+file,"to",target[1]
+                print("restoring original ",target[0]," from ",plugin_path+"/"+file,"to",target[1])
                 Console().ePopen("cp '%s'/%s '%s'" % (plugin_path, file, target[1]))
 
     def exit(self):
@@ -188,12 +189,12 @@ class LogoManagerScreen(Screen):
 
     def showMVI(self,mvifile):
         """ shows a mvi """
-        print "playing MVI",mvifile
+        print("playing MVI",mvifile)
         Console().ePopen("/usr/bin/showiframe %s" % mvifile)
 
     def installMVI(self,target,sourcefile):
         """ installs a mvi by overwriting the target with a source mvi """
-        print "installing %s as %s on %s" %(sourcefile,target[0],target[1])
+        print("installing %s as %s on %s" %(sourcefile,target[0],target[1]))
         if os_path.isfile(target[1]):
             os_remove(target[1])
         Console().ePopen("cp %s %s" % (sourcefile, target[1]))
@@ -231,13 +232,13 @@ class LogoManagerConfigScreen(ConfigListScreen,Screen):
         }, -2)
 
     def save(self):
-        print "saving"
+        print("saving")
         for x in self["config"].list:
             x[1].save()
         self.close(True)
 
     def cancel(self):
-        print "cancel"
+        print("cancel")
         for x in self["config"].list:
             x[1].cancel()
         self.close(False)

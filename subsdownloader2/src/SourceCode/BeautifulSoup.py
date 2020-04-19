@@ -76,6 +76,7 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE, DAMMIT.
 
 """
+from __future__ import print_function
 from __future__ import generators
 
 __author__ = "Leonard Richardson (leonardr@segfault.org)"
@@ -647,7 +648,7 @@ class Tag(PageElement):
         return apply(self.findAll, args, kwargs)
 
     def __getattr__(self, tag):
-        #print "Getattr %s.%s" % (self.__class__, tag)
+        #print("Getattr %s.%s" % (self.__class__, tag))
         if len(tag) > 3 and tag.rfind('Tag') == len(tag)-3:
             return self.find(tag[:-3])
         elif tag.find('__') != 0:
@@ -945,7 +946,7 @@ class SoupStrainer:
         return found
 
     def search(self, markup):
-        #print 'looking for %s in %s' % (self, markup)
+        #print('looking for %s in %s' % (self, markup))
         found = None
         # If given a list of items, scan it for a text element that
         # matches.
@@ -972,7 +973,7 @@ class SoupStrainer:
         return found
 
     def _matches(self, markup, matchAgainst):
-        #print "Matching %s against %s" % (markup, matchAgainst)
+        #print("Matching %s against %s" % (markup, matchAgainst))
         result = False
         if matchAgainst is True:
             result = markup is not None
@@ -1192,7 +1193,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
     def __getattr__(self, methodName):
         """This method routes method call requests to either the SGMLParser
         superclass or the Tag superclass, depending on the method name."""
-        #print "__getattr__ called on %s.%s" % (self.__class__, methodName)
+        #print("__getattr__ called on %s.%s" % (self.__class__, methodName))
 
         if methodName.startswith('start_') or methodName.startswith('end_') \
                or methodName.startswith('do_'):
@@ -1221,13 +1222,13 @@ class BeautifulStoneSoup(Tag, SGMLParser):
     def popTag(self):
         tag = self.tagStack.pop()
 
-        #print "Pop", tag.name
+        #print("Pop", tag.name)
         if self.tagStack:
             self.currentTag = self.tagStack[-1]
         return self.currentTag
 
     def pushTag(self, tag):
-        #print "Push", tag.name
+        #print("Push", tag.name)
         if self.currentTag:
             self.currentTag.contents.append(tag)
         self.tagStack.append(tag)
@@ -1261,7 +1262,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
         instance of the given tag. If inclusivePop is false, pops the tag
         stack up to but *not* including the most recent instqance of
         the given tag."""
-        #print "Popping to %s" % name
+        #print("Popping to %s" % name)
         if name == self.ROOT_TAG_NAME:
             return
 
@@ -1325,10 +1326,10 @@ class BeautifulStoneSoup(Tag, SGMLParser):
             self._popToTag(popTo, inclusive)
 
     def unknown_starttag(self, name, attrs, selfClosing=0):
-        #print "Start tag %s: %s" % (name, attrs)
+        #print("Start tag %s: %s" % (name, attrs))
         if self.quoteStack:
             #This is not a real tag.
-            #print "<%s> is not real!" % name
+            #print("<%s> is not real!" % name)
             attrs = ''.join([' %s="%s"' % (x, y) for x, y in attrs])
             self.handle_data('<%s%s>' % (name, attrs))
             return
@@ -1349,16 +1350,16 @@ class BeautifulStoneSoup(Tag, SGMLParser):
         if selfClosing or self.isSelfClosingTag(name):
             self.popTag()
         if name in self.QUOTE_TAGS:
-            #print "Beginning quote (%s)" % name
+            #print("Beginning quote (%s)" % name)
             self.quoteStack.append(name)
             self.literal = 1
         return tag
 
     def unknown_endtag(self, name):
-        #print "End tag %s" % name
+        #print("End tag %s" % name)
         if self.quoteStack and self.quoteStack[-1] != name:
             #This is not a real end tag.
-            #print "</%s> is not real!" % name
+            #print("</%s> is not real!" % name)
             self.handle_data('</%s>' % name)
             return
         self.endData()
@@ -1825,15 +1826,15 @@ class UnicodeDammit:
                       markup)
 
         try:
-            # print "Trying to convert document to %s" % proposed
+            # print("Trying to convert document to %s" % proposed)
             u = self._toUnicode(markup, proposed)
             self.markup = u
             self.originalEncoding = proposed
         except Exception, e:
-            # print "That didn't work!"
-            # print e
+            # print("That didn't work!")
+            # print(e)
             return None
-        #print "Correct encoding: %s" % proposed
+        #print("Correct encoding: %s" % proposed)
         return self.markup
 
     def _toUnicode(self, data, encoding):
@@ -2011,4 +2012,4 @@ class UnicodeDammit:
 if __name__ == '__main__':
     import sys
     soup = BeautifulSoup(sys.stdin)
-    print soup.prettify()
+    print(soup.prettify())

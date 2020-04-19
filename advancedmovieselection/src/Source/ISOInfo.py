@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 from struct import unpack
 if __name__ == '__main__':
@@ -107,43 +108,43 @@ class ISOInfo:
         pass
 
     def getFormat(self, service):
-        print 'checking iso:', service.getPath()
+        print('checking iso:', service.getPath())
         if not self.mount(service.getPath()):
             return self.ERROR
         if os.path.exists(self.MOUNT_PATH + '/BDMV/'):
-            print 'Bludisc iso file detected'
+            print('Bludisc iso file detected')
             return self.BLUDISC
         if os.path.exists(self.MOUNT_PATH + '/VIDEO_TS/') or os.path.exists(self.MOUNT_PATH + '/VIDEO_TS.IFO'):
-            print 'DVD iso file detected'
+            print('DVD iso file detected')
             self.umount()
             return self.DVD
-        print 'Unknown iso file'
+        print('Unknown iso file')
         return self.UNKNOWN
 
     def getFormatISO9660(self, service):
-        print 'checking iso:', service.getPath()
+        print('checking iso:', service.getPath())
         for d in ISORead().readPathTable(service.getPath()):
             if 'BDMV' in d:
-                print 'Bludisc iso file detected'
+                print('Bludisc iso file detected')
                 return self.BLUDISC
             if 'VIDEO_TS' in d:
-                print 'DVD iso file detected'
+                print('DVD iso file detected')
                 return self.DVD
 
-        print 'Unknown iso file'
+        print('Unknown iso file')
         return self.UNKNOWN
 
     def mount(self, iso):
         self.umount()
         try:
             if not os.path.exists(self.MOUNT_PATH):
-                print 'Creating mount path for bludisc iso on:', self.MOUNT_PATH
+                print('Creating mount path for bludisc iso on:', self.MOUNT_PATH)
                 os.mkdir(self.MOUNT_PATH)
             cmd = 'mount -r -o loop "%s" "%s"' % (iso, self.MOUNT_PATH)
-            print 'exec command:', cmd
+            print('exec command:', cmd)
             out = commands.getoutput(cmd)
             if out:
-                print 'error:', out
+                print('error:', out)
             return not out
         except:
             printStackTrace()
@@ -153,10 +154,10 @@ class ISOInfo:
     def umount(self):
         try:
             cmd = 'umount -df "%s"' % ISOInfo.MOUNT_PATH
-            print 'exec command:', cmd
+            print('exec command:', cmd)
             out = commands.getoutput(cmd)
             if out:
-                print 'error:', out
+                print('error:', out)
             return not out
         except:
             printStackTrace()
@@ -195,4 +196,4 @@ if __name__ == '__main__':
         ISOInfo().getFormatISO9660(Service(n))
 
     d2 = datetime.datetime.now()
-    print d2 - d1
+    print(d2 - d1)

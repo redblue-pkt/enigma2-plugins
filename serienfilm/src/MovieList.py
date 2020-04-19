@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # for localized messages     
+from __future__ import print_function
 from . import _x
 
 from Components.GUIComponent import GUIComponent
@@ -49,7 +50,7 @@ class MovieList(GUIComponent):
 
 	def __init__(self, root, list_type=None, sort_type=None, show_times=None, sftitle_episode_separator = None, MovieSelectionSelf = None):
 		GUIComponent.__init__(self)
-#		print "[SF-Plugin] class SF:MovieList init, lstt=%x, srt=%x, sht=%s, sft=>%s<, root=%s" % ( list_type, sort_type, show_times, str(sftitle_episode_separator), str(root))
+#		print("[SF-Plugin] class SF:MovieList init, lstt=%x, srt=%x, sht=%s, sft=>%s<, root=%s" % ( list_type, sort_type, show_times, str(sftitle_episode_separator), str(root)))
 		self.list_type = list_type or self.LISTTYPE_MINIMAL
 		self.show_times = show_times or self.SHOW_DURATION | self.SHOW_DIRECTORIES
 		self.sort_type = sort_type or self.SORT_RECORDED
@@ -88,7 +89,7 @@ class MovieList(GUIComponent):
 
 	def selectionChanged(self):
 		for x in self.onSelectionChanged:
-#			print "[SF-Plugin] MovieList.selectionChanged: " + str(x)
+#			print("[SF-Plugin] MovieList.selectionChanged: " + str(x))
 			x()
 
 	def setListType(self, type):
@@ -129,7 +130,7 @@ class MovieList(GUIComponent):
 	# | name of movie              |
 	#
 	def buildMovieListEntry(self, serviceref, info, begin, tinfo):
-#		print "[SF-Plugin] SF:MovieList.buildMovieListEntry, lst_type=%x, show_tims=%x" % (self.list_type, self.show_times)
+#		print("[SF-Plugin] SF:MovieList.buildMovieListEntry, lst_type=%x, show_tims=%x" % (self.list_type, self.show_times))
 
 		width = self.l.getItemSize().width()
 		len = tinfo[5]			#tinfo = [type, pixmap, txt, description, service, len]
@@ -282,23 +283,23 @@ class MovieList(GUIComponent):
 			return
 		repeats = 0		# update repeatcount "#x" of surviving movies
 		ele0 = 0
-#		print "[SF-Plugin] removeService: searching " + tinfo[2]
+#		print("[SF-Plugin] removeService: searching " + tinfo[2])
 		for i in range(1, len(self.list)):
 			m = self.list[i]
 			t = m[3]
-#			print "[SF-Plugin] removeService try: %x, %s -- %s" % (m[0].flags,  str(t[1]), str(t[2]))
+#			print("[SF-Plugin] removeService try: %x, %s -- %s" % (m[0].flags,  str(t[1]), str(t[2])))
 			if not m[0].flags & eServiceReference.canDescent and t[2] == tinfo[2] and isinstance(t[1], str) and t[1][0] == "#":
 				repeats += 1
 				rc = int(t[1][1:])
 				if rc > repnr:
 					rc -= 1
 					t[1] = "#" + str(rc)
-#					print "[SF-Plugin] removeService: %s --> %s" % (t[2], t[1])
+#					print("[SF-Plugin] removeService: %s --> %s" % (t[2], t[1]))
 				if rc == 0:
 					ele0 = i
 		if ele0 > 0 and repeats == 1:
 			self.list[ele0][3][1] = None	# remove "#0" from only lonely surviving movie
-#			print "[SF-Plugin] removeService: remove #0 from " + self.list[ele0][3][2]
+#			print("[SF-Plugin] removeService: remove #0 from " + self.list[ele0][3][2])
 
 
 	def __len__(self):
@@ -315,14 +316,14 @@ class MovieList(GUIComponent):
 				name = ""
 			else:
 				name = info.getName(serviceref)
-#			print "[SF-Plugin] MovieList.playDirectory: %s nicht spielbar" ,(name)
+#			print("[SF-Plugin] MovieList.playDirectory: %s nicht spielbar" ,(name))
 			return name
 
 	def realDirUp(self, root):
 		parent = None
 		info = self.serviceHandler.info(root)
 		pwd = info and info.getName(root)
-		print "[SF-Plugin] MovieList.realDirUp: pwd = >%s<" % (str(pwd))
+		print("[SF-Plugin] MovieList.realDirUp: pwd = >%s<" % (str(pwd)))
 		if pwd and os.path.exists(pwd) and not os.path.samefile(pwd, defaultMoviePath()):
 			parentdir = pwd[:pwd.rfind("/", 0, -1)] + "/"
 			parent = eServiceReference("2:0:1:0:0:0:0:0:0:0:" + parentdir)
@@ -351,7 +352,7 @@ class MovieList(GUIComponent):
 		self.root = root
 		list = self.serviceHandler.list(root)
 		if list is None:
-			print "[SF-Plugin] listing of movies failed"
+			print("[SF-Plugin] listing of movies failed")
 			list = [ ]	
 			return
 		tags = set()
@@ -406,7 +407,7 @@ class MovieList(GUIComponent):
 		# to the user to filter the list
 		self.tags = tags
 		if parentLstEntry:
-#			print "[SF-Plugin] SF:MovieList.load: parentLstEntry %s" % (self.debPrtEref(parentLstEntry[0]))
+#			print("[SF-Plugin] SF:MovieList.load: parentLstEntry %s" % (self.debPrtEref(parentLstEntry[0])))
 			self.list.insert(0, parentLstEntry)
 
 	def moveTo(self, serviceref, descend_virtdirs=True, search_all_lists=True):
@@ -485,7 +486,7 @@ class MovieList(GUIComponent):
 			splitTitle = lambda s: s.split(self.sftitle_episode_separator, 1)
 		else:
 			splitTitle = lambda s: [s]
-#		print "[SF-Plugin] MovieList.createSublists: self.sftitle_episode_separator = %d = >%s<" % (len(self.sftitle_episode_separator), self.sftitle_episode_separator)
+#		print("[SF-Plugin] MovieList.createSublists: self.sftitle_episode_separator = %d = >%s<" % (len(self.sftitle_episode_separator), self.sftitle_episode_separator))
 		for tinfo in self.rootlst[:]:
 #			ts = tinfo[3][2].split(": ", 1)
 			ts = splitTitle(tinfo[3][2])
@@ -533,7 +534,7 @@ class MovieList(GUIComponent):
 				[self.VIRT_DIR, self.pdirMap, txt[0], "", "SFLIDX" + str(sflidx), None, 1])
 			if repcnt:
 				self.update_repcnt(serlst, repcnt)
-#		print "[SF-Plugin] sflist has %d entries" % (len(self.sflists))
+#		print("[SF-Plugin] sflist has %d entries" % (len(self.sflists)))
 		gsflists = self.sflists
 
 

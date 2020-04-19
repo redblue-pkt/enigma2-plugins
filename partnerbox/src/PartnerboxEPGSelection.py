@@ -17,6 +17,7 @@
 #  GNU General Public License for more details.
 #
 
+from __future__ import print_function
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.config import config
@@ -324,7 +325,7 @@ def GetPartnerboxTimerlistCallback(self, sxml = None):
 def GetPartnerboxTimerlistCallbackError(self, error = None):
 	try:
 		if error is not None:
-			print str(error.getErrorMessage())
+			print(str(error.getErrorMessage()))
 	except:
 		pass
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 """
 Requires Python 2.5
 
@@ -198,7 +199,7 @@ def assemble(text):
     lst = [] # list of integers 0..255 representing the bytecode
     for inst in text.splitlines():
         if inst.count('\t'):
-            print 'Warning: Found tabs in assembly section.'
+            print('Warning: Found tabs in assembly section.')
         if (not inst.strip()) or inst.startswith('#'):
             continue
         cmd = inst[16:42].split()
@@ -303,17 +304,17 @@ def main():
             filein = arg
     else:
         filein = "noFile"
-        print 'Command line incorrect !\nUsage: pyo2xml /tmp/YOURFILE.PYO'
+        print('Command line incorrect !\nUsage: pyo2xml /tmp/YOURFILE.PYO')
         exit()
 
     if filein.endswith('.pyo'):
         filein = "noFile"
-        print 'File-extension incorrect !\nUsage: pyo2xml /tmp/YOURFILE.PYO'
+        print('File-extension incorrect !\nUsage: pyo2xml /tmp/YOURFILE.PYO')
         exit()
     else:
         xml = xml_pyo(filein)
         fileout = '/tmp/disassembled.xml'
-        print 'Disassembling:', filein, ' --> ', fileout
+        print('Disassembling:', filein, ' --> ', fileout)
         fo = open(fileout, 'w')
         fo.write(xml)
         fo.close()

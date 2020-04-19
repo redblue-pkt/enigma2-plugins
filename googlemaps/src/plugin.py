@@ -1,3 +1,4 @@
+from __future__ import print_function
 import urllib
 from twisted.web.client import getPage
 from xml.dom.minidom import parseString
@@ -42,7 +43,7 @@ def applySkinVars(skin,dict):
         try:
             skin = skin.replace('{'+key+'}',dict[key])
         except Exception,e:
-            print e,"@key=",key
+            print(e,"@key=",key)
     return skin
 
 def getURL(x,y,z):
@@ -95,13 +96,13 @@ class GoogleMapsConfigScreen(ConfigListScreen,Screen):
         }, -2)
 
     def save(self):
-        print "saving"
+        print("saving")
         for x in self["config"].list:
             x[1].save()
         self.close(True)
 
     def cancel(self):
-        print "cancel"
+        print("cancel")
         for x in self["config"].list:
             x[1].cancel()
         self.close(False)
@@ -293,7 +294,7 @@ class GoogleMapsMainScreen(Screen,HelpableScreen):
         self["placeslist"].setList(list)
 
     def openFolderRoot(self,name,filepath):
-        print "openFolderRoot",name,filepath
+        print("openFolderRoot",name,filepath)
         root = RootFolder()
         folderx = root.getFolderFromFile(filepath)
         list = []
@@ -310,7 +311,7 @@ class GoogleMapsMainScreen(Screen,HelpableScreen):
         self["placeslist"].setList(list)
 
     def openFolder(self,name,foldery):
-        print  "open Folder",name,foldery
+        print("open Folder",name,foldery)
         list = []
         if foldery.parent is None:
             l = lambda name,folder: self.buildMenuRoot()
@@ -330,7 +331,7 @@ class GoogleMapsMainScreen(Screen,HelpableScreen):
         self["placeslist"].setList(list)
 
     def showPlace(self,name,place):
-        #print "show Place",name,place
+        #print("show Place",name,place)
         x,y,z = place.getTile(self.z)
         self.setNewXYZ(x,y,z)
 
@@ -408,7 +409,7 @@ class GoogleMapsMainScreen(Screen,HelpableScreen):
 
     #################
     def setNewXYZ(self,x,y,z):
-        print x,y,z
+        print(x,y,z)
         if z<0 or z>=30:
             return
         self.x = x
@@ -539,14 +540,14 @@ class GoogleMapsGeoSearchScreen(InputBox):
         listitem = self["list"].getCurrent()
         self.do_preview_timer.stop()
         if listitem:
-            #print "list changed",listitem
+            #print("list changed",listitem)
             adress,lon,lat = listitem[1]
             for i in self.do_preview_timer.timeout.get():
                 self.do_preview_timer.timeout.get().remove(i)
             self.do_preview_timer.timeout.get().append(lambda : self.loadPreview(lon, lat))
             self.do_preview_timer.start(1500)
         else:
-            pass #print "nothing selected"
+            pass #print("nothing selected")
 
     def loadPreview(self,lon,lat):
         self.do_preview_timer.stop()
@@ -608,7 +609,7 @@ class GoogleMapsGeoSearchScreen(InputBox):
             self["infotext"].setText("nothing found with '%s'"%(searchkey))
 
     def onLoadFailed(self,reason):
-        print reason
+        print(reason)
         self["infotext"].setText(str(reason))
 
 ##################################

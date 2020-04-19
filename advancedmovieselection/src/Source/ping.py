@@ -78,11 +78,11 @@
     [1] http://docs.python.org/library/time.html#time.clock
 """
 
-__version__ = "0.1"
- 
- 
+from __future__ import print_function
 import os, sys, socket, struct, select, time
- 
+
+__version__ = "0.1"
+
 # From /usr/include/linux/icmp.h; your milage may vary.
 ICMP_ECHO_REQUEST = 8 # Seems to be the same on Solaris.
  
@@ -203,18 +203,18 @@ def verbose_ping(dest_addr, timeout = 2, count = 4):
     the result.
     """
     for i in xrange(count):
-        print "ping %s..." % dest_addr,
+        print("ping %s..." % dest_addr,)
         try:
             delay  =  do_one(dest_addr, timeout)
         except socket.gaierror, e:
-            print "failed. (socket error: '%s')" % e[1]
+            print("failed. (socket error: '%s')" % e[1])
             break
  
         if delay  ==  None:
-            print "failed. (timeout within %ssec.)" % timeout
+            print("failed. (timeout within %ssec.)" % timeout)
         else:
             delay  =  delay * 1000
-            print "get ping in %0.4fms" % delay
+            print("get ping in %0.4fms" % delay)
     print
  
  

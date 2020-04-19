@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import eTimer, iServiceInformation, iPlayableService, ePicLoad, RT_VALIGN_CENTER, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, gFont, eListbox, ePoint, eListboxPythonMultiContent, eServiceCenter
 from Components.MenuList import MenuList
 from Screens.Screen import Screen
@@ -48,7 +49,7 @@ playlist = []
 #try:
 #	from enigma import evfd
 #except Exception, e:
-#	print "Media Center: Import evfd failed"
+#	print("Media Center: Import evfd failed")
 radirl = "http://ipkserver.hdmedia-universe.com/bmcradio/"
 #for lyrics
 def getEncodedString(value):
@@ -176,7 +177,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 				config.av.downmix_ac3.save()
 				Console().ePopen("touch /tmp/.ac3on")
 		except Exception, e:
-			print "Media Center: no ac3"
+			print("Media Center: no ac3")
 		self["play"] = Pixmap()
 		self["green"] = Pixmap()
 		self["screensaver"] = MediaPixmap()
@@ -500,7 +501,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 				self.jpgIndex += 1
 			else:
 				self.jpgIndex = 0
-			print "MediaCenter: Last JPG Index: " + str(self.jpgLastIndex)
+			print("MediaCenter: Last JPG Index: " + str(self.jpgLastIndex))
 			if self.jpgLastIndex != self.jpgIndex or self.jpgLastIndex == -1:
 				if config.plugins.mc_ap.whichjpg.value == "default":
 					path = mcpath +"saver/" + self.jpgList[self.jpgIndex]
@@ -511,7 +512,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 				time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 				self.JpgTimer.start(time, True)
 		else:
-			print "MediaCenter: No Background Files found ..."
+			print("MediaCenter: No Background Files found ...")
 	def doEOF(self):
 		if MC_AudioPlayer.playlistplay == 1:
 			next = self.playlist.getCurrentIndex() + 1
@@ -633,7 +634,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 				config.av.downmix_ac3.save()
 				Console().ePopen("touch /tmp/.ac3on")
 		except Exception, e:
-			print "Media Center: no ac3"
+			print("Media Center: no ac3")
 		self["play"] = Pixmap()
 		self["screensaver"] = MediaPixmap()
 		MC_AudioPlayer.STATE = "NONE"
@@ -835,7 +836,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 				time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 				self.JpgTimer.start(time, True)
 		else:
-			print "MediaCenter: No Background Files found ..."
+			print("MediaCenter: No Background Files found ...")
 	def doEOF(self):
 		self.StopPlayback()
 		if config.plugins.mc_ap.showJpg.getValue():
@@ -1137,7 +1138,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			for i in os_listdir(playlistdir):
 				listpath.append((i,playlistdir + i))
 		except IOError,e:
-			print "Error while scanning subdirs ",e
+			print("Error while scanning subdirs ",e)
 		self.session.openWithCallback(self.load_pls, ChoiceBox, title=_("Please select a playlist..."), list = listpath)
 	def load_pls(self,path):
 		if path is not None:
@@ -1156,7 +1157,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			for i in os_listdir(playlistdir):
 				listpath.append((i,playlistdir + i))
 		except IOError,e:
-			print "Error while scanning subdirs ",e
+			print("Error while scanning subdirs ",e)
 		self.session.openWithCallback(self.delete_saved_pls, ChoiceBox, title=_("Please select a playlist to delete..."), list = listpath)
 	def delete_saved_pls(self,path):
 		if path is not None:
@@ -1214,7 +1215,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 				time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 				self.JpgTimer.start(time, True)
 		else:
-			print "MediaCenter: No Background Files found ..."
+			print("MediaCenter: No Background Files found ...")
 	def showLyrics(self):
 		if MC_AudioPlayer.STATE == "PLAY":
 			self.session.openWithCallback(self.updd, Lyrics)

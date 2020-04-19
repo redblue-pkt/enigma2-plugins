@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 """
 Copyright (C) 2012 cmikula
 
@@ -26,7 +28,7 @@ config = None
 
 def setLocale(lng):
     global config
-    print '[AdvancedMovieSelection] Set tvdb locale to', lng
+    print('[AdvancedMovieSelection] Set tvdb locale to', lng)
     config = {}
     config['locale'] = lng
     config['apikey'] = '7E9EC2ECC1B1EB3A'
@@ -228,7 +230,7 @@ def getMovieInfo(series_id):
 
 def printKey(item, key):
     if item[key] is not None:
-        print key + ':', item[key]
+        print(key + ':', item[key])
     return
 
 
@@ -245,43 +247,43 @@ def main():
     setLocale('de')
     results = search('Law & Order')
     for searchResult in results:
-        print searchResult['SeriesName']
-        print searchResult['Overview']
-        print searchResult['banner']
+        print(searchResult['SeriesName'])
+        print(searchResult['Overview'])
+        print(searchResult['banner'])
         movie = getMovieInfo(searchResult['id'])
         serie = movie['Serie'][0]
-        print
-        print serie
-        print serie['SeriesName']
-        print serie['Overview']
-        print serie['Rating']
-        print serie['Runtime']
+        print()
+        print(serie)
+        print(serie['SeriesName'])
+        print(serie['Overview'])
+        print(serie['Rating'])
+        print(serie['Runtime'])
         if serie['Genre']:
-            print (' ,').join(serie['Genre'])
+            print((' ,').join(serie['Genre']))
         if serie['Actors']:
-            print (' ,').join(serie['Actors'])
-        print serie['poster']
-        print serie['banner']
-        print serie['fanart']
+            print((' ,').join(serie['Actors']))
+        print(serie['poster'])
+        print(serie['banner'])
+        print(serie['fanart'])
         epi = searchEpisode(movie['Episode'], 'Die Wunderdoktorin')
-        print epi
+        print(epi)
         for episode in movie['Episode']:
-            print
-            print episode
-            print episode['EpisodeName']
-            print episode['EpisodeNumber']
-            print episode['SeasonNumber']
-            print episode['seasonid']
-            print episode['seriesid']
-            print episode['id']
-            print episode['FirstAired']
-            print episode['Overview']
-            print episode['Writer']
+            print()
+            print(episode)
+            print(episode['EpisodeName'])
+            print(episode['EpisodeNumber'])
+            print(episode['SeasonNumber'])
+            print(episode['seasonid'])
+            print(episode['seriesid'])
+            print(episode['id'])
+            print(episode['FirstAired'])
+            print(episode['Overview'])
+            print(episode['Writer'])
             printKey(episode, 'filename')
-            print episode['Rating']
-            print episode['Director']
-            print episode['GuestStars']
-            print episode['Rating']
+            print(episode['Rating'])
+            print(episode['Director'])
+            print(episode['GuestStars'])
+            print(episode['Rating'])
 
 
 if __name__ == '__main__':

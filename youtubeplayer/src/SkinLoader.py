@@ -18,6 +18,7 @@
 #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
 ############################################################################
 
+from __future__ import print_function
 from Components.config import config
 from skin import loadSkin
 import os
@@ -25,7 +26,7 @@ import os
 
 def loadSkinReal(skinPath):
 	if os.path.exists(skinPath):
-		print "[SKLDR] Loading skin ", skinPath
+		print("[SKLDR] Loading skin ", skinPath)
 		loadSkin(skinPath)
 
 

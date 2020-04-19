@@ -41,6 +41,7 @@ Further Example:
   then uploads it to the W3C validator.
 """
 
+from __future__ import print_function
 import urllib
 import urllib2
 import mimetools, mimetypes
@@ -81,7 +82,7 @@ class MultipartPostHandler(urllib2.BaseHandler):
                 contenttype = 'multipart/form-data; boundary=%s' % boundary
                 if(request.has_header('Content-Type')
                    and request.get_header('Content-Type').find('multipart/form-data') != 0):
-                    print "Replacing %s with %s" % (request.get_header('content-type'), 'multipart/form-data')
+                    print("Replacing %s with %s" % (request.get_header('content-type'), 'multipart/form-data'))
                 request.add_unredirected_header('Content-Type', contenttype)
 
             request.add_data(data)
@@ -126,7 +127,7 @@ def main():
         params = { "ss" : "0",            # show source
                    "doctype" : "Inline",
                    "uploaded_file" : open(temp[1], "rb") }
-        print opener.open(validatorURL, params).read()
+        print(opener.open(validatorURL, params).read())
         os.remove(temp[1])
 
     if len(sys.argv[1:]) > 0:

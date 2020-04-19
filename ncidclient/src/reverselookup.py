@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+from __future__ import print_function
 '''
 $Id$
 $Author$
@@ -91,7 +92,7 @@ def out(number, caller):
 	print(name)
 
 def simpleout(number, caller): #@UnusedVariable # pylint: disable-msg=W0613
-	print caller
+	print(caller)
 
 try:
 	from Tools.Directories import resolveFilename, SCOPE_PLUGINS

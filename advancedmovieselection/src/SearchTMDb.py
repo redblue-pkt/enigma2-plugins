@@ -1,3 +1,4 @@
+from __future__ import print_function
 from __init__ import _
 import urllib, shutil, os
 from enigma import RT_WRAP, RT_VALIGN_CENTER, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, gFont, eListbox, eListboxPythonMultiContent
@@ -83,7 +84,7 @@ class InfoLoadChoice:
             self.__callback(('Default', default))
 
     def startTimer(self, answer):
-        print 'InfoLoadChoice', answer
+        print('InfoLoadChoice', answer)
         self.answer = answer
         self.__timer.start(100, True)
 
@@ -129,7 +130,7 @@ class TMDbList(GUIComponent, object):
             else:
                 parts = cover_url.split('/')
                 filename = os_path.join(IMAGE_TEMPFILE, str(movie.id) + str(parts[(-1)]))
-                print filename
+                print(filename)
                 if downloadCover(cover_url, filename):
                     png = self.picloader.load(filename)
                 else:
@@ -263,8 +264,8 @@ class TMDbMain(Screen, HelpableScreen, InfoLoadChoice):
         try:
             shutil.rmtree(IMAGE_TEMPFILE)
         except Exception as e:
-            print '[AdvancedMovieSelection] ERROR deleting:', IMAGE_TEMPFILE
-            print e
+            print('[AdvancedMovieSelection] ERROR deleting:', IMAGE_TEMPFILE)
+            print(e)
 
     def startSearch(self):
         self.updateView(self.SHOW_SEARCH)
@@ -295,7 +296,7 @@ class TMDbMain(Screen, HelpableScreen, InfoLoadChoice):
                 results = self.tmdb3.searchMovie(title)
                 if len(results) > 0:
                     self.searchTitle = title
-            print '[SerchTMDB]', title, str(len(results))
+            print('[SerchTMDB]', title, str(len(results)))
             if len(results) == 0:
                 self.updateView(self.SHOW_SEARCH_NO_RESULT)
                 self['status'].setText(_("No data found for ' %s ' at themoviedb.org!") % self.searchTitle)
@@ -454,7 +455,7 @@ class TMDbMain(Screen, HelpableScreen, InfoLoadChoice):
         self.updateCover(movie)
 
     def dummy(self):
-        print 'Dummy'
+        print('Dummy')
 
     def left(self):
         self.updateImageIndex(tmdb.prevImageIndex)
@@ -465,7 +466,7 @@ class TMDbMain(Screen, HelpableScreen, InfoLoadChoice):
     def checkConnection(self):
         try:
             import socket
-            print socket.gethostbyname('www.google.com')
+            print(socket.gethostbyname('www.google.com'))
             return True
         except:
             self.session.openWithCallback(self.close, MessageBox, _('No internet connection available!'), MessageBox.TYPE_ERROR)

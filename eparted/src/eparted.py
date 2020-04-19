@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # code by GeminiTeam
 
+from __future__ import print_function
 from enigma import eTimer
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -79,7 +80,7 @@ def parseCmd(result):
 							l.insert(0, LIST_TYPE_DEV)
 							entry.append(l)
 	except:
-		print "[eParted] <parse error>"
+		print("[eParted] <parse error>")
 		return []
 	return devlist
 
@@ -91,7 +92,7 @@ def myExecute(cmd, session, test=False):
 	else:
 		res = Console().ePopen(cmd)
 		result = (res >> 8)
-	print "[eParted]", result, cmd
+	print("[eParted]", result, cmd)
 	if result != 0 and session is not None:
 		session.open(MessageBox, _("Error command '%s'") % cmd, MessageBox.TYPE_ERROR, timeout=8)
 	return result
@@ -300,7 +301,7 @@ class Cpart(Screen):
 		index = self["list"].getIndex()
 		for x in self.__new_part_list:
 			if x[LIST_TYPE] == LIST_TYPE_PAR:
-				#print x
+				#print(x)
 				p0 = "%s: %s" % (_("Nr"), x[PA_NR])
 				p1 = "%s: %d%s" % (_("Start"), x[PA_START], self.__unit)
 				p2 = "%s: %d%s" % (_("End"), x[PA_END], self.__unit)
@@ -387,9 +388,9 @@ class Cpart(Screen):
 					self.__addFreePart(self.__new_part_list, lastPartEnd)
 				#for x in self.__new_part_list:
 				#	if x[LIST_TYPE]==LIST_TYPE_PAR:
-				#		print x
+				#		print(x)
 			except:
-				print "[eParted] <remove part>"
+				print("[eParted] <remove part>")
 			self.__Filllist()
 			
 	def KeyGreen(self):
@@ -414,7 +415,7 @@ class Cpart(Screen):
 			self.__Filllist()
 			
 	def __addPart2Comlist(self, list, val, mkpart=True):
-		#print val
+		#print(val)
 		partnr = val[PA_NR]
 		if mkpart:
 			fs = val[PA_FS]
@@ -454,7 +455,7 @@ class Cpart(Screen):
 				if bool(self.__old_part_list[x][PA_TYPE] & self.PA_TYPE_FREE) == False:
 					if len(self.__new_part_list) > x:
 						if self.__old_part_list[x][PA_SIZE] != self.__new_part_list[x][PA_SIZE]:
-							#print self.__old_part_list[x], self.__new_part_list[x]
+							#print(self.__old_part_list[x], self.__new_part_list[x])
 							self.__delPart2Comlist(self.__comlist, self.__old_part_list[x])
 					else:
 						self.__delPart2Comlist(self.__comlist, self.__old_part_list[x])
@@ -465,7 +466,7 @@ class Cpart(Screen):
 				if bool(self.__new_part_list[x][PA_TYPE] & self.PA_TYPE_FREE) == False:
 					if len(self.__old_part_list) > x and bool(self.__old_part_list[x][PA_TYPE] & self.PA_TYPE_FREE) == False:
 						if self.__new_part_list[x][PA_SIZE] != self.__old_part_list[x][PA_SIZE]:
-							#print self.__new_part_list[x], self.__old_part_list[x]
+							#print(self.__new_part_list[x], self.__old_part_list[x])
 							self.__addPart2Comlist(self.__comlist, self.__new_part_list[x])
 						else:
 							if self.__new_part_list[x][PA_FS] != self.__old_part_list[x][PA_FS]:
@@ -474,7 +475,7 @@ class Cpart(Screen):
 						self.__addPart2Comlist(self.__comlist, self.__new_part_list[x])
 		
 
-		#for x in self.__comlist: print "[eParted] com =",x
+		#for x in self.__comlist: print("[eParted] com =",x)
 		if len(self.__comlist):
 			self["PixmapBlue"].setPixmapNum(1)
 			self["LabelBlue"].setText(_("execute"))
@@ -516,7 +517,7 @@ class Cpartexe(Screen):
 		self.mountlist = []
 		list = []
 		for x in comlist:
-			print x
+			print(x)
 			list.append((x[1], None, x[0]))
 			if x[2] is not None:
 				self.mountlist.append(x[2])
@@ -537,7 +538,7 @@ class Cpartexe(Screen):
 			else:
 				return (device, device[5:])
 		except:
-			print "[eParted] <error get UUID>"
+			print("[eParted] <error get UUID>")
 		return None
 		
 	def __mountDevice(self):

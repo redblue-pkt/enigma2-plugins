@@ -21,6 +21,7 @@
 #
 
 # for localized messages
+from __future__ import print_function
 from . import _
 
 from enigma import eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, \
@@ -267,7 +268,7 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 			
 	def error(self, error = None):
 		if error is not None:
-			print error
+			print(error)
 		
 	def searchCallback(self, result):
 		if result:

@@ -18,6 +18,7 @@
 #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
 ############################################################################
 
+from __future__ import print_function
 import urllib
 import httplib
 import socket
@@ -47,13 +48,13 @@ class GoogleSuggestions():
 			try:
 				self.conn.request("GET", querry)
 			except (httplib.CannotSendRequest, socket.gaierror, socket.error):
-				print "[YTB] Can not send request for suggestions"
+				print("[YTB] Can not send request for suggestions")
 				self.callback(None)
 			else:
 				try:
 					response = self.conn.getresponse()
 				except httplib.BadStatusLine:
-					print "[YTB] Can not get a response from google"
+					print("[YTB] Can not get a response from google")
 					self.callback(None)
 				else:
 					if response.status == 200:
@@ -90,14 +91,14 @@ class GoogleSuggestions():
 #			try:
 #				filehandler = urllib.urlopen(url = querry)
 #			except IOError e:
-#				print "[YTB] Error during urlopen: ", e
+#				print("[YTB] Error during urlopen: ", e)
 #				self.callback(None)
 #			else:
 #				try:
 #					content = filehandler.read()
 #					filehandler.close()
 #				except IOError e:
-#					print "[YTB] Error during read: ", e
+#					print("[YTB] Error during read: ", e)
 #					self.callback(None)
 #				else:
 #					exec content

@@ -5,6 +5,9 @@ $Revision: 1290 $
 $Date: 2016-05-01 18:09:29 +0200 (Sun, 01 May 2016) $
 $Id: FritzOutlookCSV.py 1290 2016-05-01 16:09:29Z michael $
 '''
+
+from __future__ import print_function
+
 #
 # needs python-textutils for csv
 #
@@ -15,7 +18,7 @@ except ValueError:
 		return string
 	
 	def debug(text):
-		print text
+		print(text)
 	
 	import re
 	def normalizePhoneNumber(intNo):
@@ -40,7 +43,7 @@ logger = logging.getLogger("[FritzCall] OutlookCSV")
 debug = logger.debug
 
 def out(number, name):
-	print number + '#' + name
+	print(number + '#' + name)
 
 import csv
 #

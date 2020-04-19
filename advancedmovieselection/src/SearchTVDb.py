@@ -1,3 +1,4 @@
+from __future__ import print_function
 from __init__ import _
 import urllib, datetime, re, os, shutil
 from Screens.MessageBox import MessageBox
@@ -178,7 +179,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
             info = ServiceCenter.getInstance().info(service)
             self.searchTitle = info.getName(service)
             self.description = info.getInfoString(service, iServiceInformation.sDescription)
-        print '[tvdb]', str(self.searchTitle), '-', str(self.description)
+        print('[tvdb]', str(self.searchTitle), '-', str(self.description))
         if self.description == self.searchTitle:
             self.description = ''
         self.picload = ePicLoad()
@@ -248,8 +249,8 @@ class TheTVDBMain(Screen, InfoLoadChoice):
         try:
             shutil.rmtree(temp_dir)
         except Exception as e:
-            print '[AdvancedMovieSelection] ERROR deleting:', temp_dir
-            print e
+            print('[AdvancedMovieSelection] ERROR deleting:', temp_dir)
+            print(e)
 
     def cancel(self):
         self.close(False)
@@ -272,7 +273,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
                     tmpList.append((movie, _id))
 
         except Exception as e:
-            print e
+            print(e)
 
         if len(tmpList) > 0:
             self['list'].setList(tmpList)
@@ -334,7 +335,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
                     tmpEpisodeList.append((episode, episode_name, episode_number, episode_season_number, episode_id, episode_overview))
 
             except Exception as e:
-                print e
+                print(e)
 
         if len(tmpEpisodeList) > 0:
             self.updateView(self.SHOW_EPISODE_LIST)
@@ -391,7 +392,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
                 self['extended_episode'].setText(extended)
                 self.updateView(self.SHOW_EPISODE_DETAIL)
             except Exception as e:
-                print e
+                print(e)
                 self.updateView(self.SHOW_EPISODE_NO_RESULT)
 
     def searchManual(self):
@@ -464,7 +465,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
             else:
                 self['voted'].setText(_('No user voted!'))
         except Exception as e:
-            print e
+            print(e)
             self.updateView(self.SHOW_SERIE_NO_RESULT)
 
         return
@@ -538,7 +539,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
         try:
             first_aired = datetime.date(*map(int, date_string.encode('utf-8', 'ignore').split('-')))
         except Exception as e:
-            print e
+            print(e)
 
         return first_aired
 
@@ -550,7 +551,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
     def checkConnection(self):
         try:
             import socket
-            print socket.gethostbyname('www.google.com')
+            print(socket.gethostbyname('www.google.com'))
             return True
         except:
             self.session.openWithCallback(self.close, MessageBox, _('No internet connection available!'), MessageBox.TYPE_ERROR)

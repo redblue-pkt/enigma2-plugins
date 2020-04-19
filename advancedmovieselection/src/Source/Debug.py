@@ -24,6 +24,7 @@ must pass on to the recipients the same freedoms that you received. You must mak
 that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 '''
 
+from __future__ import print_function
 from time import localtime
 import sys 
 
@@ -57,7 +58,7 @@ class Debug():
         try:
             ltim = localtime()
             print
-            print "%04d.%02d.%02d %02d:%02d:%02d: Debug started: %s" % (ltim[0], ltim[1], ltim[2], ltim[3], ltim[4], ltim[5], file_name)
+            print("%04d.%02d.%02d %02d:%02d:%02d: Debug started: %s" % (ltim[0], ltim[1], ltim[2], ltim[3], ltim[4], ltim[5], file_name))
         except:
             pass
 
@@ -65,8 +66,8 @@ class Debug():
     def disable():
         try:
             ltim = localtime()
-            print
-            print "%04d.%02d.%02d %02d:%02d:%02d: Debug stopped!" % (ltim[0], ltim[1], ltim[2], ltim[3], ltim[4], ltim[5])
+            print()
+            print("%04d.%02d.%02d %02d:%02d:%02d: Debug stopped!" % (ltim[0], ltim[1], ltim[2], ltim[3], ltim[4], ltim[5]))
         except:
             pass
         global saved_stdout

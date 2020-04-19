@@ -18,6 +18,7 @@
 #  modify it (if you keep the license), but it may not be commercially 
 #  distributed other than under the conditions noted above.
 #
+from __future__ import print_function
 import commands
 from os import system
 from __init__ import _
@@ -30,14 +31,14 @@ from Components.Console import Console
 
 def getColorSpace():
     mode = commands.getoutput('cat /proc/stb/video/hdmi_colorspace')
-    print "[VideoColorSpace] current hdmi_colorspace:", mode
+    print("[VideoColorSpace] current hdmi_colorspace:", mode)
     return mode
 
 def setColorSpace(mode):
-    print "[VideoColorSpace] set hdmi_colorspace:", mode
+    print("[VideoColorSpace] set hdmi_colorspace:", mode)
     result = Console().ePopen("echo %s > /proc/stb/video/hdmi_colorspace" % mode) >> 8
     if result != 0:
-        print "[VideoColorSpace] error setting hdmi_colorspace"
+        print("[VideoColorSpace] error setting hdmi_colorspace")
         getColorSpace()
 
 def initializeConfig():

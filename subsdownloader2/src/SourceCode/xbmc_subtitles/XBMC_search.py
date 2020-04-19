@@ -76,12 +76,12 @@ class XBMCSubtitle(SubtitleDB):
             tvShow = fileData['name']
             season = fileData['season']
             episode = fileData['episode']
-            #print fileData
+            #print(fileData)
         elif fileData['type'] =='movie' or fileData['type'] =='unknown':
             tvShow = []
             season = []
             episode = []  
-            #print fileData
+            #print(fileData)
         self.__subtitles_list, self.__session_id, self.__msg = self.service.search_subtitles(file_path, fileData['name'], tvShow, year, season, episode, set_temp, rar, lang1, lang2, lang3, stock)
         return self.__subtitles_list
     

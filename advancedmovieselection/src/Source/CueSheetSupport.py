@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os, struct
 from Components.config import config
 from Screens.InfoBarGenerics import InfoBarCueSheetSupport
@@ -44,7 +45,7 @@ def checkDVDCuts(fileName):
                     break
                 where = struct.unpack('>Q', data[0:8])[0]
                 what = struct.unpack('>I', data[8:12])[0]
-                print what, where
+                print(what, where)
                 cut_list.append((where, what))
                 title = struct.unpack('<i', cuts_file.read(4))[0:4][0]
                 chapter = struct.unpack('<i', cuts_file.read(4))[0:4][0]
@@ -54,7 +55,7 @@ def checkDVDCuts(fileName):
                 spu_id = struct.unpack('<i', cuts_file.read(4))[0:4][0]
                 spu_lock = struct.unpack('<i', cuts_file.read(4))[0:4][0]
                 what = struct.unpack('>i', cuts_file.read(4))[0:4][0]
-                print 'py_resume_pos: resume_info.title=%d, chapter=%d, block=%d, audio_id=%d, audio_lock=%d, spu_id=%d, spu_lock=%d  (pts=%d)' % (title, chapter, block, audio_id, audio_lock, spu_id, spu_lock, what)
+                print('py_resume_pos: resume_info.title=%d, chapter=%d, block=%d, audio_id=%d, audio_lock=%d, spu_id=%d, spu_lock=%d  (pts=%d)' % (title, chapter, block, audio_id, audio_lock, spu_id, spu_lock, what))
                 if what == 4:
                     return True
 
@@ -93,7 +94,7 @@ class CueSheet:
                     cut_list.append((long(where), what))
 
             except:
-                print 'ERROR reading cutlist', file_name
+                print('ERROR reading cutlist', file_name)
                 printStackTrace()
             finally:
                 if cuts is not None:
@@ -113,7 +114,7 @@ class CueSheet:
                 cuts.write(data)
 
         except Exception as e:
-            print 'ERROR writing cutlist', file_name
+            print('ERROR writing cutlist', file_name)
             printStackTrace()
             return e
         finally:
@@ -190,14 +191,14 @@ class CutListSupportBase:
     def downloadCuesheet(self):
         try:
             if not self.new_service_started:
-                print 'cancel cue download, no new service started!!!'
+                print('cancel cue download, no new service started!!!')
                 self.ENABLE_RESUME_SUPPORT = False
                 return
             self.new_service_started = False
             self.currently_playing = True
             cue = self.getCuesheet()
             if cue is None:
-                print 'download failed, no cuesheet interface! Try to load from cuts'
+                print('download failed, no cuesheet interface! Try to load from cuts')
                 self.cut_list = []
                 if self.currentService is not None:
                     self.cut_list = CueSheet(self.currentService).getCutList()
@@ -207,7 +208,7 @@ class CutListSupportBase:
             if self.jump_first_mark:
                 self.doSeek(self.resume_point)
         except Exception as e:
-            print 'DownloadCutList exception:\n' + str(e)
+            print('DownloadCutList exception:\n' + str(e))
 
         return
 
@@ -265,7 +266,7 @@ class CutListSupportBase:
         try:
             self.onClose.insert(0, self.playerClosed)
         except Exception as e:
-            print 'addPlayerEvents exception: ' + str(e)
+            print('addPlayerEvents exception: ' + str(e))
 
     def playerClosed(self, service=None):
         try:
@@ -281,7 +282,7 @@ class CutListSupportBase:
             if service:
                 self.currentService = service
         except Exception as e:
-            print 'playerClosed exception:\n' + str(e)
+            print('playerClosed exception:\n' + str(e))
 
     def isCurrentlyPlaying(self):
         return self.currently_playing
@@ -303,7 +304,7 @@ class CutListSupportBase:
             if os.path.exists(src):
                 copyfile(src, dst)
         except Exception as e:
-            print 'storeDVDCueSheet exception:\n' + e
+            print('storeDVDCueSheet exception:\n' + e)
 
     def loadDVDCueSheet(self):
         try:
@@ -314,7 +315,7 @@ class CutListSupportBase:
                 dst = '/home/root/dvd-%s.cuts' % name.upper()
                 copyfile(src, dst)
         except Exception as e:
-            print 'loadDVDCueSheet exception:\n' + e
+            print('loadDVDCueSheet exception:\n' + e)
 
 
 class DVDCutListSupport(CutListSupportBase):
@@ -352,7 +353,7 @@ class DVDCutListSupport(CutListSupportBase):
                 name = info.getName()
             return name.replace('\xc2\x86', '').replace('\xc2\x87', '')
         except Exception as e:
-            print e
+            print(e)
 
         return
 
@@ -411,15 +412,15 @@ class BludiscCutListSupport(CutListSupport):
             if cut_bd and (0L, 2) not in cut_hd and self.main_movie:
                 for cut in cut_bd:
                     if cut not in cut_hd:
-                        print 'add cut:', cut
+                        print('add cut:', cut)
                         insort(cut_hd, cut)
                         update_cue = True
 
             if update_cue:
-                print 'update cue'
+                print('update cue')
                 cue.setCutList(cut_hd)
             if not self.main_movie:
-                print 'no bludisc main movie, disable resume support'
+                print('no bludisc main movie, disable resume support')
                 self.ENABLE_RESUME_SUPPORT = False
                 return cue_bd
             self.session.nav.currentlyPlayingService.cueSheet = cue

@@ -16,7 +16,7 @@
 #    along with periscope; if not, write to the Free Software
 #    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-
+from __future__ import print_function
 import socket # For timeout purposes
 from Plugins.Extensions.SubsDownloader2.SourceCode import xmlrpclib
 import os, struct, commands, traceback, logging
@@ -270,7 +270,7 @@ class OpenSubtitle(SubtitleDatabase.SubtitleDB):
         #TODO add also support for subtitles release
         xmatch = x['MovieReleaseName'] and (x['MovieReleaseName'].find(self.filename)>-1 or self.filename.find(x['MovieReleaseName'])>-1)
         ymatch = y['MovieReleaseName'] and (y['MovieReleaseName'].find(self.filename)>-1 or self.filename.find(y['MovieReleaseName'])>-1)
-        #print "analyzing %s and %s = %s and %s" %(x['MovieReleaseName'], y['MovieReleaseName'], xmatch, ymatch)
+        #print("analyzing %s and %s = %s and %s" %(x['MovieReleaseName'], y['MovieReleaseName'], xmatch, ymatch))
         if xmatch and ymatch:
             if x['MovieReleaseName'] == self.filename or x['MovieReleaseName'].startswith(self.filename) :
                 return -1

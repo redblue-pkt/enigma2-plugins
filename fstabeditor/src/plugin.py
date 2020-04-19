@@ -22,6 +22,7 @@
 #  modify it (if you keep the license), but it may not be commercially 
 #  distributed other than under the conditions noted above.
 #
+from __future__ import print_function
 from Components.Console import Console
 from Components.config import config, ConfigText, ConfigNumber, ConfigSelection, NoSave, getConfigListEntry
 from Components.ActionMap import *
@@ -279,7 +280,7 @@ class fstabEditorScreen(Screen,ConfigListScreen,HelpableScreen):
 	
 	def dirSelectDlgClosed(self, mountpoint):
 		#use print to see in crashlog what's been selected
-		print "mountpoint: ", mountpoint
+		print("mountpoint: ", mountpoint)
 		if mountpoint != False:
 			if self.selectedEntry == 1:
 				self.mountpoint.value = mountpoint
