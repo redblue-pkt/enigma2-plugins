@@ -40,8 +40,6 @@ from Components.ActionMap import ActionMap
 from Components.ActionMap import NumberActionMap
 from Components.Harddisk import harddiskmanager
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-from Poll import Poll
-from Poll import Poll
 from threading import Thread, Lock
 import Queue
 Briefkasten = Queue.Queue()
