@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
 The gntp.config module is provided as an extended GrowlNotifier object that takes

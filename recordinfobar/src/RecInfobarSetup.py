@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from . import _, PLUGIN_NAME
 from Screens.Screen import Screen

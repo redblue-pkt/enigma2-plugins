@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
 #    Maximum Temperature Renderer for Dreambox/Enigma-2

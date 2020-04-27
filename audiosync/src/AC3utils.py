@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 AC3 = "AC3"
 PCM = "PCM"

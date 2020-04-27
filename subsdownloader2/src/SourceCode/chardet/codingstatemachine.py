@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 ######################## BEGIN LICENSE BLOCK ########################
 # The Original Code is mozilla.org code.

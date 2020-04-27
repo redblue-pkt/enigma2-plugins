@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 class EPGRefreshService(object):
 	def __init__(self, sref, duration):

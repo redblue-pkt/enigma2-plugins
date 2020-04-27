@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #===============================================================================
 # Vier Gewinnt Plugin by DarkVolli 2011

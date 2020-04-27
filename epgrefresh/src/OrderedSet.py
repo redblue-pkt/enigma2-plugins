@@ -1,4 +1,6 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # Python OrderedSet implementation
 # taken from http://code.activestate.com/recipes/576694-orderedset/
 import collections

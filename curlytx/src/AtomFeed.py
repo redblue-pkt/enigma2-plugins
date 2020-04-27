@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 # CurlyTx Atom feed parser
 # Copyright (C) 2011 Christian Weiske <cweiske@cweiske.de>

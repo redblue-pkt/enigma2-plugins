@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Tools.NumericalTextInput import NumericalTextInput
 from Screens.VirtualKeyBoard import VirtualKeyBoard

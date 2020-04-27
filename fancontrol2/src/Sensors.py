@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 class Sensors:
 	# (type, name, unit, directory)

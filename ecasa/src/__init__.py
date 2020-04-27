@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #pragma mark - Config
 from Components.config import config, ConfigSubsection, ConfigText, \

@@ -1,4 +1,6 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from __init__ import _
 from Plugins.Plugin import PluginDescriptor

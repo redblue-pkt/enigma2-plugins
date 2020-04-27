@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from HelpableNumberActionMap import HelpableNumberActionMap
 from Components.config import config

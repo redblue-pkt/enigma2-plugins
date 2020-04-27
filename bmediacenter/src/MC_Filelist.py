@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from re import compile as re_compile
 from os import path as os_path, listdir

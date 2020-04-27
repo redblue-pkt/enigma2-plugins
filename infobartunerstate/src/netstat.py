@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 #
 # http://voorloopnul.com/blog/a-python-netstat-in-less-than-100-lines-of-code/
 #

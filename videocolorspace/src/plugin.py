@@ -1,6 +1,6 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-#!/usr/bin/python
 #  VideoColorSpace for Dreambox-Enigma2
 #
 #  Coded by cmikula (c)2012

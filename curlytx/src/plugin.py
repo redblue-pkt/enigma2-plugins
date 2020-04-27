@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 # CurlyTx plugin registration and startup
 # Copyright (C) 2011 Christian Weiske <cweiske@cweiske.de>

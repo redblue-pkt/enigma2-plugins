@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Plugins.SystemPlugins.Toolkit.TagStrip import strip, strip_readable
 from Components.Scanner import ScanFile

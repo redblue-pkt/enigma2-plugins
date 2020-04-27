@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 '''
 $Id: nrzuname.py 1451 2017-06-08 16:35:18Z michael $
 $Author: michael $
