@@ -1,6 +1,6 @@
-# -*- coding: UTF-8 -*-
-# Zap Statistic by AliAbdul
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+# Zap Statistic by AliAbdul
 from Components.ActionMap import ActionMap
 from Components.config import config
 from Components.Label import Label

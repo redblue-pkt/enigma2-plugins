@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config, ConfigSubsection, ConfigEnableDisable

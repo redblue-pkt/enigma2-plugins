@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 import os, sys, re, string, time, urllib, urllib2, cookielib
 from Screens.MessageBox import MessageBox

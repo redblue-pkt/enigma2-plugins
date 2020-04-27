@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import _
 from enigma import eTimer, eDVBLocalTimeHandler, eEPGCache, getDesktop
 try:

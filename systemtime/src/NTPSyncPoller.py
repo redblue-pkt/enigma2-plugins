@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from enigma import eTimer, eDVBLocalTimeHandler, eEPGCache
 from time import time
 from Components.config import config

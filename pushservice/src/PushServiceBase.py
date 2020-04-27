@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #######################################################################
 #
 #    Push Service for Enigma-2
@@ -16,7 +18,6 @@
 #
 #######################################################################
 
-from __future__ import print_function
 import os, sys, traceback
 from time import localtime, strftime
 

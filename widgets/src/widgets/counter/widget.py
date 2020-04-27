@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from Plugins.Extensions.Widgets.Widget import Widget
 from Components.Label import Label

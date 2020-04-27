@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  AutomaticVolumeAdjustment E2
 #
@@ -21,7 +22,6 @@
 #  distributed other than under the conditions noted above.
 #
 # for localized messages
-from __future__ import print_function
 from . import _
 
 from Components.config import ConfigSubsection, ConfigText, \

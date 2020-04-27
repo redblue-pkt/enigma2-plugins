@@ -9,7 +9,6 @@ $Id: FritzLDIF.py 1290 2016-05-01 16:09:29Z michael $
 # needs python-ldap for ldif
 #
 
-from __future__ import print_function
 import ldif, re
 try:
 	from . import _, normalizePhoneNumber #@UnresolvedImport # pylint: disable-msg=F0401

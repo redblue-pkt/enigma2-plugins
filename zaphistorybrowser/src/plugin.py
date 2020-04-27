@@ -1,6 +1,6 @@
-# -*- coding: UTF-8 -*-
-## Zap-History Browser by AliAbdul
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+## Zap-History Browser by AliAbdul
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigInteger, ConfigSelection, \
 		ConfigYesNo, ConfigSet, ConfigSubsection, getConfigListEntry

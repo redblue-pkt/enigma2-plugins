@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 # for localized messages
-from __future__ import print_function
 from . import _x
 
 import os
@@ -152,7 +152,7 @@ class EpiSepCfg(Screen):
 	def setSeparator(self, sep):
 		if sep == None:
 			sep = ""
-#		print "[SF-Plugin] EpiSepCfg.setSeparator >%s< to >%s<" % (self.newsep, sep)
+#		print("[SF-Plugin] EpiSepCfg.setSeparator >%s< to >%s<" % (self.newsep, sep))
 		self.newsep = sep
 		self.secondlevel[0] = self.secondformat % (sep, len(sep))
 		self.sfsetLabel()

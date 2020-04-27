@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  SHOUTcast E2
 #
@@ -21,7 +22,6 @@
 #  distributed other than under the conditions noted above.
 #
 
-from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from urlparse import urlparse
 from Screens.Screen import Screen

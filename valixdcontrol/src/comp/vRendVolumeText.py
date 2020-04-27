@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Components.VariableText import VariableText
 from enigma import eLabel, eDVBVolumecontrol, eTimer
 from Renderer import Renderer

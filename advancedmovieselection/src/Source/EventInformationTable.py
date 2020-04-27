@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 """
 Copyright (C) 2011 cmikula
 
@@ -27,7 +29,6 @@ for electronic program guides as well as for automatic searching and filtering.
 Based on: en_300468v010901p.pdf
 Digital Video Broadcasting (DVB) Specification for Service Information (SI) in DVB systems
 """
-from __future__ import print_function
 import os, time, urllib
 from struct import unpack, pack
 from calendar import timegm

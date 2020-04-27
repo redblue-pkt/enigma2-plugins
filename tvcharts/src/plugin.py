@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #####################################################
 # TVCharts Plugin for Enigma2 Dreamboxes
 # Coded by Homey (c) 2011
@@ -5,7 +7,6 @@
 # Version: 1.5
 # Support: www.i-have-a-dreambox.com
 #####################################################
-from __future__ import print_function
 from Components.About import about
 from Components.ActionMap import ActionMap
 from Components.Button import Button

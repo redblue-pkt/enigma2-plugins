@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #
 #    SmartInfo-Converter for Dreambox/Enigma-2
 #    Coded by Vali (c)2009-2011

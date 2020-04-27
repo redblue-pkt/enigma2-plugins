@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import _, PLUGIN_NAME
 from Screens.Screen import Screen
 from Components.Sources.StaticText import StaticText

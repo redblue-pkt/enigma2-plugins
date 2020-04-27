@@ -1,6 +1,6 @@
-# -*- coding: UTF-8 -*-
-# ARD Mediathek by AliAbdul
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+# ARD Mediathek by AliAbdul
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.Label import Label

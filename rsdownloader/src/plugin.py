@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 ##
 ## RS Downloader
 ## by AliAbdul
 ##
 ##
-from __future__ import print_function
 from base64 import encodestring
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigClock, ConfigInteger, ConfigSelection, ConfigSubsection, ConfigText, ConfigYesNo, getConfigListEntry

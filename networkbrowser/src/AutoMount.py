@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 #from __init__ import _
-from __future__ import print_function
 import os
 
 from enigma import eTimer

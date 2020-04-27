@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from __future__ import print_function
+
 from enigma import eTimer, eConsoleAppContainer, getBestPlayableServiceReference, eServiceReference, eEPGCache, eEnv
 from time import time, strftime, localtime
 from Components.config import config

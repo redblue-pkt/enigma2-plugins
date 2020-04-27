@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 ##
 ## Movielist Preview
 ## by AliAbdul
 ##
-from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, ConfigInteger, ConfigSelection, ConfigSubsection, ConfigYesNo, getConfigListEntry

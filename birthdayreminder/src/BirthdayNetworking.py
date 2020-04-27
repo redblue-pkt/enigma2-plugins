@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  Birthday Reminder E2 Plugin
 #
@@ -22,7 +24,6 @@
 
 
 # PYTHON IMPORTS
-from __future__ import print_function
 from pickle import loads as pickle_loads
 from socket import SOL_SOCKET, SO_BROADCAST
 from twisted.internet.error import ConnectionDone

@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
 '''
 $Id: nrzuname.py 1451 2017-06-08 16:35:18Z michael $
 $Author: michael $
@@ -20,7 +20,6 @@ $Date: 2017-06-08 18:35:18 +0200 (Thu, 08 Jun 2017) $
 # C0410 multiple-imports
 # pylint: disable=C0111,C0103,C0301,W0603,W0403,C0302
 
-from __future__ import print_function
 import re, sys, os
 from xml.dom.minidom import parse
 

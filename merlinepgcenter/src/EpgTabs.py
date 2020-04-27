@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 #  MerlinEPGCenter E2 Plugin
 #

@@ -1,5 +1,6 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+#!/usr/bin/python
 # 
 #    Copyright (C) 2012 cmikula
 #
@@ -23,7 +24,6 @@
 #    that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 #
 
-from __future__ import print_function
 import os
 import ping
 

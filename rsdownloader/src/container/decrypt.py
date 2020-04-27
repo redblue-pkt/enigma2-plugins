@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Crypto.Cipher import AES, DES
 from MultipartPostHandler import MultipartPostHandler
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS

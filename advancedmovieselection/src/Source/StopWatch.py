@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 # Copyright (C) 2008 John Paulett (john -at- 7oars.com)
 # All rights reserved.
@@ -6,7 +7,6 @@
 # This software is licensed as described in the file COPYING, which
 # you should have received as part of this distribution.
 
-from __future__ import print_function
 import time
 
 """stopwatch is a very simple Python module for measuring time.

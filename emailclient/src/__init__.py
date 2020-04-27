@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 '''
 Common functions for EmailClient
 '''
-from __future__ import print_function
 from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
 from Components.Language import language
 from Components.config import config

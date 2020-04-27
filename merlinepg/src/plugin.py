@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #######################################################################
 #
 #    Merlin Programm Guide for Dreambox-Enigma2

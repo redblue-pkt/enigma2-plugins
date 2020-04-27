@@ -1,5 +1,6 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+#!/usr/bin/env python
 
 ####
 # 02/2006 Will Holcomb <wholcomb@gmail.com>
@@ -41,7 +42,6 @@ Further Example:
   then uploads it to the W3C validator.
 """
 
-from __future__ import print_function
 import urllib
 import urllib2
 import mimetools, mimetypes

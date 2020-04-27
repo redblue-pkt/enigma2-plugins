@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #===============================================================================
 # Battleship Plugin by DarkVolli 2011
 #
@@ -8,7 +9,6 @@
 # version.
 #===============================================================================
 
-from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox

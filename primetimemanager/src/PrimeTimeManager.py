@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #  PrimeTimeManager E2
 #  Coded by by Shaderman (c) 2010-2011 / Dimitrij openPLi 2013-2016
 #
@@ -37,7 +39,6 @@
 # 1.3 - add new func key menu TimerEdit - notify timer conflict
 # 1.3-1 - fix event info <> if end list
 
-from __future__ import print_function
 from . import _
 from copy import deepcopy
 from datetime import datetime, timedelta

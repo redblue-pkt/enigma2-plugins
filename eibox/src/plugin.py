@@ -1,6 +1,6 @@
-# -*- coding: UTF-8 -*-
-
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+
 from Components.ActionMap import ActionMap
 from Components.Sensors import sensors
 from Components.Sources.Sensor import SensorSource

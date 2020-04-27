@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
@@ -17,7 +19,7 @@ mcpath = resolveFilename(SCOPE_PLUGINS, "Extensions/BMediaCenter/skins/defaultHD
 #try:
 #	from enigma import evfd
 #except Exception as e:
-#	print "Media Center: Import evfd failed"
+#	print("Media Center: Import evfd failed")
 class MC_Settings(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)

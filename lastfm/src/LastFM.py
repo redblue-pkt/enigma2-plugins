@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from urllib import unquote_plus
 from twisted.web.client import getPage

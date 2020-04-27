@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 AC3 = "AC3"
 PCM = "PCM"
 AC3GLOB = "AC3GLOB"

@@ -1,4 +1,4 @@
-# -*- coding: ISO-8859-1 -*-
+# -*- coding: utf-8 -*-
 #===============================================================================
 # eSame Game Plugin by DarkVolli 2009
 # Original Game kSame by Marcus Kreutzberger

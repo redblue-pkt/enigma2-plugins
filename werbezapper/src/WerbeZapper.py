@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import math
 
 # for localized messages
@@ -321,8 +322,8 @@ class WerbeZapper(Screen):
 		self.root = self.servicelist.getRoot()
 
 		#import ServiceReference
-		#print [str(ServiceReference.ServiceReference(x)) for x in self.servicelist.getCurrentServicePath()]
-		#print ServiceReference.ServiceReference(self.servicelist.getRoot())
+		#print([str(ServiceReference.ServiceReference(x)) for x in self.servicelist.getCurrentServicePath()])
+		#print(ServiceReference.ServiceReference(self.servicelist.getRoot()))
 
 		# Start Timer
 		self.zap_time = time() + ( duration * 60 )

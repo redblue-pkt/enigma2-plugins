@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 '''
 $Author$
 $Revision$
 $Date$
 $Id$
 '''
-from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Screens.MessageBox import MessageBox

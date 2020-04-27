@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # code by GeminiTeam
 
-from __future__ import print_function
 from enigma import eTimer
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox

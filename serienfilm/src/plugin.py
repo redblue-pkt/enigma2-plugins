@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 # for localized messages
-from __future__ import print_function
 from . import _x
 
 from Plugins.Plugin import PluginDescriptor

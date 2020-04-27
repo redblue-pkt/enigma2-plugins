@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # -*- Python -*-
 #
 # Copyright (c) 2001-2004 Twisted Matrix Laboratories.

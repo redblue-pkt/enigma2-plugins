@@ -1,6 +1,6 @@
-# -*- coding: UTF-8 -*-
-# ZDF Mediathek by AliAbdul
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+# ZDF Mediathek by AliAbdul
 from Components.ActionMap import HelpableActionMap
 from Components.AVSwitch import AVSwitch
 from Components.Label import Label

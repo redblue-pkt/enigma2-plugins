@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from HelpableNumberActionMap import HelpableNumberActionMap
 from Components.config import config
 from __init__ import _

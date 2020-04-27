@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #!/usr/bin/env python
 
 # Derived from ping.c distributed in Linux's netkit. That code is
@@ -34,7 +36,6 @@
 # unsigned. My thanks to Jerome Poincheval for the fix.
 #
 
-from __future__ import print_function
 import os
 from socket import *
 import struct

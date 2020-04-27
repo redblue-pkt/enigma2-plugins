@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __init__ import _
 Version = "V2.9r2"
 # globale Variablen        

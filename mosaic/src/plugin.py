@@ -1,6 +1,6 @@
-# -*- coding: UTF-8 -*-
-# Mosaic by AliAbdul
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+# Mosaic by AliAbdul
 from Components.ActionMap import NumberActionMap
 from Components.config import config, ConfigSubsection, ConfigInteger
 from Components.Console import Console

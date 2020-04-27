@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __init__ import _, _debug , _log
 
 from enigma import iServiceInformation, iPlayableService, eSocketNotifier, getDesktop, ePoint, eSize, eServiceReference

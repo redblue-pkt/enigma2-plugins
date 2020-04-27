@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 ##
 ## ORF.at IPTV
 ## by AliAbdul
 ##
-from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Pixmap import MovingPixmap, Pixmap
 from enigma import ePoint, eServiceReference, eSize, eTimer

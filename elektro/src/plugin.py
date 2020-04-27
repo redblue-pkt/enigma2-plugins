@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 # Power Save Plugin by gutemine
 #
@@ -23,7 +25,6 @@
 #
 #
 
-from __future__ import print_function
 from __init__ import _
 from Screens.InfoBarGenerics import *
 import calendar
@@ -58,7 +59,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 # Globals
 pluginPrintname = "[Elektro]"
-debug = False # If set True, plugin will print some additional status info to track logic flow
+debug = False # If set True, plugin will print(some additional status info to track logic flow)
 session = None
 ElektroWakeUpTime = -1
 elektro_pluginversion = "3.4.6"

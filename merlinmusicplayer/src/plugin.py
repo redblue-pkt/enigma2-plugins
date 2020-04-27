@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  Merlin Music Player E2
 #
@@ -21,7 +22,6 @@
 #  distributed other than under the conditions noted above.
 
 # for localized messages
-from __future__ import print_function
 from . import _
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen

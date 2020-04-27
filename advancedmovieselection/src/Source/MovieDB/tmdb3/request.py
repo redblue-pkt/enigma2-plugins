@@ -1,5 +1,6 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+#!/usr/bin/env python
 #-----------------------
 # Name: tmdb_request.py
 # Python Library
@@ -8,7 +9,6 @@
 #          TMDb v3 API
 #-----------------------
 
-from __future__ import print_function
 from tmdb_exceptions import *
 from locales import get_locale
 from cache import Cache

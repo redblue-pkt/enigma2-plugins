@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # CurlyTx translation initialization
 # Copyright (C) 2011 Christian Weiske <cweiske@cweiske.de>
 # License: GPLv3 or later
 
-from __future__ import print_function
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 import os, gettext

@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/python
-# -*- coding: utf-8 -*- 
 #  Advanced Movie Selection for Dreambox-Enigma2
 #
 #  The plugin is developed on the basis from a lot of single plugins (thx for the code @ all)
@@ -20,7 +20,6 @@
 #  distributed other than under the conditions noted above.
 #
 # for localized messages
-from __future__ import print_function
 from __init__ import _
 from Screens.Screen import Screen
 from Components.config import ConfigText, getConfigListEntry

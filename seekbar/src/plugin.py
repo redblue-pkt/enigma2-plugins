@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 ##
 ## Seekbar
 ## by AliAbdul
 ##
-from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigInteger, ConfigNumber, ConfigSelection, ConfigSubsection, ConfigYesNo, getConfigListEntry
 from Components.ConfigList import ConfigListScreen

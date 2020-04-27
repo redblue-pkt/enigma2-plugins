@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #######################################################################
 #
 #    Vali's File-List with some extendet functions

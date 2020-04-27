@@ -1,5 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python
 #-----------------------
 # Name: pager.py    List-like structure designed for handling paged results
 # Python Library

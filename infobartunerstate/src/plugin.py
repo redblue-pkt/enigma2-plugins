@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #######################################################################
 #
 #    InfoBar Tuner State for Enigma-2
@@ -16,7 +18,6 @@
 #
 #######################################################################
 
-from __future__ import print_function
 
 # for localized messages
 from . import _

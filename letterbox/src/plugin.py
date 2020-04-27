@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Plugins.Plugin import PluginDescriptor
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.config import config

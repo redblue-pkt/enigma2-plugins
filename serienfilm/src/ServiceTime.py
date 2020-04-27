@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.Converter.Converter import Converter
 from Components.Element import cached, ElementError
 from enigma import iServiceInformation, eServiceReference
@@ -36,7 +38,7 @@ class ServiceTime(Converter, object):
 			return begin + len
 		elif self.type == self.DURATION:
 			da = info.getLength(service)
-#			print "[SF-Plugin] ServiceTimeSF.getTime srv=%x,%x, getLength = %d -- %s" % (service.type, service.flags, da, sstr(self))
+#			print("[SF-Plugin] ServiceTimeSF.getTime srv=%x,%x, getLength = %d -- %s" % (service.type, service.flags, da, sstr(self)))
 			if da == -1 and service.type == (eServiceReference.idUser | eServiceReference.idDVB):
 				return None		# otherwise -1:59
 			return info.getLength(service)

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 #   This file is part of periscope.
 #
@@ -16,7 +17,6 @@
 #    along with periscope; if not, write to the Free Software
 #    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from __future__ import print_function
 import socket # For timeout purposes
 from Plugins.Extensions.SubsDownloader2.SourceCode import xmlrpclib
 import os, struct, commands, traceback, logging

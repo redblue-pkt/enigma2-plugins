@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #===============================================================================
 # YouTube Plugin by Volker Christian 2008
 #
@@ -8,7 +9,6 @@
 # version.
 #===============================================================================
 
-from __future__ import print_function
 
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE

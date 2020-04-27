@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ﻿## MediaInfoDLL - All info about media files, for DLL
 #  Copyright (C) 2007-2009 Jerome Martinez, Zen@MediaArea.net
 # 

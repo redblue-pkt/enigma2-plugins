@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #from Plugins.Extensions.SubsDownloader2.SourceCode import rarfile
 
 #  Copyright (C) 2011 Dawid Bankowski <enigma2subsdownloader@gmail.com>
@@ -14,7 +16,6 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import print_function
 import zipfile
 
 class zip_extractor():

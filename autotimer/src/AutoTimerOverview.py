@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _, config
 
@@ -228,11 +230,11 @@ class AutoTimerOverview(Screen, HelpableScreen):
 					from RecordTimer import RecordTimerEntry
 					recordHandler = NavigationInstance.instance.RecordTimer
 					for timer in recordHandler.timer_list[:]: # '[:]' for working on a copy, avoid processing a changing list
-						#print '[AutoTimerOverview] checking whether timer should be deleted: ', timer
+						#print('[AutoTimerOverview] checking whether timer should be deleted: ', timer)
 						if timer:
 							for entry in timer.log_entries:
 								if len(entry) == 3:
-									#print '[AutoTimerOverview] checking line: ', entry[2]
+									#print('[AutoTimerOverview] checking line: ', entry[2])
 									if entry[2] == '[AutoTimer] Try to add new timer based on AutoTimer '+cur.name+'.':
 										NavigationInstance.instance.RecordTimer.removeEntry(timer)
 										break

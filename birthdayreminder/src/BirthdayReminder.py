@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  Birthday Reminder E2 Plugin
 #
@@ -22,7 +24,6 @@
 
 
 # PYTHON IMPORTS
-from __future__ import print_function
 from copy import copy
 from csv import writer as csv_writer, reader as csv_reader
 from datetime import datetime, date

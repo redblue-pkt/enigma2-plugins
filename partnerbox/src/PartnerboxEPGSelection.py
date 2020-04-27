@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 #  Partnerbox E2
 #
@@ -17,7 +18,6 @@
 #  GNU General Public License for more details.
 #
 
-from __future__ import print_function
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.config import config

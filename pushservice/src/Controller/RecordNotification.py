@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #######################################################################
 #
 #    Push Service for Enigma-2
@@ -17,7 +19,6 @@
 #######################################################################
 
 # Config
-from __future__ import print_function
 from Components.config import ConfigYesNo, NoSave
 
 # Plugin internal

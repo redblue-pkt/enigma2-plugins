@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  MerlinEPGCenter E2 Plugin
 #
@@ -22,7 +24,6 @@
 
 
 # for localized messages
-from __future__ import print_function
 from . import _
 
 

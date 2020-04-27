@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 ##
 ## DVD Backup plugin for enigma2 by AliAbdul
 ## using the great open source dvdbackup by Olaf Beck
 ##
-from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigSubsection, ConfigText, ConfigYesNo, getConfigListEntry
 from Components.ConfigList import ConfigListScreen

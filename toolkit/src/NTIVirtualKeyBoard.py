@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Tools.NumericalTextInput import NumericalTextInput
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Components.ActionMap import NumberActionMap

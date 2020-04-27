@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #######################################################################
 #
 #    Next Event Renderer for Dreambox/Enigma-2

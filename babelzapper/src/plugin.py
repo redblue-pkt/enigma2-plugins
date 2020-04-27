@@ -1,9 +1,9 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 # Babelzapper Plugin by gutemine
 #
 #
-from __future__ import print_function
 from RecordTimer import parseEvent
 from Plugins.Plugin import PluginDescriptor
 from enigma import eTimer,  eServiceReference, eServiceCenter, iServiceInformation, eEPGCache, iTimeshiftServicePtr, getBoxType

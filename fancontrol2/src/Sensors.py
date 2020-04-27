@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Sensors:
 	# (type, name, unit, directory)
 	TYPE_TEMPERATURE = 0

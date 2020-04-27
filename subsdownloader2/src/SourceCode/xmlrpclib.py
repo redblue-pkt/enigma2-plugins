@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 # XML-RPC CLIENT LIBRARY
 # $Id: xmlrpclib.py 65467 2008-08-04 00:50:11Z brett.cannon $
@@ -89,7 +91,6 @@
 # things to look into some day:
 
 # TODO: sort out True/False/boolean issues for Python 2.3
-from __future__ import print_function
 
 """
 An XML-RPC client interface for Python.

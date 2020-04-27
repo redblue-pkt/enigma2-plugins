@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The gntp.config module is provided as an extended GrowlNotifier object that takes
 advantage of the ConfigParser module to allow us to setup some default values

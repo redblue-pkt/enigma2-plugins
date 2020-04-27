@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 from os import path
-# -*- coding: UTF-8 -*-
 # for localized messages
 from . import _
 # GUI (Components)

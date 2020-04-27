@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from Screens.Screen import Screen
 from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigText

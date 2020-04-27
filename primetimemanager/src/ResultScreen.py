@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import _
 from time import localtime, strftime
 from Components.ActionMap import HelpableActionMap

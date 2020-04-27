@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  AutomaticVolumeAdjustment E2
 #
@@ -20,7 +21,6 @@
 #  modify it (if you keep the license), but it may not be commercially 
 #  distributed other than under the conditions noted above.
 #
-from __future__ import print_function
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
@@ -115,7 +115,7 @@ class AutomaticVolumeAdjustment(Screen):
 						self.lastAdjustedValue = ajvol # save delta value
 						if (vol + ajvol != currentvol):
 							if ajvol == 0:
-								ajvol = vol - currentvol # correction for debug -print only
+								ajvol = vol - currentvol # correction for debug -print(only)
 							self.setVolume(vol+self.lastAdjustedValue)
 							print("[AutomaticVolumeAdjustment] Change volume for service: %s (+%d) to %d"%(ServiceReference(ref).getServiceName().replace('\xc2\x86', '').replace('\xc2\x87', ''), ajvol, self.volctrl.getVolume()))
 						self.currentVolume = self.volctrl.getVolume() # ac3||dts service , save current volume

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 '''
 Update rev
 $Author: michael $
@@ -3130,7 +3131,7 @@ def registerUserAction(fun):
 	# 	from Plugins.Extensions.FritzCall.plugin import registerUserAction as FritzCallRegisterUserAction
 	# 	FritzCallRegisterUserAction(FritzCallEvent)
 	# except:
-	# 	print "import of FritzCall failed"
+	# 	print("import of FritzCall failed")
 	#===========================================================================
 	info("[FritzCall] register: %s", fun.__name__)
 	userActionList.append(fun)

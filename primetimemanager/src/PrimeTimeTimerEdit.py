@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import _
 from Components.ActionMap import ActionMap
 from Components.Button import Button

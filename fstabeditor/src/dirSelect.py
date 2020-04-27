@@ -12,7 +12,6 @@
 # for localized messages
 #from __init__ import _
 
-from __future__ import print_function
 
 from Screens.Screen import Screen
 

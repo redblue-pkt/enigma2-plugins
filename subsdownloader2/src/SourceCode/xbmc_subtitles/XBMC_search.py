@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #from XBMC.utilities import *
 #from periscope.plugins.SubtitleDatabase import SubtitleDB
 #from Plugins.Extensions.SubsDownloader2.SourceCode.periscope.SubtitleDatabase import SubtitleDB, tvshowRegex, tvshowRegex2, movieRegex

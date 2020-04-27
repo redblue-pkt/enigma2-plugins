@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  SkinFinder E2
 #
@@ -21,7 +23,6 @@
 #
 
 # PYTHON IMPORTS
-from __future__ import print_function
 from glob import iglob
 from os.path import basename as path_basename
 

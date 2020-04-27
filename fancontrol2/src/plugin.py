@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # FanControl2
 # joergm6 IHAD
 # PID-controller by Lukasz S.
 
-from __future__ import print_function
 import time
 import os
 from __init__ import _

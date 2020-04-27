@@ -1,4 +1,5 @@
-# -*- coding: ISO-8859-1 -*-
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #===============================================================================
 # Sudoku Plugin by DarkVolli 2009
 # class board by Robert Wohleb
@@ -9,7 +10,6 @@
 # version.
 #===============================================================================
 
-from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #######################################################################
 #
 #    Push Service for Enigma-2
@@ -16,7 +17,6 @@
 #
 #######################################################################
 
-from __future__ import print_function
 # Config
 from Components.config import config, NoSave, ConfigText, ConfigNumber, ConfigYesNo, ConfigPassword
 

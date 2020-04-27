@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Plugins.Extensions.Widgets.Widget import Widget
 
 class ServiceinfoWidget(Widget):

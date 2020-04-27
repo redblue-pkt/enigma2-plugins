@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 #  Show Clock E2
 #
@@ -26,7 +26,6 @@
 #
 
 # for localized messages
-from __future__ import print_function
 from . import _
 
 from enigma import ePoint, eTimer, getDesktop
@@ -69,7 +68,7 @@ VERSION = "0.6"
 # 0.5 Minor code optimization
 # 0.6 Simplify translation code: Setting the os LANGUAGE variable isn't needed anymore
 pluginPrintname = "[ShowClock Ver. %s]" %VERSION
-debug = False # If set True, plugin will print some additional status info to track logic flow
+debug = False # If set True, plugin will print(some additional status info to track logic flow)
 ###############################################################################
 
 config.plugins.ShowClock = ConfigSubsection()

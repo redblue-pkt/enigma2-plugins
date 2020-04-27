@@ -1,5 +1,6 @@
-# l10n
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+# l10n
 from . import _
 
 # GUI (Screens)

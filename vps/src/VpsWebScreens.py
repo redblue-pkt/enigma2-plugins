@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Plugins.Extensions.WebInterface.WebScreens import WebScreen
 
 class VpsWebScreen(WebScreen):

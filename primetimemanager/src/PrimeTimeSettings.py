@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import _
 from Components.config import config, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigClock, ConfigYesNo
 from Components.ConfigList import ConfigListScreen

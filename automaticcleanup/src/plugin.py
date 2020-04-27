@@ -27,7 +27,6 @@
 #
 
 # for localized messages
-from __future__ import print_function
 from . import _
 
 # Plugin definition
@@ -68,7 +67,7 @@ VERSION = "0.1.9"
 # 0.1.2 First public version
 # 0.1.3 Prevention of timerlist cleanup if duplicated with EMC plugin
 #       Fix producing crash of Softwaremanager
-#       Show version in print messages for ease of crashlog check
+#       Show version in print(messages for ease of crashlog check)
 # 0.1.4 Option added to cleanup orphaned movie files
 #       Delete expired disabled timerlist entries, except those marked "repeated"
 #       Performance improvement: Check timerentry StateChange only if option

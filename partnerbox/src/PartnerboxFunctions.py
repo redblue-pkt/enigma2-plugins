@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  Partnerbox E2
 #
@@ -18,7 +19,6 @@
 #  GNU General Public License for more details.
 #
 
-from __future__ import print_function
 import urllib
 from time import localtime
 from timer import TimerEntry

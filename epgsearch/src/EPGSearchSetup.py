@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # for localized messages
 from . import _, allowShowOrbital, updateOrbposConfig, purgeOrbposConfig, getOrbposConfList, orbposChoicelist
 

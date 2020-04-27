@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 # Attention this is a Frankenstein Monster. Patched from other pieces of code,
 # ugly and may not work at all. Feel free to improve, change anything.

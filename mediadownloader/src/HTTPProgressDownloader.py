@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from twisted.web.client import HTTPDownloader
 
 class HTTPProgressDownloader(HTTPDownloader):

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class EPGRefreshService(object):
 	def __init__(self, sref, duration):
 		self.sref = str(sref)

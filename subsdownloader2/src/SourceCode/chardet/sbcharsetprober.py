@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ######################## BEGIN LICENSE BLOCK ########################
 # The Original Code is Mozilla Universal charset detector code.
 #
@@ -26,7 +27,6 @@
 # 02110-1301  USA
 ######################### END LICENSE BLOCK #########################
 
-from __future__ import print_function
 import constants, sys
 from charsetprober import CharSetProber
 

@@ -1,4 +1,5 @@
-# -*- coding: ISO-8859-1 -*-
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #===============================================================================
 # VLC Player Plugin by A. Latsch 2007
 #                   modified by Volker Christian 2008
@@ -9,7 +10,6 @@
 # version.
 #===============================================================================
 
-from __future__ import print_function
 from . import _
 from Plugins.Plugin import PluginDescriptor
 from VlcServerList import VlcServerListScreen

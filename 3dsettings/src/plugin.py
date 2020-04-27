@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  3D Settings E2-Plugin
 #
@@ -18,7 +20,6 @@
 #  distributed other than under the conditions noted above.
 #
 
-from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigSubsection, ConfigYesNo, getConfigListEntry,\
 	ConfigSlider, ConfigSelection

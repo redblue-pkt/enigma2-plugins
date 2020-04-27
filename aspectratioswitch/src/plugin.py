@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 ###############################################################################  
 # Quick'n'easy switching of aspect ratio setting via configurable remote control keys (Enigma2)
@@ -7,7 +7,6 @@
 ###############################################################################  
 
 # for localized messages
-from __future__ import print_function
 from . import _
 
 # Plugin definition

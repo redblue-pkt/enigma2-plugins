@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Components.VariableText import VariableText
 from Components.config import config
 from enigma import eLabel

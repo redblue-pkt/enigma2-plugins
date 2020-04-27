@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Components.ActionMap import HelpableActionMap
 
 class HelpableNumberActionMap(HelpableActionMap):

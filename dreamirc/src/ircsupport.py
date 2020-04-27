@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # Copyright (c) 2001-2004 Twisted Matrix Laboratories.
 # See LICENSE for details.
 
 
 """IRC support for Instance Messenger."""
 
-from __future__ import print_function
 
 import string
 

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #######################################################################
 #
 #    Series Plugin for Enigma-2
@@ -17,7 +17,6 @@
 #
 #######################################################################
 
-from __future__ import print_function
 from . import _
 
 import logging

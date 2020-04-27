@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #####################################################
 # Permanent Timeshift Plugin for Enigma2 Dreamboxes
 # Coded by Homey (c) 2013
@@ -6,7 +7,6 @@
 # Version: 1.5
 # Support: www.dreambox-plugins.de
 #####################################################
-from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, configfile, getConfigListEntry, ConfigSubsection, ConfigYesNo, ConfigInteger, ConfigSelection, NoSave

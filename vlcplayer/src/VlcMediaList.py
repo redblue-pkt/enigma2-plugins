@@ -1,4 +1,4 @@
-# -*- coding: ISO-8859-1 -*-
+# -*- coding: utf-8 -*-
 #===============================================================================
 # VLC Player Plugin by A. Latsch 2007
 #                   modified by Volker Christian 2008

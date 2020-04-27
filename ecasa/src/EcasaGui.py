@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 
 #pragma mark - GUI
@@ -41,7 +42,7 @@ try:
 except NameError:
 	xrange = range
 
-our_print = lambda *args, **kwargs: print("[EcasaGui]", *args, **kwargs)
+our_print(= lambda *args, **kwargs: print("[EcasaGui]", *args, **kwargs))
 
 AUTHENTICATION_ERROR_ID = "EcasaAuthenticationError"
 

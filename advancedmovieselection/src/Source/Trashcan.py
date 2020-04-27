@@ -1,5 +1,6 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+#!/usr/bin/python
 
 '''
 Copyright (C) 2011 cmikula
@@ -25,7 +26,6 @@ For example, if you distribute copies of such a program, whether gratis or for a
 must pass on to the recipients the same freedoms that you received. You must make sure 
 that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 '''
-from __future__ import print_function
 import os, glob, shutil, time
 from threading import Thread
  

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #!/usr/bin/env python
  
 """
@@ -78,7 +80,6 @@
     [1] http://docs.python.org/library/time.html#time.clock
 """
 
-from __future__ import print_function
 import os, sys, socket, struct, select, time
 
 __version__ = "0.1"

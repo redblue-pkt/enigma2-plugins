@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  Birthday Reminder E2 Plugin
 #
@@ -21,7 +22,6 @@
 #  distributed other than under the conditions noted above.
 #
 
-from __future__ import print_function
 
 # OWN IMPORTS
 from BirthdayNetworking import BroadcastProtocol, TransferServerFactory, TransferClientFactory

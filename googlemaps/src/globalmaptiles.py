@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #!/usr/bin/env python
 ###############################################################################
 # $Id$
@@ -427,7 +429,7 @@ if __name__ == "__main__":
     for ty in range(tminy, tmaxy+1):
         for tx in range(tminx, tmaxx+1):
             tilefilename = "%s/%s/%s" % (tz, tx, ty)
-            print tilefilename, "( TileMapService: z / x / y )"
+            print(tilefilename, "( TileMapService: z / x / y )")
         
             gx, gy = mercator.GoogleTile(tx, ty, tz)
             print("\tGoogle:", gx, gy)

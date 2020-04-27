@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #######################################################################
 #
 #    EasyMedia for Dreambox-Enigma2
@@ -17,7 +18,6 @@
 #
 #######################################################################
 
-from __future__ import print_function
 from __init__ import _
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox

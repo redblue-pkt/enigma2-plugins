@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/python
-# -*- coding: utf-8 -*- 
 #  Movie Search for Dreambox-Enigma2
 #
 #  Coded by cmikula(c)2012

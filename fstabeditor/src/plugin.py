@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 #  fstabeditor
 #
@@ -22,7 +24,6 @@
 #  modify it (if you keep the license), but it may not be commercially 
 #  distributed other than under the conditions noted above.
 #
-from __future__ import print_function
 from Components.Console import Console
 from Components.config import config, ConfigText, ConfigNumber, ConfigSelection, NoSave, getConfigListEntry
 from Components.ActionMap import *
@@ -279,7 +280,7 @@ class fstabEditorScreen(Screen,ConfigListScreen,HelpableScreen):
 			self.session.openWithCallback(self.dirSelectDlgClosed, dirSelectDlg, "/dev/dummy/", True) # just add any (not even existing) subdir to start in /dev
 	
 	def dirSelectDlgClosed(self, mountpoint):
-		#use print to see in crashlog what's been selected
+		#use print(to see in crashlog what's been selected)
 		print("mountpoint: ", mountpoint)
 		if mountpoint != False:
 			if self.selectedEntry == 1:

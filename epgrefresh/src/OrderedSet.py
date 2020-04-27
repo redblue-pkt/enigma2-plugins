@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 # Python OrderedSet implementation
 # taken from http://code.activestate.com/recipes/576694-orderedset/
-from __future__ import print_function
 import collections
 
 KEY, PREV, NEXT = range(3)

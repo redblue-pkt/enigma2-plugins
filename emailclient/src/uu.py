@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #! /usr/bin/python2.7
 
 # Copyright 1994 by Lance Ellinghouse
@@ -30,7 +31,6 @@ encode(in_file, out_file [,name, mode])
 decode(in_file [, out_file, mode])
 """
 
-from __future__ import print_function
 import binascii
 import os
 import sys
