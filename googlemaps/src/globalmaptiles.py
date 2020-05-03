@@ -416,13 +416,13 @@ if __name__ == "__main__":
 
     mx, my = mercator.LatLonToMeters( lat, lon )
     print("Spherical Mercator (ESPG:900913) coordinates for lat/lon: ")
-    print((mx, my))
+    print(mx, my)
     tminx, tminy = mercator.MetersToTile( mx, my, tz )
     
     if boundingbox:
         mx, my = mercator.LatLonToMeters( latmax, lonmax )
         print("Spherical Mercator (ESPG:900913) cooridnate for maxlat/maxlon: ")
-        print((mx, my))
+        print(mx, my)
         tmaxx, tmaxy = mercator.MetersToTile( mx, my, tz )
     else:
         tmaxx, tmaxy = tminx, tminy

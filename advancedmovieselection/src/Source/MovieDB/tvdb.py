@@ -261,9 +261,9 @@ def main():
         print(serie['Rating'])
         print(serie['Runtime'])
         if serie['Genre']:
-            print((' ,').join(serie['Genre']))
+            print(' ,').join(serie['Genre'])
         if serie['Actors']:
-            print((' ,').join(serie['Actors']))
+            print(' ,').join(serie['Actors'])
         print(serie['poster'])
         print(serie['banner'])
         print(serie['fanart'])
