@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
 
 import os
 import re
@@ -13,7 +12,7 @@ import shlex
 
 try:
 	from multiprocessing import Process
-except ImportError:
+except ImportError as e:
 	# For pre 2.6 releases
 	from threading import Thread as Process
 

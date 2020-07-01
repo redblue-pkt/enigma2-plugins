@@ -69,7 +69,7 @@ class TCPHandler(SocketServer.BaseRequestHandler):
             #print(data)
             self.request.send(MessageQueue.getRequest(data))
         except Exception as e:
-            print(e)
+            print(str(e))
 
 class MessageServer():
     def __init__(self):
