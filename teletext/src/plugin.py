@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import division
 from __init__ import _, _debug , _log
 
 from enigma import iServiceInformation, iPlayableService, eSocketNotifier, getDesktop, ePoint, eSize, eServiceReference
@@ -96,8 +97,8 @@ NAV_MODE_SIZE_TIP_TEXT = 2
 
 # i.d.R. bezeichnet man 90% der vollen Aufloesung als "Title-Safe-Area" --> Default
 
-DEF_TOP    = dsk_height / 20
-DEF_LEFT   = dsk_width / 20
+DEF_TOP    = dsk_height // 20
+DEF_LEFT   = dsk_width // 20
 DEF_RIGHT  = dsk_width - DEF_LEFT
 DEF_BOTTOM = dsk_height - DEF_TOP
 
