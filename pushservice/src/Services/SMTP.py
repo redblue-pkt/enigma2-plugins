@@ -34,7 +34,9 @@ from mail.mail import Message, sendmail
 MAIL_HEADER_TEMPLATE = _("{box:s} {name:s}: {plugin:s}: {subject:s}")
 MAIL_BODY_TEMPLATE = 	_("{body:s}\n\n") \
 								+ _("Provided by Dreambox Plugin {name:s} {version:s} - {plugin:s}\n") \
-								+ _("C 2012 by betonme @ IHAD")
+								+ _("C 2012 by betonme @ IHAD\n") \
+								+ _("Support {support:s}\n") \
+								+ _("Donate {donate:s}")
 
 
 class SMTP(ServiceBase):
@@ -60,7 +62,7 @@ class SMTP(ServiceBase):
 		self.setOption( 'mailto',     NoSave(ConfigText(fixed_size = False)),                               _("Mail to or leave empty (From will be used)") )
 
 	def push(self, callback, errback, pluginname, subject, body="", attachments=[]):
-		from Plugins.Extensions.PushService.plugin import NAME, VERSION
+		from Plugins.Extensions.PushService.plugin import NAME, VERSION, SUPPORT, DONATE
 		
 		# Set SMTP parameters
 		mailconf = {}
@@ -79,7 +81,7 @@ class SMTP(ServiceBase):
 		# Prepare message
 		if body == "": body = subject
 		subject = MAIL_HEADER_TEMPLATE.format( **{'box': config.pushservice.boxname.value, 'name': NAME, 'plugin': pluginname, 'subject': subject} )
-		body    = MAIL_BODY_TEMPLATE.format( **{'body': str(body), 'name': NAME, 'version': VERSION, 'plugin': pluginname} )
+		body    = MAIL_BODY_TEMPLATE.format( **{'body': str(body), 'name': NAME, 'version': VERSION, 'plugin': pluginname, 'support': SUPPORT, 'donate': DONATE} )
 		message = Message(from_addr, to_addrs, subject, body) #TODO change mime="text/plain", charset="utf-8")
 		if attachments:
 			for attachment in attachments:

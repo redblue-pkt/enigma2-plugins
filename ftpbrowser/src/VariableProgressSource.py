@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 from Components.Sources.Source import Source
 
 class VariableProgressSource(Source):
@@ -26,10 +25,10 @@ class VariableProgressSource(Source):
 
 		# Only save range if not None
 		if max is not None:
-			self.range = max // self.factor
+			self.range = max / self.factor
 
 		# Save pos
-		self.value = pos // self.factor
+		self.value = pos / self.factor
 
 		# Trigger change
 		self.changed((self.CHANGED_ALL, ))

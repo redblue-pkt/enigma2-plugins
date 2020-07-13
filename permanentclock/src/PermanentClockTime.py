@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from time import localtime, strftime
@@ -38,7 +37,7 @@ class PermanentClockTime(Converter, object):
 			m = t.tm_min
 			if c > 11:
 				c = c - 12
-			val = (c * 5) + (m // 12)
+			val = (c * 5) + (m / 12)
 			return val
 		return 0
 

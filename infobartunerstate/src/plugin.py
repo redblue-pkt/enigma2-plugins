@@ -42,8 +42,15 @@ NAME = _("InfoBarTunerState")
 IBTSSHOW = _("Show InfoBarTunerState")
 IBTSSETUP = _("InfoBarTunerState Setup")
 VERSION = "1.1.3"
+SUPPORT = "http://bit.ly/ibtsihad"
+DONATE = "http://bit.ly/ibtspaypal"
 ABOUT = "\n  " + NAME + " " + VERSION + "\n\n" \
-				+ _("  (C) 2012 by betonme @ IHAD")
+				+ _("  (C) 2012 by betonme @ IHAD \n\n") \
+				+ _("  If You like this plugin and want to support it,\n") \
+				+ _("  or if just want to say ''thanks'',\n") \
+				+ _("  feel free to donate via PayPal. \n\n") \
+				+ _("  Thanks a lot ! \n  PayPal: ") + DONATE + "\n" \
+				+ _("  SUPPORT: ") + SUPPORT
 
 # Globals
 gInfoBarTunerState = None

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop, iPlayableService, eServiceReference
 from Screens.Screen import Screen
 from Screens.ServiceInfo import ServiceInfoList, ServiceInfoListEntry
@@ -185,15 +185,15 @@ class MC_PicThumbViewer(Screen, HelpableScreen):
 			self.spaceLeft = 25
 			self.ButtonPosY = 72
 
-		self.thumbsX = size_w // (self.spaceX + self.picX) # thumbnails in X
-		self.thumbsY = size_h // (self.spaceY + self.picY) # thumbnails in Y
+		self.thumbsX = size_w / (self.spaceX + self.picX) # thumbnails in X
+		self.thumbsY = size_h / (self.spaceY + self.picY) # thumbnails in Y
 		self.thumbsC = self.thumbsX * self.thumbsY # all thumbnails
 		self.positionlist = []
 		skincontent = ""
 
 		posX = -1
 		for x in range(self.thumbsC):
-			posY = x // self.thumbsX
+			posY = x / self.thumbsX
 			posX += 1
 			if posX >= self.thumbsX:
 				posX = 0
