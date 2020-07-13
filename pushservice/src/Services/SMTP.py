@@ -34,7 +34,7 @@ from mail.mail import Message, sendmail
 MAIL_HEADER_TEMPLATE = _("{box:s} {name:s}: {plugin:s}: {subject:s}")
 MAIL_BODY_TEMPLATE = 	_("{body:s}\n\n") \
 								+ _("Provided by Dreambox Plugin {name:s} {version:s} - {plugin:s}\n") \
-								+ _("C 2012 by betonme @ IHAD\n")
+								+ _("C 2012 by betonme @ IHAD")
 
 
 class SMTP(ServiceBase):
