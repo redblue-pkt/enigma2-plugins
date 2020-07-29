@@ -37,6 +37,10 @@ from xml.etree.cElementTree import fromstring as cet_fromstring
 from twisted.web.client import getPage
 from urllib import quote as urllib_quote
 
+from enigma import RT_HALIGN_RIGHT
+from skin import parameters as skinparameter
+from Screens.VirtualKeyBoard import VirtualKeyBoard
+
 skinwidth = getDesktop(0).size().width()
 
 def initWeatherPluginEntryConfig():
@@ -152,11 +156,15 @@ class WeatherPluginEntryList(MenuList):
 	def __init__(self, list, enableWrapAround = True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		if skinwidth == 1280:
-		      self.l.setFont(0, gFont("Regular", 20))
-		      self.l.setFont(1, gFont("Regular", 18))
+			font1, size1 = skinparameter.get("WeatherPluginEntryListFont1", ('Regular',20))
+			font2, size2 = skinparameter.get("WeatherPluginEntryListFont2", ('Regular',18))
+			self.l.setFont(0, gFont(font1, size1))
+			self.l.setFont(1, gFont(font2, size2))
 		else:
-		      self.l.setFont(0, gFont("Regular", 28))
-		      self.l.setFont(1, gFont("Regular", 28))
+			font1, size1 = skinparameter.get("WeatherPluginEntryListFont1", ('Regular',28))
+			font2, size2 = skinparameter.get("WeatherPluginEntryListFont2", ('Regular',26))
+			self.l.setFont(0, gFont(font1, size1))
+			self.l.setFont(1, gFont(font2, size2))
 
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
@@ -171,19 +179,18 @@ class WeatherPluginEntryList(MenuList):
 	def buildList(self):
 		list = []
 		for c in config.plugins.WeatherPlugin.Entry:
-		    if skinwidth == 1280:
+			if skinwidth == 1280:
+				x1, y1, w1, h1 = skinparameter.get("WeatherPluginCity", (5, 0, 400, 20))
+				x2, y2, w2, h2 = skinparameter.get("WeatherPluginDegreetype", (410, 0, 80, 20))
+		    	else:
+				x1, y1, w1, h1 = skinparameter.get("WeatherPluginCity", (5, 0, 400, 32))
+				x2, y2, w2, h2 = skinparameter.get("WeatherPluginDegreetype", (410, 0, 80, 32))
 			res = [
 				c,
-				(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 400, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.city.value)),
-				(eListboxPythonMultiContent.TYPE_TEXT, 410, 0, 80, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.degreetype .value)),
+				(eListboxPythonMultiContent.TYPE_TEXT, x1, y1, w1, h1, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.city.value)),
+				(eListboxPythonMultiContent.TYPE_TEXT, x2, y2, w2, h2, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.degreetype .value)),
 			]
-		    else:
-			res = [
-				c,
-				(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 400, 32, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.city.value)),
-				(eListboxPythonMultiContent.TYPE_TEXT, 410, 0, 80, 32, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.degreetype .value)),
-			]
-		    list.append(res)
+			list.append(res)
 		self.list = list
 		self.l.setList(list)
 		self.moveToIndex(0)
@@ -219,13 +226,15 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 	def __init__(self, session, entry):
 		Screen.__init__(self, session)
 		self.title = _("WeatherPlugin: Edit Entry")
+
 		self["actions"] = ActionMap(["SetupActions", "ColorActions"],
 		{
 			"green": self.keySave,
 			"red": self.keyCancel,
 			"blue": self.keyDelete,
 			"yellow": self.searchLocation,
-			"cancel": self.keyCancel
+			"cancel": self.keyCancel,
+			"ok": self.keyOK
 		}, -2)
 
 		self["key_red"] = StaticText(_("Cancel"))
@@ -279,6 +288,26 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 		if self.newmode == 1:
 			config.plugins.WeatherPlugin.Entry.remove(self.current)
 		ConfigListScreen.cancelConfirm(self, True)
+
+	def keyOK(self):
+		text = self["config"].getCurrent()[1].value
+		if text == self.current.city.value:
+			title = _("Please enter a valid city name.")
+			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title = title, text = text)
+		elif text == self.current.weatherlocationcode.value:
+			title = _("Please enter a valid location code for the city.")
+			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title = title, text = text)
+		else:
+			pass
+
+	def VirtualKeyBoardCallBack(self, callback):
+		try:
+			if callback:  
+				self["config"].getCurrent()[1].value = callback
+			else:
+				pass
+		except:
+			pass
 
 	def keyDelete(self):
 		if self.newmode == 1:
@@ -374,11 +403,15 @@ class MSNWeatherPluginSearchResultList(MenuList):
 	def __init__(self, list, enableWrapAround = True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		if skinwidth == 1280:
-		      self.l.setFont(0, gFont("Regular", 20))
-		      self.l.setFont(1, gFont("Regular", 18))
+			font1, size1 = skinparameter.get("WeatherPluginSearchResultListFont1", ('Regular',20))
+			font2, size2 = skinparameter.get("WeatherPluginSearchResultListFont2", ('Regular',18))
+			self.l.setFont(0, gFont(font1, size1))
+			self.l.setFont(1, gFont(font2, size2))
 		else:
-		      self.l.setFont(0, gFont("Regular", 28))
-		      self.l.setFont(1, gFont("Regular", 26))
+			font1, size1 = skinparameter.get("WeatherPluginSearchResultListFont1", ('Regular',28))
+			font2, size2 = skinparameter.get("WeatherPluginSearchResultListFont2", ('Regular',26))
+			self.l.setFont(0, gFont(font1, size1))
+			self.l.setFont(1, gFont(font2, size2))
 
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
@@ -402,18 +435,18 @@ class MSNWeatherPluginSearchResultList(MenuList):
 				searchresult = childs.attrib.get("weatherfullname").encode("utf-8", 'ignore')
 				weatherlocationcode = childs.attrib.get("weatherlocationcode").encode("utf-8", 'ignore')
 				if skinwidth == 1280:
-				   res = [
-					(weatherlocationcode, searchlocation),
-					(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 500, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchlocation),
-					(eListboxPythonMultiContent.TYPE_TEXT, 5, 22, 500, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchresult),
-				   ]
+					x1, y1, w1, h1 = skinparameter.get("WeatherPluginSearchlocation", (5, 0, 500, 20))
+					x2, y2, w2, h2 = skinparameter.get("WeatherPluginSearchresult", (5, 22, 500, 20))
 				else:
-				   res = [
-					(weatherlocationcode, searchlocation),
-					(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 500, 30, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchlocation),
-					(eListboxPythonMultiContent.TYPE_TEXT, 5, 27, 500, 26, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchresult),
-				   ]
-				list.append(res)
+					x1, y1, w1, h1 = skinparameter.get("WeatherPluginSearchlocation", (5, 0, 500, 30))
+					x2, y2, w2, h2 = skinparameter.get("WeatherPluginSearchresult", (5, 27, 500, 26))
+					res = [
+						(weatherlocationcode, searchlocation),
+						(eListboxPythonMultiContent.TYPE_TEXT, x1, y1, w1, h1, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchlocation),
+						(eListboxPythonMultiContent.TYPE_TEXT, x2, y2, w2, h2, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchresult),
+					]
+
+					list.append(res)
 		self.list = list
 		self.l.setList(list)
 		self.moveToIndex(0)
