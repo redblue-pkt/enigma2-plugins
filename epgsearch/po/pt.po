@@ -3,310 +3,316 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: EPGSearch enigma2 plugin portuguese trasnlation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-30 12:43+0430\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2020-04-22 14:21+0100\n"
+"Last-Translator: BH Team <nunigaia@gmail.com>\n"
+"Language-Team: BH team\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "%e/%m, %H:%M"
-msgstr ""
+msgstr "%e/%m, %H:%M"
 
 #. TRANSLATORS: EPGSearch title in EventInfo dialog (does not require further user interaction)
 #. TRANSLATORS: %s inserts a non-printing character and is only used to control the sort order of these WHERE_EVENTINFO entries in Screens.ButtonSetup. Please leave it at the start of the translation string.
 #, python-format
 msgid "%ssearch EPG"
-msgstr ""
+msgstr "%sprocura EPG"
 
 #. TRANSLATORS: EPGSearch search from search history in EventInfo dialog (requires the user to select a history item to search for)
 #. TRANSLATORS: %s inserts a non-printing character and is only used to control the sort order of these WHERE_EVENTINFO entries in Screens.ButtonSetup. Please leave it at the start of the translation string.
 #, python-format
 msgid "%ssearch EPG from history..."
-msgstr ""
+msgstr "%sprocura EPG da história..."
 
 msgid "Add AutoTimer"
-msgstr ""
+msgstr "Adic. AutoTimer"
 
 msgid "Add Timer"
-msgstr ""
+msgstr "Adicionar Timer"
 
 msgid "Add a record timer for highlighted event"
 msgstr ""
+"Adicionar Timer de gravação\n"
+" para este evento"
 
 msgid "Add a zap timer for highlighted event"
-msgstr ""
+msgstr "Adcionar Timer ZAP para este evento"
 
 msgid "Add an AutoTimer for highlighted event"
-msgstr ""
+msgstr "Adicione um AutoTimer para evento em destaque"
 
 msgid "Add/remove/edit timer for highlighted event"
-msgstr ""
+msgstr "Adicionar/remover/editar temporizador para evento em destaque"
 
 msgid "All bouquets"
-msgstr ""
+msgstr "Todos os buquês"
 
 msgid "All services"
-msgstr ""
+msgstr "Todos Serviços"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Channel Selection"
-msgstr ""
+msgstr "Seleção de Canais"
 
 msgid "Choose the encoding type for searches, helpful for foreign languages."
-msgstr ""
+msgstr "Escolha o tipo de codificação para pesquisas, útil para línguas estrangeiras."
 
 msgid "Close dialog"
-msgstr ""
+msgstr "Fechar diálogo"
 
 msgid "Control where to search in the EPG. When 'all bouquets' is set, all bouquets are searched, even if 'Enable multiple bouquets' is disabled."
-msgstr ""
+msgstr "Controle onde procurar no EPG. Quando 'todos os buquês' são definidos, todos os buquês são pesquisados, mesmo que 'Habilitar vários buquês' seja desativado."
 
 #, python-format
 msgid "Could not read AutoTimer timer list: %s"
-msgstr ""
+msgstr "Não foi possível ler a lista de temporizador AutoTimer:% s"
 
 msgid "Current bouquet"
-msgstr ""
+msgstr "Buquê atual"
 
 msgid "Current service"
-msgstr ""
+msgstr "Serviço atual"
 
 msgid "DVB-C"
-msgstr ""
+msgstr "DVB-C"
 
 msgid "DVB-C Cable services"
-msgstr ""
+msgstr "Serviços de cabo DVB-C"
 
 msgid "DVB-T"
-msgstr ""
+msgstr "DVB-T"
 
 msgid "DVB-T Terrestrial services"
-msgstr ""
+msgstr "DVB-T Serviços Terrestres"
 
 msgid "Default scope when asked"
-msgstr ""
+msgstr "Escopo padrão quando solicitado"
 
 msgid "EPG Search"
-msgstr ""
+msgstr "EPG Procura"
 
 msgid "EPG Search setup"
-msgstr ""
+msgstr "Configuração de pesquisa Epg"
 
 msgid "EPGSearch"
-msgstr ""
+msgstr "Pesquisa do EPG"
 
 msgid "EPGSearch Setup"
-msgstr ""
+msgstr "Configuração de Pesquisa EPG"
 
 msgid "Enable this to allow access to EPG Search from within the plugin browser."
-msgstr ""
+msgstr "Habilite isso para permitir o acesso ao EPG Search dentro do navegador plugin."
 
 msgid "Enter new search"
-msgstr ""
+msgstr "Insira nova pesquisa"
 
 msgid "Enter text to search for"
-msgstr ""
+msgstr "Digite o texto para procurar"
 
 msgid "Exclude results from"
-msgstr ""
+msgstr "Exclua os resultados de"
 
 msgid "Exit EPG Search"
-msgstr ""
+msgstr "Sair da busca EPG"
 
 msgid "Filter results by source"
-msgstr ""
+msgstr "Filtrar resultados por fonte"
 
 msgid "IMDB search for highlighted event"
-msgstr ""
+msgstr "IMDB busca evento em destaque"
 
 msgid "IMDb Search"
-msgstr ""
+msgstr "IMDb Procura"
 
 msgid "Import from AutoTimer"
-msgstr ""
+msgstr "Importar de AutoTimer"
 
 msgid "Import from EPG"
-msgstr ""
+msgstr "Importar de EPG"
 
 msgid "Import from Timer"
-msgstr ""
+msgstr "Importar de Timer"
 
 msgid "Include or exclude results depending on their source (e.g. by satellite)"
-msgstr ""
+msgstr "Incluir ou excluir resultados dependendo de sua fonte (por exemplo, por satélite)"
 
 msgid "Include results from"
-msgstr ""
+msgstr "Incluir resultados de"
 
 msgid "Include/exclude search results from this type of source"
-msgstr ""
+msgstr "Incluir/excluir resultados de pesquisa deste tipo de fonte"
 
 msgid "Include/exclude sources"
-msgstr ""
+msgstr "Incluir/excluir fontes"
 
 msgid "Is the search case-sensitive or case-insensitive?"
-msgstr ""
+msgstr "A busca é sensível ao caso ou insensível ao caso?"
 
 msgid "Length of history"
-msgstr ""
+msgstr "Duração da história"
 
 msgid "Maximum number of entries in the search history. Set this to 0 to disable search history."
-msgstr ""
+msgstr "Número máximo de entradas no histórico de pesquisa. Defina isso como 0 para desativar o histórico de pesquisa."
 
 msgid "Move down"
-msgstr ""
+msgstr "Mover para baixo"
 
 msgid "Move down a page"
-msgstr ""
+msgstr "Mover uma página para baixo"
 
 msgid "Move up"
-msgstr ""
+msgstr "Mover para cima"
 
 msgid "Move up a page"
-msgstr ""
+msgstr "Mover uma página para cima"
 
 msgid "New Search"
-msgstr ""
+msgstr "Nova Busca"
 
 msgid "No history"
-msgstr ""
+msgstr "Sem histórico"
 
 msgid "Number of filters for inclusion/exclusion of results"
-msgstr ""
+msgstr "Número de filtros para inclusão/exclusão de resultados"
 
 msgid "Number of inclusions/exclusions"
-msgstr ""
+msgstr "Número de inclusões/exclusões"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Open selected in IMDb"
-msgstr ""
+msgstr "Abrir o IMDb selecionado"
 
 msgid "Save search as AutoTimer"
-msgstr ""
+msgstr "Salvar pesquisa como AutoTimer"
 
 msgid "Search"
-msgstr ""
+msgstr "Procura"
 
 msgid "Search EPG"
-msgstr ""
+msgstr "Pesquisar EPG"
 
 msgid "Search encoding"
-msgstr ""
+msgstr "Codificação de pesquisa"
 
 msgid "Search in..."
-msgstr ""
+msgstr "Pesquise em..."
 
 msgid "Search scope"
-msgstr ""
+msgstr "Abrangência da Pesquisa"
 
 msgid "Search strictness"
-msgstr ""
+msgstr "Pesquisa rigorosa"
 
 msgid "Search type"
-msgstr ""
+msgstr "Tipo de pesquisa"
 
 msgid "Searching..."
-msgstr ""
+msgstr "A Procurar..."
 
 msgid "Select a timer to search"
-msgstr ""
+msgstr "Selecionar um timer a procurar"
 
 msgid "Select text to search for"
-msgstr ""
+msgstr "Selecione texto para pesquisar"
 
 msgid "Set type of match used to compare program titles with the search string."
-msgstr ""
+msgstr "Definir o tipo de correspondência usado para comparar títulos do programa com a seqüência de pesquisa."
 
 msgid "Sets the default search scope when the user is asked."
-msgstr ""
+msgstr "Define o escopo de pesquisa padrão quando solicitado pelo utilizador."
 
 msgid "Setup"
-msgstr ""
+msgstr "Definições"
 
 msgid "Setup menu"
-msgstr ""
+msgstr "Menu de Definições"
 
 msgid "Show AutoTimer list"
-msgstr ""
+msgstr "Mostrar lista AutoTimer"
 
 msgid "Show detailed event information"
-msgstr ""
+msgstr "Mostrar informações detalhadas do evento"
 
 msgid "Show in plugin browser"
-msgstr ""
+msgstr "Visualizar o plugin no browser "
 
 msgid "Show orbital position"
-msgstr ""
+msgstr "Mostrar posição orbital"
 
 msgid "Show satellite orbital positions in the search results."
-msgstr ""
+msgstr "Mostre posições orbitais via satélite nos resultados da pesquisa."
 
 msgid "Show search history"
-msgstr ""
+msgstr "Mostrar histórico de pesquisa"
 
 msgid "Stream"
-msgstr ""
+msgstr "Transmissão"
 
 msgid "Use source restrictions below to only include results from the sources, or exclude them."
-msgstr ""
+msgstr "Use as restrições de origem abaixo para incluir apenas os resultados das fontes ou excluí-las."
 
 msgid "Zap to channel"
-msgstr ""
+msgstr "Zap para o canal"
 
 msgid "all bouquets"
-msgstr ""
+msgstr "todos os buquês"
 
 msgid "all services"
-msgstr ""
+msgstr "todos os serviços"
 
 msgid "ask user"
-msgstr ""
+msgstr "perguntar ao utilizador"
 
 msgid "case-insensitive search"
-msgstr ""
+msgstr "pesquisa não diferencia maiúsculas de minúsculas"
 
 msgid "case-sensitive search"
-msgstr ""
+msgstr "pesquisa que diferencia maiúsculas de minúsculas"
 
 msgid "current bouquet"
-msgstr ""
+msgstr "buquê atual"
 
 msgid "current service"
-msgstr ""
+msgstr "serviço atual"
 
 msgid "disabled"
-msgstr ""
+msgstr "desativado"
 
 msgid "exact match"
-msgstr ""
+msgstr "correspondência exata"
 
 msgid "exclude"
-msgstr ""
+msgstr "excluir"
 
 msgid "include"
-msgstr ""
+msgstr "incluir"
 
 msgid "partial match"
-msgstr ""
+msgstr "correspondência parcial"
 
 #. TRANSLATORS: EPGSearch title in MovieList (does not require further user interaction)
 msgid "search EPG"
-msgstr ""
+msgstr "pesquisar EPG"
 
 #. TRANSLATORS: EPGSearch search from search history in MovieList (requires the user to select a history item to search for)
 msgid "search EPG from history..."
-msgstr ""
+msgstr "pesquisar EPG a partir do histórico..."
 
 msgid "title starts with"
-msgstr ""
+msgstr "título começa com"
