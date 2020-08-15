@@ -65,8 +65,7 @@ def autostart(reason, **kwargs):
 def sessionstart(reason, **kwargs):
 	if reason == 0 and "session" in kwargs:
 		try:
-			from Plugins.Extensions.WebInterface.WebChilds.Toplevel import addExternalChild
-			from Plugins.Extensions.WebInterface.WebChilds.Screenpage import ScreenPage
+			from Plugins.Extensions.OpenWebif.WebChilds.Toplevel import addExternalChild
 			from twisted.web import static
 			from twisted.python import util
 			from WebChilds.UploadResource import UploadResource
@@ -102,7 +101,6 @@ def sessionstart(reason, **kwargs):
 			# webgui
 			session = kwargs["session"]
 			root = File(util.sibpath(__file__, "web-data"))
-			root.putChild("web", ScreenPage(session, util.sibpath(__file__, "web"), True) )
 			root.putChild('tmp', File('/tmp'))
 			root.putChild("uploadfile", UploadResource(session))
 			addExternalChild( ("autotimereditor", root, "AutoTimer", "1", True) )
