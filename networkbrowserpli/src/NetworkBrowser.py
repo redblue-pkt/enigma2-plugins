@@ -445,7 +445,7 @@ class NetworkBrowser(Screen):
 				# data['host'] = selection[1]
 				data['sharename'] = selection[3] + "@" + selection[1]
 				data['sharedir'] = selection[3]
-				data['options'] = "rw"
+				data['options'] = "rw,utf8,vers=3.0"
 				self.sharecache_file = '/etc/enigma2/' + selection[1].strip() + '.cache' #Path to cache directory
 				data['username'] = "guest"
 				data['password'] = "guest"

@@ -119,9 +119,9 @@ class AutoMountEdit(Screen, ConfigListScreen):
 		if sharedir is False:
 			sharedir = "/media/hdd"
 		if mounttype == "nfs":
-			defaultOptions = "rw,nolock,soft"
+			defaultOptions = "rw,nolock,tcp"
 		else:
-			defaultOptions = "rw"
+			defaultOptions = "rw,utf8,vers=3.0"
 		if username is False:
 			username = ""
 		if password is False:
