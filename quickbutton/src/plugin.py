@@ -63,9 +63,11 @@ def autostart(reason, **kwargs):
 		InfoBarPlugins.yellowlong = yellowlong
 		InfoBarPlugins.redlong = redlong
 		InfoBarPlugins.bluelong = bluelong
-		if config.misc.rcused.value != 1:
+		try:
 			ENABLE_RED_BUTTON = True
 			InfoBarPlugins.red = red
+		except:
+			pass
 
 def setup(session,**kwargs):
 	session.open(QuickbuttonSetup)
