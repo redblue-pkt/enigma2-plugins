@@ -70,6 +70,7 @@ SUBDIRS = \
 	orfteletext \
 	partnerbox \
 	permanentclock \
+	PESpeedUp \
 	pipservicerelation \
 	pluginhider \
 	pluginsort \

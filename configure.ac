@@ -468,6 +468,10 @@ permanentclock/po/Makefile
 permanentclock/src/Makefile
 permanentclock/src/trad/Makefile
 
+PESpeedUp/Makefile
+PESpeedUp/po/Makefile
+PESpeedUp/src/Makefile
+
 pipservicerelation/Makefile
 pipservicerelation/meta/Makefile
 pipservicerelation/src/Makefile
