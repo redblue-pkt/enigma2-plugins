@@ -436,12 +436,12 @@ netcaster/src/bin/Makefile
 netcaster/src/etc/Makefile
 netcaster/src/Makefile
 
-networkbrowserpli/Makefile
-networkbrowserpli/meta/Makefile
-networkbrowserpli/po/Makefile
-networkbrowserpli/src/icons/Makefile
-networkbrowserpli/src/lib/Makefile
-networkbrowserpli/src/Makefile
+networkbrowser/Makefile
+networkbrowser/meta/Makefile
+networkbrowser/po/Makefile
+networkbrowser/src/icons/Makefile
+networkbrowser/src/lib/Makefile
+networkbrowser/src/Makefile
 
 ofdb/Makefile
 ofdb/meta/Makefile
