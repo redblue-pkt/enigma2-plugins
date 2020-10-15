@@ -92,15 +92,25 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['OSCam-SMod', 'enigma2-plugin-softcams-oscam-smod'])
         if fileExists('/usr/bin/ncam'):
             self.packagelist.append(['NCam', 'enigma2-plugin-softcams-ncam'])
-        self.packagelist.append(['                                        Frequency', 'frequency-xml-list-atsc frequency-xml-list-cables frequency-xml-list-satellites frequency-xml-list-terrestrial'])
+        self.packagelist.append(['                                        Frequency', 'frequency-xml-list-atsc frequency-xml-list-cables frequency-xml-list-satellites frequency-xml-list-satellites-america frequency-xml-list-satellites-asia frequency-xml-list-satellites-atlantic frequency-xml-list-satellites-europe frequency-xml-list-terrestrial frequency-xml-list-unicable'])
         if fileExists('/etc/tuxbox/atsc.xml'):
             self.packagelist.append(['ATSC', 'frequency-xml-list-atsc'])
         if fileExists('/etc/tuxbox/cables.xml'):
             self.packagelist.append(['Cables', 'frequency-xml-list-cables'])
         if fileExists('/etc/tuxbox/satellites.xml'):
             self.packagelist.append(['Satellites', 'frequency-xml-list-satellites'])
-        if fileExists('/etc/tuxbox/atsc.xml'):
+        if fileExists('/etc/tuxbox/satellites-america.xml'):
+            self.packagelist.append(['Satellites-America', 'frequency-xml-list-satellites-america'])
+        if fileExists('/etc/tuxbox/satellites-asia.xml'):
+            self.packagelist.append(['Satellites-Asia', 'frequency-xml-list-satellites-asia'])
+        if fileExists('/etc/tuxbox/satellites-atlantic.xml'):
+            self.packagelist.append(['Satellites-Atlantic', 'frequency-xml-list-satellites-atlantic'])
+        if fileExists('/etc/tuxbox/satellites-europe.xml'):
+            self.packagelist.append(['Satellites-Europe', 'frequency-xml-list-satellites-europe'])
+        if fileExists('/etc/tuxbox/terrestrial.xml'):
             self.packagelist.append(['Terrestrial', 'frequency-xml-list-terrestrial'])
+        if fileExists('/usr/share/enigma2/unicable.xml'):
+            self.packagelist.append(['Unicable', 'frequency-xml-list-unicable'])
         self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-autotimer enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-epgimport enigma2-plugin-extensions-epgrefresh enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-grautec enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-keyadder enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-openmultiboot openmultiboot enigma2-plugin-extensions-openwebif-themes enigma2-plugin-extensions-openwebif-vxg enigma2-plugin-extensions-persianpalace enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-rcuselect enigma2-plugin-extensions-tmbd enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer enigma2-plugin-extensions-xmodem'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/AudioSync')):
             self.packagelist.append(['AudioSync', 'enigma2-plugin-extensions-audiosync'])
