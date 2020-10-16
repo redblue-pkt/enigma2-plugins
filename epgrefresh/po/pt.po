@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EPGRefresh Portuguese translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 12:43+0430\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2020-04-18 16:23+0100\n"
 "Last-Translator: BH Team <nunigaia@gmail.com>\n"
 "Language-Team: BH Team\n"
@@ -58,9 +58,6 @@ msgstr "Fechar e esquecer as alterações"
 
 msgid "Close and save changes"
 msgstr "Fechar e salvar as alterações"
-
-msgid "Congratulations"
-msgstr ""
 
 msgid "Delay if not in standby (minutes)"
 msgstr "Atraso se não estiver no modo Standby (minutos)"
@@ -128,10 +125,6 @@ msgstr "Ajuda de configuração do EPGRefresh"
 msgid "EPGRefresh Functions"
 msgstr "Funções EPGRefresh"
 
-#, fuzzy
-msgid "EPGRefresh Help"
-msgstr "Serviços EPGRefresh"
-
 msgid "EPGRefresh Services"
 msgstr "Serviços EPGRefresh"
 
@@ -143,10 +136,6 @@ msgstr "Editar serviços para atualizar"
 
 msgid "Editing"
 msgstr "A editar"
-
-#, fuzzy
-msgid "Editing the service list"
-msgstr "Editar serviços"
 
 msgid "Enable this item to flush all EPG data before starting a new EPG refresh cycle"
 msgstr ""
@@ -302,31 +291,11 @@ msgstr "Parar execução do EPG-refresh"
 msgid "Stop running refresh"
 msgstr "Parar de correr a atualização"
 
-#, fuzzy
-msgid "The configuration menu"
-msgstr "Ajuda de configuração do EPGRefresh"
-
 msgid "There is still a refresh running. The Operation isn't allowed at this moment."
 msgstr "Há ainda uma atualização em execução. A operação não é permitida neste momento."
 
-msgid ""
-"This help screen is supposed to give you a quick look at everything EPGRefresh has to offer.\n"
-"You can abort it at any time by pressing the RED or EXIT button on your remote control or bring it up at a later point by pressing the HELP button from the configuration menu (more on that later).\n"
-"\n"
-"\n"
-"But you really should consider to take the few minutes it takes to read these help pages."
-msgstr ""
-
 msgid "This is the duration each service/channel will stay active during a refresh."
 msgstr "Esta é a duração que cada serviço / canal irá permanecer ativo durante uma atualização."
-
-msgid ""
-"This is the entry point of EPGRefresh. From this menu you can configure every aspect of the plugin.\n"
-"The configuration options each have an explaination which is supposed to help you to understand their effects better. Please give reading them a try, they can save you a lot of time.\n"
-"\n"
-"Using the YELLOW button you can start a refresh manually. You also be able to enable the functionalities in the Extensionmenu. The INFO button brings up the date the last refresh was completed successfully. You will also find an Extensionmenu-Entry to stop a running Refresh.\n"
-"The BLUE key opens the service editor (next page)."
-msgstr ""
 
 msgid "This setting controls whether or not an informational message will be shown at start and completion of refresh."
 msgstr "Esta configuração controla, se ou não, uma mensagem informativa será exibida no início e conclusão da atualização."
@@ -353,28 +322,8 @@ msgstr "Versão"
 msgid "Wake up from standby for EPG refresh."
 msgstr "Acordar do modo de espera para atualização do EPG"
 
-#, fuzzy
-msgid "Welcome to EPGRefresh"
-msgstr "adicionar ao EPGRefresh"
-
-msgid ""
-"While the screen does not immediately show it, it does have a lot to offer. The topmost line allows you to choose between the editor for channels and bouquets and the following lines contain the channels/bouquets you chose to refresh.\n"
-"\n"
-"You can use the BLUE button to add a new entry to the list or the YELLOW button to remove an existing one.\n"
-"\n"
-"\n"
-"For most people it should be sufficient to add the 'Favourites' bouquet by selecting 'Bouquets' in the first line and by adding it using the BLUE button."
-msgstr ""
-
 msgid "Yes"
 msgstr "Sim"
-
-msgid ""
-"You now know how to do your first steps in EPGRefresh.\n"
-"\n"
-"As a final note I want to hint you at the fact that this plugin will not do anything on its own without YOU telling it to. So if you want the refresh to happen automatically in the background you need to configure the plugin to do so.\n"
-"This was not done to cause you any inconvenience but rather to give you the freedom of choice."
-msgstr ""
 
 msgid "add to EPGRefresh"
 msgstr "adicionar ao EPGRefresh"

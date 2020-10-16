@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 plugin - pluginsort\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-19 20:57+0100\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2011-09-20 22:03+0100\n"
 "Last-Translator: Spaeleus <spaeleus@croci.org>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
@@ -18,70 +18,50 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .../enigma2-plugins/pluginsort\n"
 
-#: .../enigma2-plugins/pluginsort/src/plugin.py:251
-msgid "Sort Extensions"
-msgstr "Ordinare le estensioni"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:252
-msgid "Sort MovieList Extensions"
-msgstr "Odinare le estensioni elenco registrazioni"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:253
-msgid "Sort EventInfo Extensions"
-msgstr "Ordinare le estensioni info evento"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:283
-msgid "Manage extensions"
-msgstr "Gestire le estensioni"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:284
-#: .../enigma2-plugins/pluginsort/src/plugin.py:298
-#: .../enigma2-plugins/pluginsort/src/plugin.py:410
-msgid "Sort"
-msgstr "Ordinare"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:284
-#: .../enigma2-plugins/pluginsort/src/plugin.py:298
-#: .../enigma2-plugins/pluginsort/src/plugin.py:422
-msgid "End Sort"
-msgstr "Fine ordinamento"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:290
-msgid "Remove Plugins"
-msgstr "Rimuovere plugin"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:292
 msgid "Download Plugins"
 msgstr "Download plugin"
 
-#: .../enigma2-plugins/pluginsort/src/plugin.py:362
-msgid "disable move mode"
-msgstr "Disabilitare spostamento"
+msgid "End Sort"
+msgstr "Fine ordinamento"
 
-#: .../enigma2-plugins/pluginsort/src/plugin.py:365
-msgid "enable move mode"
-msgstr "Abilitare spostamento"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:369
-msgid "move extensions"
-msgstr "Spostare le estensioni"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:370
-msgid "move movie extensions"
-msgstr "Spostare le estensioni registrazioni"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:371
-msgid "move event extensions"
-msgstr "Spostare le estensioni evento"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:375
-msgid "hide selected plugin"
-msgstr "Nascondere il plugin selezionato"
-
-#: .../enigma2-plugins/pluginsort/src/plugin.py:378
 msgid "Help"
 msgstr "Aiuto"
 
-#: .../enigma2-plugins/pluginsort/src/plugin.py:396
+#. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
+msgid "Remove Plugins"
+msgstr "Rimuovere plugin"
+
+msgid "Sort"
+msgstr "Ordinare"
+
+msgid "Sort EventInfo Extensions"
+msgstr "Ordinare le estensioni info evento"
+
+msgid "Sort Extensions"
+msgstr "Ordinare le estensioni"
+
+msgid "Sort MovieList Extensions"
+msgstr "Odinare le estensioni elenco registrazioni"
+
 msgid "Unable to load PluginHider"
 msgstr "Impossibile caricare PluginHider"
+
+#. TRANSLATORS: there is no need to translate this string, as it was reused from e2 core
+msgid "disable move mode"
+msgstr "Disabilitare spostamento"
+
+#. TRANSLATORS: there is no need to translate this string, as it was reused from e2 core
+msgid "enable move mode"
+msgstr "Abilitare spostamento"
+
+msgid "hide selected plugin"
+msgstr "Nascondere il plugin selezionato"
+
+msgid "move event extensions"
+msgstr "Spostare le estensioni evento"
+
+msgid "move extensions"
+msgstr "Spostare le estensioni"
+
+msgid "move movie extensions"
+msgstr "Spostare le estensioni registrazioni"

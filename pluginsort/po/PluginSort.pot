@@ -17,63 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Buffer device:"
+msgid "Download Plugins"
 msgstr ""
 
-msgid "Buffer file handling:"
-msgstr ""
-
-msgid "Buffer:"
-msgstr ""
-
-msgid "Delete this movie?"
-msgstr ""
-
-#, python-format
-msgid "Downloading movie: %s"
-msgstr ""
-
-msgid "Error getting movies"
-msgstr ""
-
-msgid "Feedly OPML"
+msgid "End Sort"
 msgstr ""
 
 msgid "Help"
 msgstr ""
 
-msgid "Length"
+#. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
+msgid "Remove Plugins"
 msgstr ""
 
-msgid "No Feedly configuration"
+msgid "Sort"
 msgstr ""
 
-msgid "Podcast"
+msgid "Sort EventInfo Extensions"
 msgstr ""
 
-msgid "Save"
+msgid "Sort Extensions"
 msgstr ""
 
-msgid "Select"
+msgid "Sort MovieList Extensions"
 msgstr ""
 
-msgid "Stop playing this movie?"
+msgid "Unable to load PluginHider"
 msgstr ""
 
-msgid "Type"
+#. TRANSLATORS: there is no need to translate this string, as it was reused from e2 core
+msgid "disable move mode"
 msgstr ""
 
-msgid "ask me"
+#. TRANSLATORS: there is no need to translate this string, as it was reused from e2 core
+msgid "enable move mode"
 msgstr ""
 
-msgid "configuration"
+msgid "hide selected plugin"
 msgstr ""
 
-msgid "delete"
+msgid "move event extensions"
 msgstr ""
 
-msgid "from xml"
+msgid "move extensions"
 msgstr ""
 
-msgid "keep on device"
+msgid "move movie extensions"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AdvancedMovieSelection\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 11:50+0430\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2013-10-05 12:07+0100\n"
 "Last-Translator: cmikula\n"
 "Language-Team: IhaD <JackDaniel@i-have-a-dreambox.com>\n"
@@ -1124,9 +1124,6 @@ msgid "Infos for: %s"
 msgstr "Info für: %s"
 
 msgid "Initial location in new timers"
-msgstr ""
-
-msgid "Input"
 msgstr ""
 
 msgid "Instant record location"
@@ -2451,10 +2448,6 @@ msgid "Video-button"
 msgstr "Video-Taste"
 
 msgid "Virtual"
-msgstr "Virtuelle Tastatur"
-
-#, fuzzy
-msgid "Virtual KeyBoard"
 msgstr "Virtuelle Tastatur"
 
 msgid "Virtual and Numerical"

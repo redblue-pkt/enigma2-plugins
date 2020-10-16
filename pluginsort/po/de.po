@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PluginSort\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-08 13:42+0100\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2011-07-20 09:03+0100\n"
 "Last-Translator: JuSt611 <Software@Strasdas.de>\n"
 "Language-Team: SiennaRoot <fk-912737@versanet.de>\n"
@@ -24,7 +24,6 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: ../src\n"
 
-#. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
 msgid "Download Plugins"
 msgstr "Plugins herunter laden"
 
@@ -33,10 +32,6 @@ msgstr "Sortieren beenden"
 
 msgid "Help"
 msgstr "Hilfe"
-
-#. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
-msgid "Manage extensions"
-msgstr "Erweiterungen verwalten"
 
 #. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
 msgid "Remove Plugins"

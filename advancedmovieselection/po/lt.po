@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AdvancedMovieSelection\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 11:50+0430\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2017-07-22 07:31+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -1124,9 +1124,6 @@ msgid "Infos for: %s"
 msgstr "Informacija apie: %s"
 
 msgid "Initial location in new timers"
-msgstr ""
-
-msgid "Input"
 msgstr ""
 
 msgid "Instant record location"
@@ -2451,10 +2448,6 @@ msgid "Video-button"
 msgstr "'VIDEO' mygtukas"
 
 msgid "Virtual"
-msgstr "Virtualus"
-
-#, fuzzy
-msgid "Virtual KeyBoard"
 msgstr "Virtualus"
 
 msgid "Virtual and Numerical"

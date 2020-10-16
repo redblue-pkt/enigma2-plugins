@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BMediaCenter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 03:21+0430\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2014-10-29 13:01+0100\n"
 "Last-Translator: OEA\n"
 "Language-Team: french\n"
@@ -72,12 +72,6 @@ msgid "Artist"
 msgstr ""
 "\n"
 "Artiste: "
-
-msgid "Audio Player"
-msgstr ""
-
-msgid "Audioplayer Settings"
-msgstr ""
 
 msgid "Back"
 msgstr ""
@@ -200,10 +194,6 @@ msgstr ""
 "Erreur avec le serveur VLC:\n"
 "%s"
 
-#, fuzzy
-msgid "Favorite Folders"
-msgstr "Favoris"
-
 msgid "Favorites"
 msgstr "Favoris"
 
@@ -226,14 +216,8 @@ msgstr ""
 msgid "Hits"
 msgstr ""
 
-msgid "Home"
-msgstr ""
-
 #, python-format
 msgid "Humidity: %s %%"
-msgstr ""
-
-msgid "InfoBar"
 msgstr ""
 
 msgid "Installing Service"
@@ -261,22 +245,12 @@ msgstr ""
 msgid "Media Center"
 msgstr ""
 
-msgid "Media Center - VLC Favorites"
-msgstr ""
-
-msgid "Media Center - VLC Player - Serverlist"
-msgstr ""
-
 msgid "Moviemusic"
 msgstr ""
 
 #, fuzzy
 msgid "Music"
 msgstr "Ma Musique"
-
-#, fuzzy
-msgid "Music Playlist"
-msgstr "Sauvegarder la liste de lecture"
 
 msgid "My Music"
 msgstr "Ma Musique"
@@ -324,9 +298,6 @@ msgid "Parent directory"
 msgstr "effacer répertoire"
 
 msgid "Party"
-msgstr ""
-
-msgid "Pic Viewer"
 msgstr ""
 
 msgid "Play DVD as:"
@@ -444,12 +415,6 @@ msgid "UPNP Enabled"
 msgstr ""
 
 msgid "VLC Player"
-msgstr ""
-
-msgid "VLC Player - Medialist"
-msgstr ""
-
-msgid "Video Player"
 msgstr ""
 
 msgid "Weather Info"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PluginSort\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-08 13:42+0100\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2017-07-10 19:53+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -20,7 +20,6 @@ msgstr ""
 "X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SearchPath-0: ../src\n"
 
-#. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
 msgid "Download Plugins"
 msgstr "Parsisiųsti įskiepius"
 
@@ -29,10 +28,6 @@ msgstr "Rūšiavimo pabaiga"
 
 msgid "Help"
 msgstr "Pagalba"
-
-#. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
-msgid "Manage extensions"
-msgstr "Plėtinių valdymas"
 
 #. TRANSLATORS: leaving this empty is encouraged to not cause any confusion (this string was taken directly from the standard PluginBrowser)
 msgid "Remove Plugins"

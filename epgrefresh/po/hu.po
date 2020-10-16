@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EPGRefresh v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 03:21+0430\n"
+"POT-Creation-Date: 2020-10-16 14:25+0330\n"
 "PO-Revision-Date: 2018-04-08 12:06+0200\n"
 "Last-Translator: Alec <alex1vagyok@gmail.com>\n"
 "Language-Team: alec <alex1vagyok@gmail.com>\n"
@@ -60,9 +60,6 @@ msgstr "Bezárás és a változások elfelejtése"
 
 msgid "Close and save changes"
 msgstr "Bezárás és a változások mentése"
-
-msgid "Congratulations"
-msgstr ""
 
 msgid "Delay if not in standby (minutes)"
 msgstr "Késleltetés, ha nincs készenlétben (perc)"
@@ -130,10 +127,6 @@ msgstr "EPG Műsorújság frissítés konfiguráció Súgó"
 msgid "EPGRefresh Functions"
 msgstr "EPG Műsorújság frissítés funkciók"
 
-#, fuzzy
-msgid "EPGRefresh Help"
-msgstr "EPG Műsorújság frissítés csatornái"
-
 msgid "EPGRefresh Services"
 msgstr "EPG Műsorújság frissítés csatornái"
 
@@ -145,10 +138,6 @@ msgstr "Csatornák szerkesztése a frissítéshez"
 
 msgid "Editing"
 msgstr "Szerkesztés"
-
-#, fuzzy
-msgid "Editing the service list"
-msgstr "Csatornák szerkesztése"
 
 msgid "Enable this item to flush all EPG data before starting a new EPG refresh cycle"
 msgstr ""
@@ -306,31 +295,11 @@ msgstr "Állítsa le az EPG Műsorújság frissítés futtatását"
 msgid "Stop running refresh"
 msgstr "Hagyja abba a frissítést"
 
-#, fuzzy
-msgid "The configuration menu"
-msgstr "EPG Műsorújság frissítés konfiguráció Súgó"
-
 msgid "There is still a refresh running. The Operation isn't allowed at this moment."
 msgstr "A frissítés még folyamatban van. A művelet ebben a pillanatban nem engedélyezett."
 
-msgid ""
-"This help screen is supposed to give you a quick look at everything EPGRefresh has to offer.\n"
-"You can abort it at any time by pressing the RED or EXIT button on your remote control or bring it up at a later point by pressing the HELP button from the configuration menu (more on that later).\n"
-"\n"
-"\n"
-"But you really should consider to take the few minutes it takes to read these help pages."
-msgstr ""
-
 msgid "This is the duration each service/channel will stay active during a refresh."
 msgstr "Az az időtartam, amikor mindegyik csatorna aktív marad a frissítés során."
-
-msgid ""
-"This is the entry point of EPGRefresh. From this menu you can configure every aspect of the plugin.\n"
-"The configuration options each have an explaination which is supposed to help you to understand their effects better. Please give reading them a try, they can save you a lot of time.\n"
-"\n"
-"Using the YELLOW button you can start a refresh manually. You also be able to enable the functionalities in the Extensionmenu. The INFO button brings up the date the last refresh was completed successfully. You will also find an Extensionmenu-Entry to stop a running Refresh.\n"
-"The BLUE key opens the service editor (next page)."
-msgstr ""
 
 msgid "This setting controls whether or not an informational message will be shown at start and completion of refresh."
 msgstr "Ez a beállítás szabályozza, hogy egy tájékoztató üzenet jelenjen-e meg a frissítés kezdetekor és befejezésekor is."
@@ -357,28 +326,8 @@ msgstr "Változat"
 msgid "Wake up from standby for EPG refresh."
 msgstr "Ébredjen készenléti állapotbó az EPG frissítéshez"
 
-#, fuzzy
-msgid "Welcome to EPGRefresh"
-msgstr "adja a EPG Műsorújság frissítéséhez"
-
-msgid ""
-"While the screen does not immediately show it, it does have a lot to offer. The topmost line allows you to choose between the editor for channels and bouquets and the following lines contain the channels/bouquets you chose to refresh.\n"
-"\n"
-"You can use the BLUE button to add a new entry to the list or the YELLOW button to remove an existing one.\n"
-"\n"
-"\n"
-"For most people it should be sufficient to add the 'Favourites' bouquet by selecting 'Bouquets' in the first line and by adding it using the BLUE button."
-msgstr ""
-
 msgid "Yes"
 msgstr "Igen"
-
-msgid ""
-"You now know how to do your first steps in EPGRefresh.\n"
-"\n"
-"As a final note I want to hint you at the fact that this plugin will not do anything on its own without YOU telling it to. So if you want the refresh to happen automatically in the background you need to configure the plugin to do so.\n"
-"This was not done to cause you any inconvenience but rather to give you the freedom of choice."
-msgstr ""
 
 msgid "add to EPGRefresh"
 msgstr "adja a EPG Műsorújság frissítéséhez"
