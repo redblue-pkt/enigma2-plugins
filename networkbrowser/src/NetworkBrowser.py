@@ -17,7 +17,10 @@ from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN, fileExists
 from Tools.LoadPixmap import LoadPixmap
-from cPickle import dump, load
+try:
+	import cPickle as pickle
+except:
+	import pickle
 from os import path as os_path, stat, mkdir, remove
 from time import time
 from stat import ST_MTIME
@@ -44,7 +47,7 @@ def write_cache(cache_file, cache_data):
 		except OSError:
 			print(os_path.dirname(cache_file), '[Networkbrowser] is a file')
 	fd = open(cache_file, 'w')
-	dump(cache_data, fd, -1)
+	pickle.dump(cache_data, fd, -1)
 	fd.close()
 
 def valid_cache(cache_file, cache_ttl):
@@ -62,7 +65,7 @@ def valid_cache(cache_file, cache_ttl):
 def load_cache(cache_file):
 	#Does a cPickle load
 	fd = open(cache_file)
-	cache_data = load(fd)
+	cache_data = pickle.load(fd)
 	fd.close()
 	return cache_data
 

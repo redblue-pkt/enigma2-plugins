@@ -51,7 +51,10 @@ class Interface(StreamInterface):
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-from cPickle import dump, load
+try:
+	import cPickle as pickle
+except:
+	import pickle
 from urllib import FancyURLopener
 from xml.sax import parseString
 from xml.sax.handler import ContentHandler
@@ -73,7 +76,7 @@ def write_cache(cache_file, cache_data):
         except OSError:
             print(dirname(cache_file), 'is a file')
     fd = open(cache_file, 'w')
-    dump(cache_data, fd, -1)
+    pickle.dump(cache_data, fd, -1)
     fd.close()
 
 def cacheTime(cache_file):
@@ -91,7 +94,7 @@ def load_cache(cache_file):
     Does a cPickle load
     """
     fd = open(cache_file)
-    cache_data = load(fd)
+    cache_data = pickle.load(fd)
     fd.close()
     return cache_data
 
