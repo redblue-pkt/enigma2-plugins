@@ -5,7 +5,7 @@ from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSel
 from Components.ConfigList import ConfigListScreen
 from Components.ActionMap import NumberActionMap
 from Components.Button import Button
-from Components.Label import Label,MultiColorLabel
+from Components.Label import Label, MultiColorLabel
 from Components.SystemInfo import SystemInfo
 from enigma import eTimer
 from Plugins.Plugin import PluginDescriptor
@@ -16,7 +16,7 @@ import NavigationInstance
 
 config.plugins.AudioRestart = ConfigSubsection()
 config.plugins.AudioRestart.restartSelection = ConfigSelection( default = "disabled", choices = [("disabled", _("disabled")), ("restart", _("after restart")), ("standby", _("after standby")), ("both", _("after restart/standby"))])
-config.plugins.AudioRestart.restartDelay = ConfigInteger(default = 5, limits = (0,30))
+config.plugins.AudioRestart.restartDelay = ConfigInteger(default = 5, limits = (0, 30))
 
 PLUGIN_BASE = "AudioRestart"
 PLUGIN_VERSION = "0.1"
@@ -30,7 +30,7 @@ class AudioRestart():
         if config.plugins.AudioRestart.restartSelection.value in ["restart", "both"]:
             self.startTimer()
         
-    def enterStandby(self,configElement):
+    def enterStandby(self, configElement):
         Standby.inStandby.onClose.append(self.endStandby)
       
     def endStandby(self):
@@ -38,7 +38,7 @@ class AudioRestart():
 
     def startTimer(self):
         self.intDelay = config.plugins.AudioRestart.restartDelay.value*1000
-        print("[AudioSync] audio restart in ",self.intDelay)
+        print("[AudioSync] audio restart in ", self.intDelay)
         self.activateTimer.start(self.intDelay, True)
 
     def restartAudio(self):
@@ -104,7 +104,7 @@ class AudioRestartSetup(ConfigListScreen, Screen):
         self.skin_path = plugin_path
 
         # Plugin Information
-        self["PluginInfo"] = Label(_("Plugin: %(plugin)s , Version: %(version)s") %dict(plugin=PLUGIN_BASE,version=PLUGIN_VERSION))
+        self["PluginInfo"] = Label(_("Plugin: %(plugin)s , Version: %(version)s") %dict(plugin=PLUGIN_BASE, version=PLUGIN_VERSION))
 
         # BUTTONS
         self["key_red"] = Button(_("Cancel"))

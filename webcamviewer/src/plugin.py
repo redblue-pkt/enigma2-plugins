@@ -19,7 +19,7 @@ from Components.MenuList import MenuList
 from Components.FileList import EXTENSIONS
 from Components.AVSwitch import AVSwitch
 ## configmenu
-from Components.config import config, ConfigSubsection,ConfigSelection,ConfigText,ConfigYesNo
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigText, ConfigYesNo
 ####
 from Components.Input import Input
 from Components.Pixmap import Pixmap
@@ -143,8 +143,8 @@ class ViewerSelectScreen(Screen):
 		self.skin = skin
 		Screen.__init__(self, session)
 		self.slideshowfiles = []
-		self.slideshowfiles.append((_("WebcamViewer"),STARTWEBCAMVIEWER))
-		self.slideshowfiles.append((_("online webcam.travel"),STARTWEBCAMTRAVEL))
+		self.slideshowfiles.append((_("WebcamViewer"), STARTWEBCAMVIEWER))
+		self.slideshowfiles.append((_("online webcam.travel"), STARTWEBCAMTRAVEL))
 		self["list"] = MenuList(self.slideshowfiles)
 		self["actions"] = ActionMap(["WizardActions", "MenuActions", "DirectionActions", "ShortcutActions"],
 			{
@@ -155,7 +155,7 @@ class ViewerSelectScreen(Screen):
 	def go(self):
 		selection = self["list"].getCurrent()
 		if selection:
-			self.close(self.session,selection[1])
+			self.close(self.session, selection[1])
 
 
 ###################
@@ -270,7 +270,7 @@ class PictureViewer(Screen):
 				s.sort()
 				for file in s:
 					if compile(config.plugins.pictureviewer.matchingPattern.value).search(dirname + file):
-						self.slideshowfiles.append((_(file),dirname + file))
+						self.slideshowfiles.append((_(file), dirname + file))
 				self["slist"].l.setList(self.slideshowfiles)
 		else:
 			#loading list
@@ -278,7 +278,7 @@ class PictureViewer(Screen):
 			try:
 				for file in os.listdir(config.plugins.pictureviewer.slideshowdir.value):
 					if file.endswith(config.plugins.pictureviewer.slideshowext.value):
-						list.append((_(file.split("/")[-1]),file))
+						list.append((_(file.split("/")[-1]), file))
 				self.session.openWithCallback(
 						self.fileToLoadFilelistEntered,
 						ChoiceBox,
@@ -286,9 +286,9 @@ class PictureViewer(Screen):
 						list
 				)
 			except IOError as e:
-				print("["+myname+"] IOError:",e)
+				print("["+myname+"] IOError:", e)
 			except OSError as e:
-				print("["+myname+"] OSError:",e)
+				print("["+myname+"] OSError:", e)
 
 	def KeyRed(self):
 		if self.currList is "filelist" :
@@ -319,7 +319,7 @@ class PictureViewer(Screen):
 				   fp = open(config.plugins.pictureviewer.slideshowdir.value + filename)
 				   list = []
 				   for x in fp.readlines():
-					   file = x.replace("\n","")
+					   file = x.replace("\n", "")
 					   if x.startswith("#"):
 						   pass
 					   elif not os.path.exists(file):
@@ -395,7 +395,7 @@ class PictureViewer(Screen):
 				else:
 					print("["+myname+"] file selected ", selection[0])
 					if os.path.isfile(selection[0]):
-						self.session.open(PictureScreen,selection[0].split("/")[-1], selection[0])
+						self.session.open(PictureScreen, selection[0].split("/")[-1], selection[0])
 					else:
 						print("["+myname+"] file not found ", selection[0])
 		else:
@@ -448,7 +448,7 @@ class PictureViewer(Screen):
 		else:
 			pass
 
-	def output(self,str):
+	def output(self, str):
 		print("+" * 10, str)
 
 	def openMenu(self):
@@ -468,7 +468,7 @@ class WebcamViewer(Screen, InfoBarNotifications):
 		skin = """
 		<screen position="%i,%i" size="%i,%i" title="%s">
 			<widget name="menu" position="1,1" size="%i,%i"  scrollbarMode="showOnDemand"/>
-		</screen>""" % (pos_x,pos_y,size_x,size_y,myname,size_x,size_y)
+		</screen>""" % (pos_x, pos_y, size_x, size_y, myname, size_x, size_y)
 		self.skin = skin
 		Screen.__init__(self, session)
 		InfoBarNotifications.__init__(self)
@@ -574,7 +574,7 @@ class PictureList(MenuList):
 				name = x
 				if self.matchingPattern is not None:
 					if compile(self.matchingPattern).search(path):
-						self.list.append(self.getPictureEntryComponent(name,path, False))
+						self.list.append(self.getPictureEntryComponent(name, path, False))
 				else:
 					pass
 
@@ -596,7 +596,7 @@ class PictureList(MenuList):
 		MenuList.postWidgetCreate(self, instance)
 		instance.setItemHeight(23)
 
-	def getPictureEntryComponent(self,name, absolute, isDir):
+	def getPictureEntryComponent(self, name, absolute, isDir):
 		""" name={angezeigter Name}, absolute={vollstaendiger Pfad}, isDir={True,False} """
 		res = [ (absolute, isDir) ]
 		res.append((eListboxPythonMultiContent.TYPE_TEXT, 35, 1, 200, 20, 0, 0, name))
@@ -641,6 +641,6 @@ class XMLloader:
 		"""
 		return self.node_data(node, tagName) or self.node_data(node, tagName, self.DUBLIN_CORE) or default_txt
 
-	def getScreenXMLTitle(self,node):
+	def getScreenXMLTitle(self, node):
 		return self.get_txt(node, "name", "no title")
 

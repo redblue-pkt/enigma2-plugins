@@ -262,7 +262,7 @@ class GroupConversation:
         
     def refreshMemberList(self):
         self.pipe.clearBuddyList()
-        self.members.sort(lambda x,y: cmp(string.lower(x), string.lower(y)))
+        self.members.sort(lambda x, y: cmp(string.lower(x), string.lower(y)))
         self.pipe.getCannelName(self.group.name)
         for member in self.members:
             self.pipe.buildBuddyList(str(member))

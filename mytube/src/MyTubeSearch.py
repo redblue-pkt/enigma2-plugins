@@ -85,12 +85,12 @@ class ConfigTextWithGoogleSuggestions(ConfigText):
 
 	def propagateSuggestions(self, suggestionsList):
 		self.cancelSuggestionsThread()
-		print("[MyTube - ConfigTextWithGoogleSuggestions] propagateSuggestions:",suggestionsList)
+		print("[MyTube - ConfigTextWithGoogleSuggestions] propagateSuggestions:", suggestionsList)
 		if self.suggestionsWindow:
 			self.suggestionsWindow.update(suggestionsList)
 
 	def gotSuggestionsError(self, val):
-		print("[MyTube - ConfigTextWithGoogleSuggestions] gotSuggestionsError:",val)
+		print("[MyTube - ConfigTextWithGoogleSuggestions] gotSuggestionsError:", val)
 
 	def getSuggestions(self):
 		self.prepareSuggestionsThread()
@@ -159,7 +159,7 @@ class ConfigTextWithGoogleSuggestions(ConfigText):
 		self.value = self.tmpValue
 		return self.deactivateSuggestionList()
 
-	def enableSuggestionSelection(self,value):
+	def enableSuggestionSelection(self, value):
 		if self.suggestionsWindow is not None:
 			self.suggestionsWindow.enableSelection(value)
 
@@ -282,7 +282,7 @@ class MyTubeSuggestionsListScreen(Screen):
 		print(self["suggestionslist"].getCurrent()[0])
 		return self["suggestionslist"].getCurrent()[0]
 
-	def enableSelection(self,value):
+	def enableSelection(self, value):
 		self["suggestionslist"].selectionEnabled(value)
 
 
@@ -511,7 +511,7 @@ class MyTubeTasksScreen(Screen):
 	def rebuildTaskList(self):
 		self.tasklist = []
 		for job in job_manager.getPendingJobs():
-			self.tasklist.append((job,job.name,job.getStatustext(),int(100*job.progress/float(job.end)) ,str(100*job.progress/float(job.end)) + "%" ))
+			self.tasklist.append((job, job.name, job.getStatustext(), int(100*job.progress/float(job.end)), str(100*job.progress/float(job.end)) + "%" ))
 		self['tasklist'].setList(self.tasklist)
 		self['tasklist'].updateList(self.tasklist)
 		self.Timer.startLongTimer(2)
@@ -528,7 +528,7 @@ class MyTubeTasksScreen(Screen):
 			self.session.openWithCallback(self.JobViewCB, JobView, job)
 
 	def JobViewCB(self, why):
-		print("WHY---",why)
+		print("WHY---", why)
 
 	def keyCancel(self):
 		self.close()
@@ -558,7 +558,7 @@ class MyTubeHistoryScreen(Screen):
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/MyTube")
 		self.session = session
 		self.historylist = []
-		print("self.historylist",self.historylist)
+		print("self.historylist", self.historylist)
 		self["historylist"] = List(self.historylist)
 		self.activeState = False
 
@@ -568,7 +568,7 @@ class MyTubeHistoryScreen(Screen):
 		self.history = config.plugins.mytube.general.history.value.split(',')
 		if self.history[0] == '':
 			del self.history[0]
-		print("self.history",self.history)
+		print("self.history", self.history)
 		self.historylist = []
 		for entry in self.history:
 			self.historylist.append(( str(entry),))

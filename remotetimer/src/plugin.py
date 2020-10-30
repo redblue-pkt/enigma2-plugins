@@ -48,7 +48,7 @@ import urllib
 #------------------------------------------------------------------------------------------
 
 config.plugins.remoteTimer = ConfigSubsection()
-config.plugins.remoteTimer.httphost = ConfigText(default = "" , fixed_size = False)
+config.plugins.remoteTimer.httphost = ConfigText(default = "", fixed_size = False)
 config.plugins.remoteTimer.httpip = ConfigIP(default = [0, 0, 0, 0])
 config.plugins.remoteTimer.httpport = ConfigNumber(default = 80)
 config.plugins.remoteTimer.username = ConfigText(default = "root", fixed_size = False)
@@ -343,13 +343,13 @@ def newnigma2KeyGo(self):
 		if end < begin:
 			end += 86400
 
-		rt_name = urllib.quote(self.timerentry_name.value.decode('utf8').encode('utf8','ignore'))
-		rt_description = urllib.quote(self.timerentry_description.value.decode('utf8').encode('utf8','ignore'))
+		rt_name = urllib.quote(self.timerentry_name.value.decode('utf8').encode('utf8', 'ignore'))
+		rt_description = urllib.quote(self.timerentry_description.value.decode('utf8').encode('utf8', 'ignore'))
 		rt_disabled = 0 # XXX: do we really want to hardcode this? why do we offer this option then?
 		rt_repeated = 0 # XXX: same here
 
 		if config.plugins.remoteTimer.remotedir.value:
-			rt_dirname = urllib.quote(self.timerentry_dirname.value.decode('utf8').encode('utf8','ignore'))
+			rt_dirname = urllib.quote(self.timerentry_dirname.value.decode('utf8').encode('utf8', 'ignore'))
 		else:
 			rt_dirname = "None"
 
@@ -444,7 +444,7 @@ def main(session, **kwargs):
 
 def Plugins(**kwargs):
 	plugin = []
-	plugin.append(PluginDescriptor(name="Remote Timer",description="Remote Timer Setup", where = [ PluginDescriptor.WHERE_PLUGINMENU ], icon="remotetimer.png", fnc = main))
+	plugin.append(PluginDescriptor(name="Remote Timer", description="Remote Timer Setup", where = [ PluginDescriptor.WHERE_PLUGINMENU ], icon="remotetimer.png", fnc = main))
 	plugin.append(PluginDescriptor(name="Remote Timer", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=main))
 	plugin.append(PluginDescriptor(where = PluginDescriptor.WHERE_SESSIONSTART, fnc = autostart))
 	return plugin

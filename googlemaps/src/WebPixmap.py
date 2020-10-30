@@ -57,14 +57,14 @@ class WebPixmap(Pixmap):
 				"Connection":"keep-alive"
 			}
 			agt = "Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.0.2) Gecko/2008091620 Firefox/3.0.2"
-			downloadPage(url,self.tmpfile,headers=head,agent=agt).addCallback(self.onLoadFinished).addErrback(self.onLoadFailed)
+			downloadPage(url, self.tmpfile, headers=head, agent=agt).addCallback(self.onLoadFinished).addErrback(self.onLoadFailed)
 		elif self.default:
 			self.picload.startDecode(self.default)
 
-	def onLoadFinished(self,result):
+	def onLoadFinished(self, result):
 		self.picload.startDecode(self.tmpfile)
 
-	def onLoadFailed(self,error):
+	def onLoadFailed(self, error):
 		print("WebPixmap:onLoadFAILED", error)
 		if self.default and self.instance:
 			print("showing 404", self.default)

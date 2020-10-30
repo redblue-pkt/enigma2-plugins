@@ -90,7 +90,7 @@ class NetworkBrowser(Screen):
 			<widget source="infotext" render="Label" position="0,420" size="560,30" zPosition="10" font="Regular;21" halign="center" valign="center" backgroundColor="#25062748" transparent="1" />
 		</screen>"""
 
-	def __init__(self, session, iface,plugin_path):
+	def __init__(self, session, iface, plugin_path):
 		Screen.__init__(self, session)
 		self.skin_path = plugin_path
 		self.session = session
@@ -167,17 +167,17 @@ class NetworkBrowser(Screen):
 		self.startRun()
 
 	def keyBlue(self):
-		self.session.openWithCallback(self.scanIPclosed,ScanIP)
+		self.session.openWithCallback(self.scanIPclosed, ScanIP)
 
-	def scanIPclosed(self,result):
+	def scanIPclosed(self, result):
 		if result[0]:
 			if result[1] == "address":
-				print("[Networkbrowser] got IP:",result[1])
+				print("[Networkbrowser] got IP:", result[1])
 				nwlist = []
 				nwlist.append(netscan.netzInfo(result[0] + "/24"))
 				self.networklist += nwlist[0]
 			elif result[1] == "nfs":
-				self.networklist.append(['host', result[0], result[0] , '00:00:00:00:00:00', result[0], 'Master Browser'])
+				self.networklist.append(['host', result[0], result[0], '00:00:00:00:00:00', result[0], 'Master Browser'])
 
 		if len(self.networklist) > 0:
 			write_cache(self.cache_file, self.networklist)
@@ -199,7 +199,7 @@ class NetworkBrowser(Screen):
 		self.inv_cache = 0
 		self.vc = valid_cache(self.cache_file, self.cache_ttl)
 		if self.cache_ttl > 0 and self.vc != 0:
-			print('[Networkbrowser] Loading network cache from ',self.cache_file)
+			print('[Networkbrowser] Loading network cache from ', self.cache_file)
 			try:
 				self.networklist = load_cache(self.cache_file)
 			except:
@@ -223,7 +223,7 @@ class NetworkBrowser(Screen):
 		tmplist = nwlist[0]
 		return tmplist
 
-	def getNetworkShares(self,hostip,hostname,devicetype):
+	def getNetworkShares(self, hostip, hostname, devicetype):
 		sharelist = []
 		self.sharecache_file = None
 		self.sharecache_file = '/etc/enigma2/' + hostname.strip() + '.cache' #Path to cache directory
@@ -237,17 +237,17 @@ class NetworkBrowser(Screen):
 			pass
 
 		if devicetype == 'unix':
-			smblist=netscan.smbShare(hostip,hostname,username,password)
+			smblist=netscan.smbShare(hostip, hostname, username, password)
 			for x in smblist:
 				if len(x) == 6:
 					if x[3] != 'IPC$':
 						sharelist.append(x)
-			nfslist=netscan.nfsShare(hostip,hostname)
+			nfslist=netscan.nfsShare(hostip, hostname)
 			for x in nfslist:
 				if len(x) == 6:
 					sharelist.append(x)
 		else:
-			smblist=netscan.smbShare(hostip,hostname,username,password)
+			smblist=netscan.smbShare(hostip, hostname, username, password)
 			for x in smblist:
 				if len(x) == 6:
 					if x[3] != 'IPC$':
@@ -292,7 +292,7 @@ class NetworkBrowser(Screen):
 			else:
 				self.device = 'windows'
 			if x in self.expanded:
-				networkshares = self.getNetworkShares(x,self.network[x][0][1][1].strip(),self.device)
+				networkshares = self.getNetworkShares(x, self.network[x][0][1][1].strip(), self.device)
 				hostentry = self.network[x][0][1]
 				name = hostentry[2] + " ( " +hostentry[1].strip() + " )"
 				expandedIcon = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, "SystemPlugins/NetworkBrowser/icons/host.png"))
@@ -313,7 +313,7 @@ class NetworkBrowser(Screen):
 		self["list"].setList(self.list)
 		self["list"].setIndex(self.listindex)
 
-	def BuildNetworkShareEntry(self,share):
+	def BuildNetworkShareEntry(self, share):
 		verticallineIcon = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, "SystemPlugins/NetworkBrowser/icons/verticalLine.png"))
 		sharetype = share[0]
 		localsharename = share[1]
@@ -436,7 +436,7 @@ class NetworkBrowser(Screen):
 				for sharename, sharedata in mounts.items():
 					if sharedata['ip'] == selection[2] and sharedata['sharedir'] == selection[4]:
 						data = sharedata
-				self.session.openWithCallback(self.MountEditClosed,AutoMountEdit, self.skin_path, data)
+				self.session.openWithCallback(self.MountEditClosed, AutoMountEdit, self.skin_path, data)
 			if selection[0] == 'smbShare': # share entry selected
 				#Initialize blank mount enty
 				data = { 'isMounted': False, 'active': False, 'ip': False, 'sharename': False, 'sharedir': False, 'username': False, 'password': False, 'mounttype' : False, 'options' : False }
@@ -496,7 +496,7 @@ class ScanIP(Screen, ConfigListScreen):
 			"yellow": self.goAddress,
 		}, -1)
 		
-		self.ipAddress = ConfigIP(default=[0,0,0,0])
+		self.ipAddress = ConfigIP(default=[0, 0, 0, 0])
 		
 		ConfigListScreen.__init__(self, [
 			getConfigListEntry(_("IP Address"), self.ipAddress),
@@ -505,7 +505,7 @@ class ScanIP(Screen, ConfigListScreen):
 		self.onLayoutFinish.append(self.layoutFinished)
 
 	def exit(self):
-		self.close((None,None))
+		self.close((None, None))
 
 	def layoutFinished(self):
 		self.setWindowTitle()

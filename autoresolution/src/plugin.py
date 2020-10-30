@@ -80,10 +80,10 @@ config.plugins.autoresolution.deinterlacer = ConfigSelection(default = "auto", c
 config.plugins.autoresolution.deinterlacer_progressive = ConfigSelection(default = "auto", choices =
 		[("off", _("off")), ("auto", _("auto")), ("on", _("on")), ("bob", _("bob"))])
 config.plugins.autoresolution.delay_switch_mode = ConfigSelection(default = "1000", choices = [
-		("0", "0 " + _("seconds")),("50", "0.05 " + _("seconds")), ("500", "0.5 " + _("seconds")),
+		("0", "0 " + _("seconds")), ("50", "0.05 " + _("seconds")), ("500", "0.5 " + _("seconds")),
 		("1000", "1 " + _("second")), ("2000", "2 " + _("seconds")), ("3000", "3 " + _("seconds")),
 		("4000", "4 " + _("seconds")), ("5000", "5 " + _("seconds")), ("6000", "6 " + _("seconds")), ("7000", "7 " + _("seconds")),
-		("8000", "8 " + _("seconds")), ("9000", "9 " + _("seconds")), ("10000", "10 " + _("seconds")),("60000", "60 " + _("seconds"))])
+		("8000", "8 " + _("seconds")), ("9000", "9 " + _("seconds")), ("10000", "10 " + _("seconds")), ("60000", "60 " + _("seconds"))])
 config.plugins.autoresolution.mode = ConfigSelection(default = "manual", choices = [("manual", _("manual")), ("auto", _("Auto frame rate (refresh need 'multi')"))])
 config.plugins.autoresolution.lock_timeout = ConfigSelection(default = "60", choices = [("30", "30 " + _("seconds")), ("60", "60 " + _("seconds"))])
 config.plugins.autoresolution.ask_apply_mode = ConfigYesNo(default = False)
@@ -95,7 +95,7 @@ config.plugins.autoresolution.manual_resolution_ask = ConfigYesNo(default = True
 
 def setDeinterlacer(mode):
 	try:
-		f = open('/proc/stb/vmpeg/deinterlace' , "w")
+		f = open('/proc/stb/vmpeg/deinterlace', "w")
 		f.write("%s\n" % mode)
 		f.close()
 		print("[AutoRes] switch deinterlacer mode to %s" % mode)
@@ -340,7 +340,7 @@ class AutoRes(Screen):
 			mode = self.lastmode
 			if "p24" in mode or "p25" in mode or "p30" in mode or (self.extra_mode1080p50 and "1080p50" in mode) or (self.extra_mode1080p60 and "1080p60" in mode) or (self.extra_mode720p60 and "720p60" in mode) or "720p50" in mode:
 				try:
-					v = open('/proc/stb/video/videomode' , "w")
+					v = open('/proc/stb/video/videomode', "w")
 					v.write("%s\n" % mode)
 					v.close()
 					print("[AutoRes] switching to", mode)

@@ -41,7 +41,7 @@ config.plugins.emailimap.debug = ConfigEnableDisable(default=False)
 def decodeHeader(text, default=''):
 	if text is None:
 		return _(default)
-	text = text.replace('\r',' ').replace('\n',' ').replace('\t',' ')
+	text = text.replace('\r', ' ').replace('\n', ' ').replace('\t', ' ')
 	text = re.sub('\s\s+', ' ', text)
 	textNew = ""
 	for part in decode_header(text):
@@ -83,7 +83,7 @@ class EmailScreen(Screen):
 					   (DESKTOP_WIDTH-width)/2, (DESKTOP_HEIGHT-height)/2, width, height,
 					   boxlistWidth, height-infolabelHeight,
 					   boxlistWidth, 0, messagelistWidth, height-infolabelHeight,
-					   0, height-infolabelHeight, width, infolabelHeight, scaleV(20,18)
+					   0, height-infolabelHeight, width, infolabelHeight, scaleV(20, 18)
 					   )
 
 	def __init__(self, session, account):
@@ -286,9 +286,9 @@ class EmailScreen(Screen):
 			color = 0x00888888 # grey
 		return [
 			message,
-			MultiContentEntryText(pos=(5, 0), size=(self.messagelistWidth, scaleV(20,18)+5), font=font, text=message.getSenderString(), color=color, color_sel=color),
-			MultiContentEntryText(pos=(5, scaleV(20,18)+1), size=(self.messagelistWidth, scaleV(20,18)+5), font=font, text=message.getLocalDateTimeString(), color=color, color_sel=color),
-			MultiContentEntryText(pos=(5, 2*(scaleV(20,18)+1)), size=(self.messagelistWidth, scaleV(20,18)+5), font=font, text=message.getSubject(), color=color, color_sel=color)
+			MultiContentEntryText(pos=(5, 0), size=(self.messagelistWidth, scaleV(20, 18)+5), font=font, text=message.getSenderString(), color=color, color_sel=color),
+			MultiContentEntryText(pos=(5, scaleV(20, 18)+1), size=(self.messagelistWidth, scaleV(20, 18)+5), font=font, text=message.getLocalDateTimeString(), color=color, color_sel=color),
+			MultiContentEntryText(pos=(5, 2*(scaleV(20, 18)+1)), size=(self.messagelistWidth, scaleV(20, 18)+5), font=font, text=message.getSubject(), color=color, color_sel=color)
 		]
 
 class ScreenMailView(Screen):
@@ -337,10 +337,10 @@ class ScreenMailView(Screen):
 					   2*buttonsGap+140, height-30-5,
 					   3*buttonsGap+2*140, height-30-5,
 					   4*buttonsGap+3*140, height-30-5,
-					   buttonsGap, height-30-5, scaleV(18,16),
-					   2*buttonsGap+140, height-30-5, scaleV(18,16),
-					   3*buttonsGap+2*140, height-30-5, scaleV(18,16),
-					   4*buttonsGap+3*140, height-30-5, scaleV(18,16),
+					   buttonsGap, height-30-5, scaleV(18, 16),
+					   2*buttonsGap+140, height-30-5, scaleV(18, 16),
+					   3*buttonsGap+2*140, height-30-5, scaleV(18, 16),
+					   4*buttonsGap+3*140, height-30-5, scaleV(18, 16),
 					   )
 		Screen.__init__(self, session)
 		self["from"] = Label(decodeHeader(_("From") +": %s" %self._email.get('from', _('no from'))))
@@ -479,7 +479,7 @@ class EmailAttachment:
 
 	def save(self, folder):
 		try:
-			fp = open(folder+"/"+self.getFilename(),"wb")
+			fp = open(folder+"/"+self.getFilename(), "wb")
 			fp.write(self.data)
 			fp.close()
 		except Exception as e:
@@ -959,9 +959,9 @@ class EmailAccountList(Screen):
 						2*buttonsGap+140, height-45,
 						3*buttonsGap+2*140, height-45,
 						4*buttonsGap+3*140, height-38,
-						buttonsGap, height-45, scaleV(22,18),
-						2*buttonsGap+140, height-45, scaleV(22,18),
-						3*buttonsGap+2*140, height-45, scaleV(22,18)
+						buttonsGap, height-45, scaleV(22, 18),
+						2*buttonsGap+140, height-45, scaleV(22, 18),
+						3*buttonsGap+2*140, height-45, scaleV(22, 18)
 						)
 		Screen.__init__(self, session)
 		self["buttonred"] = Label(_("remove"))

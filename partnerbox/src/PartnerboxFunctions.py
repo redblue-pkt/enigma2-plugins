@@ -317,7 +317,7 @@ def FillE1TimerList(xmlstring, sreference = None):
 			if sreference.upper() == servicereference.upper() and ( (typedata & PlaylistEntry.stateWaiting) or (typedata & PlaylistEntry.stateRunning)):
 				go = True
 		if go:
-			E1TimerList.append(E2Timer(servicereference = servicereference, servicename = servicename, name = "", disabled = 0, timebegin = timebegin, timeend = 0, duration = duration, startprepare = 0, state = 0 , repeated = 0, justplay= 0, eventId = -1, afterevent = 0, dirname = "", description = description, type = typedata))
+			E1TimerList.append(E2Timer(servicereference = servicereference, servicename = servicename, name = "", disabled = 0, timebegin = timebegin, timeend = 0, duration = duration, startprepare = 0, state = 0, repeated = 0, justplay= 0, eventId = -1, afterevent = 0, dirname = "", description = description, type = typedata))
 	return E1TimerList
 
 class myHTTPClientFactory(HTTPClientFactory):
@@ -325,7 +325,7 @@ class myHTTPClientFactory(HTTPClientFactory):
 	agent="Twisted Remotetimer", timeout=0, cookies=None,
 	followRedirect=1, lastModified=None, etag=None):
 		HTTPClientFactory.__init__(self, url, method=method, postdata=postdata,
-		headers=headers, agent=agent, timeout=timeout, cookies=cookies,followRedirect=followRedirect)
+		headers=headers, agent=agent, timeout=timeout, cookies=cookies, followRedirect=followRedirect)
 
 def url_parse(url, defaultPort=None):
 	parsed = urlparse.urlparse(url)
@@ -350,7 +350,7 @@ def sendPartnerBoxWebCommand(url, contextFactory=None, timeout=60, username = "r
 	scheme = parsed.scheme
 	host = parsed.hostname
 	port = parsed.port or (443 if scheme == 'https' else 80)
-	basicAuth = encodestring(("%s:%s")%(username,password))
+	basicAuth = encodestring(("%s:%s")%(username, password))
 	authHeader = "Basic " + basicAuth.strip()
 	AuthHeaders = {"Authorization": authHeader}
 	if kwargs.has_key("headers"):
@@ -410,9 +410,9 @@ def SetPartnerboxTimerlist(partnerboxentry = None, sreference = None):
 		ip = "%d.%d.%d.%d" % tuple(partnerboxentry.ip.value)
 		port = partnerboxentry.port.value
 		if int(partnerboxentry.enigma.value) == 0:
-			sCommand = "http://%s:%s@%s:%d/web/timerlist" % (username, password, ip,port)
+			sCommand = "http://%s:%s@%s:%d/web/timerlist" % (username, password, ip, port)
 		else:
-			sCommand = "http://%s:%s@%s:%d/xml/timers" % (username, password, ip,port)
+			sCommand = "http://%s:%s@%s:%d/xml/timers" % (username, password, ip, port)
 		print("[RemoteEPGList] Getting timerlist data from %s..."%ip)
 		f = urllib.urlopen(sCommand)
 		sxml = f.read()

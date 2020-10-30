@@ -29,7 +29,7 @@ class StreamPlayer:
 #				c()
 
 
-	def _onMetadataChanged(self,title):
+	def _onMetadataChanged(self, title):
 		for i in self.metadatachangelisteners:
 			i(title)
 

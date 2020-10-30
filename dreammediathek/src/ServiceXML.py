@@ -35,7 +35,7 @@ class WebTVStations():
 				data['title'] = getValue(tvstation.findall("title"), False).encode("UTF-8")
 				data['streamurl'] = getValue(tvstation.findall("streamurl"), False).encode("UTF-8")
 
-				print("TVSTATION--->",data)
+				print("TVSTATION--->", data)
 				self.webtv_stations[data['title']] = data
 			except Exception as e:
 				print("[WebTVStations] Error reading Stations:", e)

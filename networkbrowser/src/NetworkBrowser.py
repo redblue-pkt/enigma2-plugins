@@ -104,7 +104,7 @@ class NetworkBrowser(Screen):
 			<widget source="infotext" render="Label" position="0,420" size="560,30" zPosition="10" font="Regular;21" halign="center" valign="center" backgroundColor="#25062748" transparent="1" />
 		</screen>"""
 
-	def __init__(self, session, iface,plugin_path):
+	def __init__(self, session, iface, plugin_path):
 		Screen.__init__(self, session)
 		self.skin_path = plugin_path
 		self.session = session
@@ -152,13 +152,13 @@ class NetworkBrowser(Screen):
 		self.Timer.callback.append(self.TimerFire)
 
 	def GetNetworkInterfaces(self):
-		self.adapters = [(iNetwork.getFriendlyAdapterName(x),x) for x in iNetwork.getAdapterList()]
+		self.adapters = [(iNetwork.getFriendlyAdapterName(x), x) for x in iNetwork.getAdapterList()]
 
 		if not self.adapters:
-			self.adapters = [(iNetwork.getFriendlyAdapterName(x),x) for x in iNetwork.getConfiguredAdapters()]
+			self.adapters = [(iNetwork.getFriendlyAdapterName(x), x) for x in iNetwork.getConfiguredAdapters()]
 
 		if len(self.adapters) == 0:
-			self.adapters = [(iNetwork.getFriendlyAdapterName(x),x) for x in iNetwork.getInstalledAdapters()]
+			self.adapters = [(iNetwork.getFriendlyAdapterName(x), x) for x in iNetwork.getInstalledAdapters()]
 
 		for x in self.adapters:
 			if iNetwork.getAdapterAttribute(x[1], 'up') is True:
@@ -199,17 +199,17 @@ class NetworkBrowser(Screen):
 		self.startRun()
 
 	def keyBlue(self):
-		self.session.openWithCallback(self.scanIPclosed,ScanIP)
+		self.session.openWithCallback(self.scanIPclosed, ScanIP)
 
-	def scanIPclosed(self,result):
+	def scanIPclosed(self, result):
 		if result[0]:
 			if result[1] == "address":
-				print("[Networkbrowser] got IP:",result[1])
+				print("[Networkbrowser] got IP:", result[1])
 				nwlist = []
 				nwlist.append(netscan.netzInfo(result[0] + "/24"))
 				self.networklist += nwlist[0]
 			elif result[1] == "nfs":
-				self.networklist.append(['host', result[0], result[0] , '00:00:00:00:00:00', result[0], 'Master Browser'])
+				self.networklist.append(['host', result[0], result[0], '00:00:00:00:00:00', result[0], 'Master Browser'])
 
 		if len(self.networklist) > 0:
 			write_cache(self.cache_file, self.networklist)
@@ -255,7 +255,7 @@ class NetworkBrowser(Screen):
 		self.inv_cache = 0
 		self.vc = valid_cache(self.cache_file, self.cache_ttl)
 		if self.cache_ttl > 0 and self.vc != 0:
-			print('[Networkbrowser] Loading network cache from ',self.cache_file)
+			print('[Networkbrowser] Loading network cache from ', self.cache_file)
 			try:
 				self.networklist = load_cache(self.cache_file)
 			except:
@@ -306,7 +306,7 @@ class NetworkBrowser(Screen):
 				hostname = hostname.split('.')
 				hostname = hostname[0]
 				host = dhost.getElementsByTagName('address')[0].getAttributeNode('addr').value
-				scan_result.append(['host',str(hostname).upper(),str(host),'00:00:00:00:00:00'])
+				scan_result.append(['host', str(hostname).upper(), str(host), '00:00:00:00:00:00'])
 
 		self.networklist += scan_result
 		write_cache(self.cache_file, self.networklist)
@@ -316,14 +316,14 @@ class NetworkBrowser(Screen):
 			self.setStatus('error')
 		self["shortcuts"].setEnabled(True)
 
-	def getNetworkShares(self,hostip,hostname,devicetype):
+	def getNetworkShares(self, hostip, hostname, devicetype):
 		sharelist = []
 		self.sharecache_file = None
 		self.sharecache_file = '/etc/enigma2/' + hostname.strip() + '.cache' #Path to cache directory
 		username = ""
 		password = ""
 		if os_path.exists(self.sharecache_file):
-			print('[Networkbrowser] Loading userinfo from ',self.sharecache_file)
+			print('[Networkbrowser] Loading userinfo from ', self.sharecache_file)
 			try:
 				self.hostdata = load_cache(self.sharecache_file)
 				username = self.hostdata['username']
@@ -332,7 +332,7 @@ class NetworkBrowser(Screen):
 				pass
 
 		if devicetype == 'unix':
-			nfslist=netscan.nfsShare(hostip,hostname)
+			nfslist=netscan.nfsShare(hostip, hostname)
 			for x in nfslist:
 				if len(x) == 6:
 					sharelist.append(x)
@@ -392,7 +392,7 @@ class NetworkBrowser(Screen):
 			else:
 				self.device = 'windows'
 			if x in self.expanded:
-				networkshares = self.getNetworkShares(x,self.network[x][0][1][1].strip(),self.device)
+				networkshares = self.getNetworkShares(x, self.network[x][0][1][1].strip(), self.device)
 				hostentry = self.network[x][0][1]
 				name = hostentry[2] + " ( " +hostentry[1].strip() + " )"
 				if os_path.exists(resolveFilename(SCOPE_CURRENT_SKIN, "networkbrowser/host.png")):
@@ -419,7 +419,7 @@ class NetworkBrowser(Screen):
 		self["list"].setList(self.list)
 		self["list"].setIndex(self.listindex)
 
-	def BuildNetworkShareEntry(self,share):
+	def BuildNetworkShareEntry(self, share):
 		if os_path.exists(resolveFilename(SCOPE_CURRENT_SKIN, "networkbrowser/verticalLine.png")):
 			verticallineIcon = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "networkbrowser/verticalLine.png"))
 		else:
@@ -582,7 +582,7 @@ class NetworkBrowser(Screen):
 				data['username'] = ""
 				data['password'] = ""
 				if os_path.exists(self.sharecache_file):
-					print('[Networkbrowser] Loading userinfo from ',self.sharecache_file)
+					print('[Networkbrowser] Loading userinfo from ', self.sharecache_file)
 					try:
 						self.hostdata = load_cache(self.sharecache_file)
 						data['username'] = self.hostdata['username']
@@ -593,7 +593,7 @@ class NetworkBrowser(Screen):
 					if sharedata['ip'] == selection[2].strip() and sharedata['sharedir'] in selection[3].strip():
 						data = sharedata
 						newmount = False
-			self.session.openWithCallback(self.MountEditClosed,AutoMountEdit, self.skin_path, data, newmount)
+			self.session.openWithCallback(self.MountEditClosed, AutoMountEdit, self.skin_path, data, newmount)
 
 	def MountEditClosed(self, returnValue = None):
 		if returnValue == None:
@@ -629,7 +629,7 @@ class ScanIP(Screen, ConfigListScreen):
 			"yellow": self.goAddress,
 		}, -1)
 
-		self.ipAddress = ConfigIP(default=[0,0,0,0])
+		self.ipAddress = ConfigIP(default=[0, 0, 0, 0])
 
 		ConfigListScreen.__init__(self, [
 			getConfigListEntry(_("IP Address"), self.ipAddress),
@@ -641,7 +641,7 @@ class ScanIP(Screen, ConfigListScreen):
 		pass
 
 	def exit(self):
-		self.close((None,None))
+		self.close((None, None))
 
 	def layoutFinished(self):
 		self.setWindowTitle()

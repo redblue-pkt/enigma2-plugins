@@ -200,7 +200,7 @@ class MC_VLCMedialist(Screen):
 				iPlayableService.evStopped: self.StopPlayback
 			})
 
-		self["actions"] = ActionMap(["WizardActions","InfobarActions", "MovieSelectionActions", "MenuActions", "ShortcutActions", "MoviePlayerActions", "EPGSelectActions"],
+		self["actions"] = ActionMap(["WizardActions", "InfobarActions", "MovieSelectionActions", "MenuActions", "ShortcutActions", "MoviePlayerActions", "EPGSelectActions"],
 			{
 			 "back": 	self.Exit,
 			 "red": 	self.JumpToFavs,
@@ -578,7 +578,7 @@ class MC_VLCFavoriteFolders(Screen):
 		configfile.save()
 		self.close()
 
-	def conditionalNew(self,added):
+	def conditionalNew(self, added):
 		if added == 0:
 			return
 
@@ -605,7 +605,7 @@ class FavoriteFolderAdd(Screen, ConfigListScreen):
 	def __init__(self, session, directory = "/", name = ""):
 		Screen.__init__(self, session)
 
-		self["actions"] = NumberActionMap(["SetupActions","OkCancelActions"],
+		self["actions"] = NumberActionMap(["SetupActions", "OkCancelActions"],
 		{
 			"ok": self.keyOK,
 			"cancel": self.keyCancel
@@ -648,7 +648,7 @@ class FavoriteFolderEdit(Screen, ConfigListScreen):
 	def __init__(self, session, foldernum):
 		Screen.__init__(self, session)
 
-		self["actions"] = NumberActionMap(["SetupActions","OkCancelActions"],
+		self["actions"] = NumberActionMap(["SetupActions", "OkCancelActions"],
 		{
 			"ok": self.keyOK,
 			"cancel": self.keyOK

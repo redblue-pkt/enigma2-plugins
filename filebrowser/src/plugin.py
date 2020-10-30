@@ -29,7 +29,7 @@ config.plugins.filebrowser.path_right = ConfigText(default = "/")
 
 
 ##################################
-class FilebrowserConfigScreen(ConfigListScreen,Screen):
+class FilebrowserConfigScreen(ConfigListScreen, Screen):
     skin = """
         <screen position="100,100" size="550,400" title="" >
             <widget name="config" position="0,0" size="550,360" scrollbarMode="showOnDemand" />
@@ -118,7 +118,7 @@ class FilebrowserScreen(Screen):
         self["blue"] = Label(_("rename"))
 
 
-        self["actions"] = ActionMap(["ChannelSelectBaseActions","WizardActions", "DirectionActions","MenuActions","NumberActions","ColorActions"],
+        self["actions"] = ActionMap(["ChannelSelectBaseActions", "WizardActions", "DirectionActions", "MenuActions", "NumberActions", "ColorActions"],
             {
              "ok":      self.ok,
              "back":    self.exit,
@@ -176,15 +176,15 @@ class FilebrowserScreen(Screen):
         filename = self.SOURCELIST.getFilename()
         sourceDir = self.SOURCELIST.getCurrentDirectory()
         targetDir = self.TARGETLIST.getCurrentDirectory()
-        self.session.openWithCallback(self.doCopy,ChoiceBox, title = _("copy file")+"?\n%s\nfrom\n%s\n%s"%(filename,sourceDir,targetDir),list=[(_("yes"), True ),(_("no"), False )])
+        self.session.openWithCallback(self.doCopy, ChoiceBox, title = _("copy file")+"?\n%s\nfrom\n%s\n%s"%(filename, sourceDir, targetDir), list=[(_("yes"), True ), (_("no"), False )])
 
-    def doCopy(self,result):
+    def doCopy(self, result):
         if result is not None:
             if result[1]:
                 filename = self.SOURCELIST.getFilename()
                 sourceDir = self.SOURCELIST.getCurrentDirectory()
                 targetDir = self.TARGETLIST.getCurrentDirectory()
-                self.session.openWithCallback(self.doCopyCB,Console, title = _("copying file ..."), cmdlist = ["cp \""+sourceDir+filename+"\" \""+targetDir+"\""])
+                self.session.openWithCallback(self.doCopyCB, Console, title = _("copying file ..."), cmdlist = ["cp \""+sourceDir+filename+"\" \""+targetDir+"\""])
 
     def doCopyCB(self):
         self.doRefresh()
@@ -193,14 +193,14 @@ class FilebrowserScreen(Screen):
     def goRed(self):
         filename = self.SOURCELIST.getFilename()
         sourceDir = self.SOURCELIST.getCurrentDirectory()
-        self.session.openWithCallback(self.doDelete,ChoiceBox, title = _("delete file")+"?\n%s\nfrom dir\n%s"%(filename,sourceDir),list=[(_("yes"), True ),(_("no"), False )])
+        self.session.openWithCallback(self.doDelete, ChoiceBox, title = _("delete file")+"?\n%s\nfrom dir\n%s"%(filename, sourceDir), list=[(_("yes"), True ), (_("no"), False )])
 
-    def doDelete(self,result):
+    def doDelete(self, result):
         if result is not None:
             if result[1]:
                 filename = self.SOURCELIST.getFilename()
                 sourceDir = self.SOURCELIST.getCurrentDirectory()
-                self.session.openWithCallback(self.doDeleteCB,Console, title = _("deleting file ..."), cmdlist = ["rm \""+sourceDir+filename+"\""])
+                self.session.openWithCallback(self.doDeleteCB, Console, title = _("deleting file ..."), cmdlist = ["rm \""+sourceDir+filename+"\""])
 
     def doDeleteCB(self):
         self.doRefresh()
@@ -210,15 +210,15 @@ class FilebrowserScreen(Screen):
         filename = self.SOURCELIST.getFilename()
         sourceDir = self.SOURCELIST.getCurrentDirectory()
         targetDir = self.TARGETLIST.getCurrentDirectory()
-        self.session.openWithCallback(self.doMove,ChoiceBox, title = _("move file")+"?\n%s\nfrom dir\n%s\nto dir\n%s"%(filename,sourceDir,targetDir),list=[(_("yes"), True ),(_("no"), False )])
+        self.session.openWithCallback(self.doMove, ChoiceBox, title = _("move file")+"?\n%s\nfrom dir\n%s\nto dir\n%s"%(filename, sourceDir, targetDir), list=[(_("yes"), True ), (_("no"), False )])
 
-    def doMove(self,result):
+    def doMove(self, result):
         if result is not None:
             if result[1]:
                 filename = self.SOURCELIST.getFilename()
                 sourceDir = self.SOURCELIST.getCurrentDirectory()
                 targetDir = self.TARGETLIST.getCurrentDirectory()
-                self.session.openWithCallback(self.doMoveCB,Console, title = _("moving file ..."), cmdlist = ["mv \""+sourceDir+filename+"\" \""+targetDir+"\""])
+                self.session.openWithCallback(self.doMoveCB, Console, title = _("moving file ..."), cmdlist = ["mv \""+sourceDir+filename+"\" \""+targetDir+"\""])
 
     def doMoveCB(self):
         self.doRefresh()
@@ -227,13 +227,13 @@ class FilebrowserScreen(Screen):
     def goBlue(self):
         filename = self.SOURCELIST.getFilename()
         sourceDir = self.SOURCELIST.getCurrentDirectory()
-        self.session.openWithCallback(self.doRename,InputBox,text=filename, title = filename, windowTitle=_("rename file"))
+        self.session.openWithCallback(self.doRename, InputBox, text=filename, title = filename, windowTitle=_("rename file"))
 
-    def doRename(self,newname):
+    def doRename(self, newname):
         if newname:
             filename = self.SOURCELIST.getFilename()
             sourceDir = self.SOURCELIST.getCurrentDirectory()
-            self.session.openWithCallback(self.doRenameCB,Console, title = _("renaming file ..."), cmdlist = ["mv \""+sourceDir+filename+"\" \""+sourceDir+newname+"\""])
+            self.session.openWithCallback(self.doRenameCB, Console, title = _("renaming file ..."), cmdlist = ["mv \""+sourceDir+filename+"\" \""+sourceDir+newname+"\""])
 
     def doRenameCB(self):
         self.doRefresh()
@@ -259,13 +259,13 @@ class FilebrowserScreen(Screen):
 
     def onFileAction(self):
         try:
-            x = openFile(self.session,guess_type(self.SOURCELIST.getFilename())[0],self.SOURCELIST.getCurrentDirectory()+self.SOURCELIST.getFilename())
-            print("RESULT OPEN FILE",x)
+            x = openFile(self.session, guess_type(self.SOURCELIST.getFilename())[0], self.SOURCELIST.getCurrentDirectory()+self.SOURCELIST.getFilename())
+            print("RESULT OPEN FILE", x)
         except TypeError as e:
             # catching error
             #  File "/usr/lib/enigma2/python/Components/Scanner.py", line 43, in handleFile
             #  TypeError: 'in <string>' requires string as left operand
-            self.session.open(MessageBox,_("no Viewer installed for this mimetype!"), type = MessageBox.TYPE_ERROR, timeout = 5, close_on_any_key = True)
+            self.session.open(MessageBox, _("no Viewer installed for this mimetype!"), type = MessageBox.TYPE_ERROR, timeout = 5, close_on_any_key = True)
 
 
 
@@ -273,7 +273,7 @@ class FilebrowserScreen(Screen):
 
 def filescan_open(list, session, **kwargs):
     path = "/".join(list[0].path.split("/")[:-1])+"/"
-    session.open(FilebrowserScreen,path_left=path)
+    session.open(FilebrowserScreen, path_left=path)
 
 def start_from_filescan(**kwargs):
     from Components.Scanner import Scanner, ScanPath

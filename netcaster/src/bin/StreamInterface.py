@@ -4,7 +4,7 @@ from __future__ import print_function
 from twisted.internet import reactor
 from twisted.web import client
 
-valid_types = ("MP3","PLS") #list of playable mediatypes
+valid_types = ("MP3", "PLS") #list of playable mediatypes
 
 def getPage(url, contextFactory=None, *args, **kwargs):
 	if hasattr(client, '_parse'):
@@ -99,11 +99,11 @@ class Stream:
 		return self.name
 	def getDescription(self):
 		return self.description
-	def setName(self,name):
+	def setName(self, name):
 		self.name = name
-	def setDescription(self,description):
+	def setDescription(self, description):
 		self.description = description
-	def setURL(self,url):
+	def setURL(self, url):
 		self.url = url
 	def getURL(self, callback):
 		self.callback = callback
@@ -113,7 +113,7 @@ class Stream:
 			self.callback(self.url)
 
 	def getPLSContent(self):
-		print("loading PLS of stream ",self.name,self.url)
+		print("loading PLS of stream ", self.name, self.url)
 		getPage(self.url).addCallback(self._gotPLSContent).addErrback(self._errorPLSContent)
 
 	def _gotPLSContent(self, lines):
@@ -135,11 +135,11 @@ class Stream:
 		self.type = "mp3"
 		self.callback(self.url)
 
-	def setFavorite(self,TrueFalse):
+	def setFavorite(self, TrueFalse):
 		self.isfavorite = TrueFalse
 	def isFavorite(self):
 		return self.isfavorite
-	def setType(self,type):
+	def setType(self, type):
 		self.type=type
 	def getType(self):
 		return self.type

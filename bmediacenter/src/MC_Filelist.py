@@ -271,7 +271,7 @@ class FileList(MenuList):
 					self.list.append(FileEntryComponent(name = name, absolute = file, isDir = isDir, directory = directory, size = size, timestamp = timestamp))
 			else:
 				if (self.matchingPattern is None) or re_compile(self.matchingPattern).search(path):
-					self.list.append(FileEntryComponent(name = name, absolute = file , isDir = isDir, directory = directory, size = size, timestamp = timestamp))
+					self.list.append(FileEntryComponent(name = name, absolute = file, isDir = isDir, directory = directory, size = size, timestamp = timestamp))
 		if self.showMountpoints and len(self.list) == 0:
 			self.list.append(FileEntryComponent(name = _("nothing connected"), absolute = None, isDir = False))
 		self.l.setList(self.list)
@@ -481,9 +481,9 @@ class MultiFileSelectList(FileList):
 						if os_path.basename(entry)  == x:
 							alreadySelected = True	
 					if alreadySelected:
-						self.list.append(MultiFileSelectEntryComponent(name = name, absolute = x , isDir = False, selected = True))
+						self.list.append(MultiFileSelectEntryComponent(name = name, absolute = x, isDir = False, selected = True))
 					else:
-						self.list.append(MultiFileSelectEntryComponent(name = name, absolute = x , isDir = False, selected = False))
+						self.list.append(MultiFileSelectEntryComponent(name = name, absolute = x, isDir = False, selected = False))
 		self.l.setList(self.list)
 		if select is not None:
 			i = 0

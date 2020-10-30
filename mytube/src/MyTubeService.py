@@ -12,7 +12,7 @@ from twisted.web import client
 from twisted.internet import reactor
 from urllib2 import Request, URLError, urlopen as urlopen2
 from socket import gaierror, error
-import os, socket, httplib,urllib,urllib2,re,json
+import os, socket, httplib, urllib, urllib2, re, json
 from urllib import quote, unquote_plus, unquote, urlencode
 from httplib import HTTPConnection, CannotSendRequest, BadStatusLine, HTTPException
 
@@ -215,7 +215,7 @@ class GoogleSuggestions():
 		if self.hl is not None:
 			self.prepQuerry = self.prepQuerry + "hl=" + self.hl + "&"
 		self.prepQuerry = self.prepQuerry + "jsonp=self.gotSuggestions&q="
-		print("[MyTube - GoogleSuggestions] prepareQuery:",self.prepQuerry)
+		print("[MyTube - GoogleSuggestions] prepareQuery:", self.prepQuerry)
 
 	def getSuggestions(self, queryString):
 		self.prepareQuery()
@@ -408,12 +408,12 @@ class MyTubeFeedEntry():
 	# link resolving from xbmc youtube plugin
 	def getVideoUrl(self):
 		VIDEO_FMT_PRIORITY_MAP = {
-			'38' : 1, #MP4 Original (HD)
-			'37' : 2, #MP4 1080p (HD)
-			'22' : 3, #MP4 720p (HD)
-			'18' : 4, #MP4 360p
-			'35' : 5, #FLV 480p
-			'34' : 6, #FLV 360p
+			'38': 1, #MP4 Original (HD)
+			'37': 2, #MP4 1080p (HD)
+			'22': 3, #MP4 720p (HD)
+			'18': 4, #MP4 360p
+			'35': 5, #FLV 480p
+			'34': 6, #FLV 360p
 		}
 		video_url = None
 		video_id = str(self.getTubeId())
@@ -423,7 +423,7 @@ class MyTubeFeedEntry():
 		watchrequest = Request(watch_url, None, std_headers)
 		
 		try:
-			print("[MyTube] trying to find out if a HD Stream is available",watch_url)
+			print("[MyTube] trying to find out if a HD Stream is available", watch_url)
 			result = urlopen2(watchrequest).read()
 		except (URLError, HTTPException, socket.error) as err:
 			print("[MyTube] Error: Unable to retrieve watchpage - Error code: ", str(err))
@@ -439,7 +439,7 @@ class MyTubeFeedEntry():
 				if ('url_encoded_fmt_stream_map' or 'fmt_url_map') in videoinfo:
 					break
 			except (URLError, HTTPException, socket.error) as err:
-				print("[MyTube] Error: unable to download video infopage",str(err))
+				print("[MyTube] Error: unable to download video infopage", str(err))
 				return video_url
 
 		if ('url_encoded_fmt_stream_map' or 'fmt_url_map') not in videoinfo:
@@ -477,19 +477,19 @@ class MyTubeFeedEntry():
 					fmturl = fmtid = ""
 
 				except:
-					print("error parsing fmtstring:",fmtstring)
+					print("error parsing fmtstring:", fmtstring)
 
 			else:
-				(fmtid,fmturl) = fmtstring.split('|')
+				(fmtid, fmturl) = fmtstring.split('|')
 			if VIDEO_FMT_PRIORITY_MAP.has_key(fmtid) and fmtid != "":
 				video_fmt_map[VIDEO_FMT_PRIORITY_MAP[fmtid]] = { 'fmtid': fmtid, 'fmturl': unquote_plus(fmturl) }
 				fmt_infomap[int(fmtid)] = unquote_plus(fmturl)
-		print("[MyTube] got",sorted(fmt_infomap.iterkeys()))
+		print("[MyTube] got", sorted(fmt_infomap.iterkeys()))
 		if video_fmt_map and len(video_fmt_map):
-			print("[MyTube] found best available video format:",video_fmt_map[sorted(video_fmt_map.iterkeys())[0]]['fmtid'])
+			print("[MyTube] found best available video format:", video_fmt_map[sorted(video_fmt_map.iterkeys())[0]]['fmtid'])
 			best_video = video_fmt_map[sorted(video_fmt_map.iterkeys())[0]]
 			video_url = "%s" %(best_video['fmturl'].split(';')[0])
-			print("[MyTube] found best available video url:",video_url)
+			print("[MyTube] found best available video url:", video_url)
 
 		return video_url
 
@@ -561,7 +561,7 @@ class MyTubePlayerService():
 	def getLoginTokenOnCurl(self, email, pw):
 
 		opts = {
-		  'service':'youtube',
+		  'service': 'youtube',
 		  'accountType': 'HOSTED_OR_GOOGLE',
 		  'Email': email,
 		  'Passwd': pw,
@@ -569,7 +569,7 @@ class MyTubePlayerService():
 		}
 		
 		print("[MyTube] MyTubePlayerService - Starting external curl auth request")
-		result = os.popen('curl -s -k -X POST "%s" -d "%s"' % (gdata.youtube.service.YOUTUBE_CLIENTLOGIN_AUTHENTICATION_URL , urlencode(opts))).read()
+		result = os.popen('curl -s -k -X POST "%s" -d "%s"' % (gdata.youtube.service.YOUTUBE_CLIENTLOGIN_AUTHENTICATION_URL, urlencode(opts))).read()
 		
 		return result
 
@@ -666,7 +666,7 @@ class MyTubePlayerService():
 		return self.yt_service.GetYouTubeVideoFeed
 
 	def getFeed(self, url, feedname = "", callback = None, errorback = None):
-		print("[MyTube] MyTubePlayerService - getFeed:",url, feedname)
+		print("[MyTube] MyTubePlayerService - getFeed:", url, feedname)
 		self.feedentries = []
 		ytservice = self.yt_service.GetYouTubeVideoFeed
 		
@@ -687,7 +687,7 @@ class MyTubePlayerService():
 				url = "http://gdata.youtube.com/feeds/api/videos/-/HD"
 			else:
 				url = url + feedname
-		elif feedname in ("top_rated","most_viewed","recently_featured","top_favorites","most_recent","most_discussed","most_linked","most_responded"):
+		elif feedname in ("top_rated", "most_viewed", "recently_featured", "top_favorites", "most_recent", "most_discussed", "most_linked", "most_responded"):
 			url = None
 			ytservice = self.getFeedService(feedname)
 

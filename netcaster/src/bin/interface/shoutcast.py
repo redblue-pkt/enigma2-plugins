@@ -10,7 +10,7 @@ class Interface(StreamInterface):
     nameshort = "SHOUTcast"
     description = "This is a Plugin to browse www.shoutcast.com and listen to webradios listed there."
     def __init__(self,session,cbListLoaded=None):
-        StreamInterface.__init__(self,session,cbListLoaded=cbListLoaded)
+        StreamInterface.__init__(self, session, cbListLoaded=cbListLoaded)
         self.genrefeed = GenreFeed()
     
     def getList(self):
@@ -18,17 +18,17 @@ class Interface(StreamInterface):
         #self.genrefeed.fetch_genres()
         self.genrefeed.parse_genres()
         for i in self.genrefeed.genre_list:            
-            glist.append((str(i),i))
-        self.session.openWithCallback(self.GenreSelected,ChoiceBox,_("select Genre to search for streams"),glist)
+            glist.append((str(i), i))
+        self.session.openWithCallback(self.GenreSelected, ChoiceBox, _("select Genre to search for streams"), glist)
 
-    def GenreSelected(self,selectedGenre):
+    def GenreSelected(self, selectedGenre):
         if selectedGenre is not None:
             feed = ShoutcastFeed(selectedGenre[1])
             #feed.fetch_stations()
             feed.parse_stations()
             self.list=[]
             for station in feed.station_list:
-                stream = Stream(str(station['Name']),"Bitrate: "+str(station['Bitrate'])+", Type: "+str(station['MimeType']),str(station['PLS_URL']),type="pls")
+                stream = Stream(str(station['Name']), "Bitrate: "+str(station['Bitrate'])+", Type: "+str(station['MimeType']), str(station['PLS_URL']), type="pls")
                 self.list.append(stream)
         self.OnListLoaded()
 
@@ -59,7 +59,7 @@ from urllib import FancyURLopener
 from xml.sax import parseString
 from xml.sax.handler import ContentHandler
 from os import stat, mkdir
-from os.path import dirname,isdir
+from os.path import dirname, isdir
 import time
 from stat import ST_MTIME
 
@@ -102,7 +102,7 @@ class StationParser(ContentHandler):
     """
     SAX handler for xml feed, not for public consumption
     """
-    def __init__(self,min_bitrate):
+    def __init__(self, min_bitrate):
         self.isStationList = False
         self.isTuneIn = False
         self.isStation = False
@@ -133,7 +133,7 @@ class StationParser(ContentHandler):
             self.nowPlaying = attrs.get('ct', None)
             self.Listeners = attrs.get('lc', None)
             self.Genre = attrs.get('genre', None)
-    def endElement(self,name):
+    def endElement(self, name):
         if name == 'station':
             self.isStation = False
         if name == 'tunein':

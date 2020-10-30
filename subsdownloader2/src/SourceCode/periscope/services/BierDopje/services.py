@@ -31,16 +31,16 @@ from Plugins.Extensions.SubsDownloader2.SourceCode.periscope import SubtitleData
 log = logging.getLogger(__name__)
 
 exceptions = {
-    'the office' : 10358,
-    'the office us' : 10358,
-    'greys anatomy' : 3733,
-    'sanctuary us' : 7904,
-    'human target 2010' : 12986,
-    'csi miami' : 2187,
-    'castle 2009' : 12708,
-    'chase 2010' : 14228,
-    'the defenders 2010' : 14225,
-    'hawaii five-0 2010' : 14211,
+    'the office': 10358,
+    'the office us': 10358,
+    'greys anatomy': 3733,
+    'sanctuary us': 7904,
+    'human target 2010': 12986,
+    'csi miami': 2187,
+    'castle 2009': 12708,
+    'chase 2010': 14228,
+    'the defenders 2010': 14225,
+    'hawaii five-0 2010': 14211,
 }
 
 class BierDopje(SubtitleDatabase.SubtitleDB):

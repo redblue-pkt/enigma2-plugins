@@ -48,7 +48,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         self['lab1'] = Label(_("Remove all the packages you don't need.\nThis will speed up the performance."))
         self['key_red'] = Label(_("Cancel"))
         self['key_green'] = Label(_("Save"))
-        self['actions'] = ActionMap(['WizardActions','ColorActions','OkCancelActions'], {'green': self.saveList,
+        self['actions'] = ActionMap(['WizardActions', 'ColorActions', 'OkCancelActions'], {'green': self.saveList,
          'red': self.cancel,
          'stop': self.cancel,
          'cancel': self.cancel,

@@ -110,7 +110,7 @@ class AutoTimerComponent(object):
 		else:
 			self._bouquets = []
 
-	bouquets = property(lambda self: self._bouquets , setBouquets)
+	bouquets = property(lambda self: self._bouquets, setBouquets)
 
 	def setEncoding(self, encoding):
 		if encoding == '(null)':

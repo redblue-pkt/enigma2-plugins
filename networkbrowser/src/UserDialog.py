@@ -89,7 +89,7 @@ class UserDialog(Screen, ConfigListScreen):
 		}, -2)
 
 		self.list = []
-		ConfigListScreen.__init__(self, self.list,session = self.session)
+		ConfigListScreen.__init__(self, self.list, session = self.session)
 		self.createSetup()
 		self.onLayoutFinish.append(self.layoutFinished)
 		# Initialize Buttons
@@ -116,7 +116,7 @@ class UserDialog(Screen, ConfigListScreen):
 		self.password = None
 
 		if os_path.exists(self.cache_file):
-			print('Loading user cache from ',self.cache_file)
+			print('Loading user cache from ', self.cache_file)
 			try:
 				self.hostdata = load_cache(self.cache_file)
 				username = self.hostdata['username']
@@ -171,7 +171,7 @@ class UserDialog(Screen, ConfigListScreen):
 		current = self["config"].getCurrent()
 		helpwindowpos = self["HelpWindow"].getPosition()
 		if current[1].help_window.instance is not None:
-			current[1].help_window.instance.move(ePoint(helpwindowpos[0],helpwindowpos[1]))
+			current[1].help_window.instance.move(ePoint(helpwindowpos[0], helpwindowpos[1]))
 
 	def ok(self):
 		current = self["config"].getCurrent()

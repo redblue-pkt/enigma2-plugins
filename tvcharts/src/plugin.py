@@ -70,12 +70,12 @@ def ChannelListEntryComponent(type, channelname, serviceref, eventid, eventname,
 
 	# PIXMAP / PICON
 	pixmap = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
-	searchPaths = ('/usr/share/enigma2/picon/','/media/cf/picon/','/media/usb/picon/')
+	searchPaths = ('/usr/share/enigma2/picon/', '/media/cf/picon/', '/media/usb/picon/')
 
 	srefstring = serviceref
 	pos = srefstring.rfind(':')
 	if pos != -1:
-		srefstring = srefstring[:pos].rstrip(':').replace(':','_')
+		srefstring = srefstring[:pos].rstrip(':').replace(':', '_')
 		for path in searchPaths:
 			pngname = path + srefstring + ".png"
 			if fileExists(pngname):
@@ -482,7 +482,7 @@ class DBUpdateStatus(Screen):
 	def restartTimer(self):
 		if self.NetworkConnectionAvailable:
 			self.DBStatusTimer.stop()
-			self.DBStatusTimer.start((randint(15,60))*1000, True)
+			self.DBStatusTimer.start((randint(15, 60))*1000, True)
 		else:
 			iNetwork.checkNetworkState(self.checkNetworkCB)
 
@@ -547,7 +547,7 @@ class DBUpdateStatus(Screen):
 			try:
 				for timer in self.recordtimer.timer_list:
 					if timer.disabled == 0 and timer.justplay == 0:
-						self.timerlist += "%s|%s|%s|%s|%s|%s|%s\n" % (timer.eit,str(int(timer.begin)+(config.recording.margin_before.getValue()*60)), str(int(timer.end)-(config.recording.margin_after.getValue()*60)), str(timer.service_ref), timer.name, timer.service_ref.getServiceName().replace('\xc2\x86', '').replace('\xc2\x87', '').decode("utf-8", "ignore").encode("utf-8"), timer.repeated)
+						self.timerlist += "%s|%s|%s|%s|%s|%s|%s\n" % (timer.eit, str(int(timer.begin)+(config.recording.margin_before.getValue()*60)), str(int(timer.end)-(config.recording.margin_after.getValue()*60)), str(timer.service_ref), timer.name, timer.service_ref.getServiceName().replace('\xc2\x86', '').replace('\xc2\x87', '').decode("utf-8", "ignore").encode("utf-8"), timer.repeated)
 			except Exception:
 				print("[TVCharts] Error loading timers!")
 

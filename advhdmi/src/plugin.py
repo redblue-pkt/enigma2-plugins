@@ -19,7 +19,7 @@ from Components.HdmiCec import hdmi_cec
 
 def _print(outtxt):
 	ltim = localtime()
-	headerstr = "[AdvHdmiCec] %04d%02d%02d-%02d%02d%02d " %(ltim[0],ltim[1],ltim[2],ltim[3],ltim[4],ltim[5])
+	headerstr = "[AdvHdmiCec] %04d%02d%02d-%02d%02d%02d " %(ltim[0], ltim[1], ltim[2], ltim[3], ltim[4], ltim[5])
 	outtxt = headerstr + outtxt
 	print(outtxt)
 
@@ -122,7 +122,7 @@ advhdmiHooks = {}
 def callHook(advhdmi_event):
 	if config.plugins.AdvHdmiCec.debug.value: _print("Debug: call Hooks for Event '" + str(advhdmi_event) + "'")
 	if advhdmiHooks:
-		for hookKey,hook in advhdmiHooks.iteritems():
+		for hookKey, hook in advhdmiHooks.iteritems():
 			if config.plugins.AdvHdmiCec.debug.value: _print("Debug: call Hook '" + str(hookKey) + "'")
 			try:
 				if advhdmi_event in (ADVHDMI_BEFORE_POWERON, ADVHDMI_BEFORE_POWEROFF, ADVHDMI_BEFORE_RECEIVED_STANDBY, ADVHDMI_BEFORE_RECEIVED_NOWACTIVE):

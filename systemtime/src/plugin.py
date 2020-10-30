@@ -89,7 +89,7 @@ class SystemTimeSetupScreen(Screen, ConfigListScreen):
 			"save": self.keyGreen,
 			"cancel": self.cancel,
 			"red": self.keyRed,
-			"yellow":self.keyYellow,
+			"yellow": self.keyYellow,
 			"blue": self.keyBlue,
 			"left": self.keyLeft,
 			"right": self.keyRight,

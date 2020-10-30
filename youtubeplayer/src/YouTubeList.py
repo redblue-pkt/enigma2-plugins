@@ -595,7 +595,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 
 
 	def tryToPlay(self):
-		if getBoxType() in ("dm8000","dm800"):
+		if getBoxType() in ("dm8000", "dm800"):
 			self.playDirect()
 		else:
 			if self.currentServer is not None:

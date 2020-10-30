@@ -21,9 +21,9 @@ from Components.Console import Console
 
 config.plugins.mc_vp = ConfigSubsection()
 config.plugins.mc_vp_sortmode = ConfigSubsection()
-sorts = [('default',_("default")),('alpha',_("alphabet")), ('alphareverse',_("alphabet backward")),('date',_("date")),('datereverse',_("date backward")),('size',_("size")),('sizereverse',_("size backward"))]
+sorts = [('default', _("default")), ('alpha', _("alphabet")), ('alphareverse', _("alphabet backward")), ('date', _("date")), ('datereverse', _("date backward")), ('size', _("size")), ('sizereverse', _("size backward"))]
 config.plugins.mc_vp_sortmode.enabled = ConfigSelection(sorts)
-config.plugins.mc_vp.dvd = ConfigSelection(default="dvd", choices = [("dvd", "dvd"),("movie", "movie")])
+config.plugins.mc_vp.dvd = ConfigSelection(default="dvd", choices = [("dvd", "dvd"), ("movie", "movie")])
 config.plugins.mc_vp.lastDir = ConfigText(default=resolveFilename(SCOPE_MEDIA))
 class MoviePlayer(OrgMoviePlayer):
 	def __init__(self, session, service, slist = None, lastservice = None):
@@ -71,7 +71,7 @@ class MC_VideoPlayer(Screen, HelpableScreen):
 		sort = config.plugins.mc_vp_sortmode.enabled.value
 		self.filelist = []
 		self["filelist"] = []
-		inhibitDirs = ["/bin", "/boot", "/dev", "/dev.static", "/etc", "/lib" , "/proc", "/ram", "/root" , "/sbin", "/sys", "/tmp", "/usr", "/var"]
+		inhibitDirs = ["/bin", "/boot", "/dev", "/dev.static", "/etc", "/lib", "/proc", "/ram", "/root", "/sbin", "/sys", "/tmp", "/usr", "/var"]
 		self.filelist = FileList(currDir, useServiceRef = True, showDirectories = True, showFiles = True, matchingPattern = "(?i)^.*\.(ts|vob|mpg|mpeg|avi|mkv|dat|iso|img|mp4|wmv|flv|divx|mov|ogm|m2ts)", additionalExtensions = None, sort = sort)
 		self["filelist"] = self.filelist
 		self["filelist"].show()
@@ -118,7 +118,7 @@ class MC_VideoPlayer(Screen, HelpableScreen):
 		if self["filelist"].canDescent():
 			return
 		else:
-			self.session.open(MC_VideoInfoView, self["filelist"].getCurrentDirectory() + self["filelist"].getFilename() , self["filelist"].getFilename(), self["filelist"].getServiceRef())
+			self.session.open(MC_VideoInfoView, self["filelist"].getCurrentDirectory() + self["filelist"].getFilename(), self["filelist"].getFilename(), self["filelist"].getServiceRef())
 	def KeyOk(self):
 		self.filename = self.filelist.getFilename()
 		print(self.filename)
@@ -144,7 +144,7 @@ class MC_VideoPlayer(Screen, HelpableScreen):
 		short = shortname(filename)
 		newshort = short.lower()
 		newshort = newshort.replace(" ", "")
-		movienameserie = re.sub("e[0-9]{2}","",newshort.lower())
+		movienameserie = re.sub("e[0-9]{2}", "", newshort.lower())
 		covername = "/hdd/bmcover/" + str(movienameserie) + "/backcover.mvi"
 		if fileExists(covername):
 			self.showiframe.showStillpicture(covername)
@@ -186,7 +186,7 @@ class VideoPlayerSettings(Screen, ConfigListScreen):
 		</screen>"""
 	def __init__(self, session):
 		Screen.__init__(self, session)
-		self["actions"] = NumberActionMap(["SetupActions","OkCancelActions"],
+		self["actions"] = NumberActionMap(["SetupActions", "OkCancelActions"],
 		{
 			"ok": self.keyOK,
 			"cancel": self.keyOK

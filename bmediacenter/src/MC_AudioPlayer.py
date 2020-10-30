@@ -31,20 +31,20 @@ from __init__ import _
 from Components.Console import Console
 
 config.plugins.mc_ap = ConfigSubsection()
-sorts = [('default',_("default")),('alpha',_("alphabet")), ('alphareverse',_("alphabet backward")),('date',_("date")),('datereverse',_("date backward")),('size',_("size")),('sizereverse',_("size backward"))]
+sorts = [('default', _("default")), ('alpha', _("alphabet")), ('alphareverse', _("alphabet backward")), ('date', _("date")), ('datereverse', _("date backward")), ('size', _("size")), ('sizereverse', _("size backward"))]
 config.plugins.mc_ap_sortmode = ConfigSubsection()
 config.plugins.mc_ap_sortmode.enabled = ConfigSelection(sorts)
 config.plugins.mc_ap.showJpg = ConfigYesNo(default=True)
 config.plugins.mc_ap.jpg_delay = ConfigInteger(default=10, limits=(5, 999))
-config.plugins.mc_ap.repeat = ConfigSelection(default="off", choices = [("off", "off"),("single", "single"),("all", "all")])
+config.plugins.mc_ap.repeat = ConfigSelection(default="off", choices = [("off", "off"), ("single", "single"), ("all", "all")])
 config.plugins.mc_ap.lastDir = ConfigText(default=resolveFilename(SCOPE_MEDIA))
-screensaverlist = [('default',_("default"))]
+screensaverlist = [('default', _("default"))]
 hddpath="/hdd/saver/"
 if pathExists(hddpath):
 	files = os_listdir(hddpath)
 	for x in files:
 		if pathExists(hddpath + x):
-			screensaverlist += [(hddpath +'%s/' % (x),_("%s") % (x))]
+			screensaverlist += [(hddpath +'%s/' % (x), _("%s") % (x))]
 config.plugins.mc_ap.whichjpg = ConfigSelection(screensaverlist)
 playlist = []
 #try:
@@ -71,7 +71,7 @@ class myHTTPClientFactory(HTTPClientFactory):
 	agent="SHOUTcast", timeout=0, cookies=None,
 	followRedirect=1, lastModified=None, etag=None):
 		HTTPClientFactory.__init__(self, url, method=method, postdata=postdata,
-		headers=headers, agent=agent, timeout=timeout, cookies=cookies,followRedirect=followRedirect)
+		headers=headers, agent=agent, timeout=timeout, cookies=cookies, followRedirect=followRedirect)
 def sendUrlCommand(url, contextFactory=None, timeout=50, *args, **kwargs):
 	if hasattr(client, '_parse'):
 		scheme, host, port, path = client._parse(url)
@@ -95,7 +95,7 @@ def PlaylistEntryComponent(serviceref):
 	text = serviceref.getName()
 	if text is "":
 		text = os_path.split(serviceref.getPath().split('/')[-1])[1]
-	res.append((eListboxPythonMultiContent.TYPE_TEXT,25, 1, 470, 22, 0, RT_VALIGN_CENTER, text))
+	res.append((eListboxPythonMultiContent.TYPE_TEXT, 25, 1, 470, 22, 0, RT_VALIGN_CENTER, text))
 	return res
 class PlayList(MenuList):
 	def __init__(self, enableWrapAround = False):
@@ -229,7 +229,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 		self["currentfolder"].setText(str(currDir))
 		self.filelist = []
 		self["filelist"] = []
-		inhibitDirs = ["/bin", "/boot", "/dev", "/dev.static", "/etc", "/lib" , "/proc", "/ram", "/root" , "/sbin", "/sys", "/tmp", "/usr", "/var"]
+		inhibitDirs = ["/bin", "/boot", "/dev", "/dev.static", "/etc", "/lib", "/proc", "/ram", "/root", "/sbin", "/sys", "/tmp", "/usr", "/var"]
 		self.filelist = FileList(currDir, useServiceRef = True, showDirectories = True, showFiles = True, matchingPattern = "(?i)^.*\.(mp2|mp3|wav|wave|wma|m4a|ogg|ra|flac|m3u|pls|e2pls)", inhibitDirs = inhibitDirs, sort = sort)
 		self["filelist"] = self.filelist
 		self["filelist"].show()
@@ -541,11 +541,11 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 	def __evDecodeError(self):
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
-		self.session.open(MessageBox, _("This Dreambox can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO,timeout = 20 )
+		self.session.open(MessageBox, _("This Dreambox can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO, timeout = 20 )
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
-		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO,timeout = 20 )
+		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO, timeout = 20 )
 	def addPlaylistParser(self, parser, extension):
 		self.playlistparsers[extension] = parser
 	def Shuffle(self):
@@ -676,7 +676,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 			currDir = "/"
 		self.filelist = []
 		self["filelist"] = []
-		inhibitDirs = ["/bin", "/boot", "/dev", "/dev.static", "/etc", "/lib" , "/proc", "/ram", "/root" , "/sbin", "/sys", "/tmp", "/usr", "/var"]
+		inhibitDirs = ["/bin", "/boot", "/dev", "/dev.static", "/etc", "/lib", "/proc", "/ram", "/root", "/sbin", "/sys", "/tmp", "/usr", "/var"]
 		self.filelist = FileList(currDir, useServiceRef = True, showDirectories = False, showFiles = True, matchingPattern = "(?i)^.*\.(m3u|pls|e2pls)", additionalExtensions = "4098:m3u 4098:e2pls 4098:pls")
 
 		self["filelist"] = self.filelist
@@ -846,11 +846,11 @@ class MC_WebRadio(Screen, HelpableScreen):
 	def __evDecodeError(self):
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
-		self.session.open(MessageBox, _("This Dreambox can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO,timeout = 20 )
+		self.session.open(MessageBox, _("This Dreambox can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO, timeout = 20 )
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
-		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO,timeout = 20 )
+		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO, timeout = 20 )
 	def addPlaylistParser(self, parser, extension):
 		self.playlistparsers[extension] = parser
 	def Settings(self):
@@ -1121,7 +1121,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			self["fileinfo"].setText("Title: " + sTitle + "\nArtist: " + sArtist + "\nAlbum: " + sAlbum + "\nYear: " + sYear + "\nGenre: " + sGenre + "\nComment: " + sComment)
 	def save_playlist(self):
 		from Screens.InputBox import InputBox
-		self.session.openWithCallback(self.save_pls,InputBox, title=_("Please enter filename (empty = use current date)"),windowTitle = _("Save Playlist"))
+		self.session.openWithCallback(self.save_pls, InputBox, title=_("Please enter filename (empty = use current date)"), windowTitle = _("Save Playlist"))
 	def save_pls(self, name):
 		if name is not None:
 			name = name.strip()
@@ -1137,14 +1137,14 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		playlistdir = resolveFilename(SCOPE_PLAYLIST)
 		try:
 			for i in os_listdir(playlistdir):
-				listpath.append((i,playlistdir + i))
+				listpath.append((i, playlistdir + i))
 		except IOError as e:
-			print("Error while scanning subdirs ",e)
+			print("Error while scanning subdirs ", e)
 		self.session.openWithCallback(self.load_pls, ChoiceBox, title=_("Please select a playlist..."), list = listpath)
-	def load_pls(self,path):
+	def load_pls(self, path):
 		if path is not None:
 			self.playlist.clear()
-			extension = path[0].rsplit('.',1)[-1]
+			extension = path[0].rsplit('.', 1)[-1]
 			if self.playlistparsers.has_key(extension):
 				playlist = self.playlistparsers[extension]()
 				list = playlist.open(path[1])
@@ -1156,11 +1156,11 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		playlistdir = resolveFilename(SCOPE_PLAYLIST)
 		try:
 			for i in os_listdir(playlistdir):
-				listpath.append((i,playlistdir + i))
+				listpath.append((i, playlistdir + i))
 		except IOError as e:
-			print("Error while scanning subdirs ",e)
+			print("Error while scanning subdirs ", e)
 		self.session.openWithCallback(self.delete_saved_pls, ChoiceBox, title=_("Please select a playlist to delete..."), list = listpath)
-	def delete_saved_pls(self,path):
+	def delete_saved_pls(self, path):
 		if path is not None:
 			self.delname = path[1]
 			self.session.openWithCallback(self.delete_saved_pls_conf, MessageBox, _("Do you really want to delete %s?") % (path[1]))
@@ -1278,8 +1278,8 @@ class Lyrics(Screen):
 			self.startRun()
 			Console().ePopen("echo '%s' >/tmp/.oldplaying" % str(title))
 	def startRun(self):
-		text = getEncodedString(self.getLyricsFromID3Tag()).replace("\r\n","\n")
-		text = text.replace("\r","\n")
+		text = getEncodedString(self.getLyricsFromID3Tag()).replace("\r\n", "\n")
+		text = text.replace("\r", "\n")
 		self["lyric_text"].setText(text)
 	def getLyricsFromID3Tag(self):
 		curPlay = self.session.nav.getCurrentService()
@@ -1292,7 +1292,7 @@ class Lyrics(Screen):
 				artistly = titlely
 		from urllib import quote
 		url = "http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=%s&song=%s" % (quote(artistly), quote(titlely))
-		sendUrlCommand(url, None,10).addCallback(self.gotLyrics).addErrback(self.urlError)
+		sendUrlCommand(url, None, 10).addCallback(self.gotLyrics).addErrback(self.urlError)
 		return "No lyrics found in id3-tag, trying api.chartlyrics.com..."
 	def urlError(self, error = None):
 		if error is not None:
@@ -1309,7 +1309,7 @@ class Lyrics(Screen):
 		coverly = root.findtext("{http://api.chartlyrics.com/}LyricCovertArtUrl").encode("utf-8", 'ignore')
 		Console().ePopen("wget -O /tmp/.onlinecover %s" % coverly)
 		self["coverly"].coverlyrics()
-		result = _("Response -> lyrics for: %s (%s)") % (title,artist)
+		result = _("Response -> lyrics for: %s (%s)") % (title, artist)
 		self["resulttext"].setText(result)
 		if not lyrictext:
 			self["resulttext"].setText(_("No lyrics found"))
