@@ -54,7 +54,7 @@ class PESpeedUp(Screen, ConfigListScreen):
          'cancel': self.cancel,
          'back': self.cancel})
         self.packagelist = []
-        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
+        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server openvision-video-bootlogo samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
         if fileExists('/usr/sbin/anacron'):
@@ -73,6 +73,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['ntp', 'ntp'])
         if fileExists('/usr/libexec/sftp-server'):
             self.packagelist.append(['openssh-sftp-server', 'openssh-sftp-server'])
+        if fileExists('/usr/share/bootlogo.mp4'):
+            self.packagelist.append(['openvision-video-bootlogo', 'openvision-video-bootlogo'])
         if fileExists('/usr/sbin/smbd'):
             self.packagelist.append(['samba-base', 'samba-base'])
         if fileExists('/usr/bin/shellinaboxd'):
@@ -111,7 +113,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['Terrestrial', 'frequency-xml-list-terrestrial'])
         if fileExists('/usr/share/enigma2/unicable.xml'):
             self.packagelist.append(['Unicable', 'frequency-xml-list-unicable'])
-        self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-autotimer enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-epgimport enigma2-plugin-extensions-epgrefresh enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-grautec enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-keyadder enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-openmultiboot openmultiboot enigma2-plugin-extensions-openwebif-themes enigma2-plugin-extensions-openwebif-vxg enigma2-plugin-extensions-persianpalace enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-rcuselect enigma2-plugin-extensions-tmbd enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer enigma2-plugin-extensions-xmodem'])
+        self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-autotimer enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-epgimport enigma2-plugin-extensions-epgrefresh enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-gbipboxclient enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-grautec enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-historyzapselector enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-keyadder enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-openmultiboot openmultiboot enigma2-plugin-extensions-openwebif-themes enigma2-plugin-extensions-openwebif-vxg enigma2-plugin-extensions-persianpalace enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-rcuselect enigma2-plugin-extensions-tmbd enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer enigma2-plugin-extensions-weatherplugin enigma2-plugin-extensions-xmodem enigma2-plugin-extensions-xtraevent'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/AudioSync')):
             self.packagelist.append(['AudioSync', 'enigma2-plugin-extensions-audiosync'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/AutoBackup')):
@@ -142,12 +144,16 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['FileCommander', 'enigma2-plugin-extensions-filecommander'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/Foreca')):
             self.packagelist.append(['Foreca', 'enigma2-plugin-extensions-foreca'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/GBIpboxClient')):
+            self.packagelist.append(['GBIpboxClient', 'enigma2-plugin-extensions-gbipboxclient'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/GraphMultiEPG')):
             self.packagelist.append(['GraphMultiEPG', 'enigma2-plugin-extensions-graphmultiepg'])
         if pathExists('/usr/bin/usbtftdisplay'):
             self.packagelist.append(['GrauTec', 'enigma2-plugin-extensions-grautec'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/HbbTV')):
             self.packagelist.append(['HbbTV', 'enigma2-plugin-extensions-hbbtv'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/HistoryZapSelector')):
+            self.packagelist.append(['HistoryZapSelector', 'enigma2-plugin-extensions-historyzapselector'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/IPTVPlayer')):
             self.packagelist.append(['IPTVPlayer', 'enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/KeyAdder')):
@@ -176,15 +182,21 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['TunerServer', 'enigma2-plugin-extensions-tunerserver'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/VlcPlayer')):
             self.packagelist.append(['VlcPlayer', 'enigma2-plugin-extensions-vlcplayer'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/WeatherPlugin')):
+            self.packagelist.append(['WeatherPlugin', 'enigma2-plugin-extensions-weatherplugin'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/xModem')):
             self.packagelist.append(['xModem', 'enigma2-plugin-extensions-xmodem'])
-        self.packagelist.append(['                                        Plugins (System)', 'enigma2-plugin-systemplugins-3dsettings enigma2-plugin-systemplugins-3gmodemmanager enigma2-plugin-systemplugins-animationsetup enigma2-plugin-systemplugins-fsblupdater enigma2-plugin-systemplugins-hdmicec enigma2-plugin-systemplugins-keymapmanager enigma2-plugin-systemplugins-mountmanager enigma2-plugin-systemplugins-multitranscodingsetup enigma2-plugin-systemplugins-osd3dsetup enigma2-plugin-systemplugins-osdpositionsetup enigma2-plugin-systemplugins-satipclient enigma2-plugin-systemplugins-setpasswd enigma2-plugin-systemplugins-sh4boostercontrol enigma2-plugin-systemplugins-sh4osdadjustment enigma2-plugin-systemplugins-sparkuniontunertype enigma2-plugin-systemplugins-systemtime enigma2-plugin-systemplugins-videoenhancement enigma2-plugin-systemplugins-transcodingsetup openvision-core-plugin enigma2-plugin-systemplugins-xmlupdate'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/xtraEvent')):
+            self.packagelist.append(['xtraEvent', 'enigma2-plugin-extensions-xtraevent'])
+        self.packagelist.append(['                                        Plugins (System)', 'enigma2-plugin-systemplugins-3dsettings enigma2-plugin-systemplugins-3gmodemmanager enigma2-plugin-systemplugins-animationsetup enigma2-plugin-systemplugins-autobouquetsmaker enigma2-plugin-systemplugins-fsblupdater enigma2-plugin-systemplugins-hdmicec enigma2-plugin-systemplugins-keymapmanager enigma2-plugin-systemplugins-mountmanager enigma2-plugin-systemplugins-multitranscodingsetup enigma2-plugin-systemplugins-osd3dsetup enigma2-plugin-systemplugins-osdpositionsetup enigma2-plugin-systemplugins-satipclient enigma2-plugin-systemplugins-serviceapp enigma2-plugin-systemplugins-setpasswd enigma2-plugin-systemplugins-sh4boostercontrol enigma2-plugin-systemplugins-sh4osdadjustment enigma2-plugin-systemplugins-sparkuniontunertype enigma2-plugin-systemplugins-systemtime enigma2-plugin-systemplugins-videoenhancement enigma2-plugin-systemplugins-transcodingsetup openvision-core-plugin enigma2-plugin-systemplugins-weathercomponenthandler enigma2-plugin-systemplugins-xmlupdate'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/3DSettings')):
             self.packagelist.append(['3DSettings', 'enigma2-plugin-systemplugins-3dsettings'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/3GModemManager')):
             self.packagelist.append(['3GModemManager', 'enigma2-plugin-systemplugins-3gmodemmanager'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/AnimationSetup')):
             self.packagelist.append(['AnimationSetup', 'enigma2-plugin-systemplugins-animationsetup'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/AutoBouquetsMaker')):
+            self.packagelist.append(['AutoBouquetsMaker', 'enigma2-plugin-systemplugins-autobouquetsmaker'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/FSBLUpdater')):
             self.packagelist.append(['FSBLUpdater', 'enigma2-plugin-systemplugins-fsblupdater'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/HdmiCEC')):
@@ -201,6 +213,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['OSDPositionSetup', 'enigma2-plugin-systemplugins-osdpositionsetup'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SatipClient')):
             self.packagelist.append(['SatipClient', 'enigma2-plugin-systemplugins-satipclient'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/ServiceApp')):
+            self.packagelist.append(['ServiceApp', 'enigma2-plugin-systemplugins-serviceapp'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SetPasswd')):
             self.packagelist.append(['SetPasswd', 'enigma2-plugin-systemplugins-setpasswd'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SH4BoosterControl')):
@@ -217,6 +231,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['TransCodingSetup', 'enigma2-plugin-systemplugins-transcodingsetup'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/Vision')):
             self.packagelist.append(['Vision', 'openvision-core-plugin'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/WeatherComponentHandler')):
+            self.packagelist.append(['WeatherComponentHandler', 'enigma2-plugin-systemplugins-weathercomponenthandler'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/xmlUpdate')):
             self.packagelist.append(['xmlUpdate', 'enigma2-plugin-systemplugins-xmlupdate'])
         self.packagelist.append(['                                        Locales', 'enigma2-locale-ar enigma2-locale-bg enigma2-locale-ca enigma2-locale-cs enigma2-locale-da enigma2-locale-de enigma2-locale-el enigma2-locale-es enigma2-locale-et enigma2-locale-fa enigma2-locale-fi enigma2-locale-fr enigma2-locale-fy enigma2-locale-he enigma2-locale-hr enigma2-locale-hu enigma2-locale-id enigma2-locale-is enigma2-locale-it enigma2-locale-ku enigma2-locale-lt enigma2-locale-lv enigma2-locale-nb enigma2-locale-nl enigma2-locale-nn enigma2-locale-pl enigma2-locale-pt enigma2-locale-pt-br enigma2-locale-ro enigma2-locale-ru enigma2-locale-sk enigma2-locale-sl enigma2-locale-sr enigma2-locale-sv enigma2-locale-th enigma2-locale-tr enigma2-locale-uk enigma2-locale-vi enigma2-locale-zh-cn enigma2-locale-zh-hk'])
@@ -346,19 +362,8 @@ class PESpeedUp(Screen, ConfigListScreen):
     def RestartGUI(self, answer):
         self.session.open(TryQuitMainloop, 3)
 
-def OVLock():
-    try:
-        from ov import gettitle
-        ovtitle = gettitle()
-        return ovtitle
-    except:
-        return False
-
 def main(session, **kwargs):
-    if OVLock() == False:
-        return
-    else:
-        session.open(PESpeedUp)
+    session.open(PESpeedUp)
 
 def Plugins(**kwargs):
     return PluginDescriptor(name = _("PE Speed Up"), description = _("Special version for Open Vision"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)
