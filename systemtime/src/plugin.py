@@ -13,6 +13,7 @@ from Components.Input import Input
 from Components.Label import Label
 from Plugins.Plugin import PluginDescriptor
 from Screens.Console import Console
+from Components.Console import Console
 from Screens.InputBox import InputBox
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
