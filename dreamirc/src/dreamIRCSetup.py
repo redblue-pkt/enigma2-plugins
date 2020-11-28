@@ -98,19 +98,17 @@ class dreamIRCSetupScreen(ConfigListScreen, Screen):
 				self.port = node.getAttribute("port")
 				self.channel = node.getAttribute("channel")
 				self.debug = node.getAttribute("debug")
-			if ((self.nick.lower() == "dreamircuser") or (self.nick == "") or (self.nick[0] == " ") or (self.nick.lower() == "dm8000-vip")) :
-				print("[dreamIRC] nickname error... restoring default...")
-				self.nick = model+"_"+self.mac_end
+
 		except IOError:
 			self.type = "IRC"
 			self.login = "1"
 			self.nick = model+"_"+self.mac_end
 			self.passwd = ""
-			self.server1 = "irc.belwue.de"
-			self.server2 = "irc.freenet.de"
-			self.server3 = "irc.tu-illmenau.de"
+			self.server1 = "irc.freenode.net"
+			self.server2 = ""
+			self.server3 = ""
 			self.port = "06667"
-			self.channel = "#dreamirc"
+			self.channel = "#openvision"
 			self.debug = "False"
 
 		if self.debug != "True" or self.debug != "False":
@@ -182,9 +180,6 @@ class dreamIRCConfig:
 				self.type = node.getAttribute("type")
 				self.login = node.getAttribute("login")
 				self.nick = node.getAttribute("nick")
-				if ((self.nick.lower() == "dreamircuser") or (self.nick == "") or (self.nick[0] == " ") or (self.nick.lower() == "dm8000-vip")) :
-					print("[dreamIRC] nickname error... restoring default...")
-					self.nick = model+"_"+self.mac_end
 				self.passwd = node.getAttribute("passwd")
 				self.server1 = node.getAttribute("server1") # atm only ip.. cause of probs with theads and dns..
 				self.server2 = node.getAttribute("server2") 
@@ -197,11 +192,11 @@ class dreamIRCConfig:
 			self.login = "1"
 			self.nick = model+"_"+self.mac_end
 			self.passwd = ""
-			self.server1 = "irc.freenet.de"
-			self.server2 = "irc.freenet.de"
-			self.server3 = "irc.tu-illmenau.de"
+			self.server1 = "irc.freenode.net"
+			self.server2 = ""
+			self.server3 = ""
 			self.port = "06667"
-			self.channel = "#dreamirc"
+			self.channel = "#openvision"
 			self.debug = ""
 		self.server1 = self.server1.strip()
 		self.server2 = self.server2.strip()
@@ -252,6 +247,3 @@ class dreamIRCConfig:
 			for node in elementsWithTag(root.childNodes, "account"):
 				self.channel = node.getAttribute("channel")
 			return self.channel
-
-
-
