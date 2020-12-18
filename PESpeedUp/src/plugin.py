@@ -54,7 +54,7 @@ class PESpeedUp(Screen, ConfigListScreen):
          'cancel': self.cancel,
          'back': self.cancel})
         self.packagelist = []
-        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server openvision-video-bootlogo samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
+        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server openvision-bootlogo openvision-video-bootlogo samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
         if fileExists('/usr/sbin/anacron'):
@@ -73,6 +73,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['ntp', 'ntp'])
         if fileExists('/usr/libexec/sftp-server'):
             self.packagelist.append(['openssh-sftp-server', 'openssh-sftp-server'])
+        if fileExists('/usr/share/bootlogo.mvi'):
+            self.packagelist.append(['openvision-bootlogo', 'openvision-bootlogo'])
         if fileExists('/usr/share/bootlogo.mp4'):
             self.packagelist.append(['openvision-video-bootlogo', 'openvision-video-bootlogo'])
         if fileExists('/usr/sbin/smbd'):
