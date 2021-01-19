@@ -54,9 +54,13 @@ class PESpeedUp(Screen, ConfigListScreen):
          'cancel': self.cancel,
          'back': self.cancel})
         self.packagelist = []
-        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server openvision-bootlogo openvision-video-bootlogo samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
+        self.packagelist.append(['                                        Binaries', 'astra-sm autofs cifs-utils cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server openvision-bootlogo openvision-video-bootlogo samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
+        if fileExists('/usr/sbin/automount'):
+            self.packagelist.append(['autofs', 'autofs'])
+        if fileExists('/usr/sbin/mount.cifs'):
+            self.packagelist.append(['cifs-utils', 'cifs-utils'])
         if fileExists('/usr/sbin/anacron'):
             self.packagelist.append(['cronie', 'cronie'])
         if fileExists('/usr/bin/curl'):
