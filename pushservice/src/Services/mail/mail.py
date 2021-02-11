@@ -27,7 +27,10 @@
 
 import types
 import os.path
-from cStringIO import StringIO
+try:
+	from cStringIO import StringIO
+except:
+	from io import StringIO
 from OpenSSL.SSL import SSLv3_METHOD
 
 from email import Encoders

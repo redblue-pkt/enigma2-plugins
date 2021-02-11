@@ -23,7 +23,10 @@ from Components.config import ConfigSubsection, getConfigListEntry, ConfigText, 
 from Components.ConfigList import ConfigList, ConfigListScreen
 import time
 import os
-import commands
+try:
+	import commands
+except:
+	import subprocess as commands
 from Components.Console import Console
 
 config.plugins.mc_wi = ConfigSubsection()

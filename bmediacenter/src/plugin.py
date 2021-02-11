@@ -14,7 +14,10 @@ from Plugins.Plugin import PluginDescriptor
 from Tools.Directories import pathExists, fileExists, resolveFilename, SCOPE_PLUGINS
 from __init__ import _
 import os
-import commands
+try:
+	import commands
+except:
+	import subprocess as commands
 from Components.Console import Console
 
 config.plugins.mc_global = ConfigSubsection()

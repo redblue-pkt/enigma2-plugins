@@ -13,7 +13,10 @@ from Components.ActionMap import ActionMap
 from FTPDownloader import FTPDownloader
 from twisted.web.client import HTTPDownloader
 from twisted.internet import reactor
-from urlparse import urlparse, urlunparse
+try:
+	from urlparse import urlparse, urlunparse
+except:
+	from urllib.parse import urlparse, urlunparse
 
 def _parse(url, defaultPort = None):
 	url = url.strip()

@@ -28,7 +28,10 @@ from twisted.web import client
 from twisted.web.client import HTTPClientFactory
 from base64 import encodestring
 import xml.etree.cElementTree
-#import urlparse
+try:
+	from urlparse import urlparse
+except:
+	from urllib.parse import urlparse
 from urllib import unquote
 
 CurrentIP = None
@@ -345,7 +348,6 @@ def url_parse(url, defaultPort=None):
 def sendPartnerBoxWebCommand(url, contextFactory=None, timeout=60, username = "root", password = "", *args, **kwargs):
 	#scheme, host, port, path = client._parse(url)
 	#scheme, host, port, path = url_parse(url)
-	from urlparse import urlparse
 	parsed = urlparse(url)
 	scheme = parsed.scheme
 	host = parsed.hostname

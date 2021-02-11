@@ -20,7 +20,11 @@ from __future__ import print_function
 
 import socket # For timeout purposes
 from Plugins.Extensions.SubsDownloader2.SourceCode import xmlrpclib
-import os, struct, commands, traceback, logging
+import os, struct, traceback, logging
+try:
+	import commands
+except:
+	import subprocess as commands
 
 #from Screens.MessageBox import MessageBox
 #from Screens.Screen import Screen

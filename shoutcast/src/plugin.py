@@ -24,7 +24,10 @@ from __future__ import print_function
 #
 
 from Plugins.Plugin import PluginDescriptor
-from urlparse import urlparse
+try:
+	from urlparse import urlparse
+except:
+	from urllib.parse import urlparse
 from Screens.Screen import Screen
 from Screens.InfoBar import InfoBar
 from Components.SystemInfo import SystemInfo

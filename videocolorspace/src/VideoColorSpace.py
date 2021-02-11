@@ -19,7 +19,10 @@ from __future__ import print_function
 #  modify it (if you keep the license), but it may not be commercially 
 #  distributed other than under the conditions noted above.
 #
-import commands
+try:
+	import commands
+except:
+	import subprocess as commands
 from os import system
 from __init__ import _
 from Components.ConfigList import ConfigListScreen

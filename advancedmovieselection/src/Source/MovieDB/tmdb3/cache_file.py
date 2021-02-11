@@ -16,7 +16,10 @@ import time
 import os
 import io
 
-from cStringIO import StringIO
+try:
+	from cStringIO import StringIO
+except:
+	from io import StringIO
 
 from tmdb_exceptions import *
 from cache_engine import CacheEngine, CacheObject
