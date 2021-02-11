@@ -580,7 +580,7 @@ def createEITtvdb(file_name, title, cover_type='poster', overwrite_jpg=False, ov
                 overview = episode_overview
             if episode['FirstAired']:
                 released = episode['FirstAired']
-            if episode.has_key('Director') and episode['Director']:
+            if 'Director' in episode and episode['Director']:
                 directors = episode['Director']
         ex_info = []
         if released:

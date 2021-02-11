@@ -1097,7 +1097,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 					thumbnailUrl = entry.getThumbnailUrl(0)
 					if thumbnailUrl is not None:
 						self.screenshotList.append((TubeID, thumbnailUrl))
-					if not self.Details.has_key(TubeID):
+					if TubeID not in self.Details:
 						self.Details[TubeID] = { 'thumbnail': None}
 					self.videolist.append(self.buildEntryComponent(entry, TubeID))
 				if len(self.videolist):
@@ -1120,7 +1120,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 					thumbnailUrl = entry.getThumbnailUrl(0)
 					if thumbnailUrl is not None:
 						self.screenshotList.append((TubeID, thumbnailUrl))
-					if not self.Details.has_key(TubeID):
+					if TubeID not in self.Details:
 						self.Details[TubeID] = { 'thumbnail': None}
 					self.videolist.append(self.buildEntryComponent(entry, TubeID))
 				if len(self.videolist):
@@ -1233,7 +1233,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 			thumbnailUrl = entry[1]
 			tubeid = entry[0]
 			thumbnailFile = "/tmp/"+str(tubeid)+".jpg"
-			if self.Details.has_key(tubeid):
+			if tubeid in self.Details:
 				if self.Details[tubeid]["thumbnail"] is None:
 					if thumbnailUrl is not None:
 						if tubeid not in self.pixmaps_to_load:
@@ -1273,14 +1273,14 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 		ptr = self.picloads[tubeid].getData()
 		thumbnailFile = "/tmp/"+str(tubeid)+".jpg"
 		if ptr != None:
-			if self.Details.has_key(tubeid):
+			if tubeid in self.Details:
 				self.Details[tubeid]["thumbnail"] = ptr
 			if (os_path.exists(thumbnailFile) == True):
 				os_remove(thumbnailFile)
 			del self.picloads[tubeid]
 		else:
 			del self.picloads[tubeid]
-			if self.Details.has_key(tubeid):
+			if tubeid in self.Details:
 				self.Details[tubeid]["thumbnail"] = None
 		self.timer_thumbnails.start(1)
 
@@ -1292,7 +1292,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 			idx = 0
 			for entry in self.videolist:
 				tubeid = entry[3]
-				if self.Details.has_key(tubeid):
+				if tubeid in self.Details:
 					if self.Details[tubeid]["thumbnail"] is not None:
 						thumbnail = entry[4]
 						if thumbnail == None:

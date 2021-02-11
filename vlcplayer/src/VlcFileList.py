@@ -81,9 +81,9 @@ class VlcFileList(MenuList):
 		else:
 			extension = name.split('.')
 			extension = extension[-1].lower()
-			if MEDIA_EXTENSIONS.has_key(extension):
+			if extension in MEDIA_EXTENSIONS:
 				png = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "extensions/" + MEDIA_EXTENSIONS[extension] + ".png"))
-			elif PLAYLIST_EXTENSIONS.has_key(extension):
+			elif extension in PLAYLIST_EXTENSIONS:
 				png = LoadPixmap(resolveFilename(SCOPE_PLUGINS, "Extensions/VlcPlayer/") + PLAYLIST_EXTENSIONS[extension])
 			else:
 				png = None

@@ -605,7 +605,7 @@ class PictureList(MenuList):
 		else:
 			extension = name.split('.')
 			extension = extension[-1].lower()
-			if EXTENSIONS.has_key(extension):
+			if extension in EXTENSIONS:
 				png = loadPNG("/usr/share/enigma2/extensions/" + EXTENSIONS[extension] + ".png")
 			else:
 				png = None

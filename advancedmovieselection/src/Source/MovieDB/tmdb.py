@@ -50,10 +50,10 @@ def getLocale():
 
 def decodeCertification(releases):
     cert = None
-    if releases.has_key('US'):
+    if 'US' in releases:
         cert = releases['US'].certification
     certification = {'G': 'VSR-0', 'PG': 'VSR-6', 'PG13': 'VSR-12', 'PG-13': 'VSR-12', 'R': 'VSR-16', 'NC-13': 'VSR-18', 'NC17': 'VSR-18'}
-    if certification.has_key(cert):
+    if cert in certification:
         return certification[cert]
     else:
         return
