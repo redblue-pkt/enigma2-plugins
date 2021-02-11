@@ -93,7 +93,7 @@ class CueSheet:
                         break
                     where = struct.unpack('>Q', data[0:8])[0]
                     what = struct.unpack('>I', data[8:12])[0]
-                    cut_list.append((long(where), what))
+                    cut_list.append((int(where), what))
 
             except:
                 print('ERROR reading cutlist', file_name)

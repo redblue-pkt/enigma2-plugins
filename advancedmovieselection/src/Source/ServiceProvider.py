@@ -189,7 +189,7 @@ def checkCreateMetaFile(serviceref):
                 title = os.path.basename(os.path.splitext(serviceref.getPath())[0])
             else:
                 title = serviceref.getName()
-            lt = long(os.stat(serviceref.getPath()).st_mtime)
+            lt = int(os.stat(serviceref.getPath()).st_mtime)
             print('create new metafile')
             print(serviceref.toString())
             print(lt)
@@ -290,8 +290,8 @@ class Info:
         if type == iServiceInformation.sTimeCreate:
             if os.path.exists(serviceref.getPath()):
                 if self.serviceInfo.time_create:
-                    return long(self.serviceInfo.time_create)
-                return long(os.stat(serviceref.getPath()).st_mtime)
+                    return int(self.serviceInfo.time_create)
+                return int(os.stat(serviceref.getPath()).st_mtime)
         return
 
     def getInfoObject(self, serviceref, type):

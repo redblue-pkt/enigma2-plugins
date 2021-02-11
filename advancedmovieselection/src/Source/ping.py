@@ -217,7 +217,6 @@ def verbose_ping(dest_addr, timeout = 2, count = 4):
         else:
             delay  =  delay * 1000
             print("get ping in %0.4fms" % delay)
-    print
  
  
 if __name__ == '__main__':

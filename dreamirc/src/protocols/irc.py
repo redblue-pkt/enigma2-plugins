@@ -1512,7 +1512,7 @@ def dccParseAddress(address):
         pass
     else:
         try:
-            address = long(address)
+            address = int(address)
         except ValueError:
             raise IRCBadMessage("Indecipherable address %r" % (address,))
         else:
@@ -1737,7 +1737,7 @@ def dccDescribe(data):
         pass
     else:
         try:
-            address = long(address)
+            address = int(address)
         except ValueError:
             pass
         else:
