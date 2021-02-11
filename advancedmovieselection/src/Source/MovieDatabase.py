@@ -326,7 +326,7 @@ class dict2xml(object):
             self.build(self.root, structure[rootName])
 
     def build(self, father, structure):
-        if type(structure) == dict:
+        if isinstance(structure, dict):
             for k in structure:
                 if "/" in k:
                     tag = self.doc.createElement("location")
@@ -338,7 +338,7 @@ class dict2xml(object):
                     father.appendChild(tag)
                     self.build(tag, structure[k])
 
-        elif type(structure) == list:
+        elif isinstance(structure, list):
             grandFather = father.parentNode
             tagName = father.tagName
             grandFather.removeChild(father)

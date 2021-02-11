@@ -16,7 +16,7 @@ def hasLastPosition(service):
     else:
         try:
             cuts_file = open(file_name, 'rb')
-            while 1:
+            while True:
                 data = cuts_file.read(12)
                 if data == '':
                     break
@@ -41,7 +41,7 @@ def checkDVDCuts(fileName):
     else:
         try:
             cuts_file = open(fileName + '.cuts', 'rb')
-            while 1:
+            while True:
                 data = cuts_file.read(12)
                 if data == '':
                     break
@@ -87,7 +87,7 @@ class CueSheet:
         else:
             try:
                 cuts = open(file_name, 'rb')
-                while 1:
+                while True:
                     data = cuts.read(12)
                     if data == '':
                         break

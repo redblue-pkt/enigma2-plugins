@@ -9,7 +9,7 @@ class HTTPProgressDownloader(HTTPDownloader):
 		HTTPDownloader.__init__(self, url, fileOrName, *args, **kwargs)
 
 		# Save callback(s) locally
-		if writeProgress and type(writeProgress) is not list:
+		if writeProgress and not isinstance(writeProgress, list):
 			writeProgress = [ writeProgress ]
 		self.writeProgress = writeProgress
 

@@ -854,7 +854,7 @@ class MovieList(GUIComponent):
         
         dirs = []
         
-        while 1:
+        while True:
             serviceref = list.getNext()
             if not serviceref.valid():
                 break

@@ -358,7 +358,7 @@ class MovieList(GUIComponent):
 			return
 		tags = set()
 
-		while 1:
+		while True:
 			serviceref = list.getNext()
 			if not serviceref.valid():
 				break
