@@ -55,7 +55,7 @@ config.plugins.LastFM.sreensaver.coverartinterval = ConfigInteger(10, limits=(0,
 
 ###############################################################################        
     
-def main(session,**kwargs):
+def main(session, **kwargs):
     global streamplayer
     if streamplayer is not False:
         streamplayer.setSession(session)
@@ -79,7 +79,7 @@ def startScrobbler(reason, **kwargs):
         evl = EventListener(kwargs["session"], streamplayer)
         evl.startListenToEvents()
         
-def Plugins(path,**kwargs):
+def Plugins(path, **kwargs):
     global plugin_path
     plugin_path = path
 
@@ -135,7 +135,7 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
          
     noCoverArtPNG = "no_coverArt.png"
     
-    def __init__(self, session,streamplayer, args=0):
+    def __init__(self, session, streamplayer, args=0):
         self.skin = LastFMScreenMain.skin
         Screen.__init__(self, session)
         HelpableScreen.__init__(self)
@@ -380,7 +380,7 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
             self.updateGUI() #forcing guiupdate, so we dont wait till guiupdatetimer fired
             self.guiupdatetimer.start(config.plugins.LastFM.metadatarefreshinterval.value * 1000)
 
-    def setInfoLabel(self,text,timeout=True):
+    def setInfoLabel(self, text, timeout=True):
         self.infolabelcleartimer.stop() 
         self["infolabel"].setText(text)
         if timeout is True:
@@ -426,7 +426,7 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
             self["info_album"].setText("N/A")
             self["info_track"].setText("N/A")
         
-    def setCoverArt(self,pixmap=None):
+    def setCoverArt(self, pixmap=None):
         if pixmap is None:
             self["info_cover"].instance.setPixmapFromFile(self.noCoverArtPNG)            
         else:
@@ -571,7 +571,7 @@ class LastFMSaveScreen(Screen):
     def action_exit(self):
         self.close()
         
-    def setCoverArt(self,pixmap=None):
+    def setCoverArt(self, pixmap=None):
         if pixmap is None:
             self["cover"].instance.setPixmapFromFile(self.noCoverArtPNG)            
         else:

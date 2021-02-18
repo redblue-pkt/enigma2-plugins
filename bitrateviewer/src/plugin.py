@@ -92,7 +92,7 @@ class BitrateCalculator(Screen):
 			self.audioBitrate = None
 
 
-def main(session,**kwargs):
+def main(session, **kwargs):
 	session.open(BitrateCalculator)
 
 def Plugins(**kwargs):

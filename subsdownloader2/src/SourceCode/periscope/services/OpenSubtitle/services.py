@@ -100,7 +100,7 @@ OS_LANGS = {}
 for x in LANGUAGES:
   #languageTranslate(x[0], 0, 2)
   #languageTranslate(x[0], 0, 3)
-  OS_LANGS.update({languageTranslate(x[0], 0, 2):languageTranslate(x[0], 0, 3)})
+  OS_LANGS.update({languageTranslate(x[0], 0, 2): languageTranslate(x[0], 0, 3)})
 
 class OpenSubtitle(SubtitleDatabase.SubtitleDB):
     url = "http://www.opensubtitles.org/"

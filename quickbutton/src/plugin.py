@@ -69,7 +69,7 @@ def autostart(reason, **kwargs):
 		except:
 			pass
 
-def setup(session,**kwargs):
+def setup(session, **kwargs):
 	session.open(QuickbuttonSetup)
 
 def Plugins(**kwargs):
@@ -147,7 +147,7 @@ def startPlugin(self, pname):
 			ar = {	"pillarbox": _("Pillarbox"), 
 				"panscan": _("Pan&Scan"),  
 				"scale": _("Just Scale")}
-			switch = {"pillarbox":"panscan", "panscan":"scale", "scale":"pillarbox"}
+			switch = {"pillarbox": "panscan", "panscan": "scale", "scale": "pillarbox"}
 			config.av.policy_43.value = switch[config.av.policy_43.value]
 			config.av.policy_43.save()
 			self.session.open(MessageBox, _("Display 4:3 content as") + " " + ar[config.av.policy_43.value], MessageBox.TYPE_INFO, timeout=3)

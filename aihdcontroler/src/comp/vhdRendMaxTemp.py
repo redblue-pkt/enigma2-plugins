@@ -27,7 +27,7 @@ class vhdRendMaxTemp(Renderer, VariableText):
 	def __init__(self):
 		Renderer.__init__(self)
 		VariableText.__init__(self)
-		if getBoxType() in ("dm8000","dm500hd","dm500hdv2","dm800se","dm800sev2"):
+		if getBoxType() in ("dm8000", "dm500hd", "dm500hdv2", "dm800se", "dm800sev2"):
 			self.ZeigeTemp = True
 		else:
 			self.ZeigeTemp = False

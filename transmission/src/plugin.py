@@ -92,6 +92,6 @@ class Transmission(Screen):
 def main(session, **kwargs):
 	session.open(Transmission)
 
-def Plugins(path,**kwargs):
+def Plugins(path, **kwargs):
 	return [PluginDescriptor(name=_("Transmission"), description=_("Bittorrent client for enigma2"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="transmission.png", fnc=main),
 		PluginDescriptor(name=_("Transmission"), where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=main)]

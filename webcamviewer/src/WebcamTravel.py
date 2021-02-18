@@ -145,7 +145,7 @@ class TravelWebcamviewer(Screen):
 			WebcamTravelerAPI().list_popular(self.onDataLoaded)
 			self.finish_loading = False
 
-	def onDataLoaded(self,list,count=0,page=0,per_page=0):
+	def onDataLoaded(self, list, count=0, page=0, per_page=0):
 		print("onDataLoaded", list, count, page, per_page)
 		self.count = count
 		self.page = page
@@ -280,7 +280,7 @@ class WebcamTravelerAPI:
 	URL_HOST = "api.webcams.travel"
 	URL_FORMAT = "rest"
 
-	def get(self,method,callback,errorback,**kwargs):
+	def get(self, method, callback, errorback, **kwargs):
 		url = "http://" + self.URL_HOST + "/" + self.URL_FORMAT + "?method=" + method + "&devid=" + self.APIKEY
 		for key in kwargs:
 			print(key, kwargs[key])
@@ -295,7 +295,7 @@ class WebcamTravelerAPI:
 	def loadingFailed(self, reason):
 		print("loadingFailed", reason)
 
-	def list_popular(self,callback,_page=1,_per_page=30):
+	def list_popular(self, callback, _page=1, _per_page=30):
 		"""	wct.webcams.list_popular
 			Get the popular webcams.
 
@@ -325,7 +325,7 @@ class WebcamTravelerAPI:
 			list.append(ca)
 		return list, _count, _page, _per_page
 
-	def search(self,callback,searchkey,_page=1,_per_page=30):
+	def search(self, callback, searchkey, _page=1, _per_page=30):
 		"""wct.search.webcams
 
 			Search the webcams by the given query.

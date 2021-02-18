@@ -58,7 +58,7 @@ def saveRelationDict(dict):
 def autostart_PictureInPicture(session, **kwargs):
 	init_pipservicerelation()
 
-def setup(session,**kwargs):
+def setup(session, **kwargs):
 	session.open(PipServiceRelationSetup)
 
 

@@ -24,7 +24,7 @@ import time
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 
-def main(session,**kwargs):
+def main(session, **kwargs):
 	session.open(eSame)
 
 def Plugins(**kwargs):

@@ -67,7 +67,7 @@ class XML_to_Dict():
 				node.unlink()
 
 class Napisy24_pl(XML_to_Dict, zip_extractor):    
-	def __init__(self,moviePath, movieNameString=None):
+	def __init__(self, moviePath, movieNameString=None):
 		if movieNameString == None:
 			self.MovieName = ((moviePath.rsplit("/", 1))[-1]).rsplit(".", 1)[0]
 		else:
@@ -372,7 +372,7 @@ class CompareMovie_and_Subtite_FileData(GuessFileData_from_FileName):
 					if x[1]['year'] == y[1]['year']:
 						wynik = wynik + 0.0049
 				#Cause and effect for subtitle and movie guesseFileData results
-				compare_result.append({"movie":x[0],"subtitle":y[0],"propability": wynik})                       
+				compare_result.append({"movie": x[0], "subtitle": y[0], "propability": wynik})                       
 				# print(x[0], y[0], wynik)
 		return compare_result
 		#musi sprawdzic czy film jest najbardziej prawdopodobny

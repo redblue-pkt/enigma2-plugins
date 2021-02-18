@@ -143,7 +143,7 @@ class IRCProto(e2support.AbstractClientMixin, irc.IRCClient):
         self.accountName = "%s (IRC)" % nick
         irc.IRCClient.setNick(self, nick)
         
-    def quit(self,message='bye bye'):
+    def quit(self, message='bye bye'):
 #         self.quit_str=str("QUIT :%s" % message)
          self.sendLine("QUIT :%s" % message)
 
@@ -176,7 +176,7 @@ class IRCProto(e2support.AbstractClientMixin, irc.IRCClient):
         username = string.split(username, '!', 1)[0]
         if username == self.name:
             return
-        meta = {'style':'emote'}
+        meta = {'style': 'emote'}
         if channel[0] == '#':
             group = channel[1:]
             self.getGroupConversation(group).showGroupMessage(username, emote, meta)

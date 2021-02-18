@@ -341,7 +341,7 @@ def Plugins(**kwargs):
 	return list
 
 
-def main(session,**kwargs):
+def main(session, **kwargs):
 	try:
 	 	session.open(Elektro)
 	except:
