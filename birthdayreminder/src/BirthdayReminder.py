@@ -76,7 +76,7 @@ class BirthdayStore:
 				(error_no, error_str) = error_no_error_str
 				print("[Birthday Reminder] ERROR reading from file %s. Error: %s, %s" % (fileName, error_no, error_str))
 				text = _("Error reading file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
-				Notifications.AddNotification(MessageBox, text, type = MessageBox.TYPE_ERROR)
+				Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
 				
 		return data
 		
@@ -90,7 +90,7 @@ class BirthdayStore:
 			(error_no, error_str) = error_no_error_str
 			print("[Birthday Reminder] ERROR writing to file %s. Error: %s, %s" % (fileName, error_no, error_str))
 			text = _("Error writing file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
-			Notifications.AddNotification(MessageBox, text, type = MessageBox.TYPE_ERROR)
+			Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
 			
 	# read the birthday information from file
 	def load(self):
@@ -107,7 +107,7 @@ class BirthdayStore:
 				(error_no, error_str) = error_no_error_str
 				print("[Birthday Reminder] ERROR reading from file %s. Error: %s, %s" % (fileName, error_no, error_str))
 				text = _("Error reading file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
-				Notifications.AddNotification(MessageBox, text, type = MessageBox.TYPE_ERROR)
+				Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
 				
 			print("[Birthday Reminder] read %s birthdays" % len(tmpList))
 		else:
@@ -116,7 +116,7 @@ class BirthdayStore:
 		self.bDayList = tmpList
 			
 	# write the birthday information to file
-	def save(self, data = None):
+	def save(self, data=None):
 		fileName = config.plugins.birthdayreminder.file.value
 		print("[Birthday Reminder] writing to file", fileName)
 		
@@ -132,7 +132,7 @@ class BirthdayStore:
 			(error_no, error_str) = error_no_error_str
 			print("[Birthday Reminder] ERROR writing to file %s. Error: %s, %s" % (fileName, error_no, error_str))
 			text = _("Error writing file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
-			Notifications.AddNotification(MessageBox, text, type = MessageBox.TYPE_ERROR)
+			Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
 			
 	# return the number of birthdays in list
 	def getSize(self):
@@ -278,7 +278,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 	# open extras menu
 	def openExtras(self):
 		choiceList = [(_("Export CSV file"), "csvexport"), (_("Import CSV file"), "csvimport"), (_("Distribute birthdays to other Dreamboxes"), "sendListOffer")]
-		self.session.openWithCallback(self.cbOpenExtras, ChoiceBox, title = _("What do you want to do?"), list = choiceList)
+		self.session.openWithCallback(self.cbOpenExtras, ChoiceBox, title=_("What do you want to do?"), list=choiceList)
 		
 	def cbOpenExtras(self, result):
 		if result == None:
@@ -301,9 +301,9 @@ class BirthdayReminder(Screen, HelpableScreen):
 		self.setButtonState()
 		self.birthdaytimer.addTimer(entry)
 		if config.plugins.birthdayreminder.preremind.value != "-1":
-			self.birthdaytimer.addTimer(entry, preremind = True)
+			self.birthdaytimer.addTimer(entry, preremind=True)
 			
-		self.setListSorted(newEntry = entry)
+		self.setListSorted(newEntry=entry)
 		
 	# this callback is called when a birthday was edited
 	def cbEditBirthday(self, name, birthday):
@@ -316,7 +316,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 		self.birthdaytimer.updateTimer(self.bDayBeforeChange, newEntry)
 		self["list"].updateList(self.birthdaytimer.getBirthdayList())
 		
-		self.setListSorted(newEntry = newEntry)
+		self.setListSorted(newEntry=newEntry)
 		
 	# really delete the selected birthday entry?
 	def cbDeleteBirthday(self, result):
@@ -369,7 +369,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 		self.setListSorted()
 		
 	# birthday list sorting
-	def setListSorted(self, newEntry = None):
+	def setListSorted(self, newEntry=None):
 		if not self.birthdaytimer.getSize():
 			return
 			
@@ -377,17 +377,17 @@ class BirthdayReminder(Screen, HelpableScreen):
 			self["name"].instance.setForegroundColor(parseColor("yellow"))
 			self["birthday"].instance.setForegroundColor(parseColor("white"))
 			self["age"].instance.setForegroundColor(parseColor("white"))
-			self.birthdaytimer.bDayList.sort(key = lambda t : tuple(t[0].lower()))
+			self.birthdaytimer.bDayList.sort(key=lambda t : tuple(t[0].lower()))
 		elif config.plugins.birthdayreminder.sortby.value == "2": # sort by upcoming birthday
 			self["name"].instance.setForegroundColor(parseColor("white"))
 			self["birthday"].instance.setForegroundColor(parseColor("yellow"))
 			self["age"].instance.setForegroundColor(parseColor("white"))
-			self.birthdaytimer.bDayList.sort(key = itemgetter(1), cmp = self.compareDates)
+			self.birthdaytimer.bDayList.sort(key=itemgetter(1), cmp=self.compareDates)
 		else: # sort by age
 			self["name"].instance.setForegroundColor(parseColor("white"))
 			self["birthday"].instance.setForegroundColor(parseColor("white"))
 			self["age"].instance.setForegroundColor(parseColor("yellow"))
-			self.birthdaytimer.bDayList.sort(key = itemgetter(1), cmp = self.compareAges)
+			self.birthdaytimer.bDayList.sort(key=itemgetter(1), cmp=self.compareAges)
 			
 		self["list"].setList(self.birthdaytimer.getBirthdayList())
 		
@@ -399,27 +399,27 @@ class BirthdayReminder(Screen, HelpableScreen):
 		today = date.today()
 		
 		try:
-			bDay1 = x.replace(year = today.year)
+			bDay1 = x.replace(year=today.year)
 		except ValueError: # raised on feb 29th
-			bDay1 = x.replace(year = today.year, day = x.day -1)
+			bDay1 = x.replace(year=today.year, day=x.day -1)
 			
 		if bDay1 < today: # next birthday in next year
 			try:
-				bDay1 = x.replace(year = today.year +1)
+				bDay1 = x.replace(year=today.year +1)
 			except ValueError: # raised on feb 29th
-				bDay1 = x.replace(year = today.year +1, day = x.day -1)
+				bDay1 = x.replace(year=today.year +1, day=x.day -1)
 		ts1 = int(mktime(bDay1.timetuple()))
 		
 		try:
-			bDay2 = y.replace(year = today.year)
+			bDay2 = y.replace(year=today.year)
 		except ValueError: # raised on feb 29th
-			bDay2 = y.replace(year = today.year, day = y.day -1)
+			bDay2 = y.replace(year=today.year, day=y.day -1)
 			
 		if bDay2 < today: # next birthday in next year
 			try:
-				bDay2 = y.replace(year = today.year +1)
+				bDay2 = y.replace(year=today.year +1)
 			except ValueError: # raised on feb 29th
-				bDay2 = y.replace(year = today.year +1, day = y.day -1)
+				bDay2 = y.replace(year=today.year +1, day=y.day -1)
 		ts2 = int(mktime(bDay2.timetuple()))
 		
 		return ts1 - ts2
@@ -499,8 +499,8 @@ class BirthdayReminder(Screen, HelpableScreen):
 		self.birthdaytimer.broadcastProtocol.sendBroadcast("offeringList")
 		
 class BirthdayList(List):
-	def __init__(self, list = [ ], enableWrapAround = False, item_height = 25, fonts = [ ]):
-		List.__init__(self, list = [ ], enableWrapAround = False, item_height = 25, fonts = [ ])
+	def __init__(self, list=[ ], enableWrapAround=False, item_height=25, fonts=[ ]):
+		List.__init__(self, list=[ ], enableWrapAround=False, item_height=25, fonts=[ ])
 		Source.__init__(self)
 		self.__list = list
 		self.onSelectionChanged = [ ]
@@ -550,23 +550,23 @@ class EditBirthdayScreen(Screen, ConfigListScreen, HelpableScreen):
 			<widget name="error" position="5,285" size="550,30" zPosition="5" font="Regular;21" transparent="1" halign="center" valign="center" foregroundColor="red" />
 		</screen>"""
 		
-	def __init__(self, session, entry = None):
+	def __init__(self, session, entry=None):
 		self.session = session
 		Screen.__init__(self, session)
 		
 		if entry == None:
 			self.setTitle(_("Add birthday"))
-			config.plugins.birthdayreminder.name = NoSave(ConfigText(default = "", fixed_size = False, visible_width = 40))
-			config.plugins.birthdayreminder.day = NoSave(ConfigInteger(default = 1, limits = (1, 31)))
-			config.plugins.birthdayreminder.month = NoSave(ConfigInteger(default = 1, limits = (1, 12)))
-			config.plugins.birthdayreminder.year = NoSave(ConfigInteger(default = 1900, limits = (1900, 2050)))
+			config.plugins.birthdayreminder.name = NoSave(ConfigText(default="", fixed_size=False, visible_width=40))
+			config.plugins.birthdayreminder.day = NoSave(ConfigInteger(default=1, limits=(1, 31)))
+			config.plugins.birthdayreminder.month = NoSave(ConfigInteger(default=1, limits=(1, 12)))
+			config.plugins.birthdayreminder.year = NoSave(ConfigInteger(default=1900, limits=(1900, 2050)))
 		else:
 			self.setTitle(_("Edit birthday"))
 			(name, birthday) = entry
-			config.plugins.birthdayreminder.name = NoSave(ConfigText(default = name, fixed_size = False, visible_width = 40))
-			config.plugins.birthdayreminder.day = NoSave(ConfigInteger(default = birthday.day, limits = (1, 31)))
-			config.plugins.birthdayreminder.month = NoSave(ConfigInteger(default = birthday.month, limits = (1, 12)))
-			config.plugins.birthdayreminder.year = NoSave(ConfigInteger(default = birthday.year, limits = (1900, 2050)))
+			config.plugins.birthdayreminder.name = NoSave(ConfigText(default=name, fixed_size=False, visible_width=40))
+			config.plugins.birthdayreminder.day = NoSave(ConfigInteger(default=birthday.day, limits=(1, 31)))
+			config.plugins.birthdayreminder.month = NoSave(ConfigInteger(default=birthday.month, limits=(1, 12)))
+			config.plugins.birthdayreminder.year = NoSave(ConfigInteger(default=birthday.year, limits=(1900, 2050)))
 			
 		self["key_red"] = StaticText(_("Cancel"))
 		self["key_green"] = StaticText(_("Save"))
@@ -607,7 +607,7 @@ class EditBirthdayScreen(Screen, ConfigListScreen, HelpableScreen):
 		text = self["config"].getCurrent()[1].value
 		if text == config.plugins.birthdayreminder.name.value:
 			title = _("Enter the name of the person:")
-			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title = title, text = text)
+			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title=title, text=text)
 		else:
 			pass
 
@@ -653,8 +653,8 @@ class BirthdayReminderSettings(Screen, ConfigListScreen, HelpableScreen):
 		self["key_blue"] = StaticText(_("Birthdays"))
 		
 		path, filename = os_path.split(config.plugins.birthdayreminder.file.value)
-		self.path = NoSave(ConfigDirectory(default = path))
-		self.filename = NoSave(ConfigText(default = filename, visible_width = 50, fixed_size = False))
+		self.path = NoSave(ConfigDirectory(default=path))
+		self.filename = NoSave(ConfigText(default=filename, visible_width=50, fixed_size=False))
 		
 		list = []
 		list.append(getConfigListEntry(_("Path to birthday file:"), self.path))
@@ -692,7 +692,7 @@ class BirthdayReminderSettings(Screen, ConfigListScreen, HelpableScreen):
 			self.session.openWithCallback(self.pathSelected, PathSelectionScreen, self.path.value)
 		elif text == self.filename.value:
 			title = _("Choose the filename:")
-			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title = title, text = text)
+			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title=title, text=text)
 		else:
 			pass
 
@@ -757,7 +757,7 @@ class PathSelectionScreen(Screen):
 		inhibitDirs = ["/bin", "/boot", "/dev", "/tmp", "/lib", "/proc", "/sbin", "/sys", "/usr", "/var"]
 		inhibitMounts = []
 		
-		self["filelist"] = FileList(initDir, showDirectories = True, showFiles = False, inhibitMounts = inhibitMounts, inhibitDirs = inhibitDirs)
+		self["filelist"] = FileList(initDir, showDirectories=True, showFiles=False, inhibitMounts=inhibitMounts, inhibitDirs=inhibitDirs)
 		self["target"] = Label(initDir + "/")
 		
 		self["actions"] = ActionMap(["WizardActions", "DirectionActions", "ColorActions", "EPGSelectActions"],
@@ -814,9 +814,9 @@ def getAge(birthday):
 	
 	# take care of feb 29th, use feb 28th if necessary
 	try:
-		bDay = birthday.replace(year = today.year)
+		bDay = birthday.replace(year=today.year)
 	except ValueError: # raised on feb 29th
-		bDay = birthday.replace(year = today.year, day = birthday.day - 1)
+		bDay = birthday.replace(year=today.year, day=birthday.day - 1)
 		
 	age = today.year - birthday.year
 	if bDay > today:

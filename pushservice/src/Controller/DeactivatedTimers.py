@@ -46,7 +46,7 @@ class DeactivatedTimers(ControllerBase):
 		self.timers = []
 		
 		# Default configuration
-		self.setOption( 'remove_timer', NoSave(ConfigYesNo( default = False )), _("Remove deactivated timer(s)") )
+		self.setOption( 'remove_timer', NoSave(ConfigYesNo( default=False )), _("Remove deactivated timer(s)") )
 
 	def run(self, callback, errback):
 		# At the end a plugin has to call one of the functions: callback or errback

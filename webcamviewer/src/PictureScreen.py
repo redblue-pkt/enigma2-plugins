@@ -18,7 +18,7 @@ try:
 except:
 	from urllib.parse import urlparse, urlunparse
 
-def _parse(url, defaultPort = None):
+def _parse(url, defaultPort=None):
 	url = url.strip()
 	parsed = urlparse(url)
 	scheme = parsed[0]
@@ -53,7 +53,7 @@ def _parse(url, defaultPort = None):
 
 	return scheme, host, port, path, username, password
 
-def download(url, file, contextFactory = None, *args, **kwargs):
+def download(url, file, contextFactory=None, *args, **kwargs):
 
 	"""Download a remote file from http(s) or ftp.
 
@@ -112,7 +112,7 @@ class PictureScreen(Screen):
 	skin = ""
 	processing = False # if fetching or converting is active
 	autoreload = False
-	def __init__(self, session,title,filename, slideshowcallback = None,args=0):
+	def __init__(self, session,title,filename, slideshowcallback=None,args=0):
 		self.slideshowcallback=slideshowcallback
 		self.screentitle = title
 		self.filename = filename
@@ -200,7 +200,7 @@ class PictureScreen(Screen):
 			self.setTitle(_("pause") + ":" + self.screentitle)
 		self.picload.startDecode(string)
 
-	def setPictureCB(self, picInfo = None):
+	def setPictureCB(self, picInfo=None):
 		ptr = self.picload.getData()
 		if ptr is not None:
 			self["pixmap"].instance.setPixmap(ptr)
@@ -237,7 +237,7 @@ class PictureScreen(Screen):
 		if not self.paused:
 			self.closetimer.stop()
 			self.paused = True
-		self.slideshowcallback(prev = True)
+		self.slideshowcallback(prev=True)
 
 	def next(self):
 		if not self.slideshowcallback:

@@ -36,7 +36,7 @@ from ConfigTextWithSuggestions import ConfigTextWithSuggestions
 from . import _
 
 searchContext = Config()
-searchContext.searchTerm = ConfigTextWithSuggestions("", False, threaded = True)
+searchContext.searchTerm = ConfigTextWithSuggestions("", False, threaded=True)
 searchContext.orderBy = ConfigSelection(
 				[
 				 ("relevance", _("Relevance")),

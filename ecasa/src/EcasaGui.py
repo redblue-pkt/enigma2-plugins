@@ -568,7 +568,7 @@ class EcasaAlbumview(Screen, HelpableScreen, InfoBarNotifications):
 		self.session.openWithCallback(
 			self.searchCallback,
 			NTIVirtualKeyBoard,
-			title = _("Enter username")
+			title=_("Enter username")
 		)
 	def searchCallback(self, text=None):
 		if text:

@@ -45,9 +45,9 @@ skinwidth = getDesktop(0).size().width()
 
 def initWeatherPluginEntryConfig():
 	s = ConfigSubsection()
-	s.city = ConfigText(default = "Heidelberg", visible_width = 100, fixed_size = False)
-	s.degreetype = ConfigSelection(choices = [("C", _("metric system")), ("F", _("imperial system"))], default = "C")
-	s.weatherlocationcode = ConfigText(default = "", visible_width = 100, fixed_size = False)
+	s.city = ConfigText(default="Heidelberg", visible_width=100, fixed_size=False)
+	s.degreetype = ConfigSelection(choices=[("C", _("metric system")), ("F", _("imperial system"))], default="C")
+	s.weatherlocationcode = ConfigText(default="", visible_width=100, fixed_size=False)
 	config.plugins.WeatherPlugin.Entry.append(s)
 	return s
 
@@ -159,7 +159,7 @@ class MSNWeatherPluginEntriesListConfigScreen(Screen):
 		self.updateList()
 
 class WeatherPluginEntryList(MenuList):
-	def __init__(self, list, enableWrapAround = True):
+	def __init__(self, list, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		if skinwidth == 1280:
 			font1, size1 = skinparameter.get("WeatherPluginEntryListFont1", ('Regular', 20))
@@ -299,10 +299,10 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 		text = self["config"].getCurrent()[1].value
 		if text == self.current.city.value:
 			title = _("Please enter a valid city name.")
-			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title = title, text = text)
+			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title=title, text=text)
 		elif text == self.current.weatherlocationcode.value:
 			title = _("Please enter a valid location code for the city.")
-			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title = title, text = text)
+			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title=title, text=text)
 		else:
 			pass
 
@@ -345,7 +345,7 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 			else:
 				self.session.openWithCallback(self.searchCallback, MSNWeatherPluginSearch, xmlstring)
 			
-	def error(self, error = None):
+	def error(self, error=None):
 		if error is not None:
 			print(error)
 		
@@ -408,7 +408,7 @@ class MSNWeatherPluginSearch(Screen):
 		self.close(sel)
 
 class MSNWeatherPluginSearchResultList(MenuList):
-	def __init__(self, list, enableWrapAround = True):
+	def __init__(self, list, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		if skinwidth == 1280:
 			font1, size1 = skinparameter.get("WeatherPluginSearchResultListFont1", ('Regular', 20))

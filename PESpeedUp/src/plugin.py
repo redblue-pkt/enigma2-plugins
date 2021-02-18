@@ -374,4 +374,4 @@ def main(session, **kwargs):
     session.open(PESpeedUp)
 
 def Plugins(**kwargs):
-    return PluginDescriptor(name = _("PE Speed Up"), description = _("Special version for Open Vision"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)
+    return PluginDescriptor(name=_("PE Speed Up"), description=_("Special version for Open Vision"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)

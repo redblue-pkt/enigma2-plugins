@@ -96,7 +96,7 @@ class VlcMediaListScreen(Screen):
 		except Exception as e:
 			pass
 
-	def close(self, proceed = False):
+	def close(self, proceed=False):
 		Screen.close(self, proceed)
 
 	def keyUpdate(self):

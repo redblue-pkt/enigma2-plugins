@@ -47,7 +47,7 @@ class OPKGUpdateNotification(ControllerBase):
 		ControllerBase.__init__(self)
 		
 		# Default configuration
-		self.setOption( 'selfcheck', NoSave(ConfigYesNo( default = False )), _("Start update check if not done yet") )
+		self.setOption( 'selfcheck', NoSave(ConfigYesNo( default=False )), _("Start update check if not done yet") )
 
 	def run(self, callback, errback):
 		# At the end a plugin has to call one of the functions: callback or errback
@@ -64,7 +64,7 @@ class OPKGUpdateNotification(ControllerBase):
 				return
 		callback()
 
-	def getUpdateInfosCB(self, callback, errback, retval = None):
+	def getUpdateInfosCB(self, callback, errback, retval=None):
 		if retval is not None:
 			if retval is True:
 				if iSoftwareTools.available_updates is not 0:

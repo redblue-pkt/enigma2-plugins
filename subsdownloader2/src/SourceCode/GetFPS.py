@@ -34,7 +34,7 @@ class GetFPS(object):
         except:
             pass
         
-    def eblm(self, bits = 0xf0):
+    def eblm(self, bits=0xf0):
         suma = 0x00
         mask = 0x01
         while not (suma & mask):
@@ -43,7 +43,7 @@ class GetFPS(object):
                 raise Exception('Error: MKV stream is broken')
             mask <<= 7
         if bits == 0xf0:
-            return (suma, self.eblm( bits = 0xff ) )
+            return (suma, self.eblm( bits=0xff ) )
         else:
             return suma ^ mask
 

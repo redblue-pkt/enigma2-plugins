@@ -20,7 +20,7 @@ from __future__ import print_function
 import zipfile
 
 class zip_extractor():
-     def __init__(self, zip__path, destination_dir = None, extracted_extension_filter = None):
+     def __init__(self, zip__path, destination_dir=None, extracted_extension_filter=None):
           self.__zip__path = zip__path
           self.__destination_dir = destination_dir
           self.__extracted_extension_filter = extracted_extension_filter
@@ -35,7 +35,7 @@ class zip_extractor():
                print("There is problem with %s reading" % zip__path)
                return False
 
-     def zipped_file_list(self, zip_file_temp_list, extraction_filter = None):
+     def zipped_file_list(self, zip_file_temp_list, extraction_filter=None):
           zip_file_list =[]
           for x in zip_file_temp_list:
                if extraction_filter != None:

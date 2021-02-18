@@ -135,7 +135,7 @@ class EPGRefresh:
 				duration = duration and int(duration)
 				self.services[1].add(EPGRefreshService(value, duration))
 
-	def buildConfiguration(self, webif = False):
+	def buildConfiguration(self, webif=False):
 		list = ['<?xml version="1.0" ?>\n<epgrefresh version="', XML_VERSION, '">\n\n']
 
 		if webif:
@@ -176,7 +176,7 @@ class EPGRefresh:
 			self.refreshAdapter.stop()
 			self.refreshAdapter = None
 
-	def forceRefresh(self, session = None):
+	def forceRefresh(self, session=None):
 		print("[EPGRefresh] Forcing start of EPGRefresh")
 		if self.session is None:
 			if session is not None:
@@ -188,7 +188,7 @@ class EPGRefresh:
 		self.prepareRefresh()
 		return True
 	
-	def stopRunningRefresh(self, session = None):
+	def stopRunningRefresh(self, session=None):
 		print("[EPGRefresh] Forcing stop of EPGRefresh")
 		if self.session is None:
 			if session is not None:
@@ -197,7 +197,7 @@ class EPGRefresh:
 				return False
 		self.doStopRunningRefresh = True
 
-	def start(self, session = None):
+	def start(self, session=None):
 		if session is not None:
 			self.session = session
 
@@ -382,8 +382,8 @@ class EPGRefresh:
 				if self.forcedScan:
 					# only if we are interactive
 					Notifications.AddNotificationWithCallback(self._ToDoCallAutotimerCB, MessageBox,
-						text = _("EPG refresh finished.\nShould AutoTimer be search for new matches?"),
-						type = MessageBox.TYPE_YESNO, default = defaultanswer, timeout = 10)
+						text=_("EPG refresh finished.\nShould AutoTimer be search for new matches?"),
+						type=MessageBox.TYPE_YESNO, default=defaultanswer, timeout=10)
 				else:
 					self._ToDoCallAutotimerCB(parseAT=defaultanswer)
 			else:
@@ -494,7 +494,7 @@ class EPGRefresh:
 					epgrefreshtimer.add(EPGRefreshTimerEntry(
 							time() + config.plugins.epgrefresh.delay_standby.value*60,
 							self.refresh,
-							nocheck = True)
+							nocheck=True)
 					)
 
 	def createWaitTimer(self):
@@ -547,7 +547,7 @@ class EPGRefresh:
 			epgrefreshtimer.add(EPGRefreshTimerEntry(
 				time() + delay,
 				self.refresh,
-				nocheck = True)
+				nocheck=True)
 			)
 	
 	def showPendingServices(self, session):
