@@ -39,6 +39,7 @@ from Source.Globals import SkinTools
 
 staticIP = None
 
+
 class ClientSetupList(GUIComponent):
     def __init__(self, ip_address):
         GUIComponent.__init__(self)
@@ -149,6 +150,7 @@ class ClientSetupList(GUIComponent):
                 return True
             count += 1
         return False
+
 
 class ClientSetup(ConfigListScreen, Screen):
     def __init__(self, session):

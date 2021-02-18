@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from Components.Sources.Source import Source
 
+
 class VariableProgressSource(Source):
 	"""Source to feed Progress Renderer from HTTPProgressDownloader"""
 

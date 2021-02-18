@@ -34,8 +34,10 @@ import stat
 PluginLanguageDomain = "DVDBackup"
 PluginLanguagePath = "Extensions/DVDBackup/locale/"
  
+
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
+
 
 def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
@@ -43,6 +45,7 @@ def _(txt):
 	else:
 		print("[" + PluginLanguageDomain + "] fallback to default translation for " + txt)
 		return gettext.gettext(txt)
+
 
 language.addCallback(localeInit())
 
@@ -60,10 +63,12 @@ config.plugins.DVDBackup.create_iso = ConfigYesNo(default=False)
 global SESSION
 SESSION = None
 
+
 def message(msg):
 	SESSION.open(MessageBox, msg, type=MessageBox.TYPE_ERROR, timeout=10)
 
 #################################################
+
 
 def eject(dev):
 	try:
@@ -79,6 +84,7 @@ def eject(dev):
 		print(err)
 
 #################################################
+
 
 class DVDBackupFile:
 	def __init__(self, name, size):
@@ -98,6 +104,7 @@ class DVDBackupFile:
 				self.progress = 0
 
 #################################################
+
 
 class DVDBackup:
 	def __init__(self):
@@ -211,9 +218,11 @@ class DVDBackup:
 			eject(config.plugins.DVDBackup.device.value)
 		self.working = False
 
+
 dvdbackup = DVDBackup()
 
 #################################################
+
 
 class DVDBackupList(MenuList):
 	def __init__(self):
@@ -222,6 +231,7 @@ class DVDBackupList(MenuList):
 		self.l.setFont(0, gFont("Regular", 20))
 
 #################################################
+
 
 def DVDBackupListEntry(file):
 	res = [(file)]
@@ -232,6 +242,7 @@ def DVDBackupListEntry(file):
 	return res
 
 #################################################
+
 
 class DVDBackupProgress(Screen):
 	skin = """
@@ -303,6 +314,7 @@ class DVDBackupProgress(Screen):
 		self.working = False
 
 #################################################
+
 
 class DVDBackupScreen(ConfigListScreen, Screen):
 	skin = """
@@ -417,6 +429,7 @@ class DVDBackupScreen(ConfigListScreen, Screen):
 
 #################################################
 
+
 def main(session, **kwargs):
 	global SESSION
 	SESSION = session
@@ -424,6 +437,7 @@ def main(session, **kwargs):
 		session.open(DVDBackupProgress)
 	else:
 		session.open(DVDBackupScreen)
+
 
 def filescan_open(list, session, **kwargs):
 	global SESSION
@@ -435,11 +449,13 @@ def filescan_open(list, session, **kwargs):
 				session.open(DVDBackupScreen, device="/dev/%s" % (splitted[2]))
 				return
 
+
 def filescan(**kwargs):
 	class LocalScanner(Scanner):
 		def checkFile(self, file):
 			return fileExists(file.path)
 	return [LocalScanner(mimetypes=["video/x-dvd"], paths_to_scan=[ScanPath(path="video_ts", with_subdirs=False)], name="DVD", description=_("DVD Backup"), openfnc=filescan_open)]		
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(name=_("DVD Backup"), description=_("Backup your Video-DVD to your harddisk"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon="DVDBackup.png", fnc=main),

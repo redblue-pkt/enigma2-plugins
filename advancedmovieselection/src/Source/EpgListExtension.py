@@ -35,6 +35,7 @@ savedBuildSingleEntry = EPGList.buildSingleEntry
 savedBuildMultiEntry = EPGList.buildMultiEntry
 savedBuildSimilarEntry = EPGList.buildSimilarEntry
 
+
 def getPixmapForEntry(self, service, eventId, beginTime, duration):
     pixmap = savedPixmapForEntry(self, service, eventId, beginTime, duration)
     icon_index = epgListExtension.isMovieRecorded()

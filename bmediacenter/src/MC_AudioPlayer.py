@@ -53,6 +53,8 @@ playlist = []
 #	print("Media Center: Import evfd failed")
 radirl = "http://ipkserver.hdmedia-universe.com/bmcradio/"
 #for lyrics
+
+
 def getEncodedString(value):
 	returnValue = ""
 	try:
@@ -66,12 +68,16 @@ def getEncodedString(value):
 			except UnicodeDecodeError:
 				returnValue = "n/a"
 	return returnValue
+
+
 class myHTTPClientFactory(HTTPClientFactory):
 	def __init__(self, url, method='GET', postdata=None, headers=None,
 	agent="SHOUTcast", timeout=0, cookies=None,
 	followRedirect=1, lastModified=None, etag=None):
 		HTTPClientFactory.__init__(self, url, method=method, postdata=postdata,
 		headers=headers, agent=agent, timeout=timeout, cookies=cookies, followRedirect=followRedirect)
+
+
 def sendUrlCommand(url, contextFactory=None, timeout=50, *args, **kwargs):
 	if hasattr(client, '_parse'):
 		scheme, host, port, path = client._parse(url)
@@ -89,7 +95,11 @@ def sendUrlCommand(url, contextFactory=None, timeout=50, *args, **kwargs):
 	factory = myHTTPClientFactory(url, *args, **kwargs)
 	reactor.connectTCP(host, port, factory, timeout=timeout)
 	return factory.deferred
+
+
 mcpath = resolveFilename(SCOPE_PLUGINS, "Extensions/BMediaCenter/")
+
+
 def PlaylistEntryComponent(serviceref):
 	res = [serviceref]
 	text = serviceref.getName()
@@ -97,6 +107,8 @@ def PlaylistEntryComponent(serviceref):
 		text = os_path.split(serviceref.getPath().split('/')[-1])[1]
 	res.append((eListboxPythonMultiContent.TYPE_TEXT, 25, 1, 470, 22, 0, RT_VALIGN_CENTER, text))
 	return res
+
+
 class PlayList(MenuList):
 	def __init__(self, enableWrapAround=False):
 		MenuList.__init__(self, playlist, enableWrapAround, eListboxPythonMultiContent)
@@ -105,57 +117,77 @@ class PlayList(MenuList):
 		MC_AudioPlayer.currPlaying = -1
 		self.oldCurrPlaying = -1
 		self.serviceHandler = eServiceCenter.getInstance()
+
 	def clear(self):
 		del self.list[:]
 		self.l.setList(self.list)
 		MC_AudioPlayer.currPlaying = -1
 		self.oldCurrPlaying = -1
+
 	def getSelection(self):
 		return self.l.getCurrentSelection()[0]
+
 	def addFile(self, serviceref):
 		self.list.append(PlaylistEntryComponent(serviceref))
+
 	def updateFile(self, index, newserviceref):
 		if index < len(self.list):
 			self.list[index] = PlaylistEntryComponent(newserviceref, STATE_NONE)
+
 	def deleteFile(self, index):
 		if MC_AudioPlayer.currPlaying >= index:
 			MC_AudioPlayer.currPlaying -= 1
 		del self.list[index]
+
 	def setCurrentPlaying(self, index):
 		self.oldCurrPlaying = MC_AudioPlayer.currPlaying
 		MC_AudioPlayer.currPlaying = index
 		self.moveToIndex(index)
+
 	def updateState(self, state):
 		if len(self.list) > self.oldCurrPlaying and self.oldCurrPlaying != -1:
 			self.list[self.oldCurrPlaying] = PlaylistEntryComponent(self.list[self.oldCurrPlaying][0], STATE_NONE)
 		if MC_AudioPlayer.currPlaying != -1 and MC_AudioPlayer.currPlaying < len(self.list):
 			self.list[MC_AudioPlayer.currPlaying] = PlaylistEntryComponent(self.list[MC_AudioPlayer.currPlaying][0], state)
 		self.updateList()
+
 	def playFile(self):
 		self.updateState(STATE_PLAY)
+
 	def pauseFile(self):
 		self.updateState(STATE_PAUSE)
+
 	def stopFile(self):
 		self.updateState(STATE_STOP)
+
 	def rewindFile(self):
 		self.updateState(STATE_REWIND)
+
 	def forwardFile(self):
 		self.updateState(STATE_FORWARD)
 	GUI_WIDGET = eListbox
+
 	def updateList(self):
 		self.l.setList(self.list)
+
 	def getCurrentIndex(self):
 		return MC_AudioPlayer.currPlaying
+
 	def getCurrentEvent(self):
 		l = self.l.getCurrentSelection()
 		return l and self.serviceHandler.info(l[0]).getEvent(l[0])
+
 	def getCurrent(self):
 		l = self.l.getCurrentSelection()
 		return l and l[0]
+
 	def getServiceRefList(self):
 		return [x[0] for x in self.list]
+
 	def __len__(self):
 		return len(self.list)
+
+
 class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -238,6 +270,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 		self.FileInfoTimer = eTimer()
 		self.FileInfoTimer.callback.append(self.updateFileInfo)
 		self.onLayoutFinish.append(self.updategreen)
+
 	def Repeat(self):
 		if config.plugins.mc_ap.repeat.getValue() == "off":
 			config.plugins.mc_ap.repeat.value = "single"
@@ -249,6 +282,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			config.plugins.mc_ap.repeat.value = "off"
 			self["green"].instance.setPixmapFromFile(mcpath + "icons/repeatoffgreen.png")
 		config.plugins.mc_ap.save()
+
 	def updategreen(self):
 		if config.plugins.mc_ap.repeat.getValue() == "all":
 			self["green"].instance.setPixmapFromFile(mcpath + "icons/repeatallgreen.png")
@@ -256,34 +290,41 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			self["green"].instance.setPixmapFromFile(mcpath + "icons/repeatonegreen.png")
 		else:
 			return
+
 	def unlockShow(self):
 		return
+
 	def lockShow(self):
 		return
+
 	def up(self):
 		self["filelist"].up()
 #		if config.plugins.mc_global.vfd.value == "on":
 #			evfd.getInstance().vfd_write_string(self["filelist"].getName())
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def down(self):
 		self["filelist"].down()
 #		if config.plugins.mc_global.vfd.value == "on":
 #			evfd.getInstance().vfd_write_string(self["filelist"].getName())
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def leftUp(self):
 		self["filelist"].pageUp()
 #		if config.plugins.mc_global.vfd.value == "on":
 #			evfd.getInstance().vfd_write_string(self["filelist"].getName())
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def rightDown(self):
 		self["filelist"].pageDown()
 #		if config.plugins.mc_global.vfd.value == "on":
 #			evfd.getInstance().vfd_write_string(self["filelist"].getName())
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def KeyOK(self):
 		if self["filelist"].canDescent():
 			if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
@@ -306,6 +347,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			else:
 				self.PlaySingle = 1
 				self.PlayService()
+
 	def PlayPause(self):
 		if MC_AudioPlayer.STATE == "PLAY":
 			service = self.session.nav.getCurrentService()
@@ -325,6 +367,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 				self.screensavercheckup()
 		else:
 			self.KeyOK()
+
 	def KeyNext(self):
 		if MC_AudioPlayer.STATE != "NONE":
 			if config.plugins.mc_ap.showJpg.getValue():
@@ -339,6 +382,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			else:
 				self.down()
 				self.PlayService()
+
 	def KeyPrevious(self):
 		if MC_AudioPlayer.STATE != "NONE":
 			if config.plugins.mc_ap.showJpg.getValue():
@@ -353,6 +397,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			else:
 				self.up()
 				self.PlayService()
+
 	def visibility(self, force=1):
 		if self.isVisible == True:
 			self.isVisible = False
@@ -360,8 +405,10 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 		else:
 			self.isVisible = True
 			self.show()
+
 	def Playlists(self):
 		self.session.openWithCallback(self.updd, MC_AudioPlaylist)
+
 	def updd(self):
 		self.updateFileInfo()
 		sort = config.plugins.mc_ap_sortmode.enabled.value
@@ -378,6 +425,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			self["play"].instance.setPixmapFromFile(mcpath + "icons/stop_enabled.png")
 		else:
 			return
+
 	def PlayService(self):
 		playlistplay = 0
 		self.JpgTimer.stop()
@@ -390,6 +438,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 		if config.plugins.mc_ap.showJpg.getValue():
 			time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 			self.JpgTimer.start(time, True)
+
 	def PlayServicepls(self):
 		MC_AudioPlayer.playlistplay = 1
 		x = self.playlist.getCurrentIndex()
@@ -403,6 +452,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			self.JpgTimer.start(time, True)
 		#path = self["filelist"].getCurrentDirectory() + self["filelist"].getFilename()
 		#self["coverArt"].updateCoverArt(path)
+
 	def StopPlayback(self):
 		if self.isVisible == False:
 			self.show()
@@ -416,12 +466,14 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 				self["screensaver"].showDefaultCover()
 			MC_AudioPlayer.STATE = "NONE"
 			self["play"].instance.setPixmapFromFile(mcpath + "icons/stop_enabled.png")
+
 	def JumpToFolder(self, jumpto=None):
 		if jumpto is None:
 			return
 		else:
 			self["filelist"].changeDir(jumpto)
 			self["currentfolder"].setText(("%s") % (jumpto))
+
 	def updateFileInfo(self):
 		currPlay = self.session.nav.getCurrentService()
 		if currPlay is not None:
@@ -434,6 +486,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			if sTitle == "":
 				sTitle = currPlay.info().getName().split('/')[-1]
 			self["fileinfo"].setText(_("Title: ") + sTitle + _("\nArtist: ") + sArtist + _("\nAlbum: ") + sAlbum + _("\nYear: ") + sYear + _("\nGenre: ") + sGenre + _("\nComment: ") + sComment)
+
 	def addFiletoPls(self):
 		if self.filelist.canDescent():
 			x = self.filelist.getName()
@@ -452,6 +505,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 		else:
 			self.playlist.addFile(self.filelist.getServiceRef())
 			self.playlist.updateList()
+
 	def addDirtoPls(self, directory, recursive=True):
 		if directory == '/':
 			return
@@ -465,20 +519,24 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			elif filelist.getServiceRef() and filelist.getServiceRef().type == 4097:
 				self.playlist.addFile(x[0][0])
 		self.playlist.updateList()
+
 	def deleteFile(self):
 		self.service = self.filelist.getServiceRef()
 		if self.service.type != 4098 and self.session.nav.getCurrentlyPlayingServiceOrGroup() is not None:
 			if self.service == self.session.nav.getCurrentlyPlayingServiceOrGroup():
 				self.StopPlayback()
 		self.session.openWithCallback(self.deleteFileConfirmed, MessageBox, _("Do you really want to delete this file ?"))
+
 	def deleteFileConfirmed(self, confirmed):
 		if confirmed:
 			delfile = self["filelist"].getFilename()
 			os.remove(delfile)
 			sort = config.plugins.mc_ap_sortmode.enabled.value
 			self.filelist.refresh(sort)
+
 	def deleteDir(self):
 		self.session.openWithCallback(self.deleteDirConfirmed, MessageBox, _("Do you really want to delete this directory and it's content ?"))
+
 	def deleteDirConfirmed(self, confirmed):
 		if confirmed:
 			import shutil
@@ -486,6 +544,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			shutil.rmtree(deldir)
 			sort = config.plugins.mc_ap_sortmode.enabled.value
 			self.filelist.refresh(sort)
+
 	def getJPG(self):
 		if config.plugins.mc_ap.whichjpg.value == "default":
 			path = mcpath + "saver/"
@@ -495,6 +554,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			for name in files:
 				if name.endswith(".jpg"):
 					self.jpgList.append(name)
+
 	def showBackgroundJPG(self):
 		if len(self.jpgList) > 0:
 			if self.jpgIndex < len(self.jpgList) - 1:
@@ -513,6 +573,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 				self.JpgTimer.start(time, True)
 		else:
 			print("MediaCenter: No Background Files found ...")
+
 	def doEOF(self):
 		if MC_AudioPlayer.playlistplay == 1:
 			next = self.playlist.getCurrentIndex() + 1
@@ -531,27 +592,33 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 		else:
 			self.down()
 			self.PlayService()
+
 	def checkisdir(self):
 		if self["filelist"].canDescent():
 			self.down()
 			self.checkisdir()
 		else:
 			self.PlayService()
+
 	def __evDecodeError(self):
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
 		self.session.open(MessageBox, _("This Dreambox can't decode %s video streams!") % sVideoType, type=MessageBox.TYPE_INFO, timeout=20)
+
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser + 12)
 		self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO, timeout=20)
+
 	def addPlaylistParser(self, parser, extension):
 		self.playlistparsers[extension] = parser
+
 	def Shuffle(self):
 		if self.currPlaying == 1:
 			return
 		sort = "shuffle"
 		self.filelist.refresh(sort)
+
 	def showMenu(self):
 		menu = []
 		menu.append((_("shuffle"), "shuffle"))
@@ -567,6 +634,7 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			menu.append((_("add all files in directory to playlist"), "copyfiles"))
 			menu.append((_("delete file"), "deletefile"))
 		self.session.openWithCallback(self.menuCallback, ChoiceBox, title="", list=menu)
+
 	def menuCallback(self, choice):
 		if choice is None:
 			return
@@ -586,8 +654,10 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 			self.deleteFile()
 		elif choice[1] == "shuffle":
 			self.Shuffle()
+
 	def Settings(self):
 		self.session.openWithCallback(self.updd, AudioPlayerSettings)
+
 	def Exit(self):
 		if self.isVisible == False:
 			self.visibility()
@@ -610,14 +680,18 @@ class MC_AudioPlayer(Screen, HelpableScreen, InfoBarSeek):
 #		if config.plugins.mc_global.vfd.value == "on":
 #			evfd.getInstance().vfd_write_string(_("My Music"))
 		self.close()
+
 	def screensavercheckup(self):
 		self.JpgTimer.stop()
 		self["screensaver"].showDefaultCover()
 		time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 		self.JpgTimer.start(time, True)
+
 	def showLyrics(self):
 		if MC_AudioPlayer.STATE == "PLAY":			
 			self.session.openWithCallback(self.updd, Lyrics)
+
+
 class MC_WebRadio(Screen, HelpableScreen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -684,26 +758,33 @@ class MC_WebRadio(Screen, HelpableScreen):
 		self.getJPG()
 		self.FileInfoTimer = eTimer()
 		self.FileInfoTimer.callback.append(self.updateFileInfo)
+
 	def unlockShow(self):
 		return
+
 	def lockShow(self):
 		return
+
 	def up(self):
 		self["filelist"].up()
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def down(self):
 		self["filelist"].down()
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def leftUp(self):
 		self["filelist"].pageUp()
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def rightDown(self):
 		self["filelist"].pageDown()
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
+
 	def KeyOK(self):
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
@@ -718,6 +799,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 		self.playlist.updateList()
 		MC_AudioPlayer.currPlaying = 0
 		self.PlayServicepls()
+
 	def PlayPause(self):
 		if MC_AudioPlayer.STATE == "PLAY":
 			service = self.session.nav.getCurrentService()
@@ -737,6 +819,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 				self.screensavercheckup()
 		else:
 			self.KeyOK()
+
 	def visibility(self, force=1):
 		if self.isVisible == True:
 			self.isVisible = False
@@ -744,6 +827,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 		else:
 			self.isVisible = True
 			self.show()
+
 	def updd(self):
 		self.updateFileInfo()
 		sort = config.plugins.mc_ap_sortmode.enabled.value
@@ -760,6 +844,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 			self["play"].instance.setPixmapFromFile(mcpath + "icons/stop_enabled.png")
 		else:
 			return
+
 	def PlayServicepls(self):
 		MC_AudioPlayer.playlistplay = 1
 		x = self.playlist.getCurrentIndex()
@@ -772,6 +857,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 			time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 			self.JpgTimer.start(time, True)
 		self.playlist.clear()
+
 	def StopPlayback(self):
 		if self.isVisible == False:
 			self.show()
@@ -785,6 +871,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 				self["screensaver"].showDefaultCover()
 			MC_AudioPlayer.STATE = "NONE"
 			self["play"].instance.setPixmapFromFile(mcpath + "icons/stop_enabled.png")
+
 	def updateFileInfo(self):
 		currPlay = self.session.nav.getCurrentService()
 		if currPlay is not None:
@@ -798,18 +885,21 @@ class MC_WebRadio(Screen, HelpableScreen):
 				sTitle = currPlay.info().getName().split('/')[-1]
 			self["fileinfo"].setText(_("Title: ") + sTitle + _("\nArtist: ") + sArtist + _("\nAlbum: ") + sAlbum + _("\nYear: ") + sYear + _("\nGenre: ") + sGenre + _("\nComment: ") + sComment)
 		self.FileInfoTimer.start(10000, True)
+
 	def deleteFile(self):
 		self.service = self.filelist.getServiceRef()
 		if self.service.type != 4098 and self.session.nav.getCurrentlyPlayingServiceOrGroup() is not None:
 			if self.service == self.session.nav.getCurrentlyPlayingServiceOrGroup():
 				self.StopPlayback()
 		self.session.openWithCallback(self.deleteFileConfirmed, MessageBox, _("Do you really want to delete this file ?"))
+
 	def deleteFileConfirmed(self, confirmed):
 		if confirmed:
 			delfile = self["filelist"].getFilename()
 			os.remove(delfile)
 			sort = config.plugins.mc_ap_sortmode.enabled.value
 			self.filelist.refresh(sort)
+
 	def getJPG(self):
 		if config.plugins.mc_ap.whichjpg.value == "default":
 			path = mcpath + "saver/"
@@ -819,6 +909,7 @@ class MC_WebRadio(Screen, HelpableScreen):
 			for name in files:
 				if name.endswith(".jpg"):
 					self.jpgList.append(name)
+
 	def showBackgroundJPG(self):
 		if len(self.jpgList) > 0:
 			if self.jpgIndex < len(self.jpgList) - 1:
@@ -836,23 +927,29 @@ class MC_WebRadio(Screen, HelpableScreen):
 				self.JpgTimer.start(time, True)
 		else:
 			print("MediaCenter: No Background Files found ...")
+
 	def doEOF(self):
 		self.StopPlayback()
 		if config.plugins.mc_ap.showJpg.getValue():
 			self.JpgTimer.stop()
 			self["screensaver"].showDefaultCover()
+
 	def __evDecodeError(self):
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
 		self.session.open(MessageBox, _("This Dreambox can't decode %s video streams!") % sVideoType, type=MessageBox.TYPE_INFO, timeout=20)
+
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser + 12)
 		self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO, timeout=20)
+
 	def addPlaylistParser(self, parser, extension):
 		self.playlistparsers[extension] = parser
+
 	def Settings(self):
 		self.session.openWithCallback(self.updd, AudioPlayerSettings)
+
 	def Exit(self):
 		if self.isVisible == False:
 			self.visibility()
@@ -867,11 +964,13 @@ class MC_WebRadio(Screen, HelpableScreen):
 			self.session.nav.stopService()
 		MC_AudioPlayer.STATE = "NONE"
 		self.close()
+
 	def screensavercheckup(self):
 		self.JpgTimer.stop()
 		self["screensaver"].showDefaultCover()
 		time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 		self.JpgTimer.start(time, True)
+
 	def showMenu(self):
 		if fileExists("/tmp/index.html"):
 			os.remove("/tmp/index.html")
@@ -900,11 +999,14 @@ class MC_WebRadio(Screen, HelpableScreen):
 		menu.append((_("Techno/House"), "Techno/"))		
 		menu.append((_("Worldmusic"), "Worldmusik/"))
 		self.session.openWithCallback(self.menuCallback, ChoiceBox, title="", list=menu)
+
 	def menuCallback(self, choice):
 		if choice is None:
 			return
 		Console().ePopen("echo %s >/tmp/.webselect | wget -O /tmp/index.html %s%s" % (choice[1], radirl, choice[1]))
 		self.session.openWithCallback(self.updd, MC_WebDown)
+
+
 class MC_WebDown(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -919,6 +1021,7 @@ class MC_WebDown(Screen):
 			"cancel": self.exit,
 			"ok": self.okbuttonClick
 		}, -1)
+
 	def okbuttonClick(self):
 		selection = self["menu"].getCurrent()
 		if selection is not None:
@@ -926,9 +1029,12 @@ class MC_WebDown(Screen):
 			Consile().ePopen("wget -O '$sradio/%s' '$s%s%s'" % (mcpath, selection[1], radirl, gen[0], selection[1].replace(" ", "%20")))
 			os.remove("/tmp/index.html")
 			self.close()
+
 	def exit(self):
 		os.remove("/tmp/index.html")
 		self.close()
+
+
 class MC_AudioPlaylist(Screen, InfoBarSeek):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -990,26 +1096,33 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			if config.plugins.mc_ap.showJpg.getValue():
 				time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 				self.JpgTimer.start(time, True)
+
 	def unlockShow(self):
 		return
+
 	def lockShow(self):
 		return
+
 	def up(self):
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
 		self["playlist"].up()
+
 	def down(self):
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
 		self["playlist"].down()
+
 	def leftUp(self):
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
 		self["playlist"].pageUp()
+
 	def rightDown(self):
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 			self.screensavercheckup()
 		self["playlist"].pageDown()
+
 	def KeyOK(self):
 		if len(self.playlist.getServiceRefList()):
 			x = self.playlist.getSelectionIndex()
@@ -1017,6 +1130,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			x = self.playlist.getCurrentIndex()
 			x = len(self.playlist)
 			self.PlayService()
+
 	def PlayPause(self):
 		if MC_AudioPlayer.STATE != "NONE":
 			if MC_AudioPlayer.STATE == "PLAY":
@@ -1031,6 +1145,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 				MC_AudioPlayer.STATE = "PLAY"
 			else:
 				self.KeyOK()
+
 	def KeyNext(self):
 		if MC_AudioPlayer.STATE != "NONE":
 			if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
@@ -1044,6 +1159,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 				self.PlayService()
 			else:
 				self.session.open(MessageBox, _("You have to close playlist before you can go to the next song while playing from file browser."), MessageBox.TYPE_ERROR)
+
 	def KeyPrevious(self):
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 				self.screensavercheckup()
@@ -1056,6 +1172,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			self.PlayService()
 		else:
 			self.session.open(MessageBox, _("You have to close playlist before you can go to the previous song while playing from file browser."), MessageBox.TYPE_ERROR)
+
 	def PlayService(self):
 		MC_AudioPlayer.playlistplay = 1
 		self.session.nav.playService(self.playlist.getServiceRefList()[self.playlist.getCurrentIndex()])
@@ -1067,6 +1184,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			self.JpgTimer.start(time, True)
 	#	path = self["filelist"].getCurrentDirectory()
 	#	self["coverArt"].updateCoverArt(path)
+
 	def StopPlayback(self):
 		if self.isVisible == False:
 			self.show()
@@ -1080,6 +1198,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			if config.plugins.mc_ap.showJpg.getValue():
 				self.JpgTimer.stop()
 				self["screensaver"].showDefaultCover()
+
 	def visibility(self, force=1):
 		if self.isVisible == True:
 			self.isVisible = False
@@ -1087,23 +1206,28 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		else:
 			self.isVisible = True
 			self.show()
+
 	def Settings(self):	
 		self.session.openWithCallback(self.updd, MC_AudioPlaylist)
+
 	def updd(self):
 		if MC_AudioPlayer.STATE != "NONE" and config.plugins.mc_ap.showJpg.getValue():
 				self.screensavercheckup()
 		else:
 			return
+
 	def Exit(self):
 		del self["screensaver"].picload
 		if config.plugins.mc_ap.showJpg.getValue():
 			self.JpgTimer.stop()
 		self.close()
+
 	def fileupdate(self):
 		self.FileInfoTimer.start(2000, True)
 		if config.plugins.mc_ap.showJpg.getValue():
 			time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 			self.JpgTimer.start(time, True)
+
 	def updateFileInfo(self):
 		currPlay = self.session.nav.getCurrentService()
 		if currPlay is not None:
@@ -1116,9 +1240,11 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			if sTitle == "":
 				sTitle = currPlay.info().getName().split('/')[-1]
 			self["fileinfo"].setText("Title: " + sTitle + "\nArtist: " + sArtist + "\nAlbum: " + sAlbum + "\nYear: " + sYear + "\nGenre: " + sGenre + "\nComment: " + sComment)
+
 	def save_playlist(self):
 		from Screens.InputBox import InputBox
 		self.session.openWithCallback(self.save_pls, InputBox, title=_("Please enter filename (empty = use current date)"), windowTitle=_("Save Playlist"))
+
 	def save_pls(self, name):
 		if name is not None:
 			name = name.strip()
@@ -1129,6 +1255,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			for x in self.playlist.list:
 				self.playlistIOInternal.addService(ServiceReference(x[0]))
 			self.playlistIOInternal.save(resolveFilename(SCOPE_PLAYLIST) + name)
+
 	def load_playlist(self):
 		listpath = []
 		playlistdir = resolveFilename(SCOPE_PLAYLIST)
@@ -1138,6 +1265,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		except IOError as e:
 			print("Error while scanning subdirs ", e)
 		self.session.openWithCallback(self.load_pls, ChoiceBox, title=_("Please select a playlist..."), list=listpath)
+
 	def load_pls(self, path):
 		if path is not None:
 			self.playlist.clear()
@@ -1148,6 +1276,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 				for x in list:
 					self.playlist.addFile(x.ref)
 			self.playlist.updateList()
+
 	def delete_saved_playlist(self):
 		listpath = []
 		playlistdir = resolveFilename(SCOPE_PLAYLIST)
@@ -1157,18 +1286,22 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		except IOError as e:
 			print("Error while scanning subdirs ", e)
 		self.session.openWithCallback(self.delete_saved_pls, ChoiceBox, title=_("Please select a playlist to delete..."), list=listpath)
+
 	def delete_saved_pls(self, path):
 		if path is not None:
 			self.delname = path[1]
 			self.session.openWithCallback(self.delete_saved_pls_conf, MessageBox, _("Do you really want to delete %s?") % (path[1]))
+
 	def delete_saved_pls_conf(self, confirmed):
 		if confirmed:
 			try:
 				os_remove(self.delname)
 			except OSError as e:
 				self.session.open(MessageBox, _("Delete failed!"), MessageBox.TYPE_ERROR)
+
 	def addPlaylistParser(self, parser, extension):
 		self.playlistparsers[extension] = parser
+
 	def showMenu(self):
 		menu = []
 		menu.append((_("delete from playlist"), "deleteentry"))
@@ -1177,6 +1310,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 		menu.append((_("save playlist"), "saveplaylist"))
 		menu.append((_("delete saved playlist"), "deleteplaylist"))
 		self.session.openWithCallback(self.menuCallback, ChoiceBox, title="", list=menu)
+
 	def menuCallback(self, choice):
 		if choice is None:
 			return
@@ -1191,6 +1325,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			self.save_playlist()
 		elif choice[1] == "deleteplaylist":
 			self.delete_saved_playlist()
+
 	def getJPG(self):
 		if config.plugins.mc_ap.whichjpg.value == "default":
 			path = mcpath + "saver/"
@@ -1200,6 +1335,7 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 			for name in files:
 				if name.endswith(".jpg"):
 					self.jpgList.append(name)
+
 	def showBackgroundJPG(self):
 		if len(self.jpgList) > 0:
 			if self.jpgIndex < len(self.jpgList) - 1:
@@ -1214,14 +1350,18 @@ class MC_AudioPlaylist(Screen, InfoBarSeek):
 				self.JpgTimer.start(time, True)
 		else:
 			print("MediaCenter: No Background Files found ...")
+
 	def showLyrics(self):
 		if MC_AudioPlayer.STATE == "PLAY":
 			self.session.openWithCallback(self.updd, Lyrics)
+
 	def screensavercheckup(self):
 		self.JpgTimer.stop()
 		self["screensaver"].showDefaultCover()
 		time = config.plugins.mc_ap.jpg_delay.getValue() * 1000
 		self.JpgTimer.start(time, True)
+
+
 class Lyrics(Screen):
 	skin = """
 		<screen name="Lyrics" position="0,0" size="720,576" flags="wfNoBorder" backgroundColor="#00000000" title="Lyrics">
@@ -1231,6 +1371,7 @@ class Lyrics(Screen):
 		<widget name="resulttext" position="50,100" zPosition="1" size="620,20" font="Regular;16" transparent="1"   backgroundColor="#00000000"/>
 		<widget name="lyric_text" position="50,150" zPosition="2" size="620,350" font="Regular;18" transparent="0"  backgroundColor="#00000000"/>
 		</screen>"""
+
 	def __init__(self, session):
 		self.session = session
 		Screen.__init__(self, session)
@@ -1258,6 +1399,7 @@ class Lyrics(Screen):
 		self["lyric_text"] = ScrollLabel()
 		self.refresh()
 		self.onLayoutFinish.append(self.startRun)
+
 	def refresh(self):
 		time = 10000
 		self.RFTimer.start(time, True)
@@ -1273,10 +1415,12 @@ class Lyrics(Screen):
 		else:
 			self.startRun()
 			Console().ePopen("echo '%s' >/tmp/.oldplaying" % str(title))
+
 	def startRun(self):
 		text = getEncodedString(self.getLyricsFromID3Tag()).replace("\r\n", "\n")
 		text = text.replace("\r", "\n")
 		self["lyric_text"].setText(text)
+
 	def getLyricsFromID3Tag(self):
 		curPlay = self.session.nav.getCurrentService()
 		if curPlay is not None:
@@ -1290,10 +1434,12 @@ class Lyrics(Screen):
 		url = "http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=%s&song=%s" % (quote(artistly), quote(titlely))
 		sendUrlCommand(url, None, 10).addCallback(self.gotLyrics).addErrback(self.urlError)
 		return "No lyrics found in id3-tag, trying api.chartlyrics.com..."
+
 	def urlError(self, error=None):
 		if error is not None:
 			self["resulttext"].setText(str(error.getErrorMessage()))
 			self["lyric_text"].setText("")
+
 	def gotLyrics(self, xmlstring):
 		from xml.etree.cElementTree import fromstring as cet_fromstring
 		root = cet_fromstring(xmlstring)
@@ -1311,10 +1457,13 @@ class Lyrics(Screen):
 			self["resulttext"].setText(_("No lyrics found"))
 			self["lyric_text"].setText("")
 			self["coverly"].showDefaultCover()
+
 	def pageUp(self):
 		self["lyric_text"].pageUp()
+
 	def pageDown(self):
 		self["lyric_text"].pageDown()
+
 	def Exit(self):
 		del self["coverly"].picload
 		if fileExists("/tmp/.onlinecover"):
@@ -1323,6 +1472,8 @@ class Lyrics(Screen):
 			Console().ePopen("rm -rf /tmp/.*playing")
 		self.RFTimer.stop()
 		self.close()
+
+
 class MediaPixmap(Pixmap):
 	def __init__(self):
 		Pixmap.__init__(self)
@@ -1330,6 +1481,7 @@ class MediaPixmap(Pixmap):
 		self.picload = ePicLoad()
 		self.picload.PictureData.get().append(self.paintCoverArtPixmapCB)
 		self.coverFileNames = ["cover.jpg", "folder.png", "folder.jpg"]
+
 	def applySkin(self, desktop, screen):
 		from Tools.LoadPixmap import LoadPixmap
 		noCoverFile = None
@@ -1342,16 +1494,19 @@ class MediaPixmap(Pixmap):
 			noCoverFile = resolveFilename(SCOPE_CURRENT_SKIN, "no_coverArt.png")
 		self.noCoverPixmap = LoadPixmap(noCoverFile)
 		return Pixmap.applySkin(self, desktop, screen)
+
 	def onShow(self):
 		Pixmap.onShow(self)
 		from Components.AVSwitch import AVSwitch
 		sc = AVSwitch().getFramebufferScale()
 		#0=Width 1=Height 2=Aspect 3=use_cache 4=resize_type 5=Background(#AARRGGBB)
 		self.picload.setPara((self.instance.size().width(), self.instance.size().height(), sc[0], sc[1], False, 1, "#00000000"))
+
 	def paintCoverArtPixmapCB(self, picInfo=None):
 		ptr = self.picload.getData()
 		if ptr != None:
 			self.instance.setPixmap(ptr.__deref__())
+
 	def updateCoverArt(self, path):
 		while not path.endswith("/"):
 			path = path[:-1]
@@ -1365,16 +1520,22 @@ class MediaPixmap(Pixmap):
 				self.picload.startDecode(self.coverArtFileName)
 			else:
 				self.showDefaultCover()
+
 	def showDefaultCover(self):
 		self.instance.setPixmap(self.noCoverPixmap)
+
 	def embeddedCoverArt(self):
 		self.coverArtFileName = "/tmp/.id3coverart"
 		self.picload.startDecode(self.coverArtFileName)
+
 	def coverlyrics(self):
 		self.coverArtFileName = "/tmp/.onlinecover"
 		self.picload.startDecode(self.coverArtFileName)
+
 	def screensaver(self, path):
 		self.picload.startDecode(path)
+
+
 class AudioPlayerSettings(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -1402,9 +1563,12 @@ class AudioPlayerSettings(Screen):
 		self.list.append(getConfigListEntry(_("Screensaver Interval"), config.plugins.mc_ap.jpg_delay))
 		self.list.append(getConfigListEntry(_("Screensaver Style:"), config.plugins.mc_ap.whichjpg))
 		self.list.append(getConfigListEntry(_("Filelist Sorting:"), config.plugins.mc_ap_sortmode.enabled))
+
 	def keyLeft(self):
 		self["configlist"].handleKey(KEY_LEFT)
+
 	def keyRight(self):
 		self["configlist"].handleKey(KEY_RIGHT)
+
 	def keyNumber(self, number):
 		self["configlist"].handleKey(KEY_0 + number)

@@ -3,6 +3,7 @@
 from __future__ import print_function
 from enigma import eServiceReference, iServiceInformation
 
+
 class StreamPlayer:
 	is_playing = False
 
@@ -27,7 +28,6 @@ class StreamPlayer:
 #		elif ev == 1:
 #			for c in self.onStop:
 #				c()
-
 
 	def _onMetadataChanged(self, title):
 		for i in self.metadatachangelisteners:

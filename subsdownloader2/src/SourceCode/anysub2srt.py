@@ -14,6 +14,7 @@ import codecs
 modification by 2011-05-20 SileliS <silelis@tlen.pl>
 """
 
+
 class SubConv():
 	#def __init__(self, subtitle_path):
 	def __init__(self, subtitle_path, encoding):
@@ -118,7 +119,6 @@ returns: list of subtitles in form: [[time_dep, time_end, line1, ...],[time_dep,
 #            sys.stderr.write("Warning: it seems like input file is damaged or too short.\n")
 #	return subtitles
 
-
 	def read_srt(self, list):
 		"""
 Reads srt subtitles.
@@ -178,7 +178,6 @@ returns: list of subtitles in form: [[time_dep, time_end, line1, ...],[time_dep,
 			subtitles.append(subt)
 		return subtitles
 
-
 	def read_mpl2(self, list):
 		MPL2LINE = re.compile("\[(?P<start>\d+)\]\[(?P<stop>\d+)\](?P<line>.*)", re.S)
 		#FRAMERATE = float(fps)
@@ -195,7 +194,6 @@ returns: list of subtitles in form: [[time_dep, time_end, line1, ...],[time_dep,
 			except:
 				sys.stderr.write("Warning: it seems like input file is damaged or too short.\n")
 		return subtitles    
-
 
 	def check_subs_long(self, subtitles_standard_list, fps):
 		"""takes list of subtitles in form: [[time_dep, time_end, line1, ...],[time_dep, time_end, line1, ...],....]

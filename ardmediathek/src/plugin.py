@@ -45,6 +45,7 @@ except ImportError as e:
 
 ###################################################
 
+
 def encodeHtml(html):
 	html = html.replace("&amp;", "&")
 	html = html.replace("&lt;", "<")
@@ -58,6 +59,7 @@ def encodeHtml(html):
 	return html
 
 ###################################################
+
 
 class ChangedMoviePlayer(MoviePlayer):
 	def __init__(self, session, service):
@@ -86,6 +88,7 @@ class ChangedMoviePlayer(MoviePlayer):
 
 ###################################################
 
+
 def getCategories(html):
 	list = []
 	start = """<div class="mt-reset mt-categories">"""
@@ -99,6 +102,7 @@ def getCategories(html):
 		for url, name in reonecat.findall(html):
 			list.append([MAIN_PAGE + url, encodeHtml(name)])
 	return list
+
 
 def getMovies(html):
 	list = []
@@ -147,6 +151,7 @@ def getMovies(html):
 				list.append([title, info, length, url, thumb])
 	return list
 
+
 def getMovieUrls(url):
 	try:
 		f = urllib2.urlopen(url)
@@ -170,6 +175,7 @@ def getMovieUrls(url):
 					if not url.startswith("rtmpt"):
 						list.append([type, url])
 	return list
+
 
 def getPageNavigation(html):
 	list = []
@@ -195,6 +201,7 @@ def getPageNavigation(html):
 	return list
 
 ###################################################
+
 
 class ARDMediathekCache(Screen):
 	skin = """
@@ -236,16 +243,19 @@ class ARDMediathekCache(Screen):
 
 ###################################################
 
+
 class ARDMenuList(MenuList):
 	def __init__(self):
 		MenuList.__init__(self, [], False, eListboxPythonMultiContent)
 		self.l.setItemHeight(25)
 		self.l.setFont(0, gFont("Regular", 20))
 
+
 def ARDMenuListEntry(url, name):
 	res = [(url, name)]
 	res.append(MultiContentEntryText(pos=(0, 0), size=(580, 20), font=0, text=name, color=0xffffff))
 	return res
+
 
 def ARDMenuListSubEntry(movie, thumb):
 	res = [(movie[3], movie)]
@@ -256,6 +266,7 @@ def ARDMenuListSubEntry(movie, thumb):
 	return res
 
 ###################################################
+
 
 class ARDMediathek(Screen):
 	def __init__(self, session):
@@ -577,8 +588,10 @@ class ARDMediathek(Screen):
 
 ###################################################
 
+
 def start(session, **kwargs):
 	session.open(ARDMediathek)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name="ARD Mediathek", description="Streame von der ARD Mediathek", where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], fnc=start)

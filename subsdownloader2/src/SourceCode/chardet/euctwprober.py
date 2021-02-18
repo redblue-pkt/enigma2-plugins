@@ -32,6 +32,7 @@ from codingstatemachine import CodingStateMachine
 from chardistribution import EUCTWDistributionAnalysis
 from mbcssm import EUCTWSMModel
 
+
 class EUCTWProber(MultiByteCharSetProber):
     def __init__(self):
         MultiByteCharSetProber.__init__(self)

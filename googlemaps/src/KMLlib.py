@@ -5,6 +5,7 @@ from globalmaptiles import GlobalMercator
 from xml.dom.minidom import parse
 from os import listdir
 
+
 class KmlPlace:
     def __init__(self, kmlnode):
         self.kmlnode = kmlnode
@@ -31,8 +32,10 @@ class KmlPlace:
     def __str__(self):
         return "KmlPlace ('" + self.name + "','" + str(self.lat) + "','" + str(self.lon) + "')"
 
+
 class KmlFolder:
     parent = None
+
     def __init__(self, kmlnode):
         self.kmlnode = kmlnode
         self.name = kmlnode.getElementsByTagName('name')[0].firstChild.data.encode("utf-8")
@@ -57,8 +60,10 @@ class KmlFolder:
                 print("Import Error: ", point.name, e)
         return list
 
+
 class RootFolder:
     extension = '.kml'
+
     def __init__(self):
         pass
 

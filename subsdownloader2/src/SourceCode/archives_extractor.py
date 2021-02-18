@@ -19,6 +19,7 @@ from __future__ import print_function
 
 import zipfile
 
+
 class zip_extractor():
      def __init__(self, zip__path, destination_dir=None, extracted_extension_filter=None):
           self.__zip__path = zip__path
@@ -66,6 +67,8 @@ class zip_extractor():
           else:
                print("%s is not a zip file." % zip__path)
                return False
+
+
 """ 
 class rar_extractor():
      def __init__(self, rar__path, destination_dir = None, extracted_extension_filter = None):

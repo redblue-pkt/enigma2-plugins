@@ -48,9 +48,11 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 from HTMLParser import HTMLParser
 
+
 def transHTML(text):
 	h = HTMLParser()
 	return h.unescape(text)
+
 
 config.plugins.imdb = ConfigSubsection()
 config.plugins.imdb.showinplugins = ConfigYesNo(default=False)
@@ -61,6 +63,7 @@ config.plugins.imdb.ignore_tags = ConfigText(visible_width=50, fixed_size=False)
 config.plugins.imdb.showlongmenuinfo = ConfigYesNo(default=False)
 config.plugins.imdb.showepisodeinfo = ConfigYesNo(default=False)
 
+
 def quoteEventName(eventName, safe="/()" + ''.join(map(chr, range(192, 255)))):
 	# BBC uses '\x86' markers in program names, remove them
 	try:
@@ -69,6 +72,7 @@ def quoteEventName(eventName, safe="/()" + ''.join(map(chr, range(192, 255)))):
 		text = eventName
 	# IMDb doesn't seem to like urlencoded characters at all, hence the big "safe" list
 	return quote_plus(text, safe='+')
+
 
 class IMDBChannelSelection(SimpleChannelSelection):
 	def __init__(self, session):
@@ -100,6 +104,7 @@ class IMDBChannelSelection(SimpleChannelSelection):
 	def epgClosed(self, ret=None):
 		if ret:
 			self.close(ret)
+
 
 class IMDBEPGSelection(EPGSelection):
 	def __init__(self, session, ref, eventid=None, openPlugin=True):
@@ -136,6 +141,7 @@ class IMDBEPGSelection(EPGSelection):
 	def onSelectionChanged(self):
 		super(IMDBEPGSelection, self).onSelectionChanged()
 		self["key_green"].setText(_("Lookup"))
+
 
 class IMDB(Screen, HelpableScreen):
 	skin = """
@@ -201,6 +207,7 @@ class IMDB(Screen, HelpableScreen):
 
 		self["title"] = StaticText(_("The Internet Movie Database"))
 		# map new source -> old component
+
 		def setText(txt):
 			StaticText.setText(self["title"], txt)
 			self["titellabel"].setText(txt)
@@ -269,7 +276,6 @@ class IMDB(Screen, HelpableScreen):
 			self.close([self.callbackData, self.callbackGenre])
 		else:
 			self.close()
-
 
 	def dictionary_init(self):
 		syslang = language.getLanguage()
@@ -886,6 +892,7 @@ class IMDB(Screen, HelpableScreen):
 	def createSummary(self):
 		return IMDbLCDScreen
 
+
 class IMDbLCDScreen(Screen):
 	skin = """
 	<screen position="0,0" size="132,64" title="IMDB Plugin">
@@ -896,6 +903,7 @@ class IMDbLCDScreen(Screen):
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent)
 		self["headline"] = Label(_("IMDb Plugin"))
+
 
 class IMDbSetup(Screen, ConfigListScreen):
 	skin = """<screen name="EPGSearchSetup" position="center,center" size="565,370">
@@ -1029,7 +1037,6 @@ class IMDbSetup(Screen, ConfigListScreen):
 		from Screens.Setup import SetupSummary
 		return SetupSummary
 
-
 	def keySave(self):
 		self.saveAll()
 
@@ -1046,6 +1053,7 @@ class IMDbSetup(Screen, ConfigListScreen):
 		from Screens.Setup import SetupSummary
 		return SetupSummary
 
+
 def eventinfo(session, eventName="", **kwargs):
 	if not eventName:
 		s = session.nav.getCurrentService()
@@ -1055,11 +1063,14 @@ def eventinfo(session, eventName="", **kwargs):
 			eventName = event and event.getEventName() or ''
 	session.open(IMDB, eventName)
 
+
 def main(session, eventName="", **kwargs):
 	session.open(IMDB, eventName)
 
+
 def setup(session, **kwargs):
 	session.open(IMDbSetup)
+
 
 def movielistSearch(session, serviceref, **kwargs):
 	serviceHandler = eServiceCenter.getInstance()
@@ -1069,6 +1080,7 @@ def movielistSearch(session, serviceref, **kwargs):
 	if ext in KNOWN_EXTENSIONS:
 		eventName = re.sub("[\W_]+", ' ', root.decode("utf8"), 0, re.LOCALE | re.UNICODE).encode("utf8")
 	session.open(IMDB, eventName)
+
 
 pluginlist = (
 	(
@@ -1104,6 +1116,7 @@ pluginlist = (
 		)
 	),
 )
+
 
 def Plugins(**kwargs):
 	l = [PluginDescriptor(name=_("IMDb search") + "...",

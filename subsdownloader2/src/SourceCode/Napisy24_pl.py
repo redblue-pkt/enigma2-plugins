@@ -27,6 +27,7 @@ from Plugins.Extensions.SubsDownloader2.SourceCode.periscope import SubtitleData
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+
 class XML_to_Dict():
 	def __init__(self):
 		pass
@@ -65,6 +66,7 @@ class XML_to_Dict():
 			node.parentNode.removeChild(node)
 			if unlink:
 				node.unlink()
+
 
 class Napisy24_pl(XML_to_Dict, zip_extractor):    
 	def __init__(self, moviePath, movieNameString=None):
@@ -266,6 +268,7 @@ class Napisy24_pl(XML_to_Dict, zip_extractor):
 				print("Feild to download subtitle zip.")
 				return False
 
+
 class GuessFileData_from_FileName(SubtitleDatabase.SubtitleDB):
 	def __init__(self, tvshowRegex, tvshowRegex2, movieRegex):
 		self.tvshowRegex = SubtitleDatabase.tvshowRegex
@@ -292,6 +295,7 @@ class GuessFileData_from_FileName(SubtitleDatabase.SubtitleDB):
 			episode = []  
 			#print(fileData)
 		return fileData['name'], tvShow, season, episode
+
 
 class CompareMovie_and_Subtite_FileData(GuessFileData_from_FileName):
 	def __init__(self, tvshowRegex, tvshowRegex2, movieRegex, file_extentions):

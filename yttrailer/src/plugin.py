@@ -81,6 +81,7 @@ def autostart(reason, **kwargs):
 def setup(session, **kwargs):
 	session.open(YTTrailerSetup)
 
+
 def Plugins(**kwargs):
 
 	list = [PluginDescriptor(where=PluginDescriptor.WHERE_SESSIONSTART, fnc=autostart)]
@@ -88,6 +89,7 @@ def Plugins(**kwargs):
 	if config.plugins.yttrailer.show_in_extensionsmenu.value:
 		list.append(PluginDescriptor(name="YTTrailer Setup", description=_("YouTube-Trailer Setup"), where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=setup, icon="YTtrailer.png"))
 	return list
+
 
 def EventViewBase__init__(self, Event, Ref, callback=None, similarEPGCB=None):
 	baseEventViewBase__init__(self, Event, Ref, callback, similarEPGCB)
@@ -108,8 +110,10 @@ def EPGSelection__init__(self, session, service, zapFunc=None, eventid=None, bou
 		"startTeletext": self.showConfig
 	})
 
+
 def showConfig(self):
 	self.session.open(YTTrailerSetup)
+
 
 def showTrailer(self):
 	eventname = ""
@@ -125,6 +129,7 @@ def showTrailer(self):
 	ytTrailer = YTTrailer(self.session)
 	ytTrailer.showTrailer(eventname)
 
+
 def showTrailerList(self):
 	eventname = ""
 	if isinstance(self, EventViewBase):
@@ -137,6 +142,7 @@ def showTrailerList(self):
 			eventname = event.getEventName()
 
 	self.session.open(YTTrailerList, eventname)
+
 
 class YTTrailer:
 	def __init__(self, session):
@@ -290,6 +296,7 @@ class YTTrailer:
 
 		return video_url
 
+
 class YTTrailerList(Screen, YTTrailer):
 
 	skin = """
@@ -311,7 +318,6 @@ class YTTrailerList(Screen, YTTrailer):
 		self["list"] = TrailerList()
 		self.onLayoutFinish.append(self.startRun)
 
-
 	def startRun(self):
 		feeds = self.getYTFeeds(self.eventName, config.plugins.yttrailer.max_results.value)
 		if feeds is not None:
@@ -326,6 +332,7 @@ class YTTrailerList(Screen, YTTrailer):
 			ref = self.setServiceReference(entry)
 			if ref:
 				self.session.open(TrailerPlayer, ref)
+
 
 class TrailerList(GUIComponent, object):
 
@@ -360,6 +367,7 @@ class TrailerList(GUIComponent, object):
 	def setList(self, list):
 		self.l.setList(list)
 
+
 class TrailerPlayer(InfoBarBase, InfoBarShowHide, InfoBarSeek, InfoBarAudioSelection, InfoBarNotifications, InfoBarServiceNotifications, InfoBarPVRState, InfoBarMoviePlayerSummarySupport, Screen):
 
 	ENABLE_RESUME_SUPPORT = True
@@ -378,7 +386,6 @@ class TrailerPlayer(InfoBarBase, InfoBarShowHide, InfoBarSeek, InfoBarAudioSelec
 				{
 					"back": (self.close, _("leave movie player..."))
 				})
-
 
 		self.allowPiP = False
 		for x in InfoBarShowHide, InfoBarBase, InfoBarSeek, \
@@ -401,6 +408,7 @@ class TrailerPlayer(InfoBarBase, InfoBarShowHide, InfoBarSeek, InfoBarAudioSelec
 
 	def __onClose(self):
 		self.session.nav.playService(self.lastservice)
+
 
 class YTTrailerSetup(ConfigListScreen, Screen):
 	skin = """
@@ -425,7 +433,6 @@ class YTTrailerSetup(ConfigListScreen, Screen):
 		cfglist.append(getConfigListEntry(_("Best resolution"), config.plugins.yttrailer.best_resolution))
 		cfglist.append(getConfigListEntry(_("Max. results in list-mode"), config.plugins.yttrailer.max_results))
 		cfglist.append(getConfigListEntry(_("Close Player with exit-key"), config.plugins.yttrailer.close_player_with_exit))
-
 
 		ConfigListScreen.__init__(self, cfglist, session)
 		self["setupActions"] = ActionMap(["SetupActions", "ColorActions"],

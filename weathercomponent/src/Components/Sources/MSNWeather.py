@@ -25,6 +25,7 @@ import time
 from Source import Source
 from Components.WeatherMSN import weathermsn
 
+
 class MSNWeather(Source):
 
 	def __init__(self):
@@ -68,7 +69,6 @@ class MSNWeather(Source):
 		else:
 			return _("n/a")
 			
-	
 	def getTemperature_Low(self, key):
 		skey = str(key)
 		if skey == "-1":
@@ -92,8 +92,6 @@ class MSNWeather(Source):
 			return "%s - %s" % (high, low)
 		else:
 			return _("n/a")		
-	
-	
 	
 	def getTemperature_Text(self, key):
 		skey = str(key)

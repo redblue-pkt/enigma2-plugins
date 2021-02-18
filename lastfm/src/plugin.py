@@ -55,6 +55,7 @@ config.plugins.LastFM.sreensaver.coverartinterval = ConfigInteger(10, limits=(0,
 
 ###############################################################################        
     
+
 def main(session, **kwargs):
     global streamplayer
     if streamplayer is not False:
@@ -64,8 +65,10 @@ def main(session, **kwargs):
         
     session.openWithCallback(LastFMScreenMainCB, LastFMScreenMain, streamplayer)    
 
+
 def LastFMScreenMainCB():
     pass
+
 
 def startScrobbler(reason, **kwargs):
     if "session" in kwargs and config.plugins.LastFM.sendSubmissions.value:
@@ -79,6 +82,7 @@ def startScrobbler(reason, **kwargs):
         evl = EventListener(kwargs["session"], streamplayer)
         evl.startListenToEvents()
         
+
 def Plugins(path, **kwargs):
     global plugin_path
     plugin_path = path
@@ -104,6 +108,8 @@ def Plugins(path, **kwargs):
     return list
 
 ############################################################################### 
+
+
 class LastFMScreenMain(Screen, HelpableScreen, LastFM):
     skin = """
         <screen name="LastFM" position="center,center" size="600,440" title="%s" >
@@ -219,7 +225,6 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
         self.screensavertimer.timeout.get().append(self.startScreensaver)
         self.onShown.append(self.startScreensaverTimer)
         
-
     def initLastFM(self):
         self.setInfoLabel(_("logging into last.FM"))
         self.connect(config.plugins.LastFM.username.value, config.plugins.LastFM.password.value)
@@ -229,6 +234,7 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
             self.loadPlaylist()
         else:
             pass
+
     def onConnectSuccessful(self, text):
         self.setInfoLabel(_("login successful"))
     
@@ -432,7 +438,6 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
         else:
             self["info_cover"].instance.setPixmap(pixmap)
     
-
     def loadPersonalStations(self):
         tags = []
         x = {}
@@ -464,7 +469,6 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
         x["_display"] = _("Play Tag Radio...")
         x["stationurl"] = 'tag'
         tags.append(x)
-        
         
         creator = self.streamplayer.getMetadata("creator")
         if creator != "no creator" and creator != "N/A":
@@ -521,6 +525,7 @@ class LastFMScreenMain(Screen, HelpableScreen, LastFM):
 
     def createSummary(self):
         return lastfmLCDScreen
+
 
 class LastFMSaveScreen(Screen):
     skin = """<screen position="0,0" size="720,576" flags="wfNoBorder" title="LastFMSaveScreen" >
@@ -599,6 +604,7 @@ class LastFMSaveScreen(Screen):
         self["cover"].startMoving()
         self.startmovingtimer.start(config.plugins.LastFM.sreensaver.coverartinterval.value * 1000)
 
+
 class lastfmLCDScreen(Screen):
 	skin = """
 	<screen name="LastFM_Summary" position="0,0" size="132,64" id="1">
@@ -614,6 +620,7 @@ class lastfmLCDScreen(Screen):
 	def setText(self, text):
 		self["text2"].setText(text)
 
+
 class ImageConverter:
     
     lastURL = ""
@@ -624,7 +631,6 @@ class ImageConverter:
         self.height = height
         self.targetfile = "/tmp/coverart" + str(randrange(5000))
     
-        
     def convert(self, sourceURL):
         if self.lastURL != sourceURL:
             extension = sourceURL.split(".")[-1]

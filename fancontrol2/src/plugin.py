@@ -47,12 +47,12 @@ import Queue
 Briefkasten = Queue.Queue()
 
 
-
 def main(session, **kwargs):
 	try:
 		session.open(FanControl2Plugin)
 	except:
 		FClog("Pluginexecution failed")
+
 
 def mainMonitor(session, **kwargs):
 	try:
@@ -60,8 +60,10 @@ def mainMonitor(session, **kwargs):
 	except:
 		FClog("Pluginexecution failed")
 
+
 def Test0(wert):
 	return (1 if wert <= 0 else wert)
+
 
 def skal(x, x1, x2, y1, y2):
 	if x > x2:
@@ -71,6 +73,7 @@ def skal(x, x1, x2, y1, y2):
 	m = (y2 - y1) / Test0(x2 - x1)
 	y = m * x + y1
 	return y
+
 
 def FClog(wert):
 	if config.plugins.FanControl.EnableConsoleLog.value:
@@ -89,9 +92,11 @@ def FClog(wert):
 			except IOError:
 				FC2Log.append(strftime("%H:%M:%S ") + "Event-Log-Error")
 				
+
 def FClogE(wert):
 	if config.plugins.FanControl.EnableEventLog.value:
 		FClog(wert)
+
 
 def FCdata():
 	global DataMinute
@@ -114,17 +119,20 @@ def FCdata():
 			except IOError:
 				FC2Log.append(strftime("%H:%M:%S ") + "Event-Log-Error")
 
+
 def Free(dir):
 	if not os.path.exists(dir):
 		return False
 	s = os.statvfs(dir)
 	return (s.f_bsize * s.f_bavail / 1024 / 1024) > 10
 
+
 def getVoltage(fanid):
 	f = open("/proc/stb/fp/fan_vlt", "r")
 	value = int(f.readline().strip(), 16)
 	f.close()
 	return value
+
 
 def setVoltage(fanid, value):
 	if value > 255:
@@ -133,11 +141,13 @@ def setVoltage(fanid, value):
 	f.write("%x" % value)
 	f.close()
 
+
 def getPWM(fanid):
 	f = open("/proc/stb/fp/fan_pwm", "r")
 	value = int(f.readline().strip(), 16)
 	f.close()
 	return value
+
 
 def setPWM(fanid, value):
 	if value > 255:
@@ -145,6 +155,7 @@ def setPWM(fanid, value):
 	f = open("/proc/stb/fp/fan_pwm", "w")
 	f.write("%x" % value)
 	f.close()
+
 
 #Configuration
 config.plugins.FanControl = ConfigSubsection()
@@ -174,6 +185,7 @@ config.plugins.FanControl.FanControlInExtension = ConfigYesNo(default=True)
 config.plugins.FanControl.Multi = ConfigSelection(choices=[("1", "RPM"), ("2", "RPM/2")], default="2")
 config.plugins.FanControl.EnableThread = ConfigYesNo(default=True)
 
+
 def GetFanRPM():
 	global RPMread
 	f = open("/proc/stb/fp/fan_speed", "r")
@@ -185,6 +197,7 @@ def GetFanRPM():
 	else:
 		RPMread += 1
 	return value
+
 
 def GetBox():
 	B = Box
@@ -226,6 +239,8 @@ def GetBox():
 # 		FCfile.close()
 
 # the PI controller class
+
+
 class ControllerPI:
 	name = "PI Controller"
 	looptime = 0.0
@@ -250,7 +265,6 @@ class ControllerPI:
 		FClogE("%s : integrator output %3.2f" % (self.name, self.integratorOutput))
 		self.integratorOutput = 0.0
 #		FClog("%s : integrator output now 0" % self.name)
-
 
 	def ScaleCtlError(self, errval, inputMax):
 		if errval == 0:
@@ -298,6 +312,7 @@ class ControllerPI:
 		return self.ControlSignal
 # the PI controller class -end
 
+
 class FanControl2Test(Screen, ConfigListScreen):
 	skin = """
 		<screen position="center,center" size="630,300" title="Fan Control 2 - Test" >
@@ -309,7 +324,6 @@ class FanControl2Test(Screen, ConfigListScreen):
 			<widget source="TextTest6" render="Label" position="5,190" size="620,30" zPosition="10" font="Regular;20" halign="left" valign="center" backgroundColor="#25062748" transparent="1" />
 			<widget source="TextTest7" render="Label" position="5,220" size="620,30" zPosition="10" font="Regular;20" halign="left" valign="center" backgroundColor="#25062748" transparent="1" />
 		</screen>"""
-
 
 	def __init__(self, session, args=0):
 		self.session = session
@@ -427,6 +441,7 @@ class FanControl2Test(Screen, ConfigListScreen):
 	def cancel(self):
 		self.close(False, self.session)
 
+
 class FanControl2Monitor(Screen, ConfigListScreen):
 	skin = """
 		<screen position="center,center" size="600,260" title="Fan Control 2 - Monitor">
@@ -515,6 +530,7 @@ class FanControl2Monitor(Screen, ConfigListScreen):
 				if hdd[1].model().startswith("ATA"):
 					if hdd[1].isSleeping():
 						(stat, wert) = getstatusoutput("hdparm -y %s" % hdd[1].getDeviceName())
+
 
 class FanControl2SpezialSetup(Screen, ConfigListScreen):
 	skin = """
@@ -619,6 +635,7 @@ class FanControl2SpezialSetup(Screen, ConfigListScreen):
 			self.session.open(TryQuitMainloop, 3)
 		else:
 			self.close()
+
 
 class FanControl2Plugin(ConfigListScreen, Screen):
 	skin = """
@@ -796,6 +813,7 @@ class FanControl2Plugin(ConfigListScreen, Screen):
 	def SetupMenu(self):
 		self.session.open(FanControl2SpezialSetup)
 
+
 def DeleteData():
 	if config.plugins.FanControl.DeleteData.value == "0" or config.plugins.FanControl.EnableDataLog.value == False:
 		return
@@ -831,6 +849,7 @@ def DeleteData():
 	except Exception:
 		FClog("Error Delete Data")
 
+
 def getstatusoutput(cmd):
 	try:
 		pipe = os.popen('{ ' + cmd + '; } 2>&1', 'r')
@@ -846,6 +865,7 @@ def getstatusoutput(cmd):
 		FClog("Error on call OS program (smartctl/hdparm)")
 	finally:
 		return sts, text
+
 
 def HDDtestTemp():
 	global disableHDDread
@@ -872,8 +892,10 @@ def HDDtestTemp():
 							FClog("HDD not supports Temp reading without Spinup -> Ignore")
 							FC2HDDignore.append(hdd[1].getDeviceName())
 
+
 def ReadHDDtemp(D):
 	return getstatusoutput('smartctl -A %s | grep "194 Temp" | grep Always' % D)
+
 
 def GetHDDtemp(OneTime):
 	global AktHDD
@@ -897,12 +919,14 @@ def GetHDDtemp(OneTime):
 		AktHDD = [0]
 	return
 
+
 def HDDsSleeping():
 	for hdd in harddiskmanager.HDDList():
 		if hdd[1].model().startswith("ATA"):
 			if not hdd[1].isSleeping():
 				return False
 	return True
+
 
 def FC2systemStatus():
 	S = int(FC2werte[5])
@@ -915,10 +939,12 @@ def FC2systemStatus():
 		R += " REC"
 	return R
 
+
 def FC2fanReset():
 	setVoltage(id, AktVLT)
 	setPWM(id, AktPWM)
 	FClog("Fan Reset")
+
 
 class FC2Worker(Thread): 
 	def __init__(self, index, s, session):
@@ -936,6 +962,7 @@ class FC2Worker(Thread):
 				self.s.queryRun()
  
 			Briefkasten.task_done() 
+
 
 class FanControl2(Screen):
 	skin = """ <screen position="100,100" size="300,300" title="FanControl2" > </screen>"""
@@ -1245,6 +1272,7 @@ class FanControl2(Screen):
 			FClog("Control Error:\n" + format_exc())
 		FClogE("Runtime: %.3f" % (time.time() - tt))
 
+
 def autostart(reason, **kwargs):
 	global session
 	if reason == 0 and "session" in kwargs:
@@ -1269,10 +1297,12 @@ def autostart(reason, **kwargs):
 		session = kwargs["session"]
 		session.open(FanControl2)
 
+
 def selSetup(menuid, **kwargs):
 	if menuid != "system":
 		return []
 	return [(_("Fan Control 2"), main, "fansetup_config", 70)]
+
 
 def Plugins(**kwargs):
 	list = [

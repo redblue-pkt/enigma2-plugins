@@ -64,9 +64,12 @@ config.plugins.easyMedia.radio = ConfigSelection(default="yes", choices=[("no", 
 config.plugins.easyMedia.myvideo = ConfigSelection(default="no", choices=[("no", _("Disabled")), ("yes", _("Enabled"))])
 config.plugins.easyMedia.timers = ConfigSelection(default="no", choices=[("no", _("Disabled")), ("yes", _("Enabled"))])
 
+
 def Plugins(**kwargs):
 	return [PluginDescriptor(where=PluginDescriptor.WHERE_SESSIONSTART, fnc=EasyMediaAutostart),
 			PluginDescriptor(name="EasyMedia", description=_("Not easy way to start EasyMedia"), where=PluginDescriptor.WHERE_PLUGINMENU, fnc=notEasy), ]
+
+
 def EasyMediaAutostart(reason, **kwargs):
 	global EMbaseInfoBarPlugins__init__
 	if "session" in kwargs:
@@ -76,6 +79,7 @@ def EasyMediaAutostart(reason, **kwargs):
 			EMbaseInfoBarPlugins__init__ = InfoBarPlugins.__init__
 		InfoBarPlugins.__init__ = InfoBarPlugins__init__
 		InfoBarPlugins.pvr = pvr
+
 
 def InfoBarPlugins__init__(self):
 	global EMStartOnlyOneTime
@@ -90,11 +94,14 @@ def InfoBarPlugins__init__(self):
 		InfoBarPlugins.pvr = None
 	EMbaseInfoBarPlugins__init__(self)
 
+
 def pvr(self):
 	self.session.openWithCallback(MPcallbackFunc, EasyMedia)
 
+
 def notEasy(session, **kwargs):
 	session.openWithCallback(MPcallbackFunc, EasyMedia)
+
 
 def MPanelEntryComponent(key, text, cell):
 	res = [text]
@@ -112,15 +119,18 @@ def MPanelEntryComponent(key, text, cell):
 			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 25, 5, 100, 50, png))
 	return res
 
+
 class MPanelList(MenuList):
 	def __init__(self, list, selection=0, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		self.l.setFont(0, gFont("Regular", 20))
 		self.l.setItemHeight(60)
 		self.selection = selection
+
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
 		self.moveToIndex(self.selection)
+
 
 def BookmarksCallback(choice):
 	choice = choice and choice[1]
@@ -129,6 +139,7 @@ def BookmarksCallback(choice):
 		config.movielist.last_videodir.save()
 		if InfoBar_instance:
 			InfoBar_instance.showMovies()
+
 
 def TvRadioCallback(choice):
 	choice = choice and choice[1]
@@ -139,6 +150,7 @@ def TvRadioCallback(choice):
 		if InfoBar_instance:
 			InfoBar_instance.showRadio()
 
+
 class ConfigEasyMedia(ConfigListScreen, Screen):
 	skin = """
 		<screen name="ConfigEasyMedia" position="center,center" size="600,410" title="EasyMedia settings...">
@@ -147,6 +159,7 @@ class ConfigEasyMedia(ConfigListScreen, Screen):
 			<eLabel font="Regular;20" foregroundColor="#0056C856" halign="center" position="165,388" size="140,26" text="Save"/>
 			<eLabel font="Regular;20" foregroundColor="#00f3ca09" halign="center" position="310,388" size="140,26" text="Plugins"/>
 		</screen>"""
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.setTitle(_("EasyMedia settings..."))
@@ -183,6 +196,7 @@ class ConfigEasyMedia(ConfigListScreen, Screen):
 	def plug(self):
 		self.session.open(AddPlug)
 
+
 class AddPlug(Screen):
 	skin = """
 		<screen name="AddPlug" position="center,center" size="440,420" title="EasyMedia...">
@@ -202,6 +216,7 @@ class AddPlug(Screen):
 			</convert>
 		</widget>
 		</screen>"""
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.setTitle(_("Add/remove plugin"))
@@ -252,6 +267,7 @@ class AddPlug(Screen):
 			except:
 				self.session.open(MessageBox, text="Write Error!", type=MessageBox.TYPE_WARNING)
 
+
 class EasyMediaSummary(Screen):
 	if getBoxType() == "dm800se":
 		skin = """
@@ -265,6 +281,7 @@ class EasyMediaSummary(Screen):
 				<eLabel text="EasyMedia:" position="0,0" size="132,24" font="Regular;14"/>
 				<widget name="text1" position="0,24" size="132,40" font="Regular;16"/>
 			</screen>"""
+
 	def __init__(self, session, parent):
 		Screen.__init__(self, session)
 		self["text1"] = Label()
@@ -275,6 +292,7 @@ class EasyMediaSummary(Screen):
 
 	def setText(self, text, line):
 		self["text1"].setText(text)
+
 
 class EasyMedia(Screen):
 	sz_w = getDesktop(0).size().width()
@@ -447,6 +465,7 @@ class EasyMedia(Screen):
 	def updateOLED(self):
 		text = str(self["list"].l.getCurrentSelection()[0][0])
 		self.summaries.setText(text, 1)
+
 
 def MPcallbackFunc(answer):
 	if EMsession is None:

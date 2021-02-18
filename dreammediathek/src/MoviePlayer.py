@@ -90,7 +90,6 @@ class dreamMediathekPlayer(Screen, InfoBarNotifications):
 				"showEventInfo": self.showVideoInfo,
 			}, -2)
 
-
 		self.lastservice = lastservice
 
 		self.hidetimer = eTimer()
@@ -139,7 +138,6 @@ class dreamMediathekPlayer(Screen, InfoBarNotifications):
 			self.hideInfobar()
 		if self.infoCallback is not None:	
 			self.infoCallback()
-
 
 	def playNextFile(self):
 		print("playNextFile")
@@ -204,7 +202,6 @@ class dreamMediathekPlayer(Screen, InfoBarNotifications):
 		print("unPauseService")
 		if self.state == self.STATE_PAUSED:
 			self.setSeekState(self.STATE_PLAYING)
-
 
 	def getSeek(self):
 		service = self.session.nav.getCurrentService()

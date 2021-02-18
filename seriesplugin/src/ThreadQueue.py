@@ -3,6 +3,7 @@
 from threading import Lock
 from collections import deque
 
+
 class ThreadQueue:
 	def __init__(self):
 		self.__queue = deque()

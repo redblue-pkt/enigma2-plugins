@@ -20,7 +20,6 @@
 #######################################################################
 
 
-
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -34,7 +33,6 @@ from Components.Label import Label
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_LIBDIR
 from skin import parseColor
 from os import system
-
 
 
 config.plugins.valiXDsetup = ConfigSubsection()
@@ -74,7 +72,6 @@ config.plugins.valiXDsetup.selFG = ConfigText(default="fcc000", fixed_size=6)
 config.plugins.valiXDsetup.pollTime = ConfigInteger(default=15, limits=(3, 60))
 
 
-
 def main(session, **kwargs):
 	if fileExists("/usr/share/enigma2/Vali-XD/skin.xml"):
 		session.open(XDsetup)
@@ -83,15 +80,11 @@ def main(session, **kwargs):
 		pass
 
 
-
 def Plugins(**kwargs):
 	return PluginDescriptor(name="Vali-XD Skin Control", description=_("Configuration tool for Vali-XD skins"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main)
 
 
-
 #######################################################################
-
-
 
 
 class XDsetup(ConfigListScreen, Screen):
@@ -317,13 +310,7 @@ class XDsetup(ConfigListScreen, Screen):
 			self.session.open(UserStylePreview, PreviewString)
 
 
-
-
-
-
-
 #######################################################################
-
 
 
 class UserStylePreview(Screen):

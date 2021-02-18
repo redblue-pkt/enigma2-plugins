@@ -22,6 +22,7 @@ unrar_link = "http://subs-downloader.googlecode.com/files/unrar_1.0.1_all.ipk"
 URL_text_file = "http://subs-downloader.googlecode.com/svn/commertial_banners.txt"
 Subtitle_Downloader_temp_dir = '/tmp/SubsDownloader_cache/'
 
+
 class IsNewVersionCheck(threading.Thread):
     def __init__(self, session):
         self.session = session
@@ -84,6 +85,7 @@ class PluginIpkUpdate(Screen): #, IsNewVersionCheck):
 			<widget name="myMenu" position="10,10" size="420,240" scrollbarMode="showOnDemand" />
 		</screen>"""
 	#def __init__(self, session, args = 0):
+
 	def __init__(self, session, new_version_url):
 		self.session = session
 		self.new_wersion_url = new_version_url

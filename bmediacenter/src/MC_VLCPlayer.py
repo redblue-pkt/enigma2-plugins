@@ -41,6 +41,7 @@ try:
 except Exception as e:
 	print("Media Center: Import VLC Stuff failed")
 
+
 def addFavoriteVLCFolders():
 	i = len(config.plugins.mc_vlc.folders)
 	config.plugins.mc_vlc.folders.append(ConfigSubsection())
@@ -49,8 +50,10 @@ def addFavoriteVLCFolders():
 	config.plugins.mc_vlc.foldercount.value = i + 1
 	return i
 
+
 for i in range(0, config.plugins.mc_vlc.foldercount.value):
 	addFavoriteVLCFolders()
+
 
 class MC_VLCServerlist(Screen):
 	def __init__(self, session):
@@ -163,6 +166,8 @@ class MC_VLCServerlist(Screen):
 		config.plugins.mc_vlc.save()
 		self.close()
 #------------------------------------------------------------------------------------------
+
+
 class MC_VLCMedialist(Screen):
 	def __init__(self, session, server):
 		Screen.__init__(self, session)
@@ -493,6 +498,8 @@ class MC_VLCMedialist(Screen):
 		config.plugins.mc_vlc.save()
 		self.close()
 #------------------------------------------------------------------------------------------
+
+
 class MC_VLCFavoriteFolders(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -595,6 +602,8 @@ class MC_VLCFavoriteFolders(Screen):
 		configfile.save()
 		self.close()
 #------------------------------------------------------------------------------------------
+
+
 class FavoriteFolderAdd(Screen, ConfigListScreen):
 	skin = """
 		<screen position="160,220" size="400,120" title="Media Center - Add VLC Favorite" >
@@ -638,6 +647,8 @@ class FavoriteFolderAdd(Screen, ConfigListScreen):
 			print("MC_Settings_DelaFavFailed")
 		self.close(0)
 #------------------------------------------------------------------------------------------
+
+
 class FavoriteFolderEdit(Screen, ConfigListScreen):
 	skin = """
 		<screen position="160,220" size="400,120" title="Media Center - Edit VLC Favorite" >
@@ -666,6 +677,8 @@ class FavoriteFolderEdit(Screen, ConfigListScreen):
 		config.plugins.mc_vlc.folders.save()
 		self.close(self.fn)
 #------------------------------------------------------------------------------------------
+
+
 class FolderOptions(Screen):
 	skin = """
 		<screen position="160,200" size="400,200" title="Media Center - VLC Folder Options" >

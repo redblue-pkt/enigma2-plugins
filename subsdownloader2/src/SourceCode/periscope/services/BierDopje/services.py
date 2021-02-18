@@ -43,6 +43,7 @@ exceptions = {
     'hawaii five-0 2010': 14211,
 }
 
+
 class BierDopje(SubtitleDatabase.SubtitleDB):
     url = "http://bierdopje.com/"
     site_name = "BierDopje"
@@ -90,7 +91,6 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
         try:
             subs = self.query(fname, langs)
             print(str(subs))
-            
             
             if not subs and fname.rfind(".[") > 0:
                 # Try to remove the [VTV] or [EZTV] at the end of the file

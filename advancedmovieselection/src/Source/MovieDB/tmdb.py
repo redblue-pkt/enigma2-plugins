@@ -27,6 +27,7 @@ that they, too, receive or can get the source code. And you must show them these
 config = None
 poster_sizes = ('w92', 'w154', 'w185', 'w342', 'w500', 'original')
 
+
 def setPosterSize(size):
     global config
     value = size.value
@@ -116,6 +117,7 @@ def __searchMovie(title):
 import tmdb3
 original_search = tmdb3.searchMovie
 tmdb3.searchMovie = __searchMovie
+
 
 def init_tmdb3():
     tmdb3.set_key(config['apikey'])

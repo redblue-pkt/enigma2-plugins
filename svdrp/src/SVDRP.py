@@ -35,6 +35,8 @@ CODE_IMP_FUNC = 502
 CODE_IMP_PARAM = 504
 CODE_NOK = 550
 CODE_ERR = 554
+
+
 class SimpleVDRProtocol(LineReceiver):
 	def __init__(self, client=False):
 		self.client = client
@@ -108,6 +110,7 @@ class SimpleVDRProtocol(LineReceiver):
 				elif v == -1:
 					return "N/A"
 				return v
+
 			def sendServiceLine(service, counter, last=False):
 				if service[0][:5] == '1:64:':
 					# format for markers:  ":Name"
@@ -529,6 +532,7 @@ class SimpleVDRProtocol(LineReceiver):
 			payload = "%d exception occured: %s" % (CODE_ERR, str(e).replace('\n', ' ').replace('\r', ''))
 			self.sendLine(payload)
 
+
 class SimpleVDRProtocolServerFactory(ServerFactory):
 	protocol = SimpleVDRProtocol
 
@@ -544,6 +548,7 @@ class SimpleVDRProtocolServerFactory(ServerFactory):
 	def stopFactory(self):
 		for client in self.clients:
 			client.stop()
+
 
 class SimpleVDRProtocolAbstraction:
 	serverPort = None

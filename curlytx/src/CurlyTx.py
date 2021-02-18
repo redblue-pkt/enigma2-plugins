@@ -20,6 +20,7 @@ from enigma import gFont
 from . import config
 from Components.config import config
 
+
 class CurlyTx(Screen, HelpableScreen):
     skin = """
         <screen name="CurlyTx" position="center,center" size="560,430" title="CurlyTx" >
@@ -52,7 +53,6 @@ class CurlyTx(Screen, HelpableScreen):
         self["key_green"] = StaticText(_("Reload"))
         self["key_yellow"] = StaticText(_("Prev"))
         self["key_blue"] = StaticText(_("Next"))
-
 
         self["actions"] = ActionMap(
             ["WizardActions", "ColorActions", "InputActions", "InfobarEPGActions"], {
@@ -226,7 +226,6 @@ class CurlyTx(Screen, HelpableScreen):
         elif self.currentPage == None:
             self.currentPage = 0
             self.loadUrl(self.currentPage)
-
 
     def getPageWebClient(self, url, contextFactory=None, *args, **kwargs):
         """

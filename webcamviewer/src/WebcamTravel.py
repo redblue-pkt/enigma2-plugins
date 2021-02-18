@@ -29,8 +29,10 @@ from datetime import datetime
 from urllib import quote as urllib_quote
 #########################################
 
+
 class TravelWebcamviewer(Screen):
 	skin = ""
+
 	def __init__(self, session, args=0):
 		skin = """<screen position="93,70" size="550,450" title="Webcams provided by webcams.travel">
 
@@ -83,7 +85,6 @@ class TravelWebcamviewer(Screen):
 		self["count"] = Label(_("Cams: "))
 		self["page"] = Label(_("Page: "))
 		self["currentnumbers"] = Label(_("current: "))
-
 
 		self["key_red"] = Button(_("prev"))
 		self["key_red"].hide()
@@ -190,8 +191,6 @@ class TravelWebcamviewer(Screen):
 			del self.picloads[webcamid]
 			self.timer_default.start(1)
 
-
-
 	def buildStatusList(self):
 		self.timer_status.stop()
 		print("buildStatusList")
@@ -205,7 +204,6 @@ class TravelWebcamviewer(Screen):
 		self["list"].setIndex(0)
 		self["list"].setList(statuslist)
 		self["list"].updateList(statuslist)
-
 
 	def buildCamList(self):
 		if len(self.picloads) != 0:
@@ -266,7 +264,6 @@ class TravelWebcamviewer(Screen):
 
 
 #########################################
-
 
 
 #########################################

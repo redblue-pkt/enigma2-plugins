@@ -46,13 +46,16 @@ caseMap = {
 	"insensitive": eEPGCache.NO_CASE_CHECK
 }
 
+
 def GetTypeMap():
 	search_type = config.plugins.epgsearch.search_type.value
 	return typeMap.get(search_type, eEPGCache.PARTIAL_TITLE_SEARCH)
 
+
 def GetCaseMap():
 	search_case = config.plugins.epgsearch.search_case.value
 	return caseMap.get(search_case, eEPGCache.NO_CASE_CHECK)
+
 
 # Partnerbox installed and icons in epglist enabled?
 try:
@@ -80,6 +83,8 @@ except ImportError as e:
 	autoTimerAvailable = False
 
 # Modified EPGSearchList with support for PartnerBox
+
+
 class EPGSearchList(EPGList):
 	searchPiconPaths = ['/usr/share/enigma2/picon/', '/media/hdd/picon/', '/media/usb/picon/']
 
@@ -507,32 +512,42 @@ class EPGSearchList(EPGList):
 	def applySkin(self, desktop, parent):
 		def warningWrongSkinParameter(string):
 			print("[EPGList] wrong '%s' skin parameters" % string)
+
 		def setEventItemFont(value):
 			self.eventItemFont = parseFont(value, ((1, 1), (1, 1)))
+
 		def setEventTimeFont(value):
 			self.eventTimeFont = parseFont(value, ((1, 1), (1, 1)))
+
 		def setIconDistance(value):
 			self.iconDistance = int(value)
+
 		def setIconShift(value):
 			self.dy = int(value)
+
 		def setTimeWidth(value):
 			self.tw = int(value)
+
 		def setColWidths(value):
 			self.col = map(int, value.split(','))
 			if len(self.col) == 2:
 				self.skinColumns = True
 			else:
 				warningWrongSkinParameter(attrib)
+
 		def setPiconSize(value):
 			self.piconSize = map(int, value.split(','))
 			if len(self.piconSize) == 2:
 				self.skinColumns = True
 			else:
 				warningWrongSkinParameter(attrib)
+
 		def setPiconDistance(value):
 			self.piconDistance = int(value)
+
 		def setColGap(value):
 			self.colGap = int(value)
+
 		def setPboxDistance(value):
 			self.pboxDistance = int(value)
 		for (attrib, value) in self.skinAttributes[:]:
@@ -546,6 +561,8 @@ class EPGSearchList(EPGList):
 		return GUIComponent.applySkin(self, desktop, parent)
 
 # main class of plugin
+
+
 class EPGSearch(EPGSelection):
 	def __init__(self, session, *args):
 		Screen.__init__(self, session)
@@ -828,6 +845,7 @@ class EPGSearch(EPGSelection):
 			self.searchEPG,
 			EPGSearchTimerImport
 		)
+
 	def openTimerslist(self):
 		try:
 			from Screens.TimerEdit import TimerEditList
@@ -1054,6 +1072,7 @@ class EPGSearch(EPGSelection):
 						result.append(e)
 		return result
 
+
 class EPGSearchTimerImport(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -1100,6 +1119,7 @@ class EPGSearchTimerImport(Screen):
 	def cancel(self):
 		self.close(None)
 
+
 class EPGSearchChannelSelection(SimpleChannelSelection):
 	def __init__(self, session):
 		SimpleChannelSelection.__init__(self, session, _("Channel Selection"))
@@ -1126,6 +1146,7 @@ class EPGSearchChannelSelection(SimpleChannelSelection):
 		if ret:
 			self.close(ret)
 
+
 class CurrentSearchSingleSelection(EPGSelection):
 	def __init__(self, session, ref, event_id=None):
 		self.event_id = event_id
@@ -1139,6 +1160,7 @@ class CurrentSearchSingleSelection(EPGSelection):
 				self["list"].moveToEventId(self.event_id)
 		except:
 			pass
+
 
 class EPGSearchEPGSelection(EPGSelection):
 	def __init__(self, session, ref, openPlugin):

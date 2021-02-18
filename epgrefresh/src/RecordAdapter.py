@@ -14,8 +14,10 @@ from Components.config import config
 
 from . import _, STARTNOTIFICATIONID, NOTIFICATIONDOMAIN
 
+
 class RecordAdapter:
 	backgroundCapable = True
+
 	def __init__(self, session):
 		if len(nimmanager.nim_slots) < 2:
 			self.backgroundRefreshAvailable = False

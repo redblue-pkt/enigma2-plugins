@@ -27,10 +27,13 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 def main(session, **kwargs):
 	session.open(eSame)
 
+
 def Plugins(**kwargs):
 	return [PluginDescriptor(name="eSame", description=_("eSame Game Plugin"), where=PluginDescriptor.WHERE_PLUGINMENU, fnc=main)]
 
 # mainwindow...
+
+
 class eSame(Screen):
 	def __init__(self, session, args=0):
 		# some default values - be careful if you change this...

@@ -27,6 +27,7 @@ from Components.Sources.StaticText import StaticText
 
 from . import _
 
+
 class YouTubeStdFeedSelectionScreen(Screen):
 	STD_FEED = "http://gdata.youtube.com/feeds/api/standardfeeds/"
 	
@@ -51,10 +52,8 @@ class YouTubeStdFeedSelectionScreen(Screen):
 
 		self["menu"] = List(menu)
 
-
 	def ok(self):
 		Screen.close(self, self.STD_FEED + self["menu"].getCurrent()[1])
-
 
 	def close(self):
 		Screen.close(self, None)

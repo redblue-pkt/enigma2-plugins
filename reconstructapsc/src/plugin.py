@@ -8,8 +8,10 @@ from enigma import eServiceCenter, eTimer
 from Components import Task
 from Tools import Notifications
 
+
 def main(session, service, **kwargs):
 	session.open(ReconstructApSc, service, **kwargs)
+
 
 def rApScFinishedMessage():
 	finished = True
@@ -23,12 +25,15 @@ def rApScFinishedMessage():
 	else:
 		rApScTimer.startLongTimer(10)
 
+
 rApScTasks = []
 rApScTimer = eTimer()
 rApScTimer.callback.append(rApScFinishedMessage)
 
+
 def Plugins(**kwargs):
 	return PluginDescriptor(name="ReconstructApSc", description=_("Reconstruct AP/SC ..."), where=PluginDescriptor.WHERE_MOVIELIST, fnc=main)
+
 
 class ReconstructApSc(ChoiceBox):
 	def __init__(self, session, service):

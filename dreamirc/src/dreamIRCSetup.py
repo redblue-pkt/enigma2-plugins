@@ -19,6 +19,7 @@ from dreamIRCTools import *
 
 model = getBoxType()
 
+
 class dreamIRCSetupScreen(ConfigListScreen, Screen):
 	from enigma import getDesktop
 	desk = getDesktop(0)
@@ -165,6 +166,7 @@ class dreamIRCSetupScreen(ConfigListScreen, Screen):
 			x[1].cancel()
 		self.close()
 		
+
 class dreamIRCConfig:
 	def load(self):
 		self.pipe = MessagePipe()

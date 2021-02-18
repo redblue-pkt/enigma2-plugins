@@ -121,12 +121,14 @@ config.plugins.TeleText.background_caching = ConfigEnableDisable(default=True)
 
 # global functions
 
+
 def log(message):
   _log(message)
   if config.plugins.TeleText.debug.value:
     _debug(message)
 
 # ----------------------------------------
+
 
 class TeleText(Screen):
 
@@ -293,7 +295,6 @@ class TeleText(Screen):
     x = array.array('B')
     x.append(CMD_VERSION)
     self.socketSend(x)
-
 
   def listen_data_avail(self, what):
     conn, addr = self.socket.accept()
@@ -1002,6 +1003,7 @@ class TeleText(Screen):
 
 # ----------------------------------------
 
+
 class TeleTextSummary(Screen):
 
   def __init__(self, session, parent):
@@ -1073,6 +1075,7 @@ class TeleTextSummary(Screen):
       self["info_off"].show()
 
 # ----------------------------------------
+
 
 class TeleTextTransponderMenu(Screen):
 
@@ -1192,6 +1195,7 @@ class TeleTextTransponderMenu(Screen):
 
 # ----------------------------------------
 
+
 class TeleTextTransponderSummary(Screen):
 
   def __init__(self, session, parent):
@@ -1224,6 +1228,7 @@ class TeleTextTransponderSummary(Screen):
     self["n_service"].setText(self.parent.getNewService())
 
 # ----------------------------------------
+
 
 class TeleTextMenu(ConfigListScreen, Screen):
 
@@ -1454,6 +1459,7 @@ class TeleTextMenu(ConfigListScreen, Screen):
 
 # ----------------------------------------
 
+
 class TeleTextMenuSummary(Screen):
 
   skin = ("""<screen name="TeleTextMenuSummary" position="0,0" size="132,64" id="1">
@@ -1489,6 +1495,7 @@ class TeleTextMenuSummary(Screen):
     self["SetupValue"].text = self.parent.getCurrentValue()
 
 # ----------------------------------------
+
 
 class TeleTextAboutScreen(Screen):
 
@@ -1541,6 +1548,7 @@ class TeleTextAboutScreen(Screen):
 
 # ----------------------------------------
 
+
 class TeleTextAboutSummary(Screen):
 
   skin = ("""<screen name="TeleTextAboutSummary" position="0,0" size="132,64" id="1">
@@ -1561,6 +1569,7 @@ class TeleTextAboutSummary(Screen):
     self["plugin"] = Label("Plugin v%s" % PLUGIN_VERSION)
 
 # ----------------------------------------
+
 
 class TeleTextFavorites():
 
@@ -1607,6 +1616,7 @@ class TeleTextFavorites():
     self.parser.remove_section(service)
 
 # ----------------------------------------
+
 
 class TeleTextFavoritesMenu(Screen):
 
@@ -1794,6 +1804,7 @@ class TeleTextFavoritesMenu(Screen):
 
 # ----------------------------------------
 
+
 class TeleTextFavoritesSummary(Screen):
 
   skin = ("""<screen name="TeleTextFavoritesSummary" position="0,0" size="132,64" id="1">
@@ -1829,6 +1840,7 @@ class TeleTextFavoritesSummary(Screen):
 
 # ----------------------------------------
 
+
 def sessionstart(reason, session):
   log("----- sessionstart(%s) -----" % session)
   # Plugin initialisieren
@@ -1837,12 +1849,14 @@ def sessionstart(reason, session):
   ttx_screen = session.instantiateDialog(TeleText)
   my_session = session
 
+
 def autostart(reason, **kwargs):
   log("autostart(%s, %s)" % (reason, kwargs))
   if reason == 0:
     pass
   elif reason == 1:
     pass
+
 
 def mainText(session, **kwargs):
   global ttx_screen
@@ -1856,6 +1870,7 @@ def mainText(session, **kwargs):
     else:
       session.open(MessageBox, _("No teletext available."), MessageBox.TYPE_INFO, timeout=3)
 
+
 def selectText(result):
   global my_session
   global ttx_screen
@@ -1866,10 +1881,12 @@ def selectText(result):
     ttx_screen.readFavorites()
     my_session.execDialog(ttx_screen)
 
+
 def mainMenu(session, **kwargs):
   global ttx_screen
   log("mainMenu")
   session.open(TeleTextMenu)
+
 
 def Plugins(**kwargs):
   log("plugins")

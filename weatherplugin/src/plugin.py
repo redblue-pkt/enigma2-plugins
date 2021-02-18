@@ -51,9 +51,11 @@ initConfig()
 def main(session, **kwargs):
 	session.open(MSNWeatherPlugin)
 
+
 def Plugins(**kwargs):
 	list = [PluginDescriptor(name=_("Weather Plugin"), description=_("Show Weather Forecast"), where=[PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU], icon="weather.png", fnc=main)]
 	return list
+
 
 class MSNWeatherPlugin(Screen):
 	skinwidth = getDesktop(0).size().width()
@@ -147,7 +149,6 @@ class MSNWeatherPlugin(Screen):
 			i += 1
 		del i
 		
-
 		self.weatherPluginEntryIndex = -1
 		self.weatherPluginEntryCount = config.plugins.WeatherPlugin.entrycount.value
 		if self.weatherPluginEntryCount >= 1:
@@ -155,7 +156,6 @@ class MSNWeatherPlugin(Screen):
 			self.weatherPluginEntryIndex = 1
 		else:
 			self.weatherPluginEntry = None
-
 
 		self.webSite = ""
 		
@@ -284,6 +284,7 @@ class MSNWeatherPlugin(Screen):
 				self.session.open(Browser, config.plugins.WebBrowser.fullscreen.value, self.webSite, False)
 		except:
 			pass # I dont care if browser is installed or not...
+
 
 class WeatherIcon(Pixmap):
 	def __init__(self):

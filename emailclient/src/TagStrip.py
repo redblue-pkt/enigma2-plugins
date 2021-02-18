@@ -39,6 +39,7 @@ entities = (
 	("&apos;", u"'"),
 )
 
+
 def strip_readable(html):
 	# Newlines are rendered as whitespace in html
 	html = html.replace('\n', ' ')
@@ -58,6 +59,7 @@ def strip_readable(html):
 
 	# And 'normal' stripping
 	return strip(html)
+
 
 def strip(html):
 	# Strip enclosed tags

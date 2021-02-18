@@ -7,6 +7,7 @@ import gettext
 from skin import loadSkin
 loadSkin(resolveFilename(SCOPE_PLUGINS) + "Extensions/AdvancedMovieSelection/skin/skin.xml")
 
+
 def localeInit():
     lang = language.getLanguage()
     environ["LANGUAGE"] = lang[:2]
@@ -21,11 +22,13 @@ def localeInit():
     tmdb.setLocale(ln)
     tvdb.setLocale(ln)
 
+
 def _(txt):
     t = gettext.dgettext("AdvancedMovieSelection", txt)
     if t == txt:
         t = gettext.gettext(txt)
     return t
+
 
 localeInit()
 language.addCallback(localeInit)

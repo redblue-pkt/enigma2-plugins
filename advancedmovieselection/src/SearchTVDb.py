@@ -35,6 +35,7 @@ if environ['LANGUAGE'] == 'de' or environ['LANGUAGE'] == 'de_DE':
 else:
     nocover = resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/AdvancedMovieSelection/images/nocover_en.png')
 
+
 def getImage(serie):
     thumb = serie['poster']
     if not thumb:

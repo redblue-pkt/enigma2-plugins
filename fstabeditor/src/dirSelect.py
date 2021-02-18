@@ -24,6 +24,7 @@ from Components.Button import Button
 from Components.FileList import FileList
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
+
 class dirSelectDlg(Screen): # 90,140
 	skin = """
 		<screen name="dirSelectDlg" position="center,center" size="560,360">

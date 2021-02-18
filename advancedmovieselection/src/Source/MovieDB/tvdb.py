@@ -28,6 +28,7 @@ __author__ = 'cmikula'
 __version__ = '1.0'
 config = None
 
+
 def setLocale(lng):
     global config
     print('[AdvancedMovieSelection] Set tvdb locale to', lng)
@@ -47,6 +48,7 @@ def getLocale():
 import urllib
 import urllib2
 import xml.etree.cElementTree as ElementTree
+
 
 class TvdBaseError(Exception):
     pass

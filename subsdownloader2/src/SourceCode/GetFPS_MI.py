@@ -11,6 +11,7 @@ MI.Open(filename)
 float(MI.Get(Stream.Video, 0, "FrameRate")[0:6])
 """
 
+
 class GetFPS(object):
     def __init__(self, filename):
         self.filename = filename
@@ -21,6 +22,7 @@ class GetFPS(object):
         fps = float(MI.Get(Stream.Video, 0, "FrameRate"))
         MI.Close()
         return fps 
+
 
 """
 MI = MediaInfo()

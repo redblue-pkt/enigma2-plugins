@@ -91,6 +91,7 @@ config.plugins.autoresolution.ask_timeout = ConfigSelection(default="20", choice
 config.plugins.autoresolution.manual_resolution_ext_menu = ConfigYesNo(default=False)
 config.plugins.autoresolution.manual_resolution_ask = ConfigYesNo(default=True)
 
+
 def setDeinterlacer(mode):
 	try:
 		f = open('/proc/stb/vmpeg/deinterlace', "w")
@@ -100,6 +101,7 @@ def setDeinterlacer(mode):
 	except:
 		print("[AutoRes] failed switch deinterlacer mode to %s" % mode)
 
+
 frqdic = {23976: '24',
 		24000: '24',
 		25000: '25',
@@ -108,6 +110,7 @@ frqdic = {23976: '24',
 		50000: '50',
 		59940: '60',
 		60000: '60'}
+
 
 class AutoRes(Screen):
 	def __init__(self, session):
@@ -384,6 +387,7 @@ class AutoRes(Screen):
 				return
 		self.lastmode = mode
 
+
 class ResolutionLabel(Screen):
 	height = getDesktop(0).size().height()
 	if height >= 2100:
@@ -522,6 +526,7 @@ class AutoResSetupMenu(Screen, ConfigListScreen):
 		plugins.clearPluginList()
 		plugins.readPluginList(resolveFilename(SCOPE_PLUGINS))
 
+
 class AutoFrameRate(Screen):
 	def __init__(self, session):
 		global modes_available
@@ -636,6 +641,7 @@ class AutoFrameRate(Screen):
 			return
 		seekable.seekRelative(pts < 0 and -1 or 1, abs(pts))
 
+
 class ManualResolution(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -720,6 +726,7 @@ class ManualResolution(Screen):
 		except:
 			print("[ManualResolution] Error write /proc/stb/video/videomode")
 
+
 def openManualResolution(session, **kwargs):
 	if config.av.videoport.value not in ('DVI-PC', 'Scart'):
 		global manualResolution
@@ -731,6 +738,7 @@ def openManualResolution(session, **kwargs):
 		config.plugins.autoresolution.manual_resolution_ext_menu.save()
 		session.open(MessageBox, _("Manual resolution is not working in Scart/DVI-PC mode!"), MessageBox.TYPE_INFO, timeout=6)
 
+
 def autostart(reason, **kwargs):
 	global resolutionlabel
 	if reason == 0 and "session" in kwargs and resolutionlabel is None:
@@ -740,14 +748,17 @@ def autostart(reason, **kwargs):
 			AutoFrameRate(session)
 			AutoRes(session)
 
+
 def startSetup(menuid):
 	if menuid != "system":
 		return []
 	return [(_("Autoresolution"), autoresSetup, "autores_setup", None)]
 
+
 def autoresSetup(session, **kwargs):
 	autostart(reason=0, session=session)
 	session.open(AutoResSetupMenu)
+
 
 def Plugins(path, **kwargs):
 	lst = [PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=autostart),

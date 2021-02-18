@@ -10,6 +10,7 @@ from enigma import eServiceCenter, eServiceReference, \
 
 titleCmp = lambda x, y: x.lower() in y.lower() # force case-insensitive for now
 
+
 def vkCallback(movieContextMenu, searchString=None):
 	isEmc = False
 	if not movieContextMenu:
@@ -77,6 +78,7 @@ def vkCallback(movieContextMenu, searchString=None):
 		csel["list"].list = newList
 		csel["list"].l.setList(newList)
 	movieContextMenu.close()
+
 
 def main(session, service, **kwargs):
 	cur_dialog = session.current_dialog

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from Plugins.Extensions.WebInterface.WebScreens import WebScreen
 
+
 class AutoTimerEditorWebScreen(WebScreen):
 	def __init__(self, session, request):
 		WebScreen.__init__(self, session, request)

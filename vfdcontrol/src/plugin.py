@@ -27,6 +27,7 @@ config.plugins.VFD_ini.ClockLevel2 = ConfigSlider(default=4, limits=(1, 10))
 
 MyRecLed = False
 
+
 def vfd_write(text):
 	if use_oled:
 		try:
@@ -38,6 +39,7 @@ def vfd_write(text):
 			open("/dev/dbox/lcd0", "w").write(text)
 		except:
 			pass
+
 
 class Channelnumber:
 
@@ -195,11 +197,14 @@ class Channelnumber:
 				eDBoxLCD.getInstance().setLCDBrightness(config.lcd.bright.value * 255 / 10)
 				self.blink = False
 
+
 ChannelnumberInstance = None
+
 
 def leaveStandby():
 	if config.plugins.VFD_ini.showClock.value == 'Off':
 		vfd_write("....")
+
 
 def standbyCounterChanged(configElement):
 	from Screens.Standby import inStandby
@@ -208,9 +213,11 @@ def standbyCounterChanged(configElement):
 	if config.plugins.VFD_ini.showClock.value == 'Off':
 		vfd_write("....")
 
+
 def initVFD():
 	if config.plugins.VFD_ini.showClock.value == 'Off':
 		vfd_write("....")
+
 
 class VFD_INISetup(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
@@ -298,6 +305,7 @@ class VFD_INISetup(ConfigListScreen, Screen):
 		self.createSetup()
 		initVFD()
 
+
 class VFD_INI:
 	def __init__(self, session):
 		self.session = session
@@ -314,17 +322,21 @@ class VFD_INI:
 	def abort(self):
 		config.misc.standbyCounter.addNotifier(standbyCounterChanged, initial_call=False)
 
+
 def main(menuid):
 	if menuid != "system":
 		return []
 	return [(_("VFD Display Setup"), startVFD, "vfd_ini", None)]
 
+
 def startVFD(session, **kwargs):
 	session.open(VFD_INISetup)
+
 
 iniVfd = None
 gReason = -1
 mySession = None
+
 
 def controliniVfd():
 	global iniVfd
@@ -336,6 +348,7 @@ def controliniVfd():
 	elif gReason == 1 and iniVfd is not None:
 		iniVfd = None
 
+
 def sessionstart(reason, **kwargs):
 	global iniVfd
 	global gReason
@@ -346,6 +359,7 @@ def sessionstart(reason, **kwargs):
 	else:
 		gReason = reason
 	controliniVfd()
+
 
 def Plugins(**kwargs):
 	from Components.SystemInfo import SystemInfo

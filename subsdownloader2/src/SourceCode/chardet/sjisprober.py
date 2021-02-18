@@ -36,6 +36,7 @@ import constants
 import sys
 from constants import eStart, eError, eItsMe
 
+
 class SJISProber(MultiByteCharSetProber):
     def __init__(self):
         MultiByteCharSetProber.__init__(self)

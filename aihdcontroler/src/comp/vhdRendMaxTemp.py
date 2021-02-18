@@ -23,6 +23,7 @@ from Components.Sensors import sensors
 from enigma import eLabel, getBoxType
 from Renderer import Renderer
 
+
 class vhdRendMaxTemp(Renderer, VariableText):
 	def __init__(self):
 		Renderer.__init__(self)

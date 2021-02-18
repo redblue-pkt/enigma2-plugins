@@ -27,6 +27,7 @@ from Screens.LocationBox import MovieLocationBox
 from Components.config import config, ConfigSelection, getConfigListEntry
 from Components.UsageConfig import preferredPath
 
+
 class RecordPathsSettings(eRecordPathsSettings):
     def __init__(self, session):
         eRecordPathsSettings.__init__(self, session)

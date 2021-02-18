@@ -26,43 +26,62 @@ class LastFMEventRegister:
         for i in self.onMetadataChangedList:
             i(metadata=metad)
 
+
 lastfm_event_register = LastFMEventRegister()
             
+
 class LastFMHandler:
     def __init__(self):
         pass
+
     def onPlaylistLoaded(self, reason):
         pass
+
     def onConnectSuccessful(self, reason):
         pass
+
     def onConnectFailed(self, reason):
         pass
+
     def onCommandFailed(self, reason):
         pass
+
     def onTrackSkiped(self, reason):
         pass
+
     def onTrackLoved(self, reason):
         pass
+
     def onTrackBanned(self, reason):
         pass
+
     def onGlobalTagsLoaded(self, tags):
         pass
+
     def onTopTracksLoaded(self, tracks):
         pass
+
     def onRecentTracksLoaded(self, tracks):
         pass
+
     def onRecentBannedTracksLoaded(self, tracks):
         pass
+
     def onRecentLovedTracksLoaded(self, tracks):
         pass
+
     def onNeighboursLoaded(self, user):
         pass
+
     def onFriendsLoaded(self, user):
         pass
+
     def onStationChanged(self, reason):
         pass    
+
     def onMetadataLoaded(self, metadata):
         pass
+
 
 class LastFM(LastFMHandler):
     DEFAULT_NAMESPACES = (
@@ -165,6 +184,7 @@ class LastFM(LastFMHandler):
             return "lastfm://group/%s" % self.metadata['artist'].replace(" ", "%20")
         else:
             return "lastfm://group/%s" % artist.replace(" ", "%20")
+
     def command(self, cmd, callback):
         # commands = skip, love, ban, rtp, nortp
         if self.state is not True:
@@ -213,7 +233,6 @@ class LastFM(LastFMHandler):
             result = result + ("%02x" % ord(c))
         return result
     
-
     def XMLgetElementsByTagName(self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES):
         for namespace in possibleNamespaces:
             children = node.getElementsByTagNameNS(namespace, tagName)
@@ -375,7 +394,6 @@ class LastFM(LastFMHandler):
         else:
             self.onCommandFailed(rdata)
 
-
     def _parseUser(self, xmlrawdata):
         #print(xmlrawdata)
         try:
@@ -411,6 +429,8 @@ class LastFM(LastFMHandler):
             self.onCommandFailed(_("Server returned") + " " + res["response"])
 
 ############
+
+
 class LastFMPlaylist:
     """
         this is the new way last.fm handles streams with metadata

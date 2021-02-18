@@ -43,6 +43,7 @@ from Screens.VirtualKeyBoard import VirtualKeyBoard
 
 skinwidth = getDesktop(0).size().width()
 
+
 def initWeatherPluginEntryConfig():
 	s = ConfigSubsection()
 	s.city = ConfigText(default="Heidelberg", visible_width=100, fixed_size=False)
@@ -51,6 +52,7 @@ def initWeatherPluginEntryConfig():
 	config.plugins.WeatherPlugin.Entry.append(s)
 	return s
 
+
 def initConfig():
 	count = config.plugins.WeatherPlugin.entrycount.value
 	if count != 0:
@@ -58,6 +60,7 @@ def initConfig():
 		while i < count:
 			initWeatherPluginEntryConfig()
 			i += 1
+
 
 class MSNWeatherPluginEntriesListConfigScreen(Screen):
 	if skinwidth == 1280:
@@ -158,6 +161,7 @@ class MSNWeatherPluginEntriesListConfigScreen(Screen):
 		configfile.save()
 		self.updateList()
 
+
 class WeatherPluginEntryList(MenuList):
 	def __init__(self, list, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
@@ -200,6 +204,7 @@ class WeatherPluginEntryList(MenuList):
 		self.list = list
 		self.l.setList(list)
 		self.moveToIndex(0)
+
 
 class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 	if skinwidth == 1280:
@@ -354,6 +359,7 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 			self.current.weatherlocationcode.value = result[0]
 			self.current.city.value = result[1]
 
+
 class MSNWeatherPluginSearch(Screen):
 	if skinwidth == 1280:
 	   skin = """
@@ -406,6 +412,7 @@ class MSNWeatherPluginSearch(Screen):
 		except:
 			sel = None
 		self.close(sel)
+
 
 class MSNWeatherPluginSearchResultList(MenuList):
 	def __init__(self, list, enableWrapAround=True):

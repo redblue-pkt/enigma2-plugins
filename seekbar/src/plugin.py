@@ -32,8 +32,10 @@ config.plugins.Seekbar.sensibility = ConfigInteger(default=10, limits=(1, 10))
 PluginLanguageDomain = "Seekbar"
 PluginLanguagePath = "Extensions/Seekbar/locale/"
 
+
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
+
 
 def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
@@ -42,9 +44,11 @@ def _(txt):
 		print("[" + PluginLanguageDomain + "] fallback to default translation for " + txt)
 		return gettext.gettext(txt)
 
+
 language.addCallback(localeInit())
 
 ##############################################
+
 
 class Seekbar(ConfigListScreen, Screen):
 	skin = """
@@ -183,12 +187,15 @@ class Seekbar(ConfigListScreen, Screen):
 ##############################################
 # This hack overwrites the functions seekFwdManual and seekBackManual of the InfoBarSeek class (MoviePlayer, DVDPlayer, VideoDB)
 
+
 def seekbar(instance, fwd=True):
 	if instance and instance.session:
 		instance.session.open(Seekbar, instance, fwd)
 
+
 def seekbarBack(instance):
 	seekbar(instance, False)
+
 
 MoviePlayer.seekFwdManual = seekbar
 MoviePlayer.seekBackManual = seekbarBack
@@ -212,6 +219,8 @@ if fileExists(videodb):
 # This hack puts the functions seekFwdManual and seekBackManual to the maped keys to seekbarRight and seekbarLeft
 
 DoBind = ActionMap.doBind
+
+
 def doBind(instance):
 	if not instance.bound:
 		for ctx in instance.contexts:
@@ -222,6 +231,7 @@ def doBind(instance):
 					instance.actions["seekbarLeft"] = instance.actions["seekBackManual"]
 			DoBind(instance)
 
+
 if config.plugins.Seekbar.overwrite_left_right.value:
 	ActionMap.doBind = doBind
 
@@ -230,6 +240,8 @@ if config.plugins.Seekbar.overwrite_left_right.value:
 
 KeymapError = keymapparser.KeymapError
 ParseKeys = keymapparser.parseKeys
+
+
 def parseKeys(context, filename, actionmap, device, keys):
 	if context == "InfobarSeekActions":
 		if device == "generic":
@@ -268,12 +280,14 @@ def parseKeys(context, filename, actionmap, device, keys):
 	else:
 		ParseKeys(context, filename, actionmap, device, keys)
 
+
 if config.plugins.Seekbar.overwrite_left_right.value:
 	keymapparser.parseKeys = parseKeys
 	keymapparser.removeKeymap(config.usage.keymap.value)
 	keymapparser.readKeymap(config.usage.keymap.value)
 
 ##############################################
+
 
 def Plugins(**kwargs):
 	return []

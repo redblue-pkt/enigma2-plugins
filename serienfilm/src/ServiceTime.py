@@ -5,6 +5,7 @@ from Components.Converter.Converter import Converter
 from Components.Element import cached, ElementError
 from enigma import iServiceInformation, eServiceReference
 
+
 class ServiceTime(Converter, object):
 	STARTTIME = 0
 	ENDTIME = 1

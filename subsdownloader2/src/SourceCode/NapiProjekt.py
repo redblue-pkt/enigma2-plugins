@@ -35,6 +35,7 @@ except ImportError as e:
     
 languages = {'pl': 'PL', 'en': 'ENG'}
 
+
 class NapiProjekt():
     def __init__(self):
         self.error_ = 0
@@ -119,8 +120,6 @@ class NapiProjekt():
             savefile.close()
             return subFilePath
 
-
-    
 
 """file = '/home/silelis/Pulpit/Reservoir Dogs_1992_DVDrip_XviD-Ekolb/Reservoir Dogs_1992_DVDrip_XviD-Ekolb.avi'
 a=NapiProjekt(file)

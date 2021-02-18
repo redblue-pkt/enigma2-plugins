@@ -41,6 +41,7 @@ except ImportError as e:
 
 ##########################################################
 
+
 class ChangedMoviePlayer(MoviePlayer):
 	def __init__(self, session, service):
 		MoviePlayer.__init__(self, session, service)
@@ -67,6 +68,7 @@ class ChangedMoviePlayer(MoviePlayer):
 		pass
 
 ##########################################################
+
 
 class ORFatCache(Screen):
 	skin = """
@@ -104,6 +106,7 @@ class ORFatCache(Screen):
 		self["spinner"].instance.setPixmap(png)
 
 ##########################################################
+
 
 class ORFMain(Screen):
 	skin = """
@@ -322,8 +325,10 @@ class ORFMain(Screen):
 
 ####################################################
 
+
 def main(session, **kwargs):
 	session.open(ORFMain)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name="ORF.at IPTV", description="IPTV-Sendungen von ORF.at anschauen", where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon="orf.png", fnc=main)

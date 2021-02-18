@@ -23,6 +23,7 @@ def _print(outtxt):
 	outtxt = headerstr + outtxt
 	print(outtxt)
 
+
 try:
 	from Plugins.SystemPlugins.AdvHdmi.AdvHdmiCecSetup import AdvHdmiCecSetup
 	g_AdvHdmi_setup_available = True
@@ -46,6 +47,8 @@ WEEKDAYS = [
 	_("Sunday")]
 
 # Timespans
+
+
 def initTimeSpanEntryList():
 	count = config.plugins.AdvHdmiCec.entriescount.value
 	if count != 0:
@@ -53,6 +56,7 @@ def initTimeSpanEntryList():
 		while i < count:
 			TimeSpanEntryInit()
 			i += 1
+
 
 def TimeSpanEntryInit():
 	now = localtime()
@@ -82,6 +86,7 @@ def TimeSpanEntryInit():
 	config.plugins.AdvHdmiCec.Entries[i].begin = ConfigClock(default=int(begin))
 	config.plugins.AdvHdmiCec.Entries[i].end = ConfigClock(default=int(end))
 	return config.plugins.AdvHdmiCec.Entries[i]
+
 
 config.plugins.AdvHdmiCec = ConfigSubsection()
 config.plugins.AdvHdmiCec.enable = ConfigYesNo(default=False)
@@ -119,6 +124,7 @@ ADVHDMI_AFTER_RECEIVED_NOWACTIVE = "AFTER_RECEIVED_NOWACTIVE"
 # registered Hooks
 advhdmiHooks = {}
 
+
 def callHook(advhdmi_event):
 	if config.plugins.AdvHdmiCec.debug.value:
 		_print("Debug: call Hooks for Event '" + str(advhdmi_event) + "'")
@@ -139,6 +145,7 @@ def callHook(advhdmi_event):
 	if advhdmi_event in (ADVHDMI_BEFORE_POWERON, ADVHDMI_BEFORE_POWEROFF, ADVHDMI_BEFORE_RECEIVED_STANDBY, ADVHDMI_BEFORE_RECEIVED_NOWACTIVE):
 		return True
 
+
 def TimeSpanPresenter(confsection):
 	presenter = [
 		WEEKDAYS[int(confsection.fromWD.value)],
@@ -150,20 +157,25 @@ def TimeSpanPresenter(confsection):
 	return presenter
 
 # functionality
+
+
 def autostart(reason, **kwargs):
 	global g_AdvHdmi_sessionstarted
 	if reason == 0:
 		g_AdvHdmi_sessionstarted = True
+
 
 def main(session, **kwargs):
 	global g_AdvHdmi_setup_available
 	if g_AdvHdmi_setup_available:
 		session.open(AdvHdmiCecSetup)
 
+
 def showinSetup(menuid):
 	if menuid != "system":
 		return []
 	return [(_("Advanced HDMI-Cec Setup"), main, "", 46)]
+
 
 def Plugins(**kwargs):
 	list = [
@@ -197,6 +209,7 @@ def Plugins(**kwargs):
 
 	return list
 
+
 def checkTimespan(lt, begin, end):
 	# Check if we span a day
 	if begin[0] > end[0] or (begin[0] == end[0] and begin[1] >= end[1]):
@@ -219,6 +232,7 @@ def checkTimespan(lt, begin, end):
 			# Its out of our timespan then
 			return False
 		return True
+
 
 def AdvHdmiCecDOIT():
 	global g_AdvHdmi_sessionstarted
@@ -262,6 +276,8 @@ def AdvHdmiCecDOIT():
 	return ret_val
 
 # Overwrite CEC-Base
+
+
 def Cec__receivedStandby(self):
 	if config.cec.receivepower.value:
 		from Screens.Standby import Standby, inStandby
@@ -270,6 +286,7 @@ def Cec__receivedStandby(self):
 				self.session.open(Standby)
 				callHook(ADVHDMI_AFTER_RECEIVED_STANDBY)
 
+
 def Cec__receivedNowActive(self):
 	if config.cec.receivepower.value:
 		from Screens.Standby import inStandby
@@ -277,6 +294,7 @@ def Cec__receivedNowActive(self):
 			if callHook(ADVHDMI_BEFORE_RECEIVED_NOWACTIVE):
 				inStandby.Power()
 				callHook(ADVHDMI_AFTER_RECEIVED_NOWACTIVE)
+
 
 def Cec_powerOn(self):
 	global g_AdvHdmi_initalized
@@ -291,6 +309,7 @@ def Cec_powerOn(self):
 					hdmi_cec.otp_source_enable()
 					callHook(ADVHDMI_AFTER_POWERON)
 
+
 def Cec_powerOff(self):
 	global g_AdvHdmi_initalized
 	if config.cec.sendpower.value and config.plugins.AdvHdmiCec.enable_power_off.value and AdvHdmiCecDOIT():
@@ -303,16 +322,20 @@ def Cec_powerOff(self):
 			callHook(ADVHDMI_AFTER_POWEROFF)
 
 # Overwrite WebIf
+
+
 def RemoteControl_handleCommand(self, cmd):
 	global g_AdvHdmi_fromwebif
 	g_AdvHdmi_fromwebif = True
 	self.cmd = cmd
 	self.res = self.sendEvent()
 
+
 def PowerState_handleCommand(self, cmd):
 	global g_AdvHdmi_fromwebif
 	g_AdvHdmi_fromwebif = True
 	self.cmd = cmd
+
 
 g_AdvHdmi_sessionstarted = False
 g_AdvHdmi_fromwebif = False

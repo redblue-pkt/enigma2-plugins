@@ -45,7 +45,6 @@ class SuggestionsList(MenuList):
 		self.l.setFont(0, gFont("Regular", 18))
 		self.l.setItemHeight(23)
 
-
 	def update(self, suggestions):
 		self.list = []
 		if suggestions:
@@ -54,7 +53,6 @@ class SuggestionsList(MenuList):
 				self.list.append(SuggestionListEntry(suggestion))
 			self.l.setList(self.list)
 			self.moveToIndex(0)
-
 
 	def getSelection(self):
 		if self.getCurrent() is None:
@@ -69,7 +67,6 @@ class SuggestionsListScreen(Screen):
 		self["suggestionslist"] = self.suggestionlist
 		self.configTextWithSuggestion = configTextWithSuggestion
 
-
 	def update(self, suggestions):
 		if suggestions and len(suggestions[1]) > 0:
 			if not self.shown:
@@ -78,31 +75,25 @@ class SuggestionsListScreen(Screen):
 		else:
 			self.hide()
 
-
 	def up(self):
 		self.suggestionlist.up()
 		return self.suggestionlist.getSelection()
-
 
 	def down(self):
 		self.suggestionlist.down()
 		return self.suggestionlist.getSelection()
 
-	
 	def pageUp(self):
 		self.suggestionlist.pageUp()
 		return self.suggestionlist.getSelection()
-
 
 	def pageDown(self):
 		self.suggestionlist.pageDown()
 		return self.suggestionlist.getSelection()
 
-
 	def activate(self):
 		self.suggestionlist.selectionEnabled(1)
 		return self.suggestionlist.getSelection()
-
 
 	def deactivate(self):
 		self.suggestionlist.selectionEnabled(0)
@@ -149,11 +140,9 @@ class ConfigTextWithSuggestions(ConfigText):
 		self.threaded = threaded
 		self.suggestionsListActivated = False
 
-
 	def propagateSuggestions(self, suggestionsList):
 		if self.suggestionsWindow:
 			self.suggestionsWindow.update(suggestionsList)
-
 
 	def getSuggestions(self):
 		if self.suggestionsThread is not None:
@@ -161,13 +150,11 @@ class ConfigTextWithSuggestions(ConfigText):
 		else:
 			self.suggestions.getSuggestions(self.value)
 
-
 	def handleKey(self, key):
 		if not self.suggestionsListActivated:
 			ConfigText.handleKey(self, key)
 			if key in [KEY_DELETE, KEY_BACKSPACE, KEY_ASCII, KEY_TIMEOUT]:
 				self.getSuggestions()
-
 
 	def onSelect(self, session):
 		if self.threaded:
@@ -185,7 +172,6 @@ class ConfigTextWithSuggestions(ConfigText):
 			self.suggestionsWindow.hide()
 		self.suggestions.getSuggestions(self.value)
 
-
 	def onDeselect(self, session):
 		if self.suggestionsThread is not None:
 			self.suggestionsThread.stop()
@@ -194,22 +180,17 @@ class ConfigTextWithSuggestions(ConfigText):
 			session.deleteDialog(self.suggestionsWindow)
 			self.suggestionsWindow = None
 
-
 	def suggestionListUp(self):
 		self.value = self.suggestionsWindow.up()
-
 
 	def suggestionListDown(self):
 		self.value = self.suggestionsWindow.down()
 
-
 	def suggestionListPageDown(self):
 		self.value = self.suggestionsWindow.pageDown()
 
-
 	def suggestionListPageUp(self):
 		self.value = self.suggestionsWindow.pageUp()
-
 
 	def activateSuggestionList(self):
 		ret = False
@@ -222,7 +203,6 @@ class ConfigTextWithSuggestions(ConfigText):
 			ret = True
 		return ret
 
-
 	def deactivateSuggestionList(self):
 		ret = False
 		if self.suggestionsWindow is not None:
@@ -232,7 +212,6 @@ class ConfigTextWithSuggestions(ConfigText):
 			self.suggestionsListActivated = False
 			ret = True
 		return ret
-
 
 	def cancelSuggestionList(self):
 		self.value = self.tmpValue

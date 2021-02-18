@@ -43,8 +43,10 @@ config.plugins.MovielistPreview.size = ConfigSelection(choices=["250x200", "200x
 PluginLanguageDomain = "MovielistPreview"
 PluginLanguagePath = "Extensions/MovielistPreview/locale/"
 
+
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
+
 
 def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
@@ -52,6 +54,7 @@ def _(txt):
 	else:
 		print("[" + PluginLanguageDomain + "] fallback to default translation for " + txt)
 		return gettext.gettext(txt)
+
 
 language.addCallback(localeInit())
 
@@ -64,6 +67,7 @@ SKIN = """
 	</screen>"""
 
 ##############################################################################
+
 
 class MovielistPreviewScreen(Screen):
 	def __init__(self, session):
@@ -82,6 +86,7 @@ class MovielistPreviewScreen(Screen):
 			self["preview"].instance.resize(eSize(int(size[0]), int(size[1])))
 
 ##############################################################################
+
 
 class MovielistPreview():
 	def __init__(self):
@@ -128,9 +133,12 @@ class MovielistPreview():
 	def showDialog(self):
 		self.mayShow = True
 		self.dialog.show()
+
+
 movielistpreview = MovielistPreview()
 
 ##############################################################################
+
 
 class MovielistPreviewPositionerCoordinateEdit(ConfigListScreen, Screen):
 	skin = """
@@ -165,6 +173,7 @@ class MovielistPreviewPositionerCoordinateEdit(ConfigListScreen, Screen):
 		self.close([self.xEntry.value, self.yEntry.value])
 
 ##############################################################################
+
 
 class MovielistPreviewPositioner(Screen):
 	def __init__(self, session):
@@ -275,6 +284,7 @@ class MovielistPreviewPositioner(Screen):
 
 ##############################################################################
 
+
 class PreviewCreator:
 	def __init__(self):
 		self.callback = None
@@ -290,9 +300,12 @@ class PreviewCreator:
 			print(result)
 		if self.callback:
 			self.callback()
+
+
 previewcreator = PreviewCreator()
 
 ##############################################################################
+
 
 class MovielistPreviewManualCreator(Screen, InfoBarBase, InfoBarSeek, InfoBarCueSheetSupport):
 	skin = """
@@ -353,6 +366,7 @@ class MovielistPreviewManualCreator(Screen, InfoBarBase, InfoBarSeek, InfoBarCue
 			self.close()
 
 ##############################################################################
+
 
 class MovielistPreviewAutoCreator(Screen):
 	skin = """
@@ -458,6 +472,7 @@ class MovielistPreviewAutoCreator(Screen):
 
 ##############################################################################
 
+
 class MovielistPreviewMenu(Screen):
 	skin = """
 		<screen position="center,center" size="420,105" title="%s">
@@ -502,27 +517,41 @@ class MovielistPreviewMenu(Screen):
 
 ##############################################################################
 
+
 SelectionChanged = MovieList.selectionChanged
+
+
 def selectionChanged(instance):
 	SelectionChanged(instance)
 	curr = instance.getCurrent()
 	if curr and isinstance(curr, eServiceReference):
 		movielistpreview.showPreview(curr.getPath())
+
+
 MovieList.selectionChanged = selectionChanged
 
 Hide = MovieSelection.hide
+
+
 def hideMovieSelection(instance):
 	Hide(instance)
 	movielistpreview.hideDialog()
+
+
 MovieSelection.hide = hideMovieSelection
 
 Show = MovieSelection.show
+
+
 def showMovieSelection(instance):
 	Show(instance)
 	movielistpreview.showDialog()
+
+
 MovieSelection.show = showMovieSelection
 
 ##############################################################################
+
 
 def selectionChanged2(instance):
 	SelectionChanged2(instance)
@@ -530,13 +559,16 @@ def selectionChanged2(instance):
 	if curr and isinstance(curr, eServiceReference):
 		movielistpreview.showPreview(curr.getPath())
 
+
 def hideMovieSelection2(instance):
 	Hide2(instance)
 	movielistpreview.hideDialog()
 
+
 def showMovieSelection2(instance):
 	Show2(instance)
 	movielistpreview.showDialog()
+
 
 try:
 	from Plugins.Extensions.Suomipoeka.MovieList import MovieList as MovieList2
@@ -552,14 +584,17 @@ except ImportError as e:
 
 ##############################################################################
 
+
 def sessionstart(reason, **kwargs):
 	if reason == 0:
 		movielistpreview.gotSession(kwargs["session"])
+
 
 def main(session, service):
 	session.open(MovielistPreviewMenu, service)
 
 ##############################################################################
+
 
 def Plugins(**kwargs):
 	return [

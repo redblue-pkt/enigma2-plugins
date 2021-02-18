@@ -113,6 +113,7 @@ class EmbeddedVolumeControl():
 		else:
 			self["mute"].hide()
 			
+
 class ResizeScrollLabel(ScrollLabel):
 	def __init__(self, text=""):
 		ScrollLabel.__init__(self, text)
@@ -128,6 +129,7 @@ class ResizeScrollLabel(ScrollLabel):
 		self.scrollbar.resize(eSize(20, self.pageHeight + (int)(lineheight / 6)))
 		self.long_text.resize(eSize(s.width() - 30, self.pageHeight * 16))
 		self.setText(self.message)
+
 
 class PiconLoader():
 	def __init__(self):
@@ -166,6 +168,7 @@ class PiconLoader():
 	def piconPathChanged(self, configElement=None):
 		self.nameCache.clear()
 		
+
 def findDefaultPicon(serviceName):
 	searchPaths = (eEnv.resolve('${datadir}/enigma2/%s/'), '/media/cf/%s/', '/media/usb/%s/')
 	
@@ -180,6 +183,8 @@ def findDefaultPicon(serviceName):
 	return resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/MerlinEPGCenter/images/PiconMissing.png")
 	
 # derived from Tools.FuzzyDate
+
+
 def getFuzzyDay(t):
 	d = localtime(t)
 	nt = time()
@@ -200,6 +205,8 @@ def getFuzzyDay(t):
 	return date
 	
 # used to let timer pixmaps blink in our lists
+
+
 class BlinkTimer():
 	def __init__(self, session):
 		self.session = session
@@ -306,6 +313,8 @@ class BlinkTimer():
 		self.listSets[LIST_TYPE_UPCOMING].clear()
 		
 # interface between AutoTimer and our timer list
+
+
 class TimerListObject(object):
 	def __init__(self, begin, end, service_ref, name, justplay, disabled, autoTimerId, match, searchType, counter, counterLeft, destination, services, bouquets, includedDays, excludedDays):
 		self.begin = begin

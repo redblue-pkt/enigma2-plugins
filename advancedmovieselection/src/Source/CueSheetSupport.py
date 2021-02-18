@@ -9,6 +9,7 @@ from shutil import copyfile
 from bisect import insort
 from Globals import printStackTrace
 
+
 def hasLastPosition(service):
     file_name = service.getPath() + '.cuts'
     cuts_file = None

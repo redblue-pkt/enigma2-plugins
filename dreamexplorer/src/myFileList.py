@@ -68,7 +68,6 @@ EXTENSIONS = {
 	}
 
 
-
 def FileEntryComponent(name, absolute=None, isDir=False):
 	res = [(absolute, isDir)]
 	x, y, w, h = skin.parameters.get("DreamexplorerName", (40, 2, 1000, 22))
@@ -86,7 +85,6 @@ def FileEntryComponent(name, absolute=None, isDir=False):
 		x, y, w, h = skin.parameters.get("DreamexplorerIcon", (12, 3, 20, 20))
 		res.append(MultiContentEntryPixmapAlphaTest(pos=(x, y), size=(w, h), png=png, flags=BT_SCALE | BT_KEEP_ASPECT_RATIO))
 	return res
-
 
 
 class FileList(MenuList):

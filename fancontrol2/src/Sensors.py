@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+
 class Sensors:
 	# (type, name, unit, directory)
 	TYPE_TEMPERATURE = 0
@@ -67,5 +69,6 @@ class Sensors:
 					f.close()
 					
 					self.sensors_list.append((self.TYPE_TEMPERATURE, name, unit, "/proc/stb/sensors/%s" % dirname))
+
 
 sensors = Sensors()

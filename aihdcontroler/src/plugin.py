@@ -20,7 +20,6 @@
 #######################################################################
 
 
-
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -35,7 +34,6 @@ from Tools.Directories import fileExists
 from skin import parseColor
 from os import system
 from enigma import eEnv
-
 
 
 config.plugins.vhd = ConfigSubsection()
@@ -60,20 +58,15 @@ config.plugins.vhd.OledStyle = ConfigSelection(default="full", choices=[
 				])
 
 
-
 def main(session, **kwargs):
 	session.open(AIHDsetup)
-
 
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name="Ai.HD Controler", description=_("Configuration tool for All.In HD skins"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main)
 
 
-
 #######################################################################
-
-
 
 
 class AIHDsetup(ConfigListScreen, Screen):

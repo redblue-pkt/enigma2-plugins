@@ -35,6 +35,7 @@ from Components.Pixmap import Pixmap
 from Source.MovieConfig import MovieConfig
 from Source.Globals import SkinTools, printStackTrace
 
+
 class MovieRetitle(Screen, ConfigListScreen):
     def __init__(self, session, service):
         Screen.__init__(self, session)

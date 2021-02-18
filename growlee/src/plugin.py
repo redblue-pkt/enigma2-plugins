@@ -22,6 +22,7 @@ config.plugins.growlee = growlee
 growlee.hostcount = ConfigNumber(default=0)
 growlee.hosts = ConfigSubList()
 
+
 def addHost(name):
 	s = ConfigSubsection()
 	s.name = ConfigText(default=name, fixed_size=False)
@@ -34,6 +35,7 @@ def addHost(name):
 	s.blacklist = ConfigSet(choices=[])
 	config.plugins.growlee.hosts.append(s)
 	return s
+
 
 i = 0
 while i < growlee.hostcount.value:
@@ -79,6 +81,7 @@ if growlee.hostcount.value == 0:
 	del s
 
 del i, growlee
+
 
 class GrowleeConfiguration(Screen, ConfigListScreen):
 	skin = """
@@ -217,8 +220,10 @@ class GrowleeConfiguration(Screen, ConfigListScreen):
 			self.cur.protocol.removeNotifier(self.setupList)
 		Screen.close(self)
 
+
 def configuration(session, **kwargs):
 	session.open(GrowleeConfiguration)
+
 
 def autostart(reason, **kwargs):
 	if reason == 0:
@@ -231,6 +236,7 @@ def autostart(reason, **kwargs):
 		addedList.insert(0, gotNotification)
 
 		growleeConnection.listen()
+
 
 def Plugins(**kwargs):
 	return [

@@ -36,7 +36,6 @@ class ServiceBase(ModuleBase):
 		ServiceBase.UniqueCounter += 1
 		self.uniqueid = ServiceBase.UniqueCounter
 
-
 	################################################
 	# Base class functions
 	@classmethod
@@ -47,9 +46,9 @@ class ServiceBase(ModuleBase):
 	def resetUniqueID():
 		ServiceBase.UniqueCounter = 0
 
-
 	################################################
 	# Functions to be implemented in the plugin
+
 	def push(self, callback, errback, pluginname, subject, body="", attachments=[]):
 		# Will be called, if a plugin wants to send a notification
 		# At the end a service has to call one of the functions: callback or errback

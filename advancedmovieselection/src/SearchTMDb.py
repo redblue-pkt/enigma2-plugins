@@ -33,6 +33,7 @@ if environ['LANGUAGE'] == 'de' or environ['LANGUAGE'] == 'de_DE':
 else:
     nocover = resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/AdvancedMovieSelection/images/nocover_en.png')
 
+
 class InfoChecker:
     INFO = 1
     COVER = 2

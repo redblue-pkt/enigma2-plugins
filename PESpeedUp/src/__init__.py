@@ -8,8 +8,10 @@ import gettext
 PluginLanguageDomain = "PESpeedUp"
 PluginLanguagePath = "Extensions/PESpeedUp/locale"
 
+
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
+
 
 def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
@@ -18,5 +20,6 @@ def _(txt):
 		print("[" + PluginLanguageDomain + "] fallback to default translation for " + txt
 )
 		return gettext.gettext(txt)
+
 
 language.addCallback(localeInit())

@@ -77,6 +77,7 @@ config.plugins.shoutcast.cover_height = ConfigNumber(default=300)
 
 devid = "fa1jo93O_raeF0v9"
 
+
 class SHOUTcastGenre:
 	def __init__(self, name="", id=0, haschilds="false", parentid=0, opened="false"):
 		self.name = name
@@ -84,6 +85,7 @@ class SHOUTcastGenre:
 		self.haschilds = haschilds
 		self.parentid = parentid
 		self.opened = opened
+
 
 class SHOUTcastStation:
 	def __init__(self, name="", mt="", id="", br="", genre="", ct="", lc="", ml="", nsc="", cst=""):
@@ -98,9 +100,11 @@ class SHOUTcastStation:
 		self.nsc = nsc
 		self.cst = cst
 
+
 class Favorite:
 	def __init__(self, configItem=None):
 		self.configItem = configItem
+
 
 class myHTTPClientFactory(HTTPClientFactory):
 	def __init__(self, url, method='GET', postdata=None, headers=None,
@@ -119,6 +123,7 @@ class myHTTPClientFactory(HTTPClientFactory):
 		print("[SHOUTcast] connection failed, reason: %s,trying to reconnect!" % reason)
 		connector.connect()
 
+
 def sendUrlCommand(url, contextFactory=None, timeout=60, *args, **kwargs):
 	parsed = urlparse(url)
 	scheme = parsed.scheme
@@ -131,14 +136,17 @@ def sendUrlCommand(url, contextFactory=None, timeout=60, *args, **kwargs):
 	reactor.connectTCP(host, port, factory, timeout=timeout)
 	return factory.deferred
 
+
 def main(session, **kwargs):
 	session.open(SHOUTcastWidget)
+
 
 def Plugins(**kwargs):
 	list = [PluginDescriptor(name="SHOUTcast", description=_("listen to shoutcast internet-radio"), where=[PluginDescriptor.WHERE_PLUGINMENU], icon="plugin.png", fnc=main)] # always show in plugin menu
 	if config.plugins.shoutcast.showinextensions.value:
 		list.append(PluginDescriptor(name="SHOUTcast", description=_("listen to shoutcast internet-radio"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU], fnc=main))
 	return list
+
 
 class SHOUTcastWidget(Screen):
 
@@ -1051,6 +1059,7 @@ class SHOUTcastWidget(Screen):
 			return None
 		return sel
 
+
 class Cover(Pixmap):
 	visible = 0
 
@@ -1107,6 +1116,7 @@ class Cover(Pixmap):
 			else:
 				print("[Shoutcast] Failed to start decoding image")
 				self.decoding = None
+
 
 class SHOUTcastList(GUIComponent, object):
 	def buildEntry(self, item):
@@ -1204,6 +1214,7 @@ class SHOUTcastList(GUIComponent, object):
 		self.l.setBuildFunc(self.buildEntry)
 		self.l.setItemHeight(self.cenrylist)
 		return GUIComponent.applySkin(self, desktop, parent)
+
 
 class SHOUTcastLCDScreen(Screen):
 	skin = """

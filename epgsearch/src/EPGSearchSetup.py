@@ -28,6 +28,7 @@ from Plugins.Plugin import PluginDescriptor
 
 from collections import defaultdict
 
+
 class EPGSearchSetup(Screen, ConfigListScreen):
 	skin = """<screen name="EPGSearchSetup" position="center,center" size="565,370">
 		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
@@ -114,10 +115,13 @@ class EPGSearchSetup(Screen, ConfigListScreen):
 	def changedEntry(self):
 		for x in self.onChangedEntry:
 			x()
+
 	def getCurrentEntry(self):
 		return self["config"].getCurrent()[0]
+
 	def getCurrentValue(self):
 		return str(self["config"].getCurrent()[1].getText())
+
 	def createSummary(self):
 		from Screens.Setup import SetupSummary
 		return SetupSummary
@@ -156,7 +160,6 @@ class EPGSearchSetup(Screen, ConfigListScreen):
 		else:
 			configList = []
 		return configList
-
 
 	def cancel(self):
 		self.keyCancel()

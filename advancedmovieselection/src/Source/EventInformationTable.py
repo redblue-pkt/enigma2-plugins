@@ -37,6 +37,7 @@ from struct import unpack, pack
 from calendar import timegm
 from MovieDB import tmdb, tvdb, downloadCover
 
+
 def printStackTrace():
     import sys
     import traceback
@@ -363,6 +364,7 @@ def setTmdbCertificationtion(movie, file_name):
 
 INV_CHARS = [(u'e\u0301', 'e'), (u'\u010c', 'C'), (u'\u010d', 'c'), (u'\u0106', 'c'), (u'\u0107', 'c'), (u'\u0110', 'D'), (u'\u0111', 'd'), (u'\u0160', 'S'), (u'\u0161', 's'),
  (u'\u017d', 'Z'), (u'\u017e', 'z'), (u'\u201e', '"'), (u'\u201c', '"'), (u'\u201d', '"'), (u'\u2019', "'"), (u'\u2018', "'"), (u'\xab', '<'), (u'\xbb', '>')]
+
 
 def convertToUnicode(text):
     text = unicode(text)

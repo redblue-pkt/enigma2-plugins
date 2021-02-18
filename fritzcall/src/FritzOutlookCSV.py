@@ -22,6 +22,7 @@ except ValueError:
 		print(text)
 	
 	import re
+
 	def normalizePhoneNumber(intNo):
 		found = re.match('^\+49(.*)', intNo)
 		if found:
@@ -43,8 +44,10 @@ import logging
 logger = logging.getLogger("[FritzCall] OutlookCSV")
 debug = logger.debug
 
+
 def out(number, name):
 	print(number + '#' + name)
+
 
 import csv
 #
@@ -63,6 +66,7 @@ import csv
 # 20: Postleitzahl privat
 # 21: Land/Region privat
 #
+
 
 def findNumber(number, filename):
 	fileD = open(filename)
@@ -150,6 +154,7 @@ def findNumber(number, filename):
 	fileD.close()
 	return ""
 	
+
 def readNumbers(filename, outFun):
 	fileD = open(filename, "rb")
 	if not fileD:
@@ -228,6 +233,7 @@ def readNumbers(filename, outFun):
 		except IndexError:
 			continue
 	fileD.close()
+
 
 if __name__ == '__main__':
 	import os

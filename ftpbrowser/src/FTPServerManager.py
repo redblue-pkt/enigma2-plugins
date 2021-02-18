@@ -27,6 +27,7 @@ try:
 except ImportError as ie:
 	from urllib.parse import urlparse, urlunparse
 
+
 def _parse(url, defaultPort=None):
 	url = url.strip()
 	parsed = urlparse(url)
@@ -61,6 +62,7 @@ def _parse(url, defaultPort=None):
 		path = "/"
 
 	return scheme, host, port, path, username, password
+
 
 class FTPServer:
 	def __init__(self, cfg):
@@ -104,6 +106,7 @@ class FTPServer:
 	def cancel(self):
 		self.cfg.cancel()
 
+
 def ftpserverFromURI(uri, name="", save=True):
 	scheme, host, port, path, username, password = _parse(uri, defaultPort=21)
 	
@@ -128,6 +131,7 @@ def ftpserverFromURI(uri, name="", save=True):
 		config.plugins.ftpbrowser.servercount.save()
 
 	return FTPServer(newServer)
+
 
 class FTPServerEditor(ConfigListScreen, Screen):
 	skin = """
@@ -218,6 +222,7 @@ class FTPServerEditor(ConfigListScreen, Screen):
 		self.saveAll()
 		self.close(True)
 
+
 class FTPServerManagerSummary(Screen):
 	skin = """
 	<screen position="0,0" size="132,64">
@@ -229,6 +234,7 @@ class FTPServerManagerSummary(Screen):
 			<convert type="ClockToText">WithSeconds</convert>
 		</widget>
 	</screen>"""
+
 
 class FTPServerManager(Screen):
 	skin = """

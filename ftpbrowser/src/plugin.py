@@ -35,6 +35,7 @@ from FTPServerManager import ftpserverFromURI
 
 ftpbrowser = None
 
+
 def createSingleton(session):
 	global ftpbrowser
 	if not ftpbrowser:
@@ -42,9 +43,11 @@ def createSingleton(session):
 		return False
 	return True
 
+
 def main(session, **kwargs):
 	createSingleton(session)
 	session.execDialog(ftpbrowser)
+
 
 def filescan_chosen(session, item):
 	if item:
@@ -52,10 +55,12 @@ def filescan_chosen(session, item):
 		ftpbrowser.connect(ftpserverFromURI(item[1], save=False))
 		session.execDialog(ftpbrowser)
 
+
 def filescan_open_connected(res, items, session, **kwargs):
 	if res:
 		ftpbrowser.disconnect()
 		filescan_open(items, session, **kwargs)
+
 
 def filescan_open(items, session, **kwargs):
 	if createSingleton(session) and ftpbrowser.ftpclient:
@@ -84,6 +89,7 @@ def filescan_open(items, session, **kwargs):
 	elif Len:
 		filescan_chosen(items[0])
 
+
 def filescan(**kwargs):
 	from Components.Scanner import Scanner, ScanPath
 
@@ -103,6 +109,7 @@ def filescan(**kwargs):
 			openfnc=filescan_open,
 		),
 	]
+
 
 def Plugins(**kwargs):
 	from Plugins.Plugin import PluginDescriptor

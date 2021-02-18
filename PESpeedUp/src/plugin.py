@@ -17,6 +17,7 @@ from Screens.Console import Console
 
 sz_w = getDesktop(0).size().width()
 
+
 class PESpeedUp(Screen, ConfigListScreen):
     if sz_w == 1280:
 	skin = '''
@@ -370,8 +371,10 @@ class PESpeedUp(Screen, ConfigListScreen):
     def RestartGUI(self, answer):
         self.session.open(TryQuitMainloop, 3)
 
+
 def main(session, **kwargs):
     session.open(PESpeedUp)
+
 
 def Plugins(**kwargs):
     return PluginDescriptor(name=_("PE Speed Up"), description=_("Special version for Open Vision"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)

@@ -26,8 +26,10 @@ import gettext
 PluginLanguageDomain = "ZapStatistic"
 PluginLanguagePath = "Extensions/ZapStatistic/locale/"
 
+
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
+
 
 def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
@@ -36,9 +38,11 @@ def _(txt):
 		print("[" + PluginLanguageDomain + "] fallback to default translation for " + txt)
 		return gettext.gettext(txt)
 
+
 language.addCallback(localeInit())
 
 ###########################################################
+
 
 def decode_charset(str, charset):
 	try:
@@ -49,6 +53,7 @@ def decode_charset(str, charset):
 
 ###########################################################
 
+
 def deformXml(xml):
 	xml = xml.replace("&", "&amp;")
 	xml = xml.replace("'", "&apos;")
@@ -56,6 +61,7 @@ def deformXml(xml):
 	xml = xml.replace(">", "&gt;")
 	xml = xml.replace('"', "&quot;")
 	return xml
+
 
 def reformXml(xml):
 	xml = xml.replace("&amp;", "&")
@@ -66,6 +72,7 @@ def reformXml(xml):
 	return xml
 
 ###########################################################
+
 
 class ZapEntry:
 	def __init__(self, ref, begin=None, end=None):
@@ -82,6 +89,7 @@ class ZapEntry:
 
 ###########################################################
 
+
 class DurationZapEntry:
 	def __init__(self, zapentry):
 		self.ref = zapentry.ref
@@ -92,6 +100,7 @@ class DurationZapEntry:
 		self.begin = "%02d.%02d. %02d:%02d:%02d" % (t[2], t[1], t[3], t[4], t[5])
 
 ###########################################################
+
 
 class CombinedZapEntry:
 	def __init__(self, zapentry):
@@ -106,6 +115,7 @@ class CombinedZapEntry:
 		return strftime("%H:%M:%S", gmtime(self.duration))
 
 ###########################################################
+
 
 class ZapStatistic:
 	def __init__(self):
@@ -154,6 +164,7 @@ class ZapStatistic:
 			self.zapEntries.append(self.currentEntry)
 			self.currentEntry = None
 
+
 zapstatistic = ZapStatistic()
 
 ###########################################################
@@ -163,10 +174,12 @@ global StopService
 PlayService = None
 StopService = None
 
+
 def playService(ref, checkParentalControl=True, forceRestart=False):
 	if PlayService:
 		zapstatistic.handlePlayServiceCommand(ref)
 		PlayService(ref, checkParentalControl, forceRestart)
+
 
 def stopService():
 	if StopService:
@@ -175,11 +188,13 @@ def stopService():
 
 ###########################################################
 
+
 class ZapStatisticBrowserList(MenuList):
 	def __init__(self, list, enableWrapAround=False):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		self.l.setItemHeight(25)
 		self.l.setFont(0, gFont("Regular", 20))
+
 
 def ZapStatisticBrowserListEntry(entry):
 	res = [entry]
@@ -189,11 +204,13 @@ def ZapStatisticBrowserListEntry(entry):
 	res.append(MultiContentEntryText(pos=(250, 0), size=(310, 25), font=0, text=entry.name))
 	return res
 
+
 def ZapStatisticBrowserDurationListEntry(entry):
 	res = [entry]
 	res.append(MultiContentEntryText(pos=(0, 0), size=(240, 25), font=0, text="%s (%s)" % (entry.duration, entry.begin)))
 	res.append(MultiContentEntryText(pos=(250, 0), size=(310, 25), font=0, text=entry.name))
 	return res
+
 
 def ZapStatisticBrowserCombinedListEntry(entry):
 	res = [entry]
@@ -202,6 +219,7 @@ def ZapStatisticBrowserCombinedListEntry(entry):
 	return res
 
 ###########################################################
+
 
 class ZapStatisticDurationScreen(Screen):
 	SORT_NAME_ASCENDING = 0
@@ -303,6 +321,7 @@ class ZapStatisticDurationScreen(Screen):
 		self.buildList()
 
 ###########################################################
+
 
 class ZapStatisticCombinedScreen(Screen):
 	SORT_NAME_ASCENDING = 0
@@ -412,6 +431,7 @@ class ZapStatisticCombinedScreen(Screen):
 		self.buildList()
 
 ###########################################################
+
 
 class ZapStatisticScreen(Screen, ProtectedScreen):
 	SORT_NAME_ASCENDING = 0
@@ -604,8 +624,10 @@ class ZapStatisticScreen(Screen, ProtectedScreen):
 
 ###########################################################
 
+
 def main(session, **kwargs):
 	session.open(ZapStatisticScreen)
+
 
 def sessionstart(reason, **kwargs):
 	if reason == 0:
@@ -618,9 +640,11 @@ def sessionstart(reason, **kwargs):
 		session.nav.playService = playService
 		session.nav.stopService = stopService
 
+
 def autostart(reason, **kwargs):
 	if reason == 1:
 		zapstatistic.saveZapEntries()
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(name=_("Zap Statistic"), description=_("Shows the watched services with some statistic"), where=PluginDescriptor.WHERE_PLUGINMENU, fnc=main),

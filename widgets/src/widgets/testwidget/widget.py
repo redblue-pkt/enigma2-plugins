@@ -14,5 +14,6 @@ class TestWidget(Widget):
     def onLoadFinished(self, instance):
         print("refresh TestWidget")
         
+
 def get_widget(session):
     return TestWidget(session)

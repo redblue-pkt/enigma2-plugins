@@ -31,6 +31,7 @@ import sys
 
 saved_stdout = None
 
+
 class writer: 
     def __init__(self, *writers): 
         self.writers = writers 
@@ -48,6 +49,7 @@ class writer:
                 continue
             w.write(text) 
  
+
 class Debug():
     @staticmethod
     def enable(file_name):

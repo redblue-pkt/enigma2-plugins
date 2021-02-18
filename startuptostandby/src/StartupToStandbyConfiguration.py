@@ -14,6 +14,7 @@ from Components.Sources.StaticText import StaticText
 # Configuration
 from Components.config import config, getConfigListEntry
 
+
 class StartupToStandbyConfiguration(Screen, ConfigListScreen):
 	"""Configuration of Startup To Standby"""
 

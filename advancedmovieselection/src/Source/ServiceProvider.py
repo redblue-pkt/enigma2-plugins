@@ -13,6 +13,7 @@ from ServiceDescriptor import DirectoryEvent
 from Globals import printStackTrace
 instance = None
 
+
 class ServiceTypes:
     idInvalid = eServiceReference.idInvalid
     idStructure = eServiceReference.idStructure

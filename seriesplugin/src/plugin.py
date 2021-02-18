@@ -95,6 +95,8 @@ def test(session=None):
 	
 #######################################################
 # Start
+
+
 def start(reason, **kwargs):
 	if config.plugins.seriesplugin.enabled.value:
 		# Startup
@@ -167,6 +169,8 @@ def checkTimers(session, *args, **kwargs):
 		runIndependent()
 
 # Call from timer list - not used yet
+
+
 def showTimerInfo(session, timer, *args, **kwargs):
 	if config.plugins.seriesplugin.enabled.value:
 		from enigma import eEPGCache
@@ -215,6 +219,7 @@ def getSeasonEpisode4(service_ref, name, begin, end, description, path, *args, *
 			log.exception("SeriesPlugin getSeasonEpisode4 exception " + str(e))
 			return str(e)
 
+
 def showResult(*args, **kwargs):
 	if config.plugins.seriesplugin.enabled.value:
 		from SeriesPluginBare import bareShowResult
@@ -230,6 +235,7 @@ def renameTimer(timer, *args, **kwargs):
 			spt.getEpisode(timer)
 		except Exception as e:
 			log.exception(_("SeriesPlugin label exception ") + str(e))
+
 
 def renameTimers(timers, *args, **kwargs):
 	if config.plugins.seriesplugin.enabled.value:
@@ -264,6 +270,8 @@ def labelTimer(timer, *args, **kwargs):
 			log.exception(_("SeriesPlugin label exception ") + str(e))
 
 # For compatibility reasons
+
+
 def getSeasonAndEpisode(timer, *args, **kwargs):
 	result = None
 	if config.plugins.seriesplugin.enabled.value:
@@ -276,6 +284,8 @@ def getSeasonAndEpisode(timer, *args, **kwargs):
 	return result
 
 # For compatibility reasons
+
+
 def getSeasonEpisode(service_ref, name, begin, end, description, path, *args, **kwargs):
 	if config.plugins.seriesplugin.enabled.value:
 		log.debug("SeriesPlugin getSeasonEpisode is deprecated - Update Your AutoTimer!")
@@ -369,6 +379,8 @@ def Plugins(**kwargs):
 
 #######################################################
 # Add / Remove menu functions
+
+
 def addSeriesPlugin(menu, title, fnc=None):
 	# Add to menu
 	if(menu == WHERE_EPGMENU):

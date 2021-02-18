@@ -25,6 +25,7 @@ from os import unlink
 
 ###############################################################################
 
+
 class PictureView(Screen):
 	skin = """
 		<screen position="center,center" size="720,576" flags="wfNoBorder" title="UWZ" >
@@ -66,6 +67,7 @@ class PictureView(Screen):
 
 	def exit(self):
 		self.close()
+
 
 class HelpPictureView(Screen):
 	skin = """
@@ -128,6 +130,7 @@ class HelpPictureView(Screen):
 
 	def exit(self):
 		self.close()
+
 
 class UnwetterMain(Screen):
 	skin = """
@@ -420,8 +423,10 @@ class UnwetterMain(Screen):
 
 #############################
 
+
 def main(session, **kwargs):
 	session.open(UnwetterMain)
+
 
 def Plugins(path, **kwargs):
 	global pluginpath

@@ -38,6 +38,7 @@ ENOUGH_DATA_THRESHOLD = 1024
 SURE_YES = 0.99
 SURE_NO = 0.01
 
+
 class CharDistributionAnalysis:
     def __init__(self):
         self._mCharToFreqOrder = None # Mapping table to get frequency order from char order (get from GetOrder())
@@ -90,6 +91,7 @@ class CharDistributionAnalysis:
         # This allows multiple encodings of a language to share one frequency table.
         return -1
     
+
 class EUCTWDistributionAnalysis(CharDistributionAnalysis):
     def __init__(self):
         CharDistributionAnalysis.__init__(self)
@@ -106,6 +108,7 @@ class EUCTWDistributionAnalysis(CharDistributionAnalysis):
             return 94 * (ord(aStr[0]) - 0xC4) + ord(aStr[1]) - 0xA1
         else:
             return -1
+
 
 class EUCKRDistributionAnalysis(CharDistributionAnalysis):
     def __init__(self):
@@ -124,6 +127,7 @@ class EUCKRDistributionAnalysis(CharDistributionAnalysis):
         else:
             return -1
 
+
 class GB2312DistributionAnalysis(CharDistributionAnalysis):
     def __init__(self):
         CharDistributionAnalysis.__init__(self)
@@ -140,6 +144,7 @@ class GB2312DistributionAnalysis(CharDistributionAnalysis):
             return 94 * (ord(aStr[0]) - 0xB0) + ord(aStr[1]) - 0xA1
         else:
             return -1
+
 
 class Big5DistributionAnalysis(CharDistributionAnalysis):
     def __init__(self):
@@ -160,6 +165,7 @@ class Big5DistributionAnalysis(CharDistributionAnalysis):
                 return 157 * (ord(aStr[0]) - 0xA4) + ord(aStr[1]) - 0x40
         else:
             return -1
+
 
 class SJISDistributionAnalysis(CharDistributionAnalysis):
     def __init__(self):
@@ -183,6 +189,7 @@ class SJISDistributionAnalysis(CharDistributionAnalysis):
         if aStr[1] > '\x7F':
             order = - 1
         return order
+
 
 class EUCJPDistributionAnalysis(CharDistributionAnalysis):
     def __init__(self):

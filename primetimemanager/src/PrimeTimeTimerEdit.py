@@ -21,6 +21,7 @@ from time import time
 from timer import TimerEntry as RealTimerEntry
 from plugin import baseTimerEditList__init__
 
+
 def PMTimerEditList__init__(self, session):
 	baseTimerEditList__init__(self, session)
 	if config.plugins.PrimeTimeManager.TimerEditKeyMenu.value:
@@ -28,6 +29,7 @@ def PMTimerEditList__init__(self, session):
 			{
 				"menu": self.openExtendedSetup
 			}, -2)
+
 
 def openExtendedSetup(self):
 	cur = self["timerlist"].getCurrent()
@@ -51,6 +53,7 @@ def openExtendedSetup(self):
 					if simulTimerList != currentSimulTimerList:
 						menu.append((_("Any timers"), "any"))
 						break
+
 		def conflictAction(choice):
 			if choice is not None:
 				if choice[1] == "current":
@@ -60,9 +63,11 @@ def openExtendedSetup(self):
 		if menu:
 			self.session.openWithCallback(conflictAction, ChoiceBox, title=_("Checking with conflict detection enabled for"), list=menu)
 
+
 def updateList(self, answer=None):
 	self.fillTimerList()
 	self.updateState()
+
 
 class PrimeTimeTimerSanityConflict(Screen):
 	def __init__(self, session, timer, simulate=False):
@@ -193,6 +198,7 @@ class PrimeTimeTimerSanityConflict(Screen):
 		menu = []
 		if not config.usage.show_timer_conflict_warning.value:
 			menu.append((_("Show warning before set 'Ignore conflict'"), "blue_key_warning"))
+
 		def showAction(choice):
 			if choice is not None:
 				if choice[1] == "blue_key_warning":

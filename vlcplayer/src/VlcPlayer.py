@@ -25,10 +25,12 @@ from Components.config import config
 from Screens.ChoiceBox import ChoiceBox
 from os import system
 
+
 def isValidServiceId(id):
 	testSRef = eServiceReference(id, 0, "Just a TestReference")
 	info = eServiceCenter.getInstance().info(testSRef)
 	return info is not None
+
 
 ENIGMA_SERVICEGS_ID = eServiceReference.idServiceMP3
 ENIGMA_SERVICETS_ID = 0x1002
@@ -173,6 +175,7 @@ class VlcService(Source, iPlayableServicePtr, iSeekableService):
 	# iPlayableService
 	def cueSheet(self): return None
 	def pause(self): return self.player
+
 	def audioTracks(self):
 		return self.player.audioTracks()
 
@@ -186,8 +189,10 @@ class VlcService(Source, iPlayableServicePtr, iSeekableService):
 	def audioDelay(self): return None
 	def rdsDecoder(self): return None
 	def stream(self): return None
+
 	def start(self):
 		self.player.play()
+
 	def stop(self):
 		self.player.stop()
 
@@ -323,7 +328,6 @@ class VlcPlayer(Screen, InfoBarNotifications, InfoBarAudioSelection, InfoBarSubt
 			self.seek_time = 1800
 		else:
 			pass
-
 
 	def openVCS(self):
 		try:

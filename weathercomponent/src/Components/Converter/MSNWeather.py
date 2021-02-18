@@ -24,6 +24,7 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 
+
 class MSNWeather(Converter, object):
 
 	CURRENT = -1
@@ -95,7 +96,6 @@ class MSNWeather(Converter, object):
 					self.path = dd[2]
 					self.extension = dd[3]
 					
-
 	def getIndex(self, key):
 		if key == "current":
 			return self.CURRENT
