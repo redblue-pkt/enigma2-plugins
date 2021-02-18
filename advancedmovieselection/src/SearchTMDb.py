@@ -391,19 +391,19 @@ class TMDbMain(Screen, HelpableScreen, InfoLoadChoice):
                 self.ratingstars = int(10 * round(float(rating.replace(',', '.')), 1))
                 if self.ratingstars > 0:
                     self['stars'].setValue(self.ratingstars)
-                genres = [ x.name.encode('utf-8', 'ignore') for x in movie.genres ]
+                genres = [x.name.encode('utf-8', 'ignore') for x in movie.genres]
                 if len(genres) > 0:
                     extended += _('Genre: %s\n') % (', ').join(genres)
-                studios = [ x.name.encode('utf-8', 'ignore') for x in movie.studios ]
+                studios = [x.name.encode('utf-8', 'ignore') for x in movie.studios]
                 if len(studios) > 0:
                     extended += _('Studio: %s') % (', ').join(studios) + ' / '
-                crew = [ x.name.encode('utf-8', 'ignore') for x in movie.crew if x.job == 'Director' ]
+                crew = [x.name.encode('utf-8', 'ignore') for x in movie.crew if x.job == 'Director']
                 if len(crew) > 0:
                     extended += _('Director: %s') % (', ').join(crew) + ' / '
-                crew = [ x.name.encode('utf-8', 'ignore') for x in movie.crew if x.job == 'Producer' ]
+                crew = [x.name.encode('utf-8', 'ignore') for x in movie.crew if x.job == 'Producer']
                 if len(crew) > 0:
                     extended += _('Production: %s\n') % (', ').join(crew)
-                cast = [ x.name.encode('utf-8', 'ignore') for x in movie.cast ]
+                cast = [x.name.encode('utf-8', 'ignore') for x in movie.cast]
                 if len(cast) > 0:
                     extended += _('Actors: %s\n') % (', ').join(cast)
                 if movie.votes != 0:

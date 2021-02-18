@@ -134,7 +134,7 @@ class MovieList(GUIComponent):
         
         self.redrawList()
         self.l.setBuildFunc(self.buildMovieListEntry)
-        self.onSelectionChanged = [ ]
+        self.onSelectionChanged = []
         #self.onFirstStart()
         
     def onFirstStart(self):
@@ -365,7 +365,7 @@ class MovieList(GUIComponent):
         try:
             width = self.l.getItemSize().width()
             offset = 0
-            res = [ None ]
+            res = [None]
             service_name, serviceref, info, begin, _len = movie_info.name, movie_info.serviceref, movie_info.info, movie_info.begin, movie_info.length
             if serviceref.flags & eServiceReference.mustDescent:
                 can_show_folder_image = True
@@ -731,7 +731,7 @@ class MovieList(GUIComponent):
             return res
         except:
             printStackTrace()
-            return [ None ]
+            return [None]
 
     def getNextMarkerPos(self):
         idx = self.getCurrentIndex() + 1
@@ -817,7 +817,7 @@ class MovieList(GUIComponent):
 
     def loadMovieLibrary(self, root, filter_tags):
         print("loadMovieLibrary:", root.getPath())
-        self.list = [ ]
+        self.list = []
         self.multiSelection = []
 
         self.serviceHandler = ServiceCenter.getInstance()
@@ -847,7 +847,7 @@ class MovieList(GUIComponent):
             root.type = eServiceReference.idFile
 
         # this lists our root service, then building a nice list
-        self.list = [ ]
+        self.list = []
         self.multiSelection = []
 
         self.serviceHandler = ServiceCenter.getInstance()

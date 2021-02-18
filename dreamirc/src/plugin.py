@@ -275,5 +275,5 @@ def Plugins(**kwargs):
                 name="dreamIRC",
                 description="IRC client for enigma2",
                 icon="plugin.png",
-                where=[ PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU ],
+                where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU],
                 fnc=main)

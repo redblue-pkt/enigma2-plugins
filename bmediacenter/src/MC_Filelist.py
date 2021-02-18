@@ -48,7 +48,7 @@ EXTENSIONS = {
 		"img": "img"
 	}
 def FileEntryComponent(name, absolute=None, isDir=False, directory="/", size=0, timestamp=0):
-	res = [ (absolute, isDir, name) ]
+	res = [(absolute, isDir, name)]
 	if name == "..":
 		res.append((eListboxPythonMultiContent.TYPE_TEXT, 35, 1, 1000, 20, 0, RT_HALIGN_LEFT, name))
 	else:
@@ -149,11 +149,11 @@ class FileList(MenuList):
 				path = os_path.join(p.mountpoint, "")
 				if path not in self.inhibitMounts and not self.inParentDirs(path, self.inhibitDirs):
 					self.list.append(FileEntryComponent(name=p.description, absolute=path, isDir=True, directory=directory))
-			files = [ ]
-			directories = [ ]
+			files = []
+			directories = []
 		elif directory is None:
-			files = [ ]
-			directories = [ ]
+			files = []
+			directories = []
 		elif self.useServiceRef:
 			root = eServiceReference(2, 0, directory)
 			if self.additional_extensions:
@@ -335,7 +335,7 @@ class FileList(MenuList):
 		if self.current_directory is None:
 			self.refresh()
 def MultiFileSelectEntryComponent(name, absolute=None, isDir=False, selected=False):
-	res = [ (absolute, isDir, selected, name) ]
+	res = [(absolute, isDir, selected, name)]
 	res.append((eListboxPythonMultiContent.TYPE_TEXT, 55, 1, 470, 20, 0, RT_HALIGN_LEFT, name))
 	if isDir:
 		png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "extensions/directory.png"))
@@ -365,7 +365,7 @@ class MultiFileSelectList(FileList):
 		self.changeDir(directory)			
 		self.l.setItemHeight(25)
 		self.l.setFont(0, gFont("Regular", 20))
-		self.onSelectionChanged = [ ]
+		self.onSelectionChanged = []
 	def selectionChanged(self):
 		for f in self.onSelectionChanged:
 			f()
@@ -395,7 +395,7 @@ class MultiFileSelectList(FileList):
 								alreadyinList = True
 						if not alreadyinList:
 							self.selectedFiles.append(realPathname)
-					newList.append(MultiFileSelectEntryComponent(name=x[0][3], absolute=x[0][0], isDir=x[0][1], selected=SelectState ))
+					newList.append(MultiFileSelectEntryComponent(name=x[0][3], absolute=x[0][0], isDir=x[0][1], selected=SelectState))
 			else:
 				newList.append(x)
 			count += 1
@@ -419,11 +419,11 @@ class MultiFileSelectList(FileList):
 				path = os_path.join(p.mountpoint, "")
 				if path not in self.inhibitMounts and not self.inParentDirs(path, self.inhibitDirs):
 					self.list.append(MultiFileSelectEntryComponent(name=p.description, absolute=path, isDir=True))
-			files = [ ]
-			directories = [ ]
+			files = []
+			directories = []
 		elif directory is None:
-			files = [ ]
-			directories = [ ]
+			files = []
+			directories = []
 		elif self.useServiceRef:
 			root = eServiceReference("2:0:1:0:0:0:0:0:0:0:" + directory)
 			if self.additional_extensions:

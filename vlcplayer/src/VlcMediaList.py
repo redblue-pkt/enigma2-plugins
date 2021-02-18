@@ -125,7 +125,7 @@ class VlcMediaListScreen(Screen):
 		except Exception as e:
 			self.session.open(
 				MessageBox, _("Error updating filelist from server %(server)s:\n%(error)s") % (
-						{"server" : self.server.getName(), "error" : e}
+						{"server": self.server.getName(), "error": e}
 					), MessageBox.TYPE_ERROR)
 
 	def keyDvd(self):
@@ -162,7 +162,7 @@ class VlcMediaListScreen(Screen):
 				except Exception as e:
 					self.session.open(
 						MessageBox, _("Error loading playlist %(media)s into server %(server)s:\n%(error)s") % (
-								{"media" : media, "server" : self.server.getName(), "error" : e}
+								{"media": media, "server": self.server.getName(), "error": e}
 							), MessageBox.TYPE_ERROR)
 			elif media.lower().endswith(".iso"):
 				self.play("dvdsimple://" + media, "DVD")
@@ -178,13 +178,13 @@ class VlcMediaListScreen(Screen):
 		except ExpatError as e:
 			self.session.open(
 				MessageBox, _("Error loading playlist into server %(server)s:\n%(error)s") % (
-						{"server" : self.server.getName(), "error" : e }
+						{"server": self.server.getName(), "error": e}
 					), MessageBox.TYPE_ERROR)
 			raise ExpatError(e)
 		except Exception as e:
 			self.session.open(
 				MessageBox, _("Error loading filelist into server %(server)s:\n%(error)s") % (
-						{"server" : self.server.getName(), "error" : e }
+						{"server": self.server.getName(), "error": e}
 					), MessageBox.TYPE_ERROR)
 		return None
 
@@ -194,12 +194,12 @@ class VlcMediaListScreen(Screen):
 		except ExpatError as e:
 			self.session.open(
 				MessageBox, _("Error loading playlist into server %(server)s:\n%(error)s") % (
-						{"server" : self.server.getName(), "error" : e }
+						{"server": self.server.getName(), "error": e}
 					), MessageBox.TYPE_ERROR)
 		except Exception as e:
 			self.session.open(
 				MessageBox, _("Error loading playlist into server %(server)s:\n%(error)s") % (
-						{"server" : self.server.getName(), "error" : e }
+						{"server": self.server.getName(), "error": e}
 					), MessageBox.TYPE_ERROR)
 		return None
 

@@ -88,7 +88,7 @@ class AdvHdmiCecSetup(Screen, ConfigListScreen):
 	def getConfig(self):
 		from Plugins.SystemPlugins.AdvHdmi.plugin import g_AdvHdmi_webif_available
 		
-		self.list = [ getConfigListEntry(_("partially disable HdmiCec"), config.plugins.AdvHdmiCec.enable, _("Partially disable HDMI-Cec?\nIt can be prevented only the signals that are sent from the Dreambox. Signals received by the Dreambox will not be prevented.")) ]
+		self.list = [getConfigListEntry(_("partially disable HdmiCec"), config.plugins.AdvHdmiCec.enable, _("Partially disable HDMI-Cec?\nIt can be prevented only the signals that are sent from the Dreambox. Signals received by the Dreambox will not be prevented."))]
 		if config.plugins.AdvHdmiCec.enable.value:
 			self.list.append(getConfigListEntry(_("disable at GUI-start"), config.plugins.AdvHdmiCec.disable_after_enigmastart, _("Should HDMI-Cec be disabled when GUI service startup?")))
 			if g_AdvHdmi_webif_available:
@@ -293,9 +293,9 @@ class TimeSpanConfigScreen(Screen, ConfigListScreen):
 
 		self["actions"] = ActionMap(["SetupActions", "ColorActions", "MenuActions"],
 		{
-			"red"   : self.keyCancel,
-			"ok"    : self.keySave,
-			"green" : self.keySave,
+			"red": self.keyCancel,
+			"ok": self.keySave,
+			"green": self.keySave,
 			"cancel": self.keyCancel
 		}, -2)
 
@@ -378,14 +378,14 @@ def Plugins(**kwargs):
 			fnc=autostart)
 	]
 	if config.plugins.AdvHdmiCec.show_in.value == "system":
-		list.append (PluginDescriptor(
+		list.append(PluginDescriptor(
 			name="Advanced HDMI-Cec Control", 
 			description=_("manage when HDMI Cec is enabled"), 
 			where=PluginDescriptor.WHERE_MENU, 
 			fnc=showinSetup)
 		)
 	if config.plugins.AdvHdmiCec.show_in.value == "plugin":
-		list.append (PluginDescriptor(
+		list.append(PluginDescriptor(
 			name="Advanced HDMI-Cec Control",
 			description=_("manage when HDMI Cec is enabled"),
 			where=PluginDescriptor.WHERE_PLUGINMENU,
@@ -393,7 +393,7 @@ def Plugins(**kwargs):
 			needsRestart=False)
 		)
 	if config.plugins.AdvHdmiCec.show_in.value == "extension":
-		list.append (PluginDescriptor(
+		list.append(PluginDescriptor(
 				name="Advanced HDMI-Cec Control",
 				description=_("manage when HDMI Cec is enabled"),
 				where=PluginDescriptor.WHERE_EXTENSIONSMENU,

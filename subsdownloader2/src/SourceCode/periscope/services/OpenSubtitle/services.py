@@ -268,12 +268,12 @@ class OpenSubtitle(SubtitleDatabase.SubtitleDB):
                 result["link"] = r['SubDownloadLink']
                 result["page"] = r['SubDownloadLink']
                 result["lang"] = self.getLG(r['SubLanguageID'])
-                if "query" in search : #We are using the guessed file name, let's remove some results
+                if "query" in search: #We are using the guessed file name, let's remove some results
                     if r["MovieReleaseName"].startswith(self.filename):
                         sublinks.append(result)
                     else:
                         logging.debug("Removing %s because release '%s' has not right start %s" %(result["release"], r["MovieReleaseName"], self.filename))
-                else :
+                else:
                     sublinks.append(result)
         return sublinks
 
@@ -284,7 +284,7 @@ class OpenSubtitle(SubtitleDatabase.SubtitleDB):
         ymatch = y['MovieReleaseName'] and (y['MovieReleaseName'].find(self.filename)>-1 or self.filename.find(y['MovieReleaseName'])>-1)
         #print("analyzing %s and %s = %s and %s" %(x['MovieReleaseName'], y['MovieReleaseName'], xmatch, ymatch))
         if xmatch and ymatch:
-            if x['MovieReleaseName'] == self.filename or x['MovieReleaseName'].startswith(self.filename) :
+            if x['MovieReleaseName'] == self.filename or x['MovieReleaseName'].startswith(self.filename):
                 return -1
             return 0
         if not xmatch and not ymatch:

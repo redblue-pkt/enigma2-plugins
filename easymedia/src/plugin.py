@@ -97,7 +97,7 @@ def notEasy(session, **kwargs):
 	session.openWithCallback(MPcallbackFunc, EasyMedia)
 
 def MPanelEntryComponent(key, text, cell):
-	res = [ text ]
+	res = [text]
 	res.append((eListboxPythonMultiContent.TYPE_TEXT, 150, 17, 300, 60, 0, RT_HALIGN_LEFT, text[0]))
 	if cell<5:
 		bpng = LoadPixmap(resolveFilename(SCOPE_PLUGINS, 'Extensions/EasyMedia/key-' + str(cell) + ".png"))

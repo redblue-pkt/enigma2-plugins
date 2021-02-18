@@ -15,5 +15,5 @@ class HelpableNumberActionMap(HelpableActionMap):
         else:
             return HelpableActionMap.action(self, contexts, action)
 
-    def __init__(self, parent, context, actions={ }, prio=0):
+    def __init__(self, parent, context, actions={}, prio=0):
         HelpableActionMap.__init__(self, parent, context, actions, prio)

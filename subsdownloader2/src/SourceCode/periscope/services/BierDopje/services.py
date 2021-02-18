@@ -61,7 +61,7 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
         if not os.path.exists(self.cache_path):
             log.info("Creating cache file %s" % self.cache_path)
             f = open(self.cache_path, 'w')
-            pickle.dump({'showids' : {}}, f)
+            pickle.dump({'showids': {}}, f)
             f.close()
         f = open(self.cache_path, 'r')
         self.cache = pickle.load(f)
@@ -94,7 +94,7 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
             
             if not subs and fname.rfind(".[") > 0:
                 # Try to remove the [VTV] or [EZTV] at the end of the file
-                teamless_filename = fname[0 : fname.rfind(".[")]
+                teamless_filename = fname[0: fname.rfind(".[")]
                 subs = self.query(teamless_filename, langs)
                 return subs
             else:
@@ -115,14 +115,14 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
     def query(self, token, langs=None):
         ''' makes a query and returns info (link, lang) about found subtitles'''
         guessedData = self.guessFileData(token)
-        if "tvshow" != guessedData['type'] :
+        if "tvshow" != guessedData['type']:
             return []
         elif langs and not set(langs).intersection((['en', 'nl'])): # lang is given but does not include nl or en
             return []
             
-        if not langs :
+        if not langs:
             availableLangs = ['nl', 'en']
-        else :
+        else:
             availableLangs = list(set(langs).intersection((['en', 'nl'])))
         log.debug("possible langs : %s " % availableLangs)
 
@@ -134,12 +134,12 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
             show_id = exceptions.get(showName)
         elif showName in self.cache['showids']:
             show_id = self.cache['showids'].get(showName)
-        else :
+        else:
             getShowId_url = "%sGetShowByName/%s" %(self.api, urllib.quote(showName))
             log.debug("Looking for show Id @ %s" % getShowId_url)
             page = urllib2.urlopen(getShowId_url)
             dom = minidom.parse(page)
-            if not dom or len(dom.getElementsByTagName('showid')) == 0 :
+            if not dom or len(dom.getElementsByTagName('showid')) == 0:
                 page.close()
                 return []
             show_id = dom.getElementsByTagName('showid')[0].firstChild.data
@@ -150,7 +150,7 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
             page.close()
         
         # Query the episode to get the subs
-        for lang in availableLangs :
+        for lang in availableLangs:
             getAllSubs_url = "%sGetAllSubsFor/%s/%s/%s/%s" %(self.api, show_id, guessedData['season'], guessedData['episode'], lang)
             log.debug("Looking for subs @ %s" %getAllSubs_url)
             page = urllib2.urlopen(getAllSubs_url)

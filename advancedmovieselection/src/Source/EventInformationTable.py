@@ -464,8 +464,8 @@ def createEIT(file_name, title, overwrite_jpg=False, overwrite_eit=False, movie=
         if not overview or len(overview) == 0:
             print('tmdb search results no valid movie overview')
             return False
-        directors = [ x.name for x in movie.crew if x.job == 'Director' ]
-        actors = [ x.name for x in movie.cast ]
+        directors = [x.name for x in movie.crew if x.job == 'Director']
+        actors = [x.name for x in movie.cast]
         try:
             released = movie.releasedate
             print('Released:')
@@ -481,7 +481,7 @@ def createEIT(file_name, title, overwrite_jpg=False, overwrite_eit=False, movie=
                 try:
                     try:
                         print(movie.countries)
-                        countries = [ c.code for c in movie.countries ]
+                        countries = [c.code for c in movie.countries]
                         country = (', ').join(countries) + ' '
                         country = country.replace('US', 'USA').replace('DE', 'GER')
                     except:
@@ -494,7 +494,7 @@ def createEIT(file_name, title, overwrite_jpg=False, overwrite_eit=False, movie=
 
             else:
                 try:
-                    countries = [ c.code for c in movie.countries ]
+                    countries = [c.code for c in movie.countries]
                     country = (', ').join(countries) + ' '
                     country = country.replace('US', 'USA').replace('DE', 'GER')
                     ex_info.append(country)

@@ -4,7 +4,7 @@ from threading import Lock
 
 class ThreadQueue:
 	def __init__(self):
-		self.__list = [ ]
+		self.__list = []
 		self.__lock = Lock()
 
 	def push(self, val):

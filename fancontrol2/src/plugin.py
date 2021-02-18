@@ -907,11 +907,11 @@ def HDDsSleeping():
 def FC2systemStatus():
 	S = int(FC2werte[5])
 	R = " -" if S>0 else " "
-	if (S & 1)>0 :
+	if (S & 1)>0:
 		R += " BoxOn"
-	if (S & 2)>0 :
+	if (S & 2)>0:
 		R += " HDDon"
-	if (S & 4)>0 :
+	if (S & 4)>0:
 		R += " REC"
 	return R
 
@@ -1242,8 +1242,8 @@ class FanControl2(Screen):
 
 		except Exception:
 			from traceback import format_exc
-			FClog("Control Error:\n" + format_exc() )
-		FClogE("Runtime: %.3f" % (time.time() - tt) )
+			FClog("Control Error:\n" + format_exc())
+		FClogE("Runtime: %.3f" % (time.time() - tt))
 
 def autostart(reason, **kwargs):
 	global session
@@ -1258,7 +1258,7 @@ def autostart(reason, **kwargs):
 			root.putChild("log", FC2webLog())
 			root.putChild("chart", FC2webChart())
 			try:
-				addExternalChild( ("fancontrol", root, "Fan Control 2", Version) )
+				addExternalChild(("fancontrol", root, "Fan Control 2", Version))
 				FClog("use new OpenWebIF")
 			except:
 				pass

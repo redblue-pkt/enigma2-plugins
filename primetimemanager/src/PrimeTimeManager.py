@@ -320,7 +320,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 		self.bouquet_root = eServiceReference(self.bouquet_rootstr)
 
 		# a dict of serviceRefs as key and the bouquet name as value
-		self.serviceBouquet = { }
+		self.serviceBouquet = {}
 
 		# get a list of all bouquets
 		self.bouquets = self.getBouquetList()
@@ -1342,9 +1342,9 @@ class PrimeTimeManager(Screen, HelpableScreen):
 		i = 1
 		while i < 4:
 			if (listType is PRIMETIME) or (listType is PT_AND_FAV):
-				self["ptList" + str(i)].setList([ (x,) for x in self.primeTimeEvents[self.currentBouquet].services], self.conflictCounts[self.dayOffset], self.serviceBouquet, self.timerServices[self.dayOffset], self.overlappingTimers[self.dayOffset], self.viewLiveServices[self.dayOffset], self.conflictSat[self.dayOffset], self.notrecordingTimers[self.dayOffset])
+				self["ptList" + str(i)].setList([(x,) for x in self.primeTimeEvents[self.currentBouquet].services], self.conflictCounts[self.dayOffset], self.serviceBouquet, self.timerServices[self.dayOffset], self.overlappingTimers[self.dayOffset], self.viewLiveServices[self.dayOffset], self.conflictSat[self.dayOffset], self.notrecordingTimers[self.dayOffset])
 			if (listType is FAVORITE) or (listType is PT_AND_FAV):
-				self["favList" + str(i)].setList([ (x,) for x in self.favoriteEvents[self.dayOffset].services], self.conflictCounts[self.dayOffset], self.serviceBouquet, self.timerServices[self.dayOffset], self.overlappingTimers[self.dayOffset], self.viewLiveServices[self.dayOffset], self.conflictSat[self.dayOffset], self.notrecordingTimers[self.dayOffset])
+				self["favList" + str(i)].setList([(x,) for x in self.favoriteEvents[self.dayOffset].services], self.conflictCounts[self.dayOffset], self.serviceBouquet, self.timerServices[self.dayOffset], self.overlappingTimers[self.dayOffset], self.viewLiveServices[self.dayOffset], self.conflictSat[self.dayOffset], self.notrecordingTimers[self.dayOffset])
 			i += 1
 
 	# update the list indices
@@ -2164,7 +2164,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 
 			# TODO wird das auch nicht mehrmals ausgefuehrt?
 			for service in services:
-				self.serviceBouquet.update({service[SERVICEREF] : bouquet[0]})
+				self.serviceBouquet.update({service[SERVICEREF]: bouquet[0]})
 
 			# TODO was war noch gleich der sinn hiervon?
 			if len(self.primeTimeEvents) != len(self.bouquets):
@@ -2273,7 +2273,7 @@ class PreviewList(MenuList):
 			offsetY = 0
 			conflictColor = None
 
-		res = [ None ]
+		res = [None]
 
 		if eventId is None:
 			title = _("No EPG data")
@@ -2391,7 +2391,7 @@ class NoScrollBarLabel(ScrollLabel):
 		ret = False
 		if self.skinAttributes is not None:
 			skin.applyAllAttributes(self.long_text, desktop, self.skinAttributes, parent.scale)
-			widget_attribs = [ ]
+			widget_attribs = []
 			for (attrib, value) in self.skinAttributes:
 				if attrib.find("transparent") != -1 or attrib.find("backgroundColor") != -1:
 					widget_attribs.append((attrib, value))
@@ -2399,7 +2399,7 @@ class NoScrollBarLabel(ScrollLabel):
 			ret = True
 		s = self.long_text.size()
 		self.instance.move(self.long_text.position())
-		lineheight=fontRenderClass.getInstance().getLineHeight( self.long_text.getFont() )
+		lineheight=fontRenderClass.getInstance().getLineHeight(self.long_text.getFont())
 		if not lineheight:
 			lineheight = 30 # assume a random lineheight if nothing is visible
 		lines = (int)(s.height() / lineheight)

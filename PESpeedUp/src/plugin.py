@@ -18,7 +18,7 @@ from Screens.Console import Console
 sz_w = getDesktop(0).size().width()
 
 class PESpeedUp(Screen, ConfigListScreen):
-    if sz_w == 1280 :
+    if sz_w == 1280:
 	skin = '''
 		<screen position="center,center" size="902,570" title="PE Speed Up" backgroundColor="#16000000" flags="wfNoBorder">
 			<widget name="lab1" position="10,10" size="882,60" font="Regular;20" valign="top" transparent="1" backgroundColor="#16000000"/>

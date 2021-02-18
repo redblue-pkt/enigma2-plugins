@@ -85,7 +85,7 @@ class SerienServer(IdentifierBase2):
 		for webChannel in webChannels:
 			log.debug("SerienServer getSeasonEpisode(): [\"%s\",\"%s\",\"%s\",%s]" % (name, webChannel, unixtime, max_time_drift))
 			
-			result = self.server.getSeasonEpisode( name, webChannel, unixtime, self.max_time_drift )
+			result = self.server.getSeasonEpisode(name, webChannel, unixtime, self.max_time_drift)
 			
 			if result and isinstance(result, dict):
 				result['service'] = service
@@ -97,4 +97,4 @@ class SerienServer(IdentifierBase2):
 			return result
 
 		else:
-			return ( _("No match found") )
+			return (_("No match found"))

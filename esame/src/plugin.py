@@ -137,7 +137,7 @@ class eSame(Screen):
 		if self.maxentry < self.focus or self.focus < 0:
 			return
 		pos = self.focuslist[self.focus]
-		self["frame"].moveTo( pos[0], pos[1], 1)
+		self["frame"].moveTo(pos[0], pos[1], 1)
 		self["frame"].startMoving()
 		self.moveEvent(self.focus)
 
@@ -201,7 +201,7 @@ class eSame(Screen):
 	def printColors(self):
 		self["lbColors"].setText(str(self.stonefield.getColors()) + " Colors(" + str(self.stonefield.count(1)) + "," +
 		                                                                         str(self.stonefield.count(2)) + "," +
-		                                                                         str(self.stonefield.count(3)) + ")" )
+		                                                                         str(self.stonefield.count(3)) + ")")
 
 	def printMarked(self, m):
 		self["lbMarked"].setText("Marked: " + str(m))

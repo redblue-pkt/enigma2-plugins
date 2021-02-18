@@ -490,11 +490,11 @@ class Tag(PageElement):
             i[v] = k
         return i
 
-    XML_ENTITIES_TO_SPECIAL_CHARS = { "apos" : "'",
-                                      "quot" : '"',
-                                      "amp" : "&",
-                                      "lt" : "<",
-                                      "gt" : ">" }
+    XML_ENTITIES_TO_SPECIAL_CHARS = {"apos": "'",
+                                      "quot": '"',
+                                      "amp": "&",
+                                      "lt": "<",
+                                      "gt": ">"}
 
     XML_SPECIAL_CHARS_TO_ENTITIES = _invert(XML_ENTITIES_TO_SPECIAL_CHARS)
 
@@ -1078,7 +1078,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
     # can be replaced with a single space. A text node that contains
     # fancy Unicode spaces (usually non-breaking) should be left
     # alone.
-    STRIP_ASCII_SPACES = { 9: None, 10: None, 12: None, 13: None, 32: None, }
+    STRIP_ASCII_SPACES = {9: None, 10: None, 12: None, 13: None, 32: None, }
 
     def __init__(self, markup="", parseOnlyThese=None, fromEncoding=None,
                  markupMassage=True, smartQuotesTo=XML_ENTITIES,
@@ -1155,7 +1155,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
             n = int(name)
         except ValueError:
             return
-        if not 0 <= n <= 127 : # ASCII ends at 127, not 255
+        if not 0 <= n <= 127: # ASCII ends at 127, not 255
             return
         return self.convert_codepoint(n)
 
@@ -1166,8 +1166,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
             if not hasattr(self, 'originalEncoding'):
                 self.originalEncoding = None
         else:
-            dammit = UnicodeDammit\
-                     (markup, [self.fromEncoding, inDocumentEncoding],
+            dammit = UnicodeDammit(markup, [self.fromEncoding, inDocumentEncoding],
                       smartQuotesTo=self.smartQuotesTo, isHTML=isHTML)
             markup = dammit.unicode
             self.originalEncoding = dammit.originalEncoding
@@ -1527,7 +1526,7 @@ class BeautifulSoup(BeautifulStoneSoup):
 
     PRESERVE_WHITESPACE_TAGS = set(['pre', 'textarea'])
 
-    QUOTE_TAGS = {'script' : None, 'textarea' : None}
+    QUOTE_TAGS = {'script': None, 'textarea': None}
 
     #According to the HTML standard, each of these inline tags can
     #contain another tag of the same type. Furthermore, it's common
@@ -1541,12 +1540,12 @@ class BeautifulSoup(BeautifulStoneSoup):
     NESTABLE_BLOCK_TAGS = ('blockquote', 'div', 'fieldset', 'ins', 'del')
 
     #Lists can contain other lists, but there are restrictions.
-    NESTABLE_LIST_TAGS = { 'ol' : [],
-                           'ul' : [],
-                           'li' : ['ul', 'ol'],
-                           'dl' : [],
-                           'dd' : ['dl'],
-                           'dt' : ['dl'] }
+    NESTABLE_LIST_TAGS = {'ol': [],
+                           'ul': [],
+                           'li': ['ul', 'ol'],
+                           'dl': [],
+                           'dd': ['dl'],
+                           'dt': ['dl']}
 
     #Tables can contain other tables, but there are restrictions.
     NESTABLE_TABLE_TAGS = {'table': [],
@@ -1763,8 +1762,8 @@ class UnicodeDammit:
     # meta tags to the corresponding Python codec names. It only covers
     # values that aren't in Python's aliases and can't be determined
     # by the heuristics in find_codec.
-    CHARSET_ALIASES = { "macintosh" : "mac-roman",
-                        "x-sjis" : "shift-jis" }
+    CHARSET_ALIASES = {"macintosh": "mac-roman",
+                        "x-sjis": "shift-jis"}
 
     def __init__(self, markup, overrideEncodings=[],
                  smartQuotesTo='xml', isHTML=False):
@@ -1827,8 +1826,7 @@ class UnicodeDammit:
         if self.smartQuotesTo and proposed.lower() in("windows-1252",
                                                       "iso-8859-1",
                                                       "iso-8859-2"):
-            markup = re.compile("([\x80-\x9f])").sub \
-                     (lambda(x): self._subMSChar(x.group(1)),
+            markup = re.compile("([\x80-\x9f])").sub(lambda(x): self._subMSChar(x.group(1)),
                       markup)
 
         try:
@@ -1979,7 +1977,7 @@ class UnicodeDammit:
             ''.join(map(chr, range(256))), ''.join(map(chr, emap)))
         return s.translate(c.EBCDIC_TO_ASCII_MAP)
 
-    MS_CHARS = { '\x80': ('euro', '20AC'),
+    MS_CHARS = {'\x80': ('euro', '20AC'),
                  '\x81': ' ',
                  '\x82': ('sbquo', '201A'),
                  '\x83': ('fnof', '192'),

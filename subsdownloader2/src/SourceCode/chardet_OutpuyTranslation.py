@@ -22,9 +22,9 @@ def chardetOutputTranslation(recognizedCoding):
 		return "cp1251"
 	elif supposedEncoding == "ascii" or supposedEncoding == "iso-8859-1":
 		return "ascii"
-	elif supposedEncoding == "utf-8" :
+	elif supposedEncoding == "utf-8":
 		return "UTF-8"
-	elif supposedEncoding == "windows-1255" :
+	elif supposedEncoding == "windows-1255":
 		return "cp1255"
 	elif supposedEncoding == "utf-16le":
 		return "UTF-16LE"	

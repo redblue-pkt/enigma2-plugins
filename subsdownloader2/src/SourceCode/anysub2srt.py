@@ -31,7 +31,7 @@ class SubConv():
 		re_sub2 = re.compile("^(\d+):(\d+):(\d+)\.\d+\s*\,.*")
 		re_mpl2 = re.compile("\[(?P<start>\d+)\]\[(?P<stop>\d+)\](?P<line>.*)", re.S)
 		#for line in list:	
-		while len(list) > 0 :
+		while len(list) > 0:
 			line = list.pop(0)
 			if re_mdvd.match(line):
 				return "mdvd"
@@ -160,7 +160,7 @@ returns: list of subtitles in form: [[time_dep, time_end, line1, ...],[time_dep,
 				m = re1.match(list.pop(0), 0)
 				if m:
 					time = int(m.group(1))*3600 + int(m.group(2))*60 + int(m.group(3))
-					if time in subs :
+					if time in subs:
 						subs[time].extend(m.group(4).strip().split("|"))
 					else:
 						subs[time] = m.group(4).strip().split("|")
@@ -171,9 +171,9 @@ returns: list of subtitles in form: [[time_dep, time_end, line1, ...],[time_dep,
 		times.sort()
 		for i in range(0, len(times)):
 			next_time = 1
-			while times[i]+next_time not in subs and next_time < 4 :
+			while times[i]+next_time not in subs and next_time < 4:
 				next_time = next_time + 1
-			subt = [ times[i], times[i] + next_time]
+			subt = [times[i], times[i] + next_time]
 			subt.extend(subs[times[i]])
 			subtitles.append(subt)
 		return subtitles
