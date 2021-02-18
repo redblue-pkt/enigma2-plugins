@@ -35,7 +35,8 @@ class RecordAdapter:
 
 	def play(self, service):
 		print("[EPGRefresh.RecordAdapter.play]")
-		if not self.backgroundRefreshAvailable: return False
+		if not self.backgroundRefreshAvailable:
+			return False
 		self.stopStreaming()
 		try:
 			#not all images support recording type indicators

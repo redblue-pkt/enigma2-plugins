@@ -289,7 +289,7 @@ class Sudoku(Screen):
 		self["key_blue"] = Button(_("restart game"))
 		self["key_red"] = Button(_("solve game"))
 		
-		self.cnt = 0;
+		self.cnt = 0
 		self.timer = eTimer()
 		self.timer.callback.append(self.timerHandler)
 
@@ -513,8 +513,8 @@ class Sudoku(Screen):
 
 	# look for wrong cells...
 	def check_game(self, highlight):
-		empty = False;
-		correct = True;
+		empty = False
+		correct = True
 	
 		for j in range(0, 9):
 			for i in range(0, 9):
@@ -602,7 +602,7 @@ class Sudoku(Screen):
 
 	# display all values and stop game...
 	def solve_game(self):
-		self.cnt=0;
+		self.cnt=0
 		for j in range(0, 9):
 			for i in range(0, 9):
 				cell = self.board_cells[i][j]

@@ -970,7 +970,7 @@ class SoupStrainer:
             if self._matches(markup, self.text):
                 found = markup
         else:
-            raise Exception("I don't know how to match against a %s" \
+            raise Exception("I don't know how to match against a %s"
                   % markup.__class__)
         return found
 
@@ -1248,7 +1248,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
                     currentData = ' '
             self.currentData = []
             if self.parseOnlyThese and len(self.tagStack) <= 1 and \
-                   (not self.parseOnlyThese.text or \
+                   (not self.parseOnlyThese.text or
                     not self.parseOnlyThese.search(currentData)):
                 return
             o = containerClass(currentData)
@@ -1781,11 +1781,13 @@ class UnicodeDammit:
         u = None
         for proposedEncoding in overrideEncodings:
             u = self._convertFrom(proposedEncoding)
-            if u: break
+            if u:
+              break
         if not u:
             for proposedEncoding in (documentEncoding, sniffedEncoding):
                 u = self._convertFrom(proposedEncoding)
-                if u: break
+                if u:
+                  break
 
         # If no luck and we have auto-detection library, try that:
         if not u and chardet and not isinstance(self.markup, unicode):
@@ -1795,10 +1797,12 @@ class UnicodeDammit:
         if not u:
             for proposed_encoding in ("utf-8", "windows-1252"):
                 u = self._convertFrom(proposed_encoding)
-                if u: break
+                if u:
+                  break
 
         self.unicode = u
-        if not u: self.originalEncoding = None
+        if not u:
+          self.originalEncoding = None
 
     def _subMSChar(self, orig):
         """Changes a MS smart quote character to an XML or HTML
@@ -1939,7 +1943,8 @@ class UnicodeDammit:
                or charset
 
     def _codec(self, charset):
-        if not charset: return charset
+        if not charset:
+          return charset
         codec = None
         try:
             codecs.lookup(charset)
@@ -1970,7 +1975,7 @@ class UnicodeDammit:
                     90, 244, 245, 246, 247, 248, 249, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
                     250, 251, 252, 253, 254, 255)
             import string
-            c.EBCDIC_TO_ASCII_MAP = string.maketrans( \
+            c.EBCDIC_TO_ASCII_MAP = string.maketrans(
             ''.join(map(chr, range(256))), ''.join(map(chr, emap)))
         return s.translate(c.EBCDIC_TO_ASCII_MAP)
 

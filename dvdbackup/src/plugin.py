@@ -192,8 +192,10 @@ class DVDBackup:
 	def genisoimageCallback2(self, yesno):
 		if yesno:
 			cmd = ("rm -R %s/%s"%(config.plugins.DVDBackup.directory.value, config.plugins.DVDBackup.name.value)).replace("//", "/")
-			try: eConsole().ePopen(cmd)
-			except: pass
+			try:
+				eConsole().ePopen(cmd)
+			except:
+				pass
 		self.finished()
 
 	def finished(self):

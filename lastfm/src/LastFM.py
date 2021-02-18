@@ -217,7 +217,8 @@ class LastFM(LastFMHandler):
     def XMLgetElementsByTagName( self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES ):
         for namespace in possibleNamespaces:
             children = node.getElementsByTagNameNS(namespace, tagName)
-            if len(children): return children
+            if len(children):
+                return children
         return []
 
     def XMLnode_data( self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES):
@@ -459,7 +460,8 @@ class LastFMPlaylist:
     def _getElementsByTagName( self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES ):
         for namespace in possibleNamespaces:
             children = node.getElementsByTagNameNS(namespace, tagName)
-            if len(children): return children
+            if len(children):
+                return children
         return []
 
     def _node_data( self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES):

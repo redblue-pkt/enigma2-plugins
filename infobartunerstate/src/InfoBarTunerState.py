@@ -310,10 +310,13 @@ class InfoBarTunerState(object):
 					service_ref = timer.service_ref
 					
 					# Is this really necessary?
-					try: timer.Filename
+					try:
+						timer.Filename
 					except:
-						try: timer.freespace()
-						except: pass
+						try:
+							timer.freespace()
+						except:
+							pass
 						timer.calculateFilename()
 					filename = timer.Filename
 					
@@ -469,10 +472,13 @@ class InfoBarTunerState(object):
 						service_ref = timer.service_ref
 						
 						# Is this really necessary?
-						try: timer.Filename
+						try:
+							timer.Filename
 						except:
-							try: timer.freespace()
-							except: pass
+							try:
+								timer.freespace()
+							except:
+								pass
 							timer.calculateFilename()
 						filename = timer.Filename
 						
@@ -1055,8 +1061,10 @@ class TunerState(TunerStateBase):
 				# Calculate progress and round up
 				progress = timeelapsed / length * 100.0
 				# Normalize progress
-				if progress < 0: progress = 0
-				elif progress > 100: progress = 100
+				if progress < 0:
+					progress = 0
+				elif progress > 100:
+					progress = 100
 			else:
 				progress = None
 			

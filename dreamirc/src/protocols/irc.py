@@ -145,7 +145,7 @@ class IRC(protocol.Protocol):
         if ' ' in command or command[0] == ':':
             # Not the ONLY way to screw up, but provides a little
             # sanity checking to catch likely dumb mistakes.
-            raise ValueError("Somebody screwed up, 'cuz this doesn't" \
+            raise ValueError("Somebody screwed up, 'cuz this doesn't"
                   " look like a command to me: %s" % command)
 
         line = string.join([command] + list(parameter_list))
@@ -799,21 +799,24 @@ class IRCClient(basic.LineReceiver):
     ### Your client will want to invoke these.
 
     def join(self, channel, key=None):
-        if channel[0] not in '&#!+': channel = '#' + channel
+        if channel[0] not in '&#!+':
+            channel = '#' + channel
         if key:
             self.sendLine("JOIN %s %s" % (channel, key))
         else:
             self.sendLine("JOIN %s" % (channel,))
 
     def leave(self, channel, reason=None):
-        if channel[0] not in '&#!+': channel = '#' + channel
+        if channel[0] not in '&#!+':
+            channel = '#' + channel
         if reason:
             self.sendLine("PART %s :%s" % (channel, reason))
         else:
             self.sendLine("PART %s" % (channel,))
 
     def kick(self, channel, user, reason=None):
-        if channel[0] not in '&#!+': channel = '#' + channel
+        if channel[0] not in '&#!+':
+            channel = '#' + channel
         if reason:
             self.sendLine("KICK %s %s :%s" % (channel, user, reason))
         else:
@@ -829,7 +832,8 @@ class IRCClient(basic.LineReceiver):
         the current topic of the given channel.
         """
         # << TOPIC #xtestx :fff
-        if channel[0] not in '&#!+': channel = '#' + channel
+        if channel[0] not in '&#!+':
+            channel = '#' + channel
         if topic != None:
             self.sendLine("TOPIC %s :%s" % (channel, topic))
         else:
@@ -851,7 +855,8 @@ class IRCClient(basic.LineReceiver):
 
 
     def say(self, channel, message, length = None):
-        if channel[0] not in '&#!+': channel = '#' + channel
+        if channel[0] not in '&#!+':
+            channel = '#' + channel
         self.msg(channel, message, length)
 
     def msg(self, user, message, length = None):
@@ -915,7 +920,8 @@ class IRCClient(basic.LineReceiver):
     def me(self, channel, action):
         """Strike a pose.
         """
-        if channel[0] not in '&#!+': channel = '#' + channel
+        if channel[0] not in '&#!+':
+            channel = '#' + channel
         self.ctcpMakeQuery(channel, [('ACTION', action)])
 
     _pings = None
@@ -1027,7 +1033,8 @@ class IRCClient(basic.LineReceiver):
         channel = params[0]
         message = params[-1]
 
-        if not message: return # don't raise an exception if some idiot sends us a blank message
+        if not message:
+            return # don't raise an exception if some idiot sends us a blank message
 
         if message[0]==X_DELIM:
             m = ctcpExtract(message)
@@ -1272,7 +1279,8 @@ class IRCClient(basic.LineReceiver):
         """Initiate a Direct Client Connection
         """
 
-        if not data: return
+        if not data:
+            return
         dcctype = data.split(None, 1)[0].upper()
         handler = getattr(self, "dcc_" + dcctype, None)
         if handler:
@@ -1883,7 +1891,8 @@ class DccFileReceive(DccFileReceiveBasic):
 
         if hasattr(self, 'file'):
             logmsg = "%s and written to %s.\n" % (logmsg, self.file.name)
-            if hasattr(self.file, 'close'): self.file.close()
+            if hasattr(self.file, 'close'):
+                self.file.close()
 
         # self.transport.log(logmsg)
 

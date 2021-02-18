@@ -35,7 +35,7 @@ import constants
 # 252: 0 - 9
 
 # Character Mapping Table:
-Latin2_HungarianCharToOrderMap = ( \
+Latin2_HungarianCharToOrderMap = (
 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 254, 255, 255, 254, 255, 255,  # 00
 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  # 10
 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253,  # 20
@@ -54,7 +54,7 @@ Latin2_HungarianCharToOrderMap = ( \
 245, 246, 247, 25, 73, 42, 24, 248, 249, 250, 31, 56, 29, 251, 252, 253,
 )
 
-win1250HungarianCharToOrderMap = ( \
+win1250HungarianCharToOrderMap = (
 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 254, 255, 255, 254, 255, 255,  # 00
 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  # 10
 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253, 253,  # 20
@@ -79,7 +79,7 @@ win1250HungarianCharToOrderMap = ( \
 # first 1024 sequences:5.2623%
 # rest  sequences:     0.8894%
 # negative sequences:  0.0009% 
-HungarianLangModel = ( \
+HungarianLangModel = (
 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3, 3, 1, 1, 2, 2, 2, 2, 2, 1, 2,
 3, 2, 2, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 3, 2, 3, 3, 1, 1, 3, 3, 0, 1, 1, 1,
@@ -210,7 +210,7 @@ HungarianLangModel = ( \
 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 )
 
-Latin2HungarianModel = { \
+Latin2HungarianModel = {
   'charToOrderMap': Latin2_HungarianCharToOrderMap,
   'precedenceMatrix': HungarianLangModel,
   'mTypicalPositiveRatio': 0.947368,
@@ -218,7 +218,7 @@ Latin2HungarianModel = { \
   'charsetName': "ISO-8859-2"
 }
 
-Win1250HungarianModel = { \
+Win1250HungarianModel = {
   'charToOrderMap': win1250HungarianCharToOrderMap,
   'precedenceMatrix': HungarianLangModel,
   'mTypicalPositiveRatio': 0.947368,

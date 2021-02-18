@@ -110,6 +110,8 @@ class EcasaSetup(Screen, ConfigListScreen):
 		return SetupSummary
 
 	def close(self, *args, **kwargs):
-		try: self["config"].getCurrent()[1].help_window.instance.hide()
-		except AttributeError: pass
+		try:
+			self["config"].getCurrent()[1].help_window.instance.hide()
+		except AttributeError:
+			pass
 		Screen.close(self, *args, **kwargs)
