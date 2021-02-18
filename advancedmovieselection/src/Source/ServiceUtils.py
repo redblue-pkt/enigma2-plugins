@@ -25,7 +25,12 @@ For example, if you distribute copies of such a program, whether gratis or for a
 must pass on to the recipients the same freedoms that you received. You must make sure 
 that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 """
-import os, glob, shutil, time, operator, threading
+import os
+import glob
+import shutil
+import time
+import operator
+import threading
 
 def realSize(bytes, digits=1, factor=1024):
     size = float(bytes)

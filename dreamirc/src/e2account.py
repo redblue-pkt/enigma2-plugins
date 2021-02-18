@@ -8,7 +8,9 @@
 #
 import string
 import ircsupport
-import e2chat, dreamIRCTools, dreamIRCSetup
+import e2chat
+import dreamIRCTools
+import dreamIRCSetup
 
 
 class AccountManager:

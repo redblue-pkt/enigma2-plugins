@@ -20,7 +20,8 @@ from __future__ import print_function
 #######################################################################
 
 import os
-import sys, traceback
+import sys
+import traceback
 from time import localtime
 
 from Components.config import config

@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import sys, glob
+import sys
+import glob
 sys.path.insert(0, '..')
 from chardet.universaldetector import UniversalDetector
 

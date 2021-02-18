@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 from __init__ import _
-import urllib, datetime, re, os, shutil
+import urllib
+import datetime
+import re
+import os
+import shutil
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from enigma import getDesktop, iServiceInformation, eTimer

@@ -44,7 +44,9 @@ def getLocale():
     return config['locale']
 
 
-import urllib, urllib2, xml.etree.cElementTree as ElementTree
+import urllib
+import urllib2
+import xml.etree.cElementTree as ElementTree
 
 class TvdBaseError(Exception):
     pass

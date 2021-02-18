@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import os, struct
+import os
+import struct
 from Components.config import config
 from Screens.InfoBarGenerics import InfoBarCueSheetSupport
 from shutil import copyfile

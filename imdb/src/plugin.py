@@ -26,7 +26,8 @@ from Components.Sources.StaticText import StaticText
 from Components.Sources.Boolean import Boolean
 from Components.MovieList import KNOWN_EXTENSIONS
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
-import os, re
+import os
+import re
 try:
 	import htmlentitydefs
 	from urllib import quote_plus
@@ -36,7 +37,8 @@ except ImportError as ie:
 	from urllib.parse import quote_plus
 	iteritems = lambda d: d.items()
 	unichr = chr
-import os, gettext
+import os
+import gettext
 
 # Configuration
 from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigYesNo, ConfigText

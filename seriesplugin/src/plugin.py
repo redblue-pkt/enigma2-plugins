@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os, sys, traceback
+import os
+import sys
+import traceback
 
 # Localization
 from . import _

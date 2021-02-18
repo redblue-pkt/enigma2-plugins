@@ -80,7 +80,12 @@ from __future__ import print_function
     [1] http://docs.python.org/library/time.html#time.clock
 """
 
-import os, sys, socket, struct, select, time
+import os
+import sys
+import socket
+import struct
+import select
+import time
 
 __version__ = "0.1"
 

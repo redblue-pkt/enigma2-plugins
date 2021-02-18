@@ -20,7 +20,10 @@ from __future__ import print_function
 
 import socket # For timeout purposes
 from Plugins.Extensions.SubsDownloader2.SourceCode import xmlrpclib
-import os, struct, traceback, logging
+import os
+import struct
+import traceback
+import logging
 try:
 	import commands
 except:

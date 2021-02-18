@@ -1,7 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import os, sys, traceback
+import os
+import sys
+import traceback
 
 # Localization
 from . import _

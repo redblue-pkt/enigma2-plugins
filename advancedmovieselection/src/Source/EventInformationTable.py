@@ -30,13 +30,16 @@ for electronic program guides as well as for automatic searching and filtering.
 Based on: en_300468v010901p.pdf
 Digital Video Broadcasting (DVB) Specification for Service Information (SI) in DVB systems
 """
-import os, time, urllib
+import os
+import time
+import urllib
 from struct import unpack, pack
 from calendar import timegm
 from MovieDB import tmdb, tvdb, downloadCover
 
 def printStackTrace():
-    import sys, traceback
+    import sys
+    import traceback
     print('--- [AdvancedMovieSelection] STACK TRACE ---')
     traceback.print_exc(file=sys.stdout)
     print('-' * 50)

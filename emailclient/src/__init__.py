@@ -7,7 +7,9 @@ Common functions for EmailClient
 from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
 from Components.Language import language
 from Components.config import config
-import os, gettext, time
+import os
+import gettext
+import time
 
 PluginLanguageDomain = "EmailClient"
 PluginLanguagePath = "Extensions/EmailClient/locale/"

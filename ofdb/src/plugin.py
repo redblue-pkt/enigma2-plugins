@@ -20,7 +20,8 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import re
 import htmlentitydefs
 import urllib
-import os, gettext
+import os
+import gettext
 
 PluginLanguageDomain = "OFDb"
 PluginLanguagePath = "Extensions/OFDb/locale"

@@ -1,7 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os, sys, re, string, time, urllib, urllib2, cookielib
+import os
+import sys
+import re
+import string
+import time
+import urllib
+import urllib2
+import cookielib
 from Screens.MessageBox import MessageBox
 from Components.config import config
 from Components.Console import Console
