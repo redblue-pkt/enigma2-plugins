@@ -65,4 +65,3 @@ class StreamPlayer:
 
 	def exit(self):
 		self.stop()
-

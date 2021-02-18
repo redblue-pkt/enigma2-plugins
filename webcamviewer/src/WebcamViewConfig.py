@@ -22,7 +22,7 @@ class WebcamViewerMenu(ConfigListScreen, Screen):
 		self.list.append(getConfigListEntry(_("Slideshow Time"), config.plugins.pictureviewer.slideshowtime))
 		self.list.append(getConfigListEntry(_("Slideshow Mode"), config.plugins.pictureviewer.slideshowmode))
 		self.list.append(getConfigListEntry(_("stop Service on Start"), config.plugins.pictureviewer.stopserviceonstart))
-		
+
 		ConfigListScreen.__init__(self, self.list)
 		self["key_red"] = Label(_("cancel"))
 		self["key_green"] = Label(_("ok"))
@@ -46,4 +46,3 @@ class WebcamViewerMenu(ConfigListScreen, Screen):
 		for x in self["config"].list:
 			x[1].cancel()
 		self.close(False, self.session)
-

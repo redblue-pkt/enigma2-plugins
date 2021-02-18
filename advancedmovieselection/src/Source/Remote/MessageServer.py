@@ -102,17 +102,17 @@ class MessageServer():
         if self.server:
             self.server.shutdown()
             print("[AdvancedMovieSelection] Server stopped:")
-        
+
     def reconnect(self, host=None, port=None):
         if host:
             self.host = host
         if port:
             self.port = port
         self.start()
-        
+
     def getHost(self):
         return self.host
-    
+
     def getPort(self):
         return self.port
 
@@ -140,20 +140,20 @@ class MessageServer():
                 pass
             finally:
                 sock.close()
-        
+
     def startScanForClients(self):
         import threading
         t = threading.Thread(target=self.findClients)
         t.start()
-        
+
     def getClients(self):
         return self.active_clients
-    
+
     def setSearchRange(self, ip_from, ip_to):
         if ip_from > ip_to or ip_to >= 255:
             return
         self.ip_from = ip_from
         self.ip_to = ip_to
-        
+
 
 serverInstance = MessageServer()

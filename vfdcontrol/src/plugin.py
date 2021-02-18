@@ -238,7 +238,7 @@ class VFD_INISetup(ConfigListScreen, Screen):
 		self.onClose.append(self.abort)
 
 		self.onChangedEntry = []
-			
+
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 

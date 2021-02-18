@@ -71,4 +71,3 @@ def strip(html):
 
 	# Return result with leading/trailing whitespaces removed
 	return html.strip()
-

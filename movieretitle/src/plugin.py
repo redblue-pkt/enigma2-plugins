@@ -79,7 +79,7 @@ class MovieRetitle(Screen, ConfigListScreen):
 		ConfigListScreen.__init__(self, l, session=session)
 
 		self.onLayoutFinish.append(self.setCustomTitle)
-		
+
 	def setCustomTitle(self):
 		self.setTitle(_("Name and Description Input"))
 
@@ -308,4 +308,3 @@ class MovieRetitleBackgroundMover:
 global_background_mover = MovieRetitleBackgroundMover()
 
 global_message_block = False
-

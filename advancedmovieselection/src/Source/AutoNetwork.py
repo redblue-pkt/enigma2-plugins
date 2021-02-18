@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-# 
+#
 #    Copyright (C) 2012 cmikula
 #
 #    In case of reuse of this source code please do not remove this copyright.
@@ -19,8 +19,8 @@ from __future__ import print_function
 #    For more information on the GNU General Public License see:
 #    <http://www.gnu.org/licenses/>.
 #
-#    For example, if you distribute copies of such a program, whether gratis or for a fee, you 
-#    must pass on to the recipients the same freedoms that you received. You must make sure 
+#    For example, if you distribute copies of such a program, whether gratis or for a fee, you
+#    must pass on to the recipients the same freedoms that you received. You must make sure
 #    that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 #
 
@@ -31,7 +31,7 @@ import ping
 class Network():
     AUTO_NETORK = "/etc/auto.network"
     AUTO_MASTER = "/etc/auto.master"
-    
+
     def __init__(self):
         self.auto_network = []
         self.mount_path = "/media/net"
@@ -54,7 +54,7 @@ class Network():
         except Exception as e:
             print(str(e))
             return True
-    
+
     def getOnlineMount(self, dirs):
         online = []
         for directory in dirs:
@@ -62,7 +62,7 @@ class Network():
                 continue
             online.append(directory)
         return online
-    
+
     def updateAutoNetwork(self):
         self.auto_network = []
         try:
@@ -73,7 +73,7 @@ class Network():
                     if self.AUTO_NETORK in x:
                         self.mount_path = x.split(" ")[0]
                         print("update from auto.master:", self.mount_path)
-            if os.path.exists(self.AUTO_NETORK): 
+            if os.path.exists(self.AUTO_NETORK):
                 rfile = open(self.AUTO_NETORK, 'r')
                 for x in rfile.readlines():
                     val = x.strip().split(' ')
@@ -87,4 +87,3 @@ class Network():
 
 
 autoNetwork = Network()
-

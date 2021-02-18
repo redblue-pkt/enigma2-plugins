@@ -103,4 +103,3 @@ class PipAdapter:
 				del self.session.pip
 		else:
 			self.session.pipshown = False
-

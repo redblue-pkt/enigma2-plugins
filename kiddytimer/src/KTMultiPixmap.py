@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Components.Pixmap import MultiPixmap
- 
+
 
 class KTmultiPixmap(MultiPixmap):
     def __init__(self):

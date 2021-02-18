@@ -42,7 +42,7 @@ class RefToPiconName(Converter, object):
 			#channel
 			else:
 				return ref.toString()
-		
+
 		return ""
-		
+
 	text = property(getText)

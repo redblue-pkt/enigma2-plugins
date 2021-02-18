@@ -200,27 +200,27 @@ class TMDbMain(Screen, HelpableScreen, InfoLoadChoice):
         if not os_path.exists(IMAGE_TEMPFILE):
             os_mkdir(IMAGE_TEMPFILE)
         self['ColorActions'] = HelpableActionMap(self, 'ColorActions', {'red': (
-                 self.ok_pressed, _('Toggle detail and list view')), 
+                 self.ok_pressed, _('Toggle detail and list view')),
            'green': (
-                   self.green_pressed, _('Save info/cover')), 
+                   self.green_pressed, _('Save info/cover')),
            'yellow': (
-                    self.yellow_pressed, _('Manual search')), 
+                    self.yellow_pressed, _('Manual search')),
            'blue': (
                   self.blue_pressed, _('Trailer search'))}, -1)
         self['WizardActions'] = HelpableActionMap(self, 'WizardActions', {'ok': (
-                self.ok_pressed, _('Toggle detail and list view')), 
+                self.ok_pressed, _('Toggle detail and list view')),
            'back': (
-                  self.cancel, _('Close')), 
+                  self.cancel, _('Close')),
            'up': (
-                self.moveUp, _('Move up')), 
+                self.moveUp, _('Move up')),
            'down': (
                   self.moveDown, _('Move down'))}, -1)
         self['WizardActions2'] = HelpableActionMap(self, 'WizardActions', {'left': (
-                  self.left, _('Show previous cover')), 
+                  self.left, _('Show previous cover')),
            'right': (
                    self.right, _('Show next cover'))}, -1)
         self['ChannelSelectBaseActions'] = HelpableActionMap(self, 'ChannelSelectBaseActions', {'nextMarker': (
-                        self.right, _('Show next cover')), 
+                        self.right, _('Show next cover')),
            'prevMarker': (
                         self.left, _('Show previous cover'))}, -1)
         self['list'] = TMDbList()

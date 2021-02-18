@@ -235,4 +235,3 @@ class AutoTimerList(MenuList):
 				self.instance.moveSelectionTo(idx)
 				break
 			idx += 1
-

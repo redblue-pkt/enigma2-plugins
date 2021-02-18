@@ -29,7 +29,7 @@ class IsNewVersionCheck(threading.Thread):
         threading.Thread.__init__(self)
         self.__latest_version_info_url = "http://subs-downloader.googlecode.com/svn/current_version.txt"
         self.__installed_version_info_file = resolveFilename(SCOPE_PLUGINS, "Extensions/SubsDownloader2/about.nfo")
-                
+
     def run(self):
         error_detected = 0
         latest_vestion_data = None
@@ -39,7 +39,7 @@ class IsNewVersionCheck(threading.Thread):
             current_vestion_data.close()
             print("Current version: %s" % str(current_verion))
         except:
-            error_detected = 1        
+            error_detected = 1
         try:
             latest_vestion_data = urllib.urlopen(self.__latest_version_info_url)
             latest_verion = latest_vestion_data.readlines()
@@ -47,11 +47,11 @@ class IsNewVersionCheck(threading.Thread):
             print("Latest version: %s" % str(latest_verion[0]))
         except:
             error_detected = 1
-                  
+
         if error_detected == 1:
             return False
         else:
-            if latest_verion[0] > current_verion:		
+            if latest_verion[0] > current_verion:
                 print("Jest nowa wersja pluginu")
                 self.session.open(PluginIpkUpdate, latest_verion[1])
             else:
@@ -93,7 +93,7 @@ class PluginIpkUpdate(Screen): #, IsNewVersionCheck):
 		#self.autoupdate = IsNewVersionCheck()
 		list.append((_("Install plugin"), "install"))
 		list.append((_("Not now"), "exit"))
-		
+
 		Screen.__init__(self, session)
 		self["myMenu"] = MenuList(list)
 		self["myActionMap"] = ActionMap(["SetupActions"],
@@ -127,7 +127,7 @@ class PluginIpkUpdate(Screen): #, IsNewVersionCheck):
 #    flag.close()
 #    picture_file.close()
 #    CallBackFunction
-    
+
 class CommertialBannerDownload(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)

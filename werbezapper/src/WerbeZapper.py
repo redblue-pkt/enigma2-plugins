@@ -32,15 +32,15 @@ from Components.config import *
 class WerbeZapperChoiceBox(ChoiceBox):
 	def __init__(self, session, title="", list=[], keys=None, selection=0, zap_time=0, zap_service=None, monitored_event=None, monitored_service=None, skin_name=[]):
 		ChoiceBox.__init__(self, session, title, list, keys, selection, skin_name)
-		
+
 		self.update_timer = eTimer()
 		self.update_timer.callback.append(self.update)
-		
+
 		self.zap_time = zap_time
 		self.zap_service = zap_service
 		self.monitored_event = monitored_event
 		self.monitored_service = monitored_service
-		
+
 		# Start timer to update the ChoiceBox every second
 		self.update_timer.start(1000)
 		self.setTitle("WerbeZapper")
@@ -76,11 +76,11 @@ class WerbeZapper(Screen):
 
 	def __init__(self, session, servicelist, cleanupfnc=None):
 		Screen.__init__(self, session)
-		
+
 		# Save Session&Servicelist
 		self.session = session
 		self.servicelist = servicelist
-		
+
 		# Create zap timer
 		self.zap_time = None
 		self.zap_timer = eTimer()
@@ -98,12 +98,12 @@ class WerbeZapper(Screen):
 		self.zap_service = None
 		self.move_service = None
 		self.root = None
-		
+
 		#	Initialize monitoring
 		self.monitored_service = None
 		self.monitored_event = None
 		self.__event_tracker = None
-		
+
 		# Keep Cleanup
 		self.cleanupfnc = cleanupfnc
 
@@ -175,7 +175,7 @@ class WerbeZapper(Screen):
 
 	def choicesCallback(self, result):
 		result = result and result[1]
-		
+
 		if result == "custom":
 			from Screens.InputBox import InputBox
 			from Components.Input import Input
@@ -190,29 +190,29 @@ class WerbeZapper(Screen):
 				type=Input.NUMBER
 			)
 			return
-			
+
 		elif result == "startmonitoring":
 			self.startMonitoring()
-		
+
 		elif result == "stopmonitoring":
 			self.stopMonitoring()
-		
+
 		elif result == "rezap":
 			self.stopTimer()
 			self.zap()
-		
+
 		elif result == "stoptimer":
 			self.stopTimer()
-		
+
 		elif result == "reopen":
 			self.showSelection()
-		
+
 		elif result == "close":
 			pass
-		
+
 		elif isinstance(result, int):
 			self.startTimer(result)
-		
+
 		self.cleanup()
 
 	def inputCallback(self, result):
@@ -223,10 +223,10 @@ class WerbeZapper(Screen):
 			self.cleanup()
 
 	def startMonitoring(self, notify=True):
-		
+
 		# Stop active zap timer
 		self.stopTimer()
-		
+
 		# Get current service and event
 		service = self.session.nav.getCurrentService()
 		ref = self.session.nav.getCurrentlyPlayingServiceReference()
@@ -272,12 +272,12 @@ class WerbeZapper(Screen):
 								)
 
 	def stopMonitoring(self, notify=True):
-		
+
 		# Stop active zap timer
 		self.stopTimer()
-		
+
 		self.monitor_timer.stop()
-		
+
 		if notify:
 			# Notify the User that the monitoring is ending
 			name = self.monitored_event and self.monitored_event.getEventName()
@@ -287,7 +287,7 @@ class WerbeZapper(Screen):
 								3,
 								"WerbeZapperMonitoringStopped"
 							)
-		
+
 		self.monitored_service = None
 		self.monitored_event = None
 
@@ -317,7 +317,7 @@ class WerbeZapper(Screen):
 		else:
 			# Reuse last duration
 			duration = int(config.werbezapper.duration.value)
-		
+
 		# Keep any service related information (zap_service might not equal move_service -> subservices)
 		self.zap_service = zapto or self.session.nav.getCurrentlyPlayingServiceReference()
 		self.move_service = None if zapto else self.servicelist.getCurrentSelection()
@@ -330,7 +330,7 @@ class WerbeZapper(Screen):
 		# Start Timer
 		self.zap_time = time() + (duration * 60)
 		self.zap_timer.startLongTimer(int(duration * 60))
-		
+
 		if notify:
 			# Remind the User of what he just did
 			AddPopup(
@@ -377,7 +377,7 @@ class WerbeZapper(Screen):
 
 		# Cleanup if end timer is not running
 		if not self.monitor_timer.isActive():
-			
+
 			# Reset services
 			self.zap_service = None
 			self.move_service = None

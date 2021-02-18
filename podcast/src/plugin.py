@@ -174,18 +174,18 @@ class PodcastBuffer(Screen):
 	def __init__(self, session, url, file):
 		self.session = session
 		Screen.__init__(self, session)
-		
+
 		self.url = url
 		self.file = file
-		
+
 		self.infoTimer = eTimer()
 		self.infoTimer.timeout.get().append(self.updateInfo)
-		
+
 		self["info"] = Label(_("Downloading movie: %s") % self.file)
 		self["progress"] = ProgressBar()
-		
+
 		self["actions"] = ActionMap(["OkCancelActions"], {"ok": self.okClicked, "cancel": self.exit}, -1)
-		
+
 		self.onLayoutFinish.append(self.downloadMovie)
 
 	def downloadMovie(self):
@@ -226,18 +226,18 @@ class PodcastMovies(Screen):
 	def __init__(self, session, url):
 		self.session = session
 		Screen.__init__(self, session)
-		
+
 		self.url = url
 		self.list = []
 		self.movies = []
 		self.working = True
-		
+
 		self["list"] = MenuList([])
 		self["list"].onSelectionChanged.append(self.showInfo)
 		self["info"] = Label()
-		
+
 		self["actions"] = ActionMap(["OkCancelActions"], {"ok": self.ok, "cancel": self.exit}, -1)
-		
+
 		self.onLayoutFinish.append(self.downloadMovies)
 
 	def ok(self):
@@ -286,8 +286,8 @@ class PodcastMovies(Screen):
 			items = dom.getElementsByTagName("item")
 		else:
 			item = xmlparseString(page)
-			items = [item]	
-		
+			items = [item]
+
 		for item in items:
 			title = getText(item.getElementsByTagName("title")[0].childNodes).encode('utf8')
 			description = getText(item.getElementsByTagName("description")[0].childNodes).encode('utf8')
@@ -296,13 +296,13 @@ class PodcastMovies(Screen):
 				url = "N/A"
 			length = item.getElementsByTagName("enclosure")[0].getAttribute("length").encode('utf8')
 			if length == "":
-				length = "N/A" 
+				length = "N/A"
 			type = item.getElementsByTagName("enclosure")[0].getAttribute("type").encode('utf8')
 			if type == "":
 				type = "N/A"
 			self.list.append(encodeUrl(title))
 			self.movies.append([description, (url, length, type)])
-			
+
 		self["list"].setList(self.list)
 		self.showInfo()
 		self.working = False
@@ -331,9 +331,9 @@ class PodcastPodcasts(Screen):
 	def __init__(self, session, provider):
 		self.session = session
 		Screen.__init__(self, session)
-		
+
 		self["actions"] = ActionMap(["OkCancelActions"], {"ok": self.ok, "cancel": self.close}, -1)
-		
+
 		self.urls = []
 		list = []
 		for podcast in provider.findall("podcast"):
@@ -362,9 +362,9 @@ class PodcastProvider(Screen):
 	def __init__(self, session, language):
 		self.session = session
 		Screen.__init__(self, session)
-		
+
 		self["actions"] = ActionMap(["OkCancelActions"], {"ok": self.ok, "cancel": self.close}, -1)
-		
+
 		self.providers = []
 		list = []
 		for provider in language.findall("provider"):
@@ -457,12 +457,12 @@ class PodcastFeedly(Screen):
 	def __init__(self, session):
 		self.session = session
 		Screen.__init__(self, session)
-		
+
 		self["actions"] = ActionMap(["OkCancelActions"], {"ok": self.ok, "cancel": self.close}, -1)
 		self.urls = []
 		list = []
 		file = None
-		
+
 		fileName = configDir + "feedly.opml"
 
 		try:
@@ -485,7 +485,7 @@ class PodcastFeedly(Screen):
 					source = open(fileName)
 			except:
 				pass
-			if source:	
+			if source:
 				dom = xmlparse(source)
 				for item in dom.getElementsByTagName("outline"):
 					if str(item.getAttribute("title")) == "PodcastPlugin":
@@ -520,7 +520,7 @@ class LocationSelection(Screen):
 			self["filelist"] = FileList(dir, showDirectories=True, showFiles=False)
 		except:
 			self["filelist"] = FileList("/", showDirectories, showFiles)
-		
+
 		self["actions"] = ActionMap(["ColorActions", "OkCancelActions"],
 			{
 				"ok": self.okClicked,

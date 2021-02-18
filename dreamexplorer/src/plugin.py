@@ -312,7 +312,7 @@ class DreamExplorerII(Screen):
 			if self.MediaFilter:
 				self.setTitle(_("[Media files] " + self["filelist"].getCurrentDirectory()))
 			else:
-				self.setTitle(_("[All files] " + self["filelist"].getCurrentDirectory()))	
+				self.setTitle(_("[All files] " + self["filelist"].getCurrentDirectory()))
 		except:
 			self.setTitle(_("Dream-Explorer"))
 
@@ -657,7 +657,7 @@ class DreamExplorerII(Screen):
 			if self.MediaFilter:
 				self.setTitle(_("[sort by Name] " + self["filelist"].getCurrentDirectory()))
 			else:
-				self.setTitle(_("[sort by Name] " + self["filelist"].getCurrentDirectory()))	
+				self.setTitle(_("[sort by Name] " + self["filelist"].getCurrentDirectory()))
 		except:
 			self.setTitle(_("Dream-Explorer"))
 
@@ -667,7 +667,7 @@ class DreamExplorerII(Screen):
 			if self.MediaFilter:
 				self.setTitle(_("[sort by Date] " + self["filelist"].getCurrentDirectory()))
 			else:
-				self.setTitle(_("[sort by Date] " + self["filelist"].getCurrentDirectory()))	
+				self.setTitle(_("[sort by Date] " + self["filelist"].getCurrentDirectory()))
 		except:
 			self.setTitle(_("Dream-Explorer"))
 
@@ -708,7 +708,7 @@ class DreamExplorerII(Screen):
 			pass
 		self.close()
 
-######## DREAM-EXPLORER END ####################### 
+######## DREAM-EXPLORER END #######################
 
 
 class vEditor(Screen):
@@ -1114,7 +1114,7 @@ class CPmaniger(Screen):
 	def OneDescent(self):
 		if self["CPto"].canDescent():
 			self["CPto"].descent()
-	
+
 	def ok(self):
 		if self["CPto"].canDescent():
 			self["CPto"].descent()
@@ -1251,13 +1251,3 @@ class SoftLinkScreen(Screen):
 		else:
 			dei = self.session.open(MessageBox, _("Softlink name error !"), MessageBox.TYPE_ERROR)
 			dei.setTitle(_("Dream-Explorer"))
-
-
-
-
-
-
-
-
-
-

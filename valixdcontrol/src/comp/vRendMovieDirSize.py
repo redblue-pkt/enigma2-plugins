@@ -29,5 +29,3 @@ class vRendMovieDirSize(Renderer, VariableText):
 					self.text = '---'
 			except:
 				self.text = 'ERR'
-
-

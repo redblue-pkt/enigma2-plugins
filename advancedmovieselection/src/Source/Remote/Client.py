@@ -48,22 +48,22 @@ class MessageQueue:
             request = str(Screens.Standby.inStandby != None)
         elif data.startswith("setPort"):
             try:
-                from Components.config import config            
+                from Components.config import config
                 port = int(data.replace("setPort", ""))
                 serverInstance.reconnect(port=port)
-                config.AdvancedMovieSelection.server_port.value = port  
+                config.AdvancedMovieSelection.server_port.value = port
                 config.AdvancedMovieSelection.server_port.save()
             except Exception as e:
                 print(str(e))
         elif data == "nextTrashEvent":
             from Components.config import config
             if config.AdvancedMovieSelection.auto_empty_wastebasket.value == "-1":
-                return "-1"            
+                return "-1"
             request = str(config.AdvancedMovieSelection.next_auto_empty_wastebasket.value)
         elif data == "lastTrashEvent":
             from Components.config import config
             if config.AdvancedMovieSelection.auto_empty_wastebasket.value == "-1":
-                return "-1"            
+                return "-1"
             request = str(config.AdvancedMovieSelection.last_auto_empty_wastebasket.value)
         return request
 
@@ -109,22 +109,22 @@ class Client:
     def setPort(self, port):
         self.sendData("setPort" + str(port))
         self.port = port
-        
+
     def getAddress(self):
         return self.ip
 
     def getPort(self):
         return self.port
-        
+
     def getDeviceName(self):
         return self.device
-    
+
     def getName(self):
         return self.name
-        
+
     def isRecording(self):
         return self.sendData("isRecording") == "True"
-    
+
     def inStandby(self):
         return self.sendData("inStandby") == "True"
 
@@ -143,7 +143,7 @@ class Client:
         except:
             pass
         return ev
-    
+
 
 if __name__ == "__main__":
     print(Client("192.168.0.97", 20000).isRecording())

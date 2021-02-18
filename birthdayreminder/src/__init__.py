@@ -8,7 +8,7 @@ import gettext
 
 PluginLanguageDomain = "BirthdayReminder"
 PluginLanguagePath = "Extensions/BirthdayReminder/locale"
- 
+
 
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))

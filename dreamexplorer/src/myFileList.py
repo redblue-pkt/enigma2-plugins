@@ -356,5 +356,3 @@ class FileList(MenuList):
 		#self.l.invalidate()
 		self.l.setList(self.list)
 		self.moveToIndex(0)
-
-

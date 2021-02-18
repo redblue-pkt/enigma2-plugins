@@ -167,16 +167,16 @@ class TheTVDBMain(Screen, InfoLoadChoice):
         self.skinName = SkinTools.appendResolution('TheTVDBMain')
         if not pathExists(temp_dir):
             os.mkdir(temp_dir, 511)
-        self['setupActions'] = ActionMap(['ColorActions', 'DirectionActions', 'SetupActions', 'OkCancelActions'], {'exit': self.cancel, 
-           'ok': self.ok_pressed, 
-           'red': self.red_pressed, 
-           'green': self.green_pressed, 
-           'blue': self.blue_pressed, 
-           'yellow': self.yellow_pressed, 
-           'cancel': self.cancel, 
-           'upUp': self.pageUp, 
-           'leftUp': self.pageUp, 
-           'downUp': self.pageDown, 
+        self['setupActions'] = ActionMap(['ColorActions', 'DirectionActions', 'SetupActions', 'OkCancelActions'], {'exit': self.cancel,
+           'ok': self.ok_pressed,
+           'red': self.red_pressed,
+           'green': self.green_pressed,
+           'blue': self.blue_pressed,
+           'yellow': self.yellow_pressed,
+           'cancel': self.cancel,
+           'upUp': self.pageUp,
+           'leftUp': self.pageUp,
+           'downUp': self.pageDown,
            'rightUp': self.pageDown})
         self.service = service
         self.ratingstars = -1

@@ -126,7 +126,7 @@ class BabelzapperConfiguration(Screen, ConfigListScreen):
 
 	def readme(self):
 		self.session.open(Console, _("Babelzapper readme.txt"), ["cat %s" % (babelzapper_readme)])
- 
+
 	def about(self):
 		self.session.open(MessageBox, _("Babelzapper Version %s\nby gutemine and garbage") % babelzapper_version, MessageBox.TYPE_INFO)
 
@@ -175,7 +175,7 @@ class BabelZapperStartup(Screen):
 			i = 1 + babeldone
 			babeldone = 0
 			# here comes the command line interpreter
-			while i < cmdlen: 
+			while i < cmdlen:
 				cmd = babelmenu[babelkey][i]
 				cmdname = cmd.lstrip("	 ")
 				print("[BABELZAPPER] command: %s" % cmdname)
@@ -270,7 +270,7 @@ class BabelZapperStartup(Screen):
 					self.session.open(MessageBox, babeltext, MessageBox.TYPE_ERROR)
 					# skip rest of commandline
 					i = cmdlen
-				# next command	
+				# next command
 				i = i + 1
 			# continue babelzapping but show last command again to make repeats easier
 			babelkey = babelkey - 1

@@ -92,7 +92,7 @@ try:
 	from Plugins.SystemPlugins.MPHelp import registerHelp, XMLHelpReader
 	from Tools.Directories import resolveFilename, SCOPE_PLUGINS, fileExists
 	lang = language.getLanguage()[:2]
-	
+
 	HELPPATH = resolveFilename(SCOPE_PLUGINS, "Extensions/EPGRefresh")
 	if fileExists(HELPPATH + "/locale/" + str(lang) + "/mphelp.xml"):
 		helpfile = HELPPATH + "/locale/" + str(lang) + "/mphelp.xml"
@@ -113,7 +113,7 @@ try:
 except Exception as e:
 	EPGRefreshNotificationKey = ""
 	#print("[EPGRefresh] Error registering Notification-Domain:", e)
-	
+
 # Plugin
 from EPGRefresh import epgrefresh
 from EPGRefreshService import EPGRefreshService
@@ -155,7 +155,7 @@ def autostart(reason, **kwargs):
 					from Tools import Notifications
 					Notifications.AddNotificationWithID("Standby", Standby)
 			timeCallback(isCallback=False)
-		
+
 	elif reason == 1:
 		epgrefresh.stop()
 
@@ -165,7 +165,7 @@ def getNextWakeup():
 	if not config.plugins.epgrefresh.enabled.value or \
 		not config.plugins.epgrefresh.wakeup.value:
 
-		setConfigWakeupTime(-1)	
+		setConfigWakeupTime(-1)
 		return -1
 
 	now = localtime()

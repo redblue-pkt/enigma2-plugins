@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 ######################## BEGIN LICENSE BLOCK ########################
 # The Original Code is Mozilla Communicator client code.
-# 
+#
 # The Initial Developer of the Original Code is
 # Netscape Communications Corporation.
 # Portions created by the Initial Developer are Copyright (C) 1998
 # the Initial Developer. All Rights Reserved.
-# 
+#
 # Contributor(s):
 #   Mark Pilgrim - port to Python
 #
@@ -15,12 +15,12 @@
 # modify it under the terms of the GNU Lesser General Public
 # License as published by the Free Software Foundation; either
 # version 2.1 of the License, or (at your option) any later version.
-# 
+#
 # This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # Lesser General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
@@ -45,7 +45,7 @@ class CharDistributionAnalysis:
         self._mTableSize = None # Size of above table
         self._mTypicalDistributionRatio = None # This is a constant value which varies from language to language, used in calculating confidence.  See http://www.mozilla.org/projects/intl/UniversalCharsetDetection.html for further detail.
         self.reset()
-        
+
     def reset(self):
         """reset analyser, clear any state"""
         self._mDone = constants.False # If this flag is set to constants.True, detection is done and conclusion has been made
@@ -86,11 +86,11 @@ class CharDistributionAnalysis:
         return self._mTotalChars > ENOUGH_DATA_THRESHOLD
 
     def get_order(self, aStr):
-        # We do not handle characters based on the original encoding string, but 
+        # We do not handle characters based on the original encoding string, but
         # convert this encoding string to a number, here called order.
         # This allows multiple encodings of a language to share one frequency table.
         return -1
-    
+
 
 class EUCTWDistributionAnalysis(CharDistributionAnalysis):
     def __init__(self):
@@ -100,7 +100,7 @@ class EUCTWDistributionAnalysis(CharDistributionAnalysis):
         self._mTypicalDistributionRatio = EUCTW_TYPICAL_DISTRIBUTION_RATIO
 
     def get_order(self, aStr):
-        # for euc-TW encoding, we are interested 
+        # for euc-TW encoding, we are interested
         #   first  byte range: 0xc4 -- 0xfe
         #   second byte range: 0xa1 -- 0xfe
         # no validation needed here. State machine has done that
@@ -118,7 +118,7 @@ class EUCKRDistributionAnalysis(CharDistributionAnalysis):
         self._mTypicalDistributionRatio = EUCKR_TYPICAL_DISTRIBUTION_RATIO
 
     def get_order(self, aStr):
-        # for euc-KR encoding, we are interested 
+        # for euc-KR encoding, we are interested
         #   first  byte range: 0xb0 -- 0xfe
         #   second byte range: 0xa1 -- 0xfe
         # no validation needed here. State machine has done that
@@ -136,7 +136,7 @@ class GB2312DistributionAnalysis(CharDistributionAnalysis):
         self._mTypicalDistributionRatio = GB2312_TYPICAL_DISTRIBUTION_RATIO
 
     def get_order(self, aStr):
-        # for GB2312 encoding, we are interested 
+        # for GB2312 encoding, we are interested
         #  first  byte range: 0xb0 -- 0xfe
         #  second byte range: 0xa1 -- 0xfe
         # no validation needed here. State machine has done that
@@ -154,7 +154,7 @@ class Big5DistributionAnalysis(CharDistributionAnalysis):
         self._mTypicalDistributionRatio = BIG5_TYPICAL_DISTRIBUTION_RATIO
 
     def get_order(self, aStr):
-        # for big5 encoding, we are interested 
+        # for big5 encoding, we are interested
         #   first  byte range: 0xa4 -- 0xfe
         #   second byte range: 0x40 -- 0x7e , 0xa1 -- 0xfe
         # no validation needed here. State machine has done that
@@ -175,7 +175,7 @@ class SJISDistributionAnalysis(CharDistributionAnalysis):
         self._mTypicalDistributionRatio = JIS_TYPICAL_DISTRIBUTION_RATIO
 
     def get_order(self, aStr):
-        # for sjis encoding, we are interested 
+        # for sjis encoding, we are interested
         #   first  byte range: 0x81 -- 0x9f , 0xe0 -- 0xfe
         #   second byte range: 0x40 -- 0x7e,  0x81 -- oxfe
         # no validation needed here. State machine has done that
@@ -199,7 +199,7 @@ class EUCJPDistributionAnalysis(CharDistributionAnalysis):
         self._mTypicalDistributionRatio = JIS_TYPICAL_DISTRIBUTION_RATIO
 
     def get_order(self, aStr):
-        # for euc-JP encoding, we are interested 
+        # for euc-JP encoding, we are interested
         #   first  byte range: 0xa0 -- 0xfe
         #   second byte range: 0xa1 -- 0xfe
         # no validation needed here. State machine has done that

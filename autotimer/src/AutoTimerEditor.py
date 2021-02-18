@@ -368,7 +368,7 @@ class AutoTimerEditorBase:
 		self.isActive_bouquets_value = _("unknown")
 		self.isActive_dayofweek_value = _("unknown")
 		self.isActive_otherfilters_value = _("unknown")
-        
+
 	def pathSelected(self, res):
 		if res is not None:
 			# I'm pretty sure this will always fail
@@ -512,7 +512,7 @@ class AutoTimerEditor(Screen, ConfigListScreen, AutoTimerEditorBase):
 		else:
 			self.isActive_dayofweek_value = _("disabled")
 		self.reloadList(True)
-        
+
 	def renameServiceButton(self):
 		if self.serviceRestriction:
 			self["key_blue"].text = _("Edit services")
@@ -1708,7 +1708,7 @@ def addAutotimerFromEventSilent(session, evt=None, service=None):
 	newTimer.match = name
 	if newTimer.timespan[0]:
 		newTimer.timespan = ((begin[3], begin[4]), (end[3], end[4]), False)
-	
+
 	if newTimer.include:
 		includes = [
 				newTimer.getIncludedTitle(),
@@ -1717,7 +1717,7 @@ def addAutotimerFromEventSilent(session, evt=None, service=None):
 				[str(begin.tm_wday)],
 		]
 		newTimer.include = includes
-	
+
 	newTimer.services = [service]
 	newTimer.enabled = True
 
@@ -1739,4 +1739,3 @@ def editorCallback(ret):
 
 		autotimer.readXml()
 		autotimer.parseEPG()
-

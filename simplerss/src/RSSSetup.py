@@ -231,4 +231,3 @@ def addFeed(address, auto=False):
 	# Save
 	l.append(s)
 	l.save()
-

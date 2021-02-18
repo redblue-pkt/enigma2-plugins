@@ -31,7 +31,7 @@ import glob
 import shutil
 import time
 from threading import Thread
- 
+
 TRASH_NAME = ".trash"
 TRASH_EXCLUDE = ("DUMBO", "TIMOTHY", "swap", "ram", "ba")
 
@@ -97,7 +97,7 @@ class eServiceReferenceTrash():
 
     def getPath(self):
         return self.path
-    
+
     def getShortDescription(self):
         return self.short_description
 
@@ -116,7 +116,7 @@ def resetInfo():
     global trash_count, trash_size
     trash_count = 0
     trash_size = 0
-    
+
 
 class Trashcan:
     @staticmethod
@@ -129,7 +129,7 @@ class Trashcan:
             if len(sp) > 2:
                 if sp[2] in TRASH_EXCLUDE:
                     continue
-                     
+
             # This path detection is only for trashed DVD structures
             if path.endswith(TRASH_NAME):
                 service = eServiceReferenceTrash(path)
@@ -153,17 +153,17 @@ class Trashcan:
             list.append(service)
             updateInfo(filename)
         return list
-    
+
     @staticmethod
     def trash(filename):
         print("trash: ", filename)
         os.rename(filename, filename + TRASH_NAME)
-    
+
     @staticmethod
     def restore(filename):
         print("restore: ", filename)
         os.rename(filename, filename.replace(TRASH_NAME, ""))
-    
+
     @staticmethod
     def delete(filename, min_age=0):
         if min_age > 0:
@@ -199,7 +199,7 @@ class Trashcan:
             if os.path.exists(to_delete):
                 print(to_delete)
                 os.remove(to_delete)
-    
+
         if os.path.exists(jpg):
             print(jpg)
             os.remove(jpg)
@@ -222,7 +222,7 @@ class Trashcan:
                     # really delete!
                     if not offline.deleteFromDisk(0):
                         result = True
-                
+
                 if result == False:
                     print("Error")
             else:
@@ -236,7 +236,7 @@ class Trashcan:
     @staticmethod
     def isCurrentlyDeleting():
         return async_trash != None
-            
+
     @staticmethod
     def getTrashCount():
         global trash_count
@@ -246,4 +246,3 @@ class Trashcan:
     def getTrashSize():
         global trash_size
         return float(trash_size / (1024 * 1024))
-    

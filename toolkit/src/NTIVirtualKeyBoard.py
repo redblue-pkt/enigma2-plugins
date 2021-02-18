@@ -52,4 +52,3 @@ class NTIVirtualKeyBoard(VirtualKeyBoard, NumericalTextInput):
 		self.text = self["text"].getText()
 		self.editing = False
 		self["text"].setMarkedPos(-1)
-

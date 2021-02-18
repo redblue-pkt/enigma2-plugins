@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from Screens.MessageBox import MessageBox 
+from Screens.MessageBox import MessageBox
 
 
 class MessageBox(MessageBox):

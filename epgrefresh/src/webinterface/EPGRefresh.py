@@ -18,4 +18,3 @@ root.putChild("set", EPGRefreshChangeSettingsResource())
 root.putChild("get", EPGRefreshSettingsResource())
 root.putChild("preview", EPGRefreshPreviewServicesResource())
 addExternalChild(("epgrefresh", root, "EPGRefresh-Plugin", API_VERSION))
-

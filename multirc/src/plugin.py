@@ -154,5 +154,3 @@ def Plugins(**kwargs):
 
 		PluginDescriptor(where=PluginDescriptor.WHERE_AUTOSTART,
 				fnc=multirc_autostart)]
-
-

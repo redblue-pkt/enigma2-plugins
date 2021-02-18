@@ -291,12 +291,12 @@ class EIBObjects(object):
 									elif config.eib.debug.value:
 										print("[parseMultiRead] couldn't parse persistence object", object_id, value)
 		except xml.parsers.expat.ExpatError:
-			print("[parseMultiRead] XML parser error") 
+			print("[parseMultiRead] XML parser error")
 
 	def __iter__(self):
 		list = self.ids.itervalues()
 		return iter(sorted(list, key=lambda EIBObject: EIBObject.order))
-		
+
 
 class EIBoxZoneScreen(Screen, ConfigListScreen):
 
@@ -348,7 +348,7 @@ class EIBoxZoneScreen(Screen, ConfigListScreen):
 		self.initConfigList()
 		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 		self.onChangedEntry = []
-		self["actions"] = ActionMap(["SetupActions", "OkCancelActions", "ColorActions", "DirectionActions"], 
+		self["actions"] = ActionMap(["SetupActions", "OkCancelActions", "ColorActions", "DirectionActions"],
 		{
 			"up": self.keyUp,
 			"upUp": self.keyPass,
@@ -535,7 +535,7 @@ class EIBox(Screen, ConfigListScreen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 
-		self["actions"] = ActionMap(["OkCancelActions", "ColorActions", "DirectionActions"], 
+		self["actions"] = ActionMap(["OkCancelActions", "ColorActions", "DirectionActions"],
 		{
 			"cancel": self.close,
 			"red": self.close
@@ -553,7 +553,7 @@ class EIBox(Screen, ConfigListScreen):
 
 	def onFirstShown(self):
 		self.onShown.remove(self.onFirstShown)
-		self.loadXML(resolveFilename(SCOPE_PLUGINS, file_prefix + config.eib.xmlfile.value))		
+		self.loadXML(resolveFilename(SCOPE_PLUGINS, file_prefix + config.eib.xmlfile.value))
 		self.displayZone()
 
 	def displayZone(self):
@@ -708,4 +708,3 @@ def main(session, **kwargs):
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name="E.I.B.ox", description=_("Visualization for European Installation Bus"), where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=main)
-

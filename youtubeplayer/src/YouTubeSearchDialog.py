@@ -229,7 +229,7 @@ searchContext.lr = ConfigSelection(
 				 ("yi", _("Yiddish")),
 				 ("yo", _("Yoruba")),
 				 ("za", _("Zhuang")),
-				 ("zu", _("Zulu")) 
+				 ("zu", _("Zulu"))
 				], None)
 searchContext.sortOrder = ConfigSelection(
 				[
@@ -252,7 +252,7 @@ class YouTubeSearchDialog(Screen, ConfigListScreen):
 		self.session = session
 
 		self.propagateUpDownNormally = True
-		
+
 		self["actions"] = ActionMap(["YouTubeSearchDialogActions"],
 		{
 			"standard": self.keyStdFeeds,

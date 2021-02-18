@@ -5,7 +5,7 @@ from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import os
 import gettext
- 
+
 PluginLanguageDomain = "Satloader"
 PluginLanguagePath = "Extensions/Satloader/locale"
 
@@ -23,8 +23,7 @@ def _(txt):
 		print("[%s] fallback to default translation for %s" % (PluginLanguageDomain, txt))
 		t = gettext.gettext(txt)
 	return t
- 
+
 
 localeInit()
 language.addCallback(localeInit)
-

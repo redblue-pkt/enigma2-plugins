@@ -149,4 +149,3 @@ class EmissionBandwidth(Screen, ConfigListScreen):
 					'port_forwarding_enabled': self.port_forwarding_enabled.value,
 				})
 			self.close(dict)
-

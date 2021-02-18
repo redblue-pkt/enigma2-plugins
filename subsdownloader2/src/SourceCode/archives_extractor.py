@@ -25,7 +25,7 @@ class zip_extractor():
           self.__zip__path = zip__path
           self.__destination_dir = destination_dir
           self.__extracted_extension_filter = extracted_extension_filter
-               
+
      def open_zip_file_to_read(self, zip__path):
           try:
                zip_data = zipfile.ZipFile(zip__path, 'r')
@@ -44,7 +44,7 @@ class zip_extractor():
                          zip_file_list.append(x)
                else:
                     zip_file_list.append(x)
-          return zip_file_list  
+          return zip_file_list
 
      def extract_zipped_file(self):
           if self.__destination_dir == None:
@@ -60,7 +60,7 @@ class zip_extractor():
                          zip_data.extract(x, destination_dir)
                          print("Files %s from zip %s extracted to dir: %s.\n" % (x, self.__zip__path, destination_dir))
                          extracted_files_path.append(destination_dir + "/" + x)
-                    return extracted_files_path   
+                    return extracted_files_path
                except:
                     print("Zip %s was not extracted to dir: %s" % (self.__zip__path, destination_dir))
                     return False
@@ -119,7 +119,7 @@ class rar_extractor():
           else:
                print("%s is not a rar file." % rar__path)
                return False"""
- 
+
 #USE
 #zip__path = "C:/1111/Lord of the ring.zip"
 #aa = zip_extractor(zip__path,None,("txt","sub","srt"))

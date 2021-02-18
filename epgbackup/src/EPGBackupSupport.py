@@ -50,10 +50,10 @@ class EPGBackupSupport:
 	def __init__(self, session):
 		# Initialize
 		self.session = session
-		
+
 		self.backuptimer = eTimer()
 		self.backuptimer.callback.append(self.makeBackup)
-		
+
 		# while postinst doesn't work in git-make
 		self.autoinstall(config.plugins.epgbackup.backup_enabled)
 		config.plugins.epgbackup.backup_enabled.addNotifier(self.autoinstall, initial_call=False, immediate_feedback=True)
@@ -66,7 +66,7 @@ class EPGBackupSupport:
 		except:
 			debugOut("EPGRefresh not installed!", forced=True)
 			debugOut("Debug: EPGRefresh-Import-Error:\n" + str(format_exc()))
-		
+
 		self.notifyBootCount()
 
 	def notifyBootCount(self):
@@ -79,10 +79,10 @@ class EPGBackupSupport:
 					bootCount = line
 					line = fo.readline()
 				fo.close
-				
+
 				# We have succesfully booted, so delete the counter-File
 				os.remove(BOOTCOUNTERFILE)
-				
+
 				bootCount = int(bootCount)
 				if bootCount > int(config.plugins.epgbackup.max_boot_count.value):
 					backupedFile = self.executeShScript(EPGBACKUP_SHELL_CONSTANTS["GETLASTFILE"], EPGBACKUP_SHELL_CONSTANTS["GETLASTFILE_BACKUP"])
@@ -92,7 +92,7 @@ class EPGBackupSupport:
 						timeout=10, domain=EPGBACKUP_NOTIFICATIONDOMAIN)
 		except:
 			debugOut("checkBootCount-Error:\n" + str(format_exc()), forced=True)
-	
+
 	def askDeleteBadBackupCB(self, deleteIt):
 		try:
 			if deleteIt:
@@ -138,7 +138,7 @@ class EPGBackupSupport:
 			errorTxt = params[0]
 			param1 = params[1]
 			param2 = params[2]
-		
+
 		if errorTxt == "BACKUP_RESTORE_DISABLED":
 			errorTxt = _("Backup and Restore are disabled!")
 		elif errorTxt == "BACKUP_EPGFILE_TOO_SMALL":
@@ -153,9 +153,9 @@ class EPGBackupSupport:
 			errorTxt = _("Maximum Number of unsuccessfully boots reached!")
 		elif errorTxt == "RESTORE_ORIGINALFILE_VALID":
 			errorTxt = _("The EPG-File is still valid!")
-		
+
 		return errorTxt
-	
+
 	def showLogFileCB(self, showIt):
 		try:
 			if showIt:
@@ -170,7 +170,7 @@ class EPGBackupSupport:
 							type=MessageBox.TYPE_ERROR)
 		except:
 			debugOut("showLogFileCB-Error:\n" + str(format_exc()), forced=True)
-	
+
 	def makeBackup(self, interactive=False):
 		try:
 			debugOut("making a backup!")
@@ -193,18 +193,18 @@ class EPGBackupSupport:
 						timeout=30, domain=EPGBACKUP_NOTIFICATIONDOMAIN)
 		except:
 			debugOut("makeBackup-Error:\n" + str(format_exc()), forced=True)
-	
+
 	def forceDefaultRestore(self):
 		self._defaultRestore(self.__forceRestoreCB,
 			_("Select a file to force a restore"))
 
 	def forceRestore(self):
 		self._forceRestore(self.__forceRestoreCB, _("Select a file to force a restore"))
-		
+
 	def forceRestoreBySize(self):
 		self._forceRestore(self.__forceRestoreCB, _("Select a file to force a restore"),
 			sortMode=EPGBACKUP_SHELL_CONSTANTS["EPGINFOSORTSIZE"])
-	
+
 	def setNextBootRestore(self):
 		self._defaultRestore(self.__setNextBootRestoreCB,
 			_("Select a file to force a restore on next boot"))
@@ -214,7 +214,7 @@ class EPGBackupSupport:
 			self._forceRestore(callback, boxTitle, sortMode=EPGBACKUP_SHELL_CONSTANTS["EPGINFOSORTSIZE"])
 		else:
 			self._forceRestore(callback, boxTitle)
-	
+
 	def _forceRestore(self, callback, boxTitle, sortMode=""):
 		backupList = self._getBackupFiles(sortMode)
 		if len(backupList) == 0:
@@ -222,7 +222,7 @@ class EPGBackupSupport:
 		backupList.insert(0, (_("Cancel"), FORCERESTORECANCEL))
 		self.session.openWithCallback(callback,
 			ChoiceBox, boxTitle, backupList)
-	
+
 	def __forceRestoreCB(self, backupinfo):
 		try:
 			if backupinfo is None:
@@ -282,7 +282,7 @@ class EPGBackupSupport:
 			backupList.append((FORCERESTOREGENERALERROR, _("General Error!")))
 			debugOut("getBackupFiles-Error:\n" + str(format_exc()), forced=True)
 		return backupList
-	
+
 	def autoinstall(self, configentry):
 		try:
 			if configentry.value:
@@ -291,16 +291,16 @@ class EPGBackupSupport:
 				self.uninstall()
 		except:
 			debugOut("autoinstall-Error:\n" + str(format_exc()), forced=True)
-	
+
 	def install(self):
 		if os.path.exists(SH_EXEC_FILE):
 			self.executeShScript(sh_cmd="/bin/chmod", param1="u+x", param2=SH_EXEC_FILE)
 		self.executeShScript(EPGBACKUP_SHELL_CONSTANTS["INSTALL"],
 			config.plugins.epgbackup.showin_usr_scripts.value)
-	
+
 	def uninstall(self):
 		self.executeShScript(EPGBACKUP_SHELL_CONSTANTS["UNINSTALL"])
-		
+
 	def executeShScript(self, param1="", param2="", sh_cmd=""):
 		if sh_cmd == "":
 			sh_cmd = SH_EXEC_FILE
@@ -317,12 +317,12 @@ class EPGBackupSupport:
 		outtext = ""
 		try:
 			outtext = subprocess.check_output("%s %s %s" % (sh_cmd, param1, param2),
-				stderr=subprocess.STDOUT, 
+				stderr=subprocess.STDOUT,
 				shell=True)
 		except subprocess.CalledProcessError as cpe:
 			debugOut("sh-Execute-Error:\n%s: %s" % (str(cpe.returncode), cpe.output))
 		return outtext
-	
+
 	def _executeShOld(self, sh_cmd, param1="", param2=""):
 		outtext = ""
 		Console().ePopen("%s %s %s > %s" % (sh_cmd, param1, param2, str(SH_TMP_OUTPUT)))
@@ -333,6 +333,3 @@ class EPGBackupSupport:
 			line = fo.readline()
 		fo.close
 		return outtext
-
-
-

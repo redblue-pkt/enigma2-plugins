@@ -31,7 +31,7 @@ VSR = ["VSR-0", "VSR-6", "VSR-12", "VSR-16", "VSR-18"]
 class AccessRestriction:
     def __init__(self):
         self.access = 18
-    
+
     def setAccess(self, access):
         print("set VSR:", access)
         self.access = int(access)
@@ -45,7 +45,7 @@ class AccessRestriction:
         except Exception as e:
             print(str(e))
             return -1 # type as error
-    
+
     def isAccessible(self, tags):
         if not tags:
             return True
@@ -58,7 +58,7 @@ class AccessRestriction:
 
     def setToService(self, file_name, access, clear_access=False):
         try:
-            meta_file = file_name.endswith(".ts") and file_name + ".meta" or file_name + ".ts.meta"  
+            meta_file = file_name.endswith(".ts") and file_name + ".meta" or file_name + ".ts.meta"
             if not clear_access:
                 print("Set %s to %s" % (access, meta_file))
             else:
@@ -79,17 +79,17 @@ class AccessRestriction:
                 time = ""
                 tags = ""
                 rest = ""
-    
+
             tag_list = tags.split()
             new_tags = []
             for t in tag_list:
                 if not t.startswith("VSR"):
                     new_tags.append(t)
-            
+
             if not clear_access:
                 new_tags.insert(0, access)
             tags = " ".join(new_tags)
-                    
+
             metafile = open(meta_file, "w")
             metafile.write("%s\n%s\n%s\n%s\n%s\n%s" % (sid, title, descr, time, tags, rest))
             metafile.close()

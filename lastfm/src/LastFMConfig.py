@@ -10,12 +10,12 @@ from Components.ActionMap import ActionMap
 # for localized messages
 from . import _
 
-       
+
 class LastFMConfigScreen(ConfigListScreen, Screen):
 
     config.plugins.LastFM = ConfigSubsection()
     config.plugins.LastFM.name = ConfigText(default=_("Last.FM"))
-    
+
     skin = """
         <screen position="center,center" size="600,480" title="%s" >
         
@@ -28,8 +28,8 @@ class LastFMConfigScreen(ConfigListScreen, Screen):
 
         </screen>""" % (
             config.plugins.LastFM.name.value + " " + _("Setup")  # title
-        ) 
-			
+        )
+
     def __init__(self, session, args=0):
         self.session = session
         Screen.__init__(self, session)

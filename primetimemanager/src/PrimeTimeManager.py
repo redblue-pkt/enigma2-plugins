@@ -284,7 +284,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 		self.overlappingTimers = []
 
 		self.notrecordingTimers = []
-		
+
 		# a list of service references for view live events (there can be only one event for each day)
 		self.viewLiveServices = []
 
@@ -336,7 +336,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 
 		# find timers where begin < primeTime and end + margin > primeTime
 		self.getOverlappingTimers()
-		
+
 		# add existing timers to the favorites
 		self.getTimerEvents()
 
@@ -352,7 +352,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 		self.updateLists()
 
 		self.setScrollPixmaps(self.primeTimeEvents[self.currentBouquet])
-		
+
 		# HD service refs will be stored here
 		self.serviceRefsHD = None
 
@@ -950,7 +950,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 		# build a basic list of results
 		for favorite in self.favoriteEvents[self.dayOffset].services:
 			numConflicts = self.conflictCounts[self.dayOffset][favorite[SERVICEREF]]
-			
+
 			if (favorite[SERVICEREF], favorite[EVENTID]) in self.overlappingTimers[self.dayOffset]:
 				isTimer = 1
 			elif (favorite[SERVICEREF], favorite[EVENTID]) in self.notrecordingTimers[self.dayOffset]:
@@ -1332,7 +1332,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 
 			self.favoriteEvents[self.dayOffset].services.append(event)
 			self.favoriteEvents[self.dayOffset].size += 1
-			
+
 			self.addToConflicts(event[SERVICEREF], add=timerEntry)
 			self.postFavoriteAdd()
 		else:
@@ -1457,7 +1457,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 		if config.plugins.PrimeTimeManager.ViewLiveType.value == "zap":
 			type = _("Zap + Record")
 		else:
-			type = _("Zap") 
+			type = _("Zap")
 		text = _("Set 'view live' type '%s'?") % type
 		self.session.openWithCallback(self.toggleViewLiveTypeAnswer, MessageBox, text)
 
@@ -1886,7 +1886,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 								s = list.getNext()
 								if not s.valid():
 									break
-									
+
 								self.serviceRefsHD.append(s.toString())
 			i += 1
 
@@ -1971,7 +1971,7 @@ class PrimeTimeManager(Screen, HelpableScreen):
 		else:
 			# user deleted an existing timer or aborted the creation of a new timer
 			print("[PrimeTimeManager] user aborted timer creation from Timer Entry.")
-			
+
 		self.setSetDayButton()
 
 	# remove timer repetitions from the favorites
@@ -2245,7 +2245,7 @@ class PreviewList(MenuList):
 		self.clockPixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/PrimeTimeManager/images/epgclock.png'), desktop=getDesktop(0))
 		self.clockOverlap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/PrimeTimeManager/images/clockOverlap.png'), desktop=getDesktop(0))
 		self.clockNotrecord = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/PrimeTimeManager/images/clockNotrecord.png'), desktop=getDesktop(0))
-		
+
 		self.digitList = []
 		i = 0
 		while i <= 10:
@@ -2419,7 +2419,7 @@ class NoScrollBarLabel(ScrollLabel):
 		self.long_text.resize(eSize(s.width() - 30, self.pageHeight * 16))
 		self.setText(self.message)
 		return ret
-		
+
 	def setText(self, text):
 		self.message = text
 		if self.long_text is not None and self.pageHeight:
@@ -2549,7 +2549,7 @@ class EventViewSuperSimple(Screen, EventViewBase):
 				name2 = cur.getEventName()
 				name3 = name2.split("(")[0].strip()
 				eventname = name3.replace('"', '').replace('Х/Ф', '').replace('М/Ф', '').replace('Х/ф', '').replace('.', '')
-				eventname = eventname.replace('0+', '').replace('(0+)', '').replace('6+', '').replace('(6+)', '').replace('7+', '').replace('(7+)', '').replace('12+', '').replace('(12+)', '').replace('16+', '').replace('(16+)', '').replace('18+', '').replace('(18+)', '')				
+				eventname = eventname.replace('0+', '').replace('(0+)', '').replace('6+', '').replace('(6+)', '').replace('7+', '').replace('(7+)', '').replace('12+', '').replace('(12+)', '').replace('16+', '').replace('(16+)', '').replace('18+', '').replace('(18+)', '')
 				try:
 					tmbdsearch = config.plugins.tmbd.profile.value
 				except:
@@ -2692,7 +2692,7 @@ class PrimeTimeSelection(EPGSelection):
 
 	def text_green(self):
 		self["key_green"].setText("OK")
-		if not self.green.isActive(): 
+		if not self.green.isActive():
 			self.green.start(300)
 
 	def onCreate(self):
@@ -2733,7 +2733,7 @@ class PrimeTimeSingleSelection(EPGSelection):
 	def text_green(self):
 		if self.key_green_choice != self.EMPTY:
 			self["key_green"].setText("")
-		if not self.green_key.isActive(): 
+		if not self.green_key.isActive():
 			self.green_key.start(300)
 
 	def timerAdd(self):

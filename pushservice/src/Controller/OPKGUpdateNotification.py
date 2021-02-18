@@ -39,13 +39,13 @@ BODY = _("There are updates available:\n%s")
 
 
 class OPKGUpdateNotification(ControllerBase):
-	
+
 	ForceSingleInstance = True
-	
+
 	def __init__(self):
 		# Is called on instance creation
 		ControllerBase.__init__(self)
-		
+
 		# Default configuration
 		self.setOption('selfcheck', NoSave(ConfigYesNo(default=False)), _("Start update check if not done yet"))
 
@@ -111,4 +111,3 @@ class OPKGUpdateNotification(ControllerBase):
 			callback(SUBJECT, BODY % (updates))
 		else:
 			callback()
-

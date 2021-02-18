@@ -117,7 +117,7 @@ class MSNWeatherPlugin(Screen):
 			<widget render="Label" source="weekday5_temp" position="1255,719" zPosition="1" size="250,80" halign="center" valign="bottom" font="Regular;32" transparent="1"/>
 			<widget render="Label" source="statustext" position="center,-2" size="1539,841" font="Regular;20" halign="center" valign="center" transparent="1"/>
 		</screen>"""
-	
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.title = _("Weather Plugin")
@@ -140,7 +140,7 @@ class MSNWeatherPlugin(Screen):
 		self["observationtime"] = StaticText()
 		self["observationpoint"] = StaticText()
 		self["feelsliketemp"] = StaticText()
-		
+
 		i = 1
 		while i <= 5:
 			self["weekday%s" % i] = StaticText()
@@ -148,7 +148,7 @@ class MSNWeatherPlugin(Screen):
 			self["weekday%s_temp" % i] = StaticText()
 			i += 1
 		del i
-		
+
 		self.weatherPluginEntryIndex = -1
 		self.weatherPluginEntryCount = config.plugins.WeatherPlugin.entrycount.value
 		if self.weatherPluginEntryCount >= 1:
@@ -158,11 +158,11 @@ class MSNWeatherPlugin(Screen):
 			self.weatherPluginEntry = None
 
 		self.webSite = ""
-		
+
 		self.weatherData = None
 		self.onLayoutFinish.append(self.startRun)
 		self.onClose.append(self.__onClose)
-		
+
 	def __onClose(self):
 		if self.weatherData is not None:
 			self.weatherData.cancel()
@@ -250,7 +250,7 @@ class MSNWeatherPlugin(Screen):
 					lowTemp = item.low
 					highTemp = item.high
 					self["weekday%s_temp" % index].text = "%s°%s|%s°%s\n%s" % (highTemp, self.weatherData.degreetype, lowTemp, self.weatherData.degreetype, item.skytextday)
-		
+
 		if self.weatherPluginEntryIndex == 1 and WeatherMSNComp is not None:
 			WeatherMSNComp.updateWeather(self.weatherData, result, errortext)
 
@@ -322,7 +322,7 @@ class WeatherIcon(Pixmap):
 			self.instance.setPixmap(ptr)
 		else:
 			self.instance.setPixmap(None)
-		
+
 	def updateIcon(self, filename):
 		new_IconFileName = filename
 		if (self.IconFileName != new_IconFileName):

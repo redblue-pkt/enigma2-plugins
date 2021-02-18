@@ -92,7 +92,7 @@ class YouTubeUserListScreen(Screen):
 			"add": self.keyAddUser,
 			"edit": self.keyEditUser,
 			"default": self.keySetAsDefault,
-			
+
 			"ok": self.ok,
 			"cancel": self.close,
 			"up": self.up,
@@ -100,7 +100,7 @@ class YouTubeUserListScreen(Screen):
 			"left": self.left,
 			"right": self.right,
 		}, -2)
-		
+
 		self.onLayoutFinish.append(self.initialUserlistUpdate)
 
 	def showTestScreen(self):

@@ -509,13 +509,13 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 					(_("View user videos"), "user_videos"),
 					(_("View response videos"), "response"),
 				))
-			
+
 			if myTubeService.is_auth() is True:
 				menulist.extend((
 						(_("Subscribe to user"), "subscribe"),
 						(_("Add to favorites"), "favorite"),
-					))				
-			
+					))
+
 			if config.usage.setup_level.index >= 2: # expert+
 				menulist.extend((
 					(_("Download Video"), "download"),
@@ -544,7 +544,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 		elif answer == "favorite":
 			current = self["feedlist"].getCurrent()[0]
 			self.session.open(MessageBox, current.addToFavorites(), MessageBox.TYPE_INFO)
-					
+
 		elif answer == "response":
 			current = self["feedlist"].getCurrent()[0]
 			self.setState('getFeed')
@@ -795,7 +795,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 	def keyStdFeed(self):
 		self.hideSuggestions()
 		menulist = []
-		
+
 		if myTubeService.is_auth() is True:
 			menulist.extend((
 				(_("My Subscriptions"), "my_subscriptions"),
@@ -1011,7 +1011,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 
 	def searchFeed(self, searchContext, vals=None):
 		print("[MyTubePlayer] searchFeed")
-		
+
 		defaults = {
 			'time': config.plugins.mytube.search.time.value,
 			'orderby': config.plugins.mytube.search.orderBy.value,
@@ -1025,7 +1025,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 
 		self.queryStarted()
 		self.appendEntries = False
-		self.queryThread = myTubeService.search(searchContext, 
+		self.queryThread = myTubeService.search(searchContext,
 					orderby=defaults['orderby'],
 					time=defaults['time'],
 					maxResults=defaults['maxResults'],
@@ -1056,11 +1056,11 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 			self.ytfeed = feed
 		self.buildEntryList()
 		text = _("Results: %s - Page: %s " % (str(myTubeService.getTotalResults()), str(myTubeService.getCurrentPage())))
-		
+
 		auth_username = myTubeService.getAuthedUsername()
 		if auth_username:
 			text = auth_username + ' - ' + text
-		
+
 		self["result"].setText(text)
 
 	def gotFeedError(self, exception):

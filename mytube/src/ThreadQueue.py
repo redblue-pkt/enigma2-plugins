@@ -20,4 +20,3 @@ class ThreadQueue:
 		ret = self.__list.pop()
 		lock.release()
 		return ret
-

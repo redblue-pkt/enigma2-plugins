@@ -26,4 +26,4 @@ language.addCallback(localeInit())
 
 STARTNOTIFICATIONID = 'EpgRefreshStartNotificationId'
 ENDNOTIFICATIONID = 'EpgRefreshEndNotificationId'
-NOTIFICATIONDOMAIN = "EPGRefresh" 
+NOTIFICATIONDOMAIN = "EPGRefresh"

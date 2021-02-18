@@ -94,4 +94,3 @@ class NamezapSetup(Screen, ConfigListScreen):
 
 	def createSummary(self):
 		return SetupSummary
-

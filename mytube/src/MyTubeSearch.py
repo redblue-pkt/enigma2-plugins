@@ -613,4 +613,3 @@ class MyTubeHistoryScreen(Screen):
 		print("down")
 		self["historylist"].selectNext()
 		return self.getSelection()
-

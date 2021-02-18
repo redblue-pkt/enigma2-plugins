@@ -54,7 +54,7 @@ class MC_VideoPlayer(Screen, HelpableScreen):
 		self.mvion = False
 		self.curfavfolder = -1
 		Console().ePopen("touch /tmp/bmcmovie")
-		self["actions"] = HelpableActionMap(self, "MC_VideoPlayerActions", 
+		self["actions"] = HelpableActionMap(self, "MC_VideoPlayerActions",
 			{
 				"ok": (self.KeyOk, "Play selected file"),
 				"cancel": (self.Exit, "Exit Video Player"),

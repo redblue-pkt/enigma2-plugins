@@ -17,12 +17,12 @@ from __future__ import print_function
 # modify it under the terms of the GNU Lesser General Public
 # License as published by the Free Software Foundation; either
 # version 2.1 of the License, or (at your option) any later version.
-# 
+#
 # This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # Lesser General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
@@ -41,7 +41,7 @@ SYMBOL_CAT_ORDER = 250
 NUMBER_OF_SEQ_CAT = 4
 POSITIVE_CAT = NUMBER_OF_SEQ_CAT - 1
 #NEGATIVE_CAT = 0
- 
+
 
 class SingleByteCharSetProber(CharSetProber):
     def __init__(self, model, reversed=constants.False, nameProber=None):

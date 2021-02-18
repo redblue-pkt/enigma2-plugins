@@ -651,4 +651,3 @@ class XMLloader:
 
 	def getScreenXMLTitle(self, node):
 		return self.get_txt(node, "name", "no title")
-

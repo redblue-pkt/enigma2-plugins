@@ -23,4 +23,3 @@ class vhdRendVideoSize(Renderer, VariableText):
 			self.text = str(xresol) + 'x' + str(yresol)
 		else:
 			self.text = '---'
-

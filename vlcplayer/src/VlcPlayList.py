@@ -88,4 +88,3 @@ class VlcPlayList(MenuList):
 			self.moveToIndex(i)
 			return self.getCurrent()
 		return None, None
-

@@ -36,4 +36,3 @@ class ProwlAPI:
 		defer = Deferred()
 		reactor.callLater(1, defer.callback, True)
 		return defer
-
