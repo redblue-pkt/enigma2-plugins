@@ -22,7 +22,7 @@ def _parse(url, defaultPort=None):
 	url = url.strip()
 	parsed = urlparse(url)
 	scheme = parsed[0]
-	path = urlunparse(('', '')+parsed[2:])
+	path = urlunparse(('', '') + parsed[2:])
 
 	if defaultPort is None:
 		if scheme == 'https':
@@ -113,7 +113,7 @@ class PictureScreen(Screen):
 	processing = False # if fetching or converting is active
 	autoreload = False
 	def __init__(self, session,title,filename, slideshowcallback=None,args=0):
-		self.slideshowcallback=slideshowcallback
+		self.slideshowcallback = slideshowcallback
 		self.screentitle = title
 		self.filename = filename
 
@@ -187,7 +187,7 @@ class PictureScreen(Screen):
 
 	def fetchFailed(self, string):
 		print("fetch failed", string)
-		self.setTitle("fetch failed: "+string)
+		self.setTitle("fetch failed: " + string)
 
 	def fetchFinished(self, string):
 		print("fetching finished")

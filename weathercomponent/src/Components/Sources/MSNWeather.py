@@ -50,8 +50,8 @@ class MSNWeather(Source):
 		if weathermsn.weatherData.weatherItems.has_key(skey):
 			item = weathermsn.weatherData.weatherItems[skey]
 			if item.observationtime != "":
-				c =  time.strptime(item.observationtime, "%H:%M:%S")
-				return  time.strftime("%H:%M",c)
+				c = time.strptime(item.observationtime, "%H:%M:%S")
+				return time.strftime("%H:%M",c)
 			else:
 				return _("n/a")
 		else:
@@ -87,7 +87,7 @@ class MSNWeather(Source):
 		if weathermsn.weatherData.weatherItems.has_key(skey):
 			item = weathermsn.weatherData.weatherItems[skey]
 			highTemp = item.high
-			high =  "%s°%s" % (highTemp, weathermsn.weatherData.degreetype)
+			high = "%s°%s" % (highTemp, weathermsn.weatherData.degreetype)
 			low = self.getTemperature_Low(key)
 			return "%s - %s" % (high, low)
 		else:
@@ -102,7 +102,7 @@ class MSNWeather(Source):
 			if skey == "-1":
 				return item.skytext
 			else:
-				return  item.skytextday
+				return item.skytextday
 		else:
 			return _("n/a")
 			

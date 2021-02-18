@@ -55,7 +55,7 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
         #key = '369C2ED4261DE9C3'
         key = 'ED7DCFCDEC22045A' #SubsDownloader APIKey
 
-        self.api = "http://api.bierdopje.com/%s/" %key
+        self.api = "http://api.bierdopje.com/%s/" % key
         self.cache_path = os.path.join(cache_folder_path, "bierdopje.cache")
         #self.cache_path = os.path.join(film_path.rsplit("/",1)[0], "bierdopje.cache")
         if not os.path.exists(self.cache_path):
@@ -135,7 +135,7 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
         elif showName in self.cache['showids']:
             show_id = self.cache['showids'].get(showName)
         else:
-            getShowId_url = "%sGetShowByName/%s" %(self.api, urllib.quote(showName))
+            getShowId_url = "%sGetShowByName/%s" % (self.api, urllib.quote(showName))
             log.debug("Looking for show Id @ %s" % getShowId_url)
             page = urllib2.urlopen(getShowId_url)
             dom = minidom.parse(page)
@@ -151,8 +151,8 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
         
         # Query the episode to get the subs
         for lang in availableLangs:
-            getAllSubs_url = "%sGetAllSubsFor/%s/%s/%s/%s" %(self.api, show_id, guessedData['season'], guessedData['episode'], lang)
-            log.debug("Looking for subs @ %s" %getAllSubs_url)
+            getAllSubs_url = "%sGetAllSubsFor/%s/%s/%s/%s" % (self.api, show_id, guessedData['season'], guessedData['episode'], lang)
+            log.debug("Looking for subs @ %s" % getAllSubs_url)
             page = urllib2.urlopen(getAllSubs_url)
             dom = minidom.parse(page)
             page.close()

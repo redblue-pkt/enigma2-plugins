@@ -78,7 +78,7 @@ class vConvClockToText(Converter, object):
 			if spos > 0:
 				s1 = self.fmt_string[:spos]
 				s2 = strftime(self.fmt_string[spos:], t)
-				return str(s1+s2)
+				return str(s1 + s2)
 			else:
 				return strftime(self.fmt_string, t)
 		elif self.type == self.LOCDE:
@@ -88,7 +88,7 @@ class vConvClockToText(Converter, object):
 				iAll = s1.split(" ")
 				iTag = iAll[0]
 				iMonat = iAll[2]
-				sOut = self.Tage[int(iTag)-1] + " " + iAll[1] + ". " + self.Monate[int(iMonat)-1]
+				sOut = self.Tage[int(iTag) - 1] + " " + iAll[1] + ". " + self.Monate[int(iMonat) - 1]
 				return str(sOut)
 			else:
 				return strftime(self.fmt_string, t)
@@ -99,7 +99,7 @@ class vConvClockToText(Converter, object):
 				iAll = s1.split(" ")
 				iTag = iAll[0]
 				iMonat = iAll[2]
-				sOut = self.Tage[int(iTag)-1] + " " + iAll[1] + ". " + self.Monate[int(iMonat)-1]
+				sOut = self.Tage[int(iTag) - 1] + " " + iAll[1] + ". " + self.Monate[int(iMonat) - 1]
 				zeit = "%02d:%02d" % (t.tm_hour, t.tm_min)
 				return str(sOut + "     " + zeit)
 			else:

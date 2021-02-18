@@ -194,7 +194,7 @@ class PageElement(object):
             and not isinstance(newChild, NavigableString):
             newChild = NavigableString(newChild)
 
-        position =  min(position, len(self.contents))
+        position = min(position, len(self.contents))
         if hasattr(newChild, 'parent') and newChild.parent is not None:
             # We're 'inserting' an element that's already one
             # of this object's children.
@@ -214,7 +214,7 @@ class PageElement(object):
             newChild.previousSibling = None
             newChild.previous = self
         else:
-            previousChild = self.contents[position-1]
+            previousChild = self.contents[position - 1]
             newChild.previousSibling = previousChild
             newChild.previousSibling.nextSibling = newChild
             newChild.previous = previousChild._lastRecursiveChild()
@@ -419,7 +419,7 @@ class PageElement(object):
                 s = unicode(s)
         else:
             if encoding:
-                s  = self.toEncoding(str(s), encoding)
+                s = self.toEncoding(str(s), encoding)
             else:
                 s = unicode(s)
         return s
@@ -651,7 +651,7 @@ class Tag(PageElement):
 
     def __getattr__(self, tag):
         #print("Getattr %s.%s" % (self.__class__, tag))
-        if len(tag) > 3 and tag.rfind('Tag') == len(tag)-3:
+        if len(tag) > 3 and tag.rfind('Tag') == len(tag) - 3:
             return self.find(tag[:-3])
         elif tag.find('__') != 0:
             return self.find(tag)
@@ -752,7 +752,7 @@ class Tag(PageElement):
         indentTag, indentContents = 0, 0
         if prettyPrint:
             indentTag = indentLevel
-            space = (' ' * (indentTag-1))
+            space = (' ' * (indentTag - 1))
             indentContents = indentTag + 1
         contents = self.renderContents(encoding, prettyPrint, indentContents)
         if self.hidden:
@@ -802,7 +802,7 @@ class Tag(PageElement):
                        prettyPrint=False, indentLevel=0):
         """Renders the contents of this tag as a string in the given
         encoding. If encoding is None, returns a Unicode string.."""
-        s=[]
+        s = []
         for c in self:
             text = None
             if isinstance(c, NavigableString):
@@ -813,7 +813,7 @@ class Tag(PageElement):
                 text = text.strip()
             if text:
                 if prettyPrint:
-                    s.append(" " * (indentLevel-1))
+                    s.append(" " * (indentLevel - 1))
                 s.append(text)
                 if prettyPrint:
                     s.append("\n")
@@ -1269,9 +1269,9 @@ class BeautifulStoneSoup(Tag, SGMLParser):
 
         numPops = 0
         mostRecentTag = None
-        for i in range(len(self.tagStack)-1, 0, -1):
+        for i in range(len(self.tagStack) - 1, 0, -1):
             if name == self.tagStack[i].name:
-                numPops = len(self.tagStack)-i
+                numPops = len(self.tagStack) - i
                 break
         if not inclusivePop:
             numPops = numPops - 1
@@ -1303,7 +1303,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
         isResetNesting = name in self.RESET_NESTING_TAGS
         popTo = None
         inclusive = True
-        for i in range(len(self.tagStack)-1, 0, -1):
+        for i in range(len(self.tagStack) - 1, 0, -1):
             p = self.tagStack[i]
             if (not p or p.name == name) and not isNestable:
                 #Non-nestable tags get popped to the top or to their
@@ -1450,12 +1450,12 @@ class BeautifulStoneSoup(Tag, SGMLParser):
         """Treat a bogus SGML declaration as raw data. Treat a CDATA
         declaration as a CData object."""
         j = None
-        if self.rawdata[i:i+9] == '<![CDATA[':
+        if self.rawdata[i:i + 9] == '<![CDATA[':
              k = self.rawdata.find(']]>', i)
              if k == -1:
                  k = len(self.rawdata)
-             data = self.rawdata[i+9:k]
-             j = k+3
+             data = self.rawdata[i + 9:k]
+             j = k + 3
              self._toStringSubclass(data, CData)
         else:
             try:

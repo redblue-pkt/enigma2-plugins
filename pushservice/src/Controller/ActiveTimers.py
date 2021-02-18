@@ -32,8 +32,8 @@ from time import localtime, strftime
 
 # Constants
 SUBJECT = _("Found active timer(s)")
-BODY    = _("Active timer list:\n%s")
-TAG     = _("ActiveTimerPushed")
+BODY = _("Active timer list:\n%s")
+TAG = _("ActiveTimerPushed")
 
 
 class ActiveTimers(ControllerBase):

@@ -95,7 +95,7 @@ class Conversation:
         self.chatui = chatui
         self.person = person
         self.pipe = MessagePipe()
-        self.timer=eTimer()
+        self.timer = eTimer()
         self.timer.timeout.get().append(self.sendOutPipe)
         self.timer.start(100)
 
@@ -117,7 +117,7 @@ class Conversation:
 
     def sendOutPipe(self):
         if len(str(self.pipe.getOutText())) > 0:
-            if (self.pipe.getOutText()=="/QUIT"):
+            if (self.pipe.getOutText() == "/QUIT"):
                 self.pipe.debug("/quit detected....")
                 self.pipe.clearOutText()
                 self.person.bye()
@@ -162,7 +162,7 @@ class GroupConversation:
         self.group = group
         self.members = []
         self.pipe = MessagePipe()
-        self.timer=eTimer()
+        self.timer = eTimer()
         self.timer.timeout.get().append(self.sendOutPipe)
         self.timer.start(100)
         
@@ -185,7 +185,7 @@ class GroupConversation:
     
     def sendOutPipe(self):
         if len(str(self.pipe.getOutText())) > 0:
-         	if (self.pipe.getOutText()=="/QUIT"):
+         	if (self.pipe.getOutText() == "/QUIT"):
          		self.pipe.debug("/quit detected....")
          		self.pipe.clearOutText()
          		self.group.bye()
@@ -290,7 +290,7 @@ class ChatUI:
         self.pipe.debug("signing onto %s" % client.accountName)
         self.onlineClients.append(client)
         self.contactsList.registerAccountClient(client)
-        self.helper=client
+        self.helper = client
         self.pipe.debug(" --- %s ---" % self.helper)
         self.pipe.add("signing onto %s" % client)
         self.pipe.add("signing onto %s" % client.accountName)
@@ -311,7 +311,7 @@ class ChatUI:
         @type client: L{Client<interfaces.IClient>}
         """
         self.pipe.debug(" --- %s ---" % self.helper)
-        self.pipe.debug("signing off from %s"  % self.helper.accountName)
+        self.pipe.debug("signing off from %s" % self.helper.accountName)
         self.pipe.add("signing off %s" % helper)
         self.pipe.add("signing off %s" % helper.accountName)        
         self.onlineClients.remove(helper)

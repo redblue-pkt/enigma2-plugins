@@ -50,7 +50,7 @@ def main(session,**kwargs):
 def Plugins(path,**kwargs):
     global plugin_path
     plugin_path = path
-    return  [
+    return [
              PluginDescriptor(
                 name="Logo Manager",
                 description="manage logos to display at boottime",
@@ -107,7 +107,7 @@ class LogoManagerScreen(Screen):
         global plugin_path
         for target in self.targets:
             file = target[1].split("/")[-1]
-            if os_path.isfile(plugin_path+file) is not True:
+            if os_path.isfile(plugin_path + file) is not True:
                 print("backing up original ", target[0], " from ", file)
                 Console().ePopen("cp '%s' '%s'/%s" % (target[1], plugin_path, file))
 
@@ -116,8 +116,8 @@ class LogoManagerScreen(Screen):
         global plugin_path
         for target in self.targets:
             file = target[1].split("/")[-1]
-            if os_path.isfile(plugin_path+"/"+file) is True:
-                print("restoring original ", target[0], " from ", plugin_path+"/"+file, "to", target[1])
+            if os_path.isfile(plugin_path + "/" + file) is True:
+                print("restoring original ", target[0], " from ", plugin_path + "/" + file, "to", target[1])
                 Console().ePopen("cp '%s'/%s '%s'" % (plugin_path, file, target[1]))
 
     def exit(self):
@@ -152,7 +152,7 @@ class LogoManagerScreen(Screen):
     def setlist_to_current(self):
         """ fills the list with the target MVIs"""
         global plugin_path
-        filelist =[]
+        filelist = []
         for i in self.targets:
             filelist.append(i[1])
         self.reloadPictures(filelist)
@@ -160,10 +160,10 @@ class LogoManagerScreen(Screen):
 
     def setlist_to_avaiable(self):
         """ fills the list with all found new MVIs"""
-        filelist =[]
+        filelist = []
         for i in os_listdir(config.plugins.logomanager.path.value):
             if i.endswith(".mvi"):
-                filelist.append(config.plugins.logomanager.path.value+i)
+                filelist.append(config.plugins.logomanager.path.value + i)
         filelist.sort()
         self.reloadPictures(filelist)
 
@@ -191,7 +191,7 @@ class LogoManagerScreen(Screen):
 
     def installMVI(self, target, sourcefile):
         """ installs a mvi by overwriting the target with a source mvi """
-        print("installing %s as %s on %s" %(sourcefile, target[0], target[1]))
+        print("installing %s as %s on %s" % (sourcefile, target[0], target[1]))
         if os_path.isfile(target[1]):
             os_remove(target[1])
         Console().ePopen("cp %s %s" % (sourcefile, target[1]))

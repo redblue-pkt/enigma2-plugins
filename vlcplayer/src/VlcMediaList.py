@@ -24,7 +24,7 @@ from VlcPlayList import VlcPlayList
 from . import _
 
 class VlcMediaListScreen(Screen):
-	skin ="""
+	skin = """
 		<screen size="560,400" position="80,100" name="VLC Media List" >
 			<ePixmap name="red"    position="0,355"   zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
 			<ePixmap name="green"  position="140,355" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
@@ -66,16 +66,16 @@ class VlcMediaListScreen(Screen):
 
 		self["actions"] = ActionMap(["WizardActions", "MenuActions", "ShortcutActions", "MoviePlayerActions", "EPGSelectActions"],
 			{
-			 "back": 	self.close,
-			 "red": 	self.keyToggleFilter,
-			 "green":	self.keyUpdate,
-			 "yellow":	self.keyOpenServerlist,
-			 "blue":	self.keyDvd,
-			 "up": 		self.up,
-			 "down": 	self.down,
-			 "left": 	self.left,
-			 "right": 	self.right,
-			 "ok":		self.ok,
+			 "back": self.close,
+			 "red": self.keyToggleFilter,
+			 "green": self.keyUpdate,
+			 "yellow": self.keyOpenServerlist,
+			 "blue": self.keyDvd,
+			 "up": self.up,
+			 "down": self.down,
+			 "left": self.left,
+			 "right": self.right,
+			 "ok": self.ok,
 			 "prevBouquet": self.switchToFileList,
 			 "nextBouquet": self.switchToPlayList,
 			 }, -1)

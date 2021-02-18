@@ -40,7 +40,7 @@ ABOUT = "\n  " + NAME + " " + VERSION + "\n\n" \
 				+ _("  (C) 2012 by betonme @ IHAD \n\n") \
 				+ _("  Terms: ") + TERMS
 
-USER_AGENT = "Enigma2-"+NAME
+USER_AGENT = "Enigma2-" + NAME
 
 try:
 	from enigma import getBoxType
@@ -50,7 +50,7 @@ except:
 
 REQUEST_PARAMETER = "?device=" + DEVICE + "&version=SP" + VERSION
 
-WHERE_EPGMENU     = 'WHERE_EPGMENU'
+WHERE_EPGMENU = 'WHERE_EPGMENU'
 WHERE_CHANNELMENU = 'WHERE_CHANNELMENU'
 
 

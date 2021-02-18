@@ -108,7 +108,7 @@ class TagEditor(Screen):
 	def saveTagsFile(self, tags):
 		try:
 			file = open("/etc/enigma2/movietags", "w")
-			file.write("\n".join(tags)+"\n")
+			file.write("\n".join(tags) + "\n")
 			file.close()
 		except IOError as ioe:
 			pass
@@ -140,7 +140,7 @@ class TagEditor(Screen):
 			tags = " ".join(tags)
 			if tags != oldtags:
 				metafile = open(file, "w")
-				metafile.write("%s%s%s%s%s" %(sid, title, descr, time, tags))
+				metafile.write("%s%s%s%s%s" % (sid, title, descr, time, tags))
 				metafile.close()
 
 	def foreachTimerTags(self, func):
@@ -312,7 +312,7 @@ class MovieTagEditor(TagEditor):
 			tags = " ".join(tags)
 			if tags != oldtags:
 				metafile = open(file + ".ts.meta", "w")
-				metafile.write("%s%s%s%s%s" %(sid, title, descr, time, tags))
+				metafile.write("%s%s%s%s%s" % (sid, title, descr, time, tags))
 				metafile.close()
 
 	def cancel(self):

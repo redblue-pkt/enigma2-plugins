@@ -29,7 +29,7 @@ from pyexpat import ExpatError
 import os
 from os import path as os_path
 
-path=resolveFilename(SCOPE_PLUGINS, "Extensions/BMediaCenter/")
+path = resolveFilename(SCOPE_PLUGINS, "Extensions/BMediaCenter/")
 
 # IMPORT VLC PLAYER PLUGIN STUFF
 try:
@@ -46,7 +46,7 @@ def addFavoriteVLCFolders():
 	config.plugins.mc_vlc.folders.append(ConfigSubsection())
 	config.plugins.mc_vlc.folders[i].name = ConfigText("", False)
 	config.plugins.mc_vlc.folders[i].basedir = ConfigText("/", False)
-	config.plugins.mc_vlc.foldercount.value = i+1
+	config.plugins.mc_vlc.foldercount.value = i + 1
 	return i
 
 for i in range(0, config.plugins.mc_vlc.foldercount.value):
@@ -74,16 +74,16 @@ class MC_VLCServerlist(Screen):
 
 		self["actions"] = ActionMap(["WizardActions", "MenuActions", "ShortcutActions", "MoviePlayerActions"],
 			{
-			 "back": 	self.Exit,
-			 "red": 	self.keyDelete,
-			 "green": 	self.keyAddServer,
-			 "yellow": 	self.keyEditServer,
-			 "blue":	self.keyDVD,
-			 "up": 		self.up,
-			 "down": 	self.down,
-			 "left": 	self.left,
-			 "right": 	self.right,
-			 "ok":		self.ok
+			 "back": self.Exit,
+			 "red": self.keyDelete,
+			 "green": self.keyAddServer,
+			 "yellow": self.keyEditServer,
+			 "blue": self.keyDVD,
+			 "up": self.up,
+			 "down": self.down,
+			 "left": self.left,
+			 "right": self.right,
+			 "ok": self.ok
 			 }, -1)
 
 		self.onLayoutFinish.append(self.updateServerlist)
@@ -201,16 +201,16 @@ class MC_VLCMedialist(Screen):
 
 		self["actions"] = ActionMap(["WizardActions", "InfobarActions", "MovieSelectionActions", "MenuActions", "ShortcutActions", "MoviePlayerActions", "EPGSelectActions"],
 			{
-			 "back": 	self.Exit,
-			 "red": 	self.JumpToFavs,
-			 "green":	self.showPreview,
-			 "yellow": 	self.update,
-			 "blue":	self.keyFilter,
-			 "up": 		self.up,
-			 "down": 	self.down,
-			 "left": 	self.left,
-			 "right": 	self.right,
-			 "ok":		self.ok,
+			 "back": self.Exit,
+			 "red": self.JumpToFavs,
+			 "green": self.showPreview,
+			 "yellow": self.update,
+			 "blue": self.keyFilter,
+			 "up": self.up,
+			 "down": self.down,
+			 "left": self.left,
+			 "right": self.right,
+			 "ok": self.ok,
 			 "menu": self.KeyMenu,
 			 "nextBouquet": self.NextFavFolder,
 			 "prevBouquet": self.PrevFavFolder,
@@ -581,7 +581,7 @@ class MC_VLCFavoriteFolders(Screen):
 		if added == 0:
 			return
 
-		id = len(config.plugins.mc_vlc.folders)-1
+		id = len(config.plugins.mc_vlc.folders) - 1
 		self.list.insert(id, getConfigListEntry(str(config.plugins.mc_vlc.folders[id].name.value), id))
 
 	def conditionalEdit(self, id):

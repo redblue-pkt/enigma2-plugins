@@ -75,21 +75,21 @@ class MediaInfo:
 	#/** @brief A 'new' MediaInfo interface (with a quick init of useful options : "**VERSION**;**APP_NAME**;**APP_VERSION**", but without debug information, use it only if you know what you do), return a Handle, don't forget to delete it after using it*/
 	MediaInfo_New = MediaInfoDLL_Handler.MediaInfo_New
 	MediaInfo_New.argtypes = []  
-	MediaInfo_New.restype  = c_void_p
+	MediaInfo_New.restype = c_void_p
 
 	#MEDIAINFO_EXP void*	     __stdcall MediaInfo_New_Quick (const wchar_t* File, const wchar_t* Options); /*you must ALWAYS call MediaInfo_Delete(Handle) in order to free memory*/
 	MediaInfo_New_Quick = MediaInfoDLL_Handler.MediaInfo_New_Quick
 	MediaInfo_New_Quick.argtypes = [c_wchar_p, c_wchar_p]
-	MediaInfo_New_Quick.restype  = c_void_p
+	MediaInfo_New_Quick.restype = c_void_p
 	MediaInfoA_New_Quick = MediaInfoDLL_Handler.MediaInfoA_New_Quick
 	MediaInfoA_New_Quick.argtypes = [c_char_p, c_char_p]
-	MediaInfoA_New_Quick.restype  = c_void_p
+	MediaInfoA_New_Quick.restype = c_void_p
 
 	#/** @brief Delete a MediaInfo interface*/
 	#MEDIAINFO_EXP void	      __stdcall MediaInfo_Delete (void* Handle);
 	MediaInfo_Delete = MediaInfoDLL_Handler.MediaInfo_Delete
 	MediaInfo_Delete.argtypes = [c_void_p]
-	MediaInfo_Delete.restype  = None
+	MediaInfo_Delete.restype = None
 
 	#/** @brief Wrapper for MediaInfoLib::MediaInfo::Open (with a filename)*/
 	#MEDIAINFO_EXP size_t	    __stdcall MediaInfo_Open (void* Handle, const wchar_t* File);
@@ -189,7 +189,7 @@ class MediaInfo:
 
 	#Handling
 	def __init__(self):
-		self.Handle=self.MediaInfo_New()
+		self.Handle = self.MediaInfo_New()
 		self.MediaInfoA_Option(self.Handle, "CharSet", "UTF-8")
 	def __del__(self):
 		self.MediaInfo_Delete(self.Handle)
@@ -227,9 +227,9 @@ class MediaInfo:
 			return self.MediaInfo_GetI(self.Handle, StreamKind, StreamNumber, Parameter, InfoKind)
 	def Set(self, ToSet, StreamKind, StreamNumber, Parameter, OldParameter=u""):
 		if isinstance(Parameter, str) and isinstance(OldParameter, unicode):
-			Parameter=Parameter.decode("utf-8")
+			Parameter = Parameter.decode("utf-8")
 		if isinstance(Parameter, unicode) and isinstance(OldParameter, str):
-			OldParameter=OldParameter.decode("utf-8")
+			OldParameter = OldParameter.decode("utf-8")
 		if isinstance(Parameter, str):
 			return self.MediaInfoA_Set(self.Handle, ToSet, StreamKind, StreamNumber, Parameter, OldParameter)
 		elif MustUseAnsi:
@@ -245,9 +245,9 @@ class MediaInfo:
 	#Options
 	def Option(self, Option, Value=u""):
 		if isinstance(Option, str) and isinstance(Value, unicode):
-			Option=Option.decode("utf-8")
+			Option = Option.decode("utf-8")
 		if isinstance(Option, unicode) and isinstance(Value, str):
-			Value=Value.decode("utf-8")
+			Value = Value.decode("utf-8")
 		if isinstance(Option, str):
 			return unicode(self.MediaInfoA_Option(self.Handle, Option.encode("utf-8"), Value.encode("utf-8")), "utf_8") 
 		elif MustUseAnsi:
@@ -256,9 +256,9 @@ class MediaInfo:
 			return self.MediaInfo_Option(self.Handle, Option, Value)
 	def Option_Static(self, Option, Value=u""):
 		if isinstance(Option, str) and isinstance(Value, unicode):
-			Option=Option.decode("utf-8")
+			Option = Option.decode("utf-8")
 		if isinstance(Option, unicode) and isinstance(Value, str):
-			Value=Value.decode("utf-8")
+			Value = Value.decode("utf-8")
 		if isinstance(Option, str):
 			return unicode(self.MediaInfoA_Option(None, Option, Value), "utf_8") 
 		elif MustUseAnsi:
@@ -370,7 +370,7 @@ class MediaInfoList:
 
 	#Handling
 	def __init__(self):		      
-		self.Handle=MediaInfoList_New()
+		self.Handle = MediaInfoList_New()
 	def __del__(self):
 		MediaInfoList_Delete(self.Handle)
 	def Open(self, Files, Options=FileOptions.Nothing):

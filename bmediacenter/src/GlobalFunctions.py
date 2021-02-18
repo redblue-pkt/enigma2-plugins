@@ -49,9 +49,9 @@ class MC_VideoInfoView(Screen):
 			tlist.append(ServiceInfoListEntry("sDescription: ", currPlay.info().getInfoString(iServiceInformation.sDescription)))
 class Showiframe():
 	def __init__(self):
-		lib=resolveFilename(SCOPE_LIBDIR)
-		if fileExists(lib +"libshowiframe.so.0.0.0"):
-			self.showiframe = dlopen(lib +"libshowiframe.so.0.0.0")
+		lib = resolveFilename(SCOPE_LIBDIR)
+		if fileExists(lib + "libshowiframe.so.0.0.0"):
+			self.showiframe = dlopen(lib + "libshowiframe.so.0.0.0")
 		try:
 			self.showSinglePic = dlsym(self.showiframe, "showSinglePic")
 			self.finishShowSinglePic = dlsym(self.showiframe, "finishShowSinglePic")

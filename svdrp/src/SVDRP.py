@@ -121,7 +121,7 @@ class SimpleVDRProtocol(LineReceiver):
 					feinfo = None #sref.ref.frontendInfo()
 					fedata = feinfo.getAll(True) if feinfo else {}
 					prov = getServiceInfoValue(info, sref, iServiceInformation.sProvider)
-					frequency = fedata.get("frequency", 0)/1000
+					frequency = fedata.get("frequency", 0) / 1000
 					param = -1
 					source = '-1'
 					srate = -1
@@ -216,7 +216,7 @@ class SimpleVDRProtocol(LineReceiver):
 		try:
 			flags, channelid, datestring, beginstring, endstring, priority, lifetime, name, description = args[1].split(':')
 			flags = int(flags)
-			service_ref = ServiceReference(self.channelList[int(channelid)-1])
+			service_ref = ServiceReference(self.channelList[int(channelid) - 1])
 			datestruct = strptime(datestring, '%Y-%m-%d')
 			timestruct = strptime(beginstring, '%H%M')
 			begin = mktime((datestruct.tm_year, datestruct.tm_mon, datestruct.tm_mday, timestruct.tm_hour, timestruct.tm_min, 0, datestruct.tm_wday, datestruct.tm_yday, -1))
@@ -351,7 +351,7 @@ class SimpleVDRProtocol(LineReceiver):
 		if volctrl.isMuted():
 			payload = "%d Audio is mute" % (CODE_OK,)
 		else:
-			payload = "%d Audio volume is %d." % (CODE_OK, volctrl.getVolume()*2.55)
+			payload = "%d Audio volume is %d." % (CODE_OK, volctrl.getVolume() * 2.55)
 		self.sendLine(payload)
 
 	def HELP(self, args):
@@ -371,7 +371,7 @@ class SimpleVDRProtocol(LineReceiver):
 					payload = "%d-    %s" % (CODE_HELP, func)
 					x = 1
 				else:
-					payload +=  "      %s" % (func,)
+					payload += "      %s" % (func,)
 					x += 1
 			self.sendLine(payload)
 			payload = "%d-To report bugs in the implementation send email to" % (CODE_HELP,)
@@ -415,7 +415,7 @@ class SimpleVDRProtocol(LineReceiver):
 			payload = "%d argument error" % (CODE_SYNTAX,)
 			return self.sendLine(payload)
 
-		sref = self.movielist.list[movieId-1][0]
+		sref = self.movielist.list[movieId - 1][0]
 		serviceHandler = eServiceCenter.getInstance()
 		offline = serviceHandler.offlineOperations(sref)
 
@@ -436,7 +436,7 @@ class SimpleVDRProtocol(LineReceiver):
 			payload = "%d parameter not implemented" % (CODE_IMP_PARAM,)
 			return self.sendLine(payload)
 		try:
-			channelId = int(first)-1
+			channelId = int(first) - 1
 			service = self.channelList[channelId]
 		except ValueError:
 			# XXX: add support for sref

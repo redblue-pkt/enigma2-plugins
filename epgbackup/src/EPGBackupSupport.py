@@ -20,12 +20,12 @@ import subprocess
 model = getBoxType()
 
 SH_EXEC_FILE = resolveFilename(SCOPE_PLUGINS, "Extensions/EPGBackup/EPGBackup.sh")
-SH_TMP_OUTPUT="/tmp/.EPGBackup.sh.output"
-BOOTCOUNTERFILE="/tmp/.EPGBackup.boot.counter"
+SH_TMP_OUTPUT = "/tmp/.EPGBackup.sh.output"
+BOOTCOUNTERFILE = "/tmp/.EPGBackup.boot.counter"
 
-FORCERESTORENOFILES="FORCEBACKUP_NOFILES"
-FORCERESTORECANCEL="FORCEBACKUP_CANCEL"
-FORCERESTOREGENERALERROR="FORCEBACKUP_GENERAL_ERROR"
+FORCERESTORENOFILES = "FORCEBACKUP_NOFILES"
+FORCERESTORECANCEL = "FORCEBACKUP_CANCEL"
+FORCERESTOREGENERALERROR = "FORCEBACKUP_GENERAL_ERROR"
 EPGBACKUP_SHELL_CONSTANTS = {'INSTALL': 'install',
 		'UNINSTALL': 'uninstall',
 		'FORCERESTORE': 'restore',
@@ -71,7 +71,7 @@ class EPGBackupSupport:
 		try:
 			if os.path.exists(BOOTCOUNTERFILE):
 				bootCount = ""
-				fo=open(BOOTCOUNTERFILE)
+				fo = open(BOOTCOUNTERFILE)
 				line = fo.readline()
 				while (line):
 					bootCount = line
@@ -81,7 +81,7 @@ class EPGBackupSupport:
 				# We have succesfully booted, so delete the counter-File
 				os.remove(BOOTCOUNTERFILE)
 				
-				bootCount= int(bootCount)
+				bootCount = int(bootCount)
 				if bootCount > int(config.plugins.epgbackup.max_boot_count.value):
 					backupedFile = self.executeShScript(EPGBACKUP_SHELL_CONSTANTS["GETLASTFILE"], EPGBACKUP_SHELL_CONSTANTS["GETLASTFILE_BACKUP"])
 					Notifications.AddNotificationWithCallback(self.askDeleteBadBackupCB, MessageBox,
@@ -302,10 +302,10 @@ class EPGBackupSupport:
 	def executeShScript(self, param1="", param2="", sh_cmd=""):
 		if sh_cmd == "":
 			sh_cmd = SH_EXEC_FILE
-			debugOut("EPGBackup.sh execute with params %s %s" %(param1, param2))
+			debugOut("EPGBackup.sh execute with params %s %s" % (param1, param2))
 		else:
-			debugOut("OS-execute %s with params %s %s" %(sh_cmd, param1, param2))
-		debugOut("Device-Info: %s" %(model))
+			debugOut("OS-execute %s with params %s %s" % (sh_cmd, param1, param2))
+		debugOut("Device-Info: %s" % (model))
 		if model == "dm800":
 			return self._executeShOld(sh_cmd=sh_cmd, param1=param1, param2=param2)
 		else:
@@ -318,13 +318,13 @@ class EPGBackupSupport:
 				stderr=subprocess.STDOUT, 
 				shell=True)
 		except subprocess.CalledProcessError as cpe:
-			debugOut("sh-Execute-Error:\n%s: %s" %(str(cpe.returncode), cpe.output))
+			debugOut("sh-Execute-Error:\n%s: %s" % (str(cpe.returncode), cpe.output))
 		return outtext
 	
 	def _executeShOld(self, sh_cmd, param1="", param2=""):
 		outtext = ""
 		Console().ePopen("%s %s %s > %s" % (sh_cmd, param1, param2, str(SH_TMP_OUTPUT)))
-		fo=open(str(SH_TMP_OUTPUT))
+		fo = open(str(SH_TMP_OUTPUT))
 		line = fo.readline()
 		while (line):
 			outtext += line

@@ -52,7 +52,7 @@ ChannelReplaceDict = OrderedDict([
 	(' Television', ''),
 	(' Channel', ''),
 	('III', 'drei'),
-	('II',  'zwei'),
+	('II', 'zwei'),
 	#('I',   'eins'),
 	('ARD', 'daserste'),
 	('\+', 'plus'),

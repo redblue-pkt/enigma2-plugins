@@ -35,8 +35,8 @@ class YouTubePlayer(VlcPlayer):
 
 		self["menuactions"] = ActionMap(["YouTubePlayerScreenActions"],
 		{
-			"menu":	self.openContextMenu,
-			"info":	self.showVideoInfo,
+			"menu": self.openContextMenu,
+			"info": self.showVideoInfo,
 		}, -1)
 
 

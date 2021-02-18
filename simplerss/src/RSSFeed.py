@@ -80,7 +80,7 @@ class RSSWrapper(ElementWrapper):
 
 	def __iter__(self):
 		self.idx = 0
-		self.len = len(self)-1
+		self.len = len(self) - 1
 		return self
 
 	def __next__(self):
@@ -90,7 +90,7 @@ class RSSWrapper(ElementWrapper):
 		idx = self.idx
 		if idx > self.len:
 			raise StopIteration
-		self.idx = idx+1
+		self.idx = idx + 1
 		return self[idx]
 
 	def __len__(self):
@@ -125,7 +125,7 @@ class RSS2Wrapper(RSSWrapper):
 
 class PEAWrapper(RSSWrapper):
 	def __init__(self, feed, ns):
-		ns = feed.tag[:feed.tag.index("}")+1]
+		ns = feed.tag[:feed.tag.index("}") + 1]
 		RSSWrapper.__init__(
 			self, feed, feed.findall(ns + 'entry'), ns
 		)
