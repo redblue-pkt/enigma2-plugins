@@ -69,7 +69,7 @@ class BierDopje(SubtitleDatabase.SubtitleDB):
         f.close()
 
     def process(self, filepath, langs):
-        ''' main method to call on the plugin, pass the filename and the wished 
+        ''' main method to call on the plugin, pass the filename and the wished
         languages and it will query the subtitles source '''
         fname = self.getFileName(filepath)
         temp_lang = []

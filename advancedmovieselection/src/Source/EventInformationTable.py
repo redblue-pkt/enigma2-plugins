@@ -19,12 +19,12 @@ In case of reuse of this source code please do not remove this copyright.
     For more information on the GNU General Public License see:
     <http://www.gnu.org/licenses/>.
 
-For example, if you distribute copies of such a program, whether gratis or for a fee, you 
-must pass on to the recipients the same freedoms that you received. You must make sure 
+For example, if you distribute copies of such a program, whether gratis or for a fee, you
+must pass on to the recipients the same freedoms that you received. You must make sure
 that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
 
-DVB transports include metadata called Service Information (DVB-SI, ETSI EN 300 468, ETSI TR 101 211) 
-that links the various elementary streams into coherent programs and provides human-readable descriptions 
+DVB transports include metadata called Service Information (DVB-SI, ETSI EN 300 468, ETSI TR 101 211)
+that links the various elementary streams into coherent programs and provides human-readable descriptions
 for electronic program guides as well as for automatic searching and filtering.
 
 Based on: en_300468v010901p.pdf

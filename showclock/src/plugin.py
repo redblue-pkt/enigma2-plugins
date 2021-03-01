@@ -97,7 +97,7 @@ class ShowClockSetup(Screen, ConfigListScreen): # config
 			<ePixmap pixmap="buttons/green.png" position="155,5" zPosition="0" size="140,40" transparent="1" alphatest="on" />
 			<ePixmap pixmap="buttons/yellow.png" position="305,5" zPosition="0" size="140,40" transparent="1" alphatest="on" />
 			<ePixmap pixmap="buttons/blue.png" position="455,5" zPosition="0" size="140,40" transparent="1" alphatest="on" />
-			
+
 			<widget render="Label" source="key_red" position="5,5" size="140,40" zPosition="2" valign="center" halign="center" backgroundColor="red" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 			<widget render="Label" source="key_green" position="155,5" size="140,40" zPosition="2" valign="center" halign="center" backgroundColor="red" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 			<widget render="Label" source="key_yellow" position="305,5" size="140,40" zPosition="2" valign="center" halign="center" backgroundColor="red" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
@@ -106,7 +106,7 @@ class ShowClockSetup(Screen, ConfigListScreen): # config
 			<widget name="config" position="5,60" size="590,105" scrollbarMode="showOnDemand" />
 
 			<ePixmap pixmap="div-h.png" position="0,170" zPosition="1" size="600,2" />
-			<widget source="help" render="Label" position="5,185" size="590,100" font="Regular;21" /> 
+			<widget source="help" render="Label" position="5,185" size="590,100" font="Regular;21" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -337,7 +337,7 @@ def clockSkin():
 						<convert type="ClockToText">Format::%S</convert>
 					</widget>
 					<widget source="global.CurrentTime" render="Label" position="0,37" size="190,13" font="Regular;15" halign="center" valign="center" foregroundColor="#999999" transparent="1">
-						<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>		
+						<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 					</widget>
 				</screen>"""
 		else: # XD
@@ -350,11 +350,11 @@ def clockSkin():
 						<convert type="ClockToText">Format::%S</convert>
 					</widget>
 					<widget source="global.CurrentTime" render="Label" position="0,40" size="250,25" font="Regular;19" halign="center" valign="center" foregroundColor="#999999" transparent="1">
-						<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>		
+						<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 					</widget>
 				</screen>"""
 	else: # HD
-		currentSkin = """      
+		currentSkin = """
 				<screen name="ShowClock" size="280,80" zPosition="10" backgroundColor="#50202020" flags="wfNoBorder">
 					<widget source="global.CurrentTime" render="Label" position="85,15" size="80,25" font="Regular;30" halign="left" valign="center" transparent="1">
 						<convert type="ClockToText">Default</convert>
@@ -363,7 +363,7 @@ def clockSkin():
 						<convert type="ClockToText">Format::%S</convert>
 					</widget>
 					<widget source="global.CurrentTime" render="Label" position="0,45" size="280,30" font="Regular;23" halign="center" valign="center" foregroundColor="#999999" transparent="1">
-						<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>		
+						<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 					</widget>
 				</screen>"""
 

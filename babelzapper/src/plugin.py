@@ -68,7 +68,7 @@ class BabelzapperConfiguration(Screen, ConfigListScreen):
 		<widget name="buttongreen" position="120,200" size="100,40" backgroundColor="green" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>
 		<widget name="buttonyellow" position="230,200" size="100,40" backgroundColor="yellow" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>
 		<widget name="buttonblue" position="340,200" size="100,40" backgroundColor="blue" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>
-		<ePixmap position="175,80" size="100,100" pixmap="%s/babel.png" transparent="1" alphatest="on" />	
+		<ePixmap position="175,80" size="100,100" pixmap="%s/babel.png" transparent="1" alphatest="on" />
 	</screen>""" % babelzapper_plugindir
 
 	def __init__(self, session, args=0):

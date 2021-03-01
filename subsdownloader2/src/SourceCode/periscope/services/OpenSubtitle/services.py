@@ -42,17 +42,17 @@ from Plugins.Extensions.SubsDownloader2.SourceCode.periscope import SubtitleData
 #from Plugins.Extensions.SubsDownloader2.SourceCode.xbmc_subtitles.utilities import toOpenSubtitles_two
 from Plugins.Extensions.SubsDownloader2.SourceCode.xbmc_subtitles.utilities import LANGUAGES, languageTranslate
 
-"""OS_LANGS ={ "en": "eng", 
-            "fr" : "fre", 
-            "hu": "hun", 
-            "cs": "cze", 
-            "pl" : "pol", 
-            "sk" : "slo", 
+"""OS_LANGS ={ "en": "eng",
+            "fr" : "fre",
+            "hu": "hun",
+            "cs": "cze",
+            "pl" : "pol",
+            "sk" : "slo",
             "pt" : "por",
             "pb" : "pob",  # this was added by me
-            "pt-br" : "pob", 
-            "es" : "spa", 
-            "el" : "ell", 
+            "pt-br" : "pob",
+            "es" : "spa",
+            "el" : "ell",
             "ar":"ara",
             'sq':'alb',
             "hy":"arm",
@@ -113,7 +113,7 @@ class OpenSubtitle(SubtitleDatabase.SubtitleDB):
         self.revertlangs = dict(map(lambda item: (item[1], item[0]), self.langs.items()))
 
     def process(self, filepath, langs):
-        ''' main method to call on the plugin, pass the filename and the wished 
+        ''' main method to call on the plugin, pass the filename and the wished
         languages and it will query OpenSubtitles.org '''
 
          #Convert subtitle language to plugin requirements

@@ -39,7 +39,7 @@ along with more (optional) custom skins.
 
 SKINLIST:
 A list of 3 tuples (full path and filename of a skin file, basename of the skin file).
-		
+
 config.plugins.yourConfigText.skin.value:
 A ConfigText value of a skin filename.
 
@@ -61,7 +61,7 @@ SKINLIST =	[ # order is important (HD, XD, SD)!
 		(resolveFilename(SCOPE_CURRENT_PLUGIN, ''.join([SKINDIR, "XD_default.xml"])), "XD_default.xml"),
 		(resolveFilename(SCOPE_CURRENT_PLUGIN, ''.join([SKINDIR, "SD_default.xml"])), "SD_default.xml")
 		]
-		
+
 class YourClass():
 	(skinFile, skinList) = SkinFinder.getSkinData(SKINLIST, SKINDIR, config.plugins.yourConfigText.skin.value)
 	if skinFile is not None:

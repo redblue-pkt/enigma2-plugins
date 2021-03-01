@@ -84,7 +84,7 @@ class RecIndicator(Screen):
 		<screen name="RecIndicator" title="Records Indicator" flags="wfNoBorder" position="60,60" size="36,36" zPosition="-1" backgroundColor="transparent" >
 			<widget source="session.RecordState" render="Pixmap" pixmap="icons/icon_rec.png" position="0,0" size="36,36" alphatest="on">
 				<convert type="ConditionalShowHide">Blink,3000</convert>
-			</widget>  
+			</widget>
 		</screen>"""
 
 	def __init__(self, session):

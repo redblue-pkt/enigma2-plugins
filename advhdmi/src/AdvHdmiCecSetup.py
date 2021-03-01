@@ -284,7 +284,7 @@ class TimeSpanConfigScreen(Screen, ConfigListScreen):
 			<widget name="config" position="10,0" size="530,210" scrollbarMode="showOnDemand" enableWrapAround="1" />
 			<ePixmap pixmap="div-h.png" position="0,210" zPosition="1" size="550,2" />
 			<widget source="help" render="Label" position="5,220" size="550,120" font="Regular;21" />
-			
+
 			<widget source="key_red" render="Label" position="10,380" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="red" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 			<widget source="key_green" render="Label" position="180,380" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="green" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 			<ePixmap name="red" position="10,380" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />

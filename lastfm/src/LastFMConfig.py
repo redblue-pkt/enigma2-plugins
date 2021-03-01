@@ -18,11 +18,11 @@ class LastFMConfigScreen(ConfigListScreen, Screen):
 
     skin = """
         <screen position="center,center" size="600,480" title="%s" >
-        
+
         <widget name="config" position="10,0" size="580,400" scrollbarMode="showOnDemand" />
-        
-        <widget name="buttonred" position="10,430" size="140,40" valign=\"center\" halign=\"center\" zPosition=\"2\" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" font=\"Regular;18\" />          
-        <widget name="buttongreen" position="150,430" size="140,40" valign=\"center\" halign=\"center\" zPosition=\"2\" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" font=\"Regular;18\"/>            
+
+        <widget name="buttonred" position="10,430" size="140,40" valign=\"center\" halign=\"center\" zPosition=\"2\" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" font=\"Regular;18\" />
+        <widget name="buttongreen" position="150,430" size="140,40" valign=\"center\" halign=\"center\" zPosition=\"2\" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" font=\"Regular;18\"/>
         <ePixmap pixmap="buttons/red.png" position="10,430" zPosition="1" size="140,40" transparent="1" alphatest="on" />
         <ePixmap pixmap="buttons/green.png" position="150,430" zPosition="1" size="140,40" transparent="1" alphatest="on" />
 

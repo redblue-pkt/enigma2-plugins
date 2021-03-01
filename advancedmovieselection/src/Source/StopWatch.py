@@ -32,7 +32,7 @@ Decorator exists for printing out execution times:
 >>> print(mult(2, 6))
 mult in 1.38282775879e-05 sec
 6
-       
+
 """
 
 __version__ = '0.3.1'
@@ -66,7 +66,7 @@ class StopWatch(object):
     start_time = property(start_time)
 
     def stop_time(self):
-        """The time at which stop() was called, or None if stop was 
+        """The time at which stop() was called, or None if stop was
         never called.
         """
         return self.__stopped

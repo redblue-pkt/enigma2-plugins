@@ -207,7 +207,7 @@ class AddPlug(Screen):
 						MultiContentEntryText(pos = (120, 5), size = (320, 25), font = 0, text = 1), # index 1 is the plugin.name
 						MultiContentEntryText(pos = (120, 26), size = (320, 17), font = 1, text = 2), # index 2 is the plugin.description
 						MultiContentEntryPixmapAlphaTest(pos = (10, 5), size = (100, 40), png = 3), # index 3 is the icon
-						
+
 					]),
 				},
 				"fonts": [gFont("Regular", 20), gFont("Regular", 14)],

@@ -71,7 +71,7 @@ class SubtitleDB(object):
         queue.put(subs, True) # Each plugin must write as the caller periscopy.py waits for an result on the queue
 
     def process(self, filepath, langs):
-        ''' main method to call on the plugin, pass the filename and the wished 
+        ''' main method to call on the plugin, pass the filename and the wished
         languages and it will query the subtitles source '''
         fname = self.getFileName(filepath)
         try:

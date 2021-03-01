@@ -68,7 +68,7 @@ class dreamIRCMainMenu(Screen):
 				<widget name="disconnect.desc" position="940,510" size="110,20" font="Regular;16" />
 				<widget name="connect.desc" position="940,530" size="110,20" font="Regular;16" />
 				<widget name="settings.desc" position="940,550" size="110,20" font="Regular;16" />
-				<widget name="blue.desc" position="940,570" size="180,20" font="Regular;16" />                                
+				<widget name="blue.desc" position="940,570" size="180,20" font="Regular;16" />
 			</screen>"""
 	else:
 		skin = """

@@ -67,7 +67,7 @@ class Subtitulos(SubtitleDatabase.SubtitleDB):
         self.release_pattern = re.compile("Versi&oacute;n (.+) ([0-9]+).([0-9])+ megabytes")
 
     def process(self, filepath, langs):
-        ''' main method to call on the plugin, pass the filename and the wished 
+        ''' main method to call on the plugin, pass the filename and the wished
         languages and it will query the subtitles source '''
 
         #Convert subtitle language to plugin requirements

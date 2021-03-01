@@ -536,7 +536,7 @@ class SubsDownloaderApplication(Screen):
 			self.set_listSubs_enabled()
 
 	def setServerAvailableSubtitles_for_Napisy24(self, serverList):
-		"""Function preper (appends) serverAvailableSubtitles which is seted by 
+		"""Function preper (appends) serverAvailableSubtitles which is seted by
 		comend self["subsList"].setList(self.serverAvailableSubtitles)"""
 		self.serverAvailableSubtitles = []
 		position = 0
@@ -723,8 +723,8 @@ class SubsDownloaderApplication(Screen):
 					"""try:
 						self.NapiSubtitle.getnapi(self.movie_filename)
 						self.subtitle_filename = self.NapiSubtitle.save()
-						
-						
+
+
 						self.subtitle_codepade = self.getSubtitleCodepade(self.subtitle_filename)
 						self.movie_fps = self.getMovieFPS(self.movie_filename)
 						self.subtitle_filename_type = self.saveSubtitleasSRT(self.subtitle_filename, self.movie_fps, self.subtitle_codepade)

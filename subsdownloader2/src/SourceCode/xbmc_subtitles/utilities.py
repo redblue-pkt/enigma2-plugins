@@ -119,7 +119,7 @@ def regex_tvshow(compare, file, sub=""):
 
 """
 def toOpenSubtitles_two( id ):
-  languages = { 
+  languages = {
   	"None"                       : "none",
     "Albanian"                   : "sq",
     "Arabic"                     : "ar",
@@ -241,7 +241,7 @@ def onetotwo(id):
     "52"                  :  "fa"
   }
   return languages[ id ]
-        
+
 
 def twotoone(id):
   languages = {
@@ -291,10 +291,10 @@ def twotoone(id):
     "vi"                  :  "51"
   }
   return languages[ id ]
-        
+
 
 def toOpenSubtitlesId( id ):
-  languages = { 
+  languages = {
   	"None"                : "none",
     "Albanian"            : "alb",
     "Arabic"              : "ara",
@@ -359,7 +359,7 @@ def toOpenSubtitlesId( id ):
 
 
 def toScriptLang(id):
-  languages = { 
+  languages = {
     "0"                   : "Albanian",
     "1"                   : "Arabic",
     "2"                   : "Belarusian",
@@ -405,10 +405,10 @@ def toScriptLang(id):
     "42"                  : "Ukrainian",
     "43"                  : "Vietnamese",
   }
-  return languages[ id ]       
-        
+  return languages[ id ]
+
 def toSublightLanguage(id):
-  languages = { 
+  languages = {
   	"0"                   : "None",
     "alb"                 : "Albanian",
     "ara"                 : "Arabic",
@@ -456,10 +456,10 @@ def toSublightLanguage(id):
     "vie"                 : "Vietnamese",
   }
   return languages[ id ]
-  
+
 def twotofull(id):
   languages = {
-            
+
 
     "sq"                  :  "Albanian",
     "ar"                  :  "Arabic",
@@ -509,7 +509,7 @@ def twotofull(id):
 
 
   }
-  return languages[ id ] 
+  return languages[ id ]
 """
 
 LANGUAGES = (

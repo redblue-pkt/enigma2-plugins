@@ -115,7 +115,7 @@ class Napisy24_pl(XML_to_Dict, zip_extractor):
 
 	def __connect_with_server(self, get_operatoin, server_reuest_type):
 		"""Function connect with server and downloades avaliable subtitle
-		list or avaliable subtitle zip file	
+		list or avaliable subtitle zip file
 		"""
 		what_is_downloaded = server_reuest_type
 		self.XML_String = None
@@ -221,7 +221,7 @@ class Napisy24_pl(XML_to_Dict, zip_extractor):
 		#os.remove(self.ZipFilePath)
 
 	def save_downloaded_zip(self, dict_entry_to_download):
-		"""Function saves downloaded zip string on given path anf destroy 
+		"""Function saves downloaded zip string on given path anf destroy
 		self.zip_string if saveing is succesfull."""
 		if self.download_subtitle_zip(dict_entry_to_download) == True:
 			try:
@@ -422,7 +422,7 @@ class CompareMovie_and_Subtite_FileData(GuessFileData_from_FileName):
 		matching_movie = False
 		for x in temp_movieList: #now subtile
 			"""For all subtitles in temp_movieList which now is subtitle checks best movie
-			This makes that one subtitle don't belong to multi movies.	    
+			This makes that one subtitle don't belong to multi movies.
 			"""
 			final_propability = 0
 			for y in preliminary_movie_subtitle_list:

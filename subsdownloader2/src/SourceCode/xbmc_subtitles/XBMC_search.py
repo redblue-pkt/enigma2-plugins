@@ -36,7 +36,7 @@ def new_file_in_directory(files_before, files_after):
 
 
 """
-            
+
 #XBMCSubtitle code for PC not USED in Enigma2
 #from XBMC.services.Itasa import service as SERVICE
 from periscope.plugins.SubtitleDatabase import SubtitleDB
@@ -48,22 +48,22 @@ class XBMCSubtitle(SubtitleDB):
         self.tvshowRegex = tvshowRegex
         self.tvshowRegex2 = tvshowRegex2
         self.movieRegex = movieRegex
-        
+
         exec ('from XBMC.services.%s import *' % service)
-        exec ('from XBMC.services.%s import service as Service' % service)        
+        exec ('from XBMC.services.%s import service as Service' % service)
         self.service = Service
 
-    
+
     def XBMC_search_subtitles(self, file_path, lang1, lang2,lang3, year = None, set_temp = False, rar = False, stock = True):
         self.file_path = file_path
         self.__subtitle_list = []
         self.__session_id = None
-        self.__msg = None        
+        self.__msg = None
         fileData = self.guessFileData(self.file_path)
         #===============================================================================
         # Public interface functions
         #===============================================================================
-        
+
         # This function is called when the service is selected through the subtitles
         # addon OSD.
         # file_original_path -> Original system path of the file playing
@@ -85,11 +85,11 @@ class XBMCSubtitle(SubtitleDB):
         elif fileData['type'] =='movie' or fileData['type'] =='unknown':
             tvShow = []
             season = []
-            episode = []  
+            episode = []
             #print(fileData)
         self.__subtitles_list, self.__session_id, self.__msg = self.service.search_subtitles(file_path, fileData['name'], tvShow, year, season, episode, set_temp, rar, lang1, lang2, lang3, stock)
         return self.__subtitles_list
-    
+
     def XBMC_download_subtitles(self, pos):
         tmp_sub_dir = sub_folder = self.file_path.rsplit("/",1)[0]
         zipped_subs_path = self.file_path.rsplit(".",1)[0]+".zip"
@@ -97,8 +97,8 @@ class XBMCSubtitle(SubtitleDB):
         subtitles_list = self.__subtitles_list
         return self.service.download_subtitles (subtitles_list, pos, zipped_subs_path, tmp_sub_dir, sub_folder, session_id) #ZWRAA False, language, subs_file #standard output
 
-    
+
 file_path = "C:/!Roboczy/How.I.Met.Your.Mother.S07E12.HDTV.XviD-LOL.[VTV].avi"
-SERVICE = XBMCSubtitle("Itasa") 
+SERVICE = XBMCSubtitle("Itasa")
 a, b, c = SERVICE.XBMC_search_subtitles(file_path, "all", "All","All")
 """

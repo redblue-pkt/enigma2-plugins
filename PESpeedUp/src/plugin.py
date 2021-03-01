@@ -32,7 +32,7 @@ class PESpeedUp(Screen, ConfigListScreen):
 	'''
     else:
 	skin = '''
-		<screen position="center,center" size="1376,898" title="PE Speed Up" backgroundColor="#16000000" flags="wfNoBorder"> 
+		<screen position="center,center" size="1376,898" title="PE Speed Up" backgroundColor="#16000000" flags="wfNoBorder">
 			<widget name="lab1" position="8,10" size="1359,80" font="Regular;30" valign="top" transparent="1" backgroundColor="#16000000"/>
 			<widget name="config" position="28,95" size="1321,745" font="Regular;35" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="#16000000"/>
 			<widget name="key_red" position="365,845" zPosition="1" size="204,40" font="Regular;32" halign="center" valign="center" backgroundColor="#16000000" transparent="1"/>

@@ -98,9 +98,9 @@ class EmailScreen(Screen):
 		the list of messages (messagelist) on the right.
 		At the bottom we have a line for info messages.
 		It is specific for one account.
-	
+
 		@param session: session in which this screen is running
-		@param account: account for which mailboxes are shown 
+		@param account: account for which mailboxes are shown
 		'''
 		self._session = session
 		self._account = account
@@ -204,7 +204,7 @@ class EmailScreen(Screen):
 
 	def _onHeaderList(self, result, flagsList):
 		'''
-		
+
 		@param result: list of message
 		@param flagsList: list of corresponding flags
 		'''
@@ -303,7 +303,7 @@ class ScreenMailView(Screen):
 		'''
 		Principal screen to show one mail message.
 		@param session:
-		@param account: mail acoount, this message is coming from 
+		@param account: mail acoount, this message is coming from
 		@param message: the message itself
 		@param uid: uid of the message, needed to (un)delete and unmark
 		@param flags: the flags of the message, needed to check, whether IS_DELETED
@@ -727,7 +727,7 @@ class EmailAccount():
 
 	def delete(self, uid):
 		'''
-		mark message as deleted 
+		mark message as deleted
 		@param uid: uid of message
 		'''
 		if self._proto:
@@ -948,7 +948,7 @@ class EmailAccountList(Screen):
 	def __init__(self, session):
 		'''
 		Entry screen holding the list of accounts.
-		Offering to add, edit or remove one. Also configuration through <menu> 
+		Offering to add, edit or remove one. Also configuration through <menu>
 		'''
 		debug("[EmailAccountList] __init__")
 		noButtons = 3
