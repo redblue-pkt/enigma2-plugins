@@ -246,7 +246,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['WeatherComponentHandler', 'enigma2-plugin-systemplugins-weathercomponenthandler'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/xmlUpdate')):
             self.packagelist.append(['xmlUpdate', 'enigma2-plugin-systemplugins-xmlupdate'])
-        self.packagelist.append(['                                        Locales', 'enigma2-locale-ar enigma2-locale-bg enigma2-locale-ca enigma2-locale-cs enigma2-locale-da enigma2-locale-de enigma2-locale-el enigma2-locale-es enigma2-locale-et enigma2-locale-fa enigma2-locale-fi enigma2-locale-fr enigma2-locale-fy enigma2-locale-he enigma2-locale-hr enigma2-locale-hu enigma2-locale-id enigma2-locale-is enigma2-locale-it enigma2-locale-ku enigma2-locale-lt enigma2-locale-lv enigma2-locale-nb enigma2-locale-nl enigma2-locale-nn enigma2-locale-pl enigma2-locale-pt enigma2-locale-pt-br enigma2-locale-ro enigma2-locale-ru enigma2-locale-sk enigma2-locale-sl enigma2-locale-sr enigma2-locale-sv enigma2-locale-th enigma2-locale-tr enigma2-locale-uk enigma2-locale-vi enigma2-locale-zh-cn enigma2-locale-zh-hk'])
+        self.packagelist.append(['                                        Locales', 'enigma2-locale-ar enigma2-locale-bg enigma2-locale-ca enigma2-locale-cs enigma2-locale-da enigma2-locale-de enigma2-locale-el enigma2-locale-es enigma2-locale-et enigma2-locale-fa enigma2-locale-fi enigma2-locale-fr enigma2-locale-fy enigma2-locale-gl enigma2-locale-he enigma2-locale-hr enigma2-locale-hu enigma2-locale-id enigma2-locale-is enigma2-locale-it enigma2-locale-ku enigma2-locale-lt enigma2-locale-lv enigma2-locale-mk enigma2-locale-nb enigma2-locale-nl enigma2-locale-nn enigma2-locale-pl enigma2-locale-pt enigma2-locale-pt-br enigma2-locale-ro enigma2-locale-ru enigma2-locale-sk enigma2-locale-sl enigma2-locale-sr enigma2-locale-sv enigma2-locale-th enigma2-locale-tr enigma2-locale-uk enigma2-locale-vi enigma2-locale-zh-cn enigma2-locale-zh-hk'])
         if pathExists('/usr/share/enigma2/po/ar'):
             self.packagelist.append(['locale-ar', 'enigma2-locale-ar'])
         if pathExists('/usr/share/enigma2/po/bg'):
@@ -273,6 +273,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['locale-fr', 'enigma2-locale-fr'])
         if pathExists('/usr/share/enigma2/po/fy'):
             self.packagelist.append(['locale-fy', 'enigma2-locale-fy'])
+        if pathExists('/usr/share/enigma2/po/gl'):
+            self.packagelist.append(['locale-gl', 'enigma2-locale-gl'])
         if pathExists('/usr/share/enigma2/po/he'):
             self.packagelist.append(['locale-he', 'enigma2-locale-he'])
         if pathExists('/usr/share/enigma2/po/hr'):
@@ -291,6 +293,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['locale-lt', 'enigma2-locale-lt'])
         if pathExists('/usr/share/enigma2/po/lv'):
             self.packagelist.append(['locale-lv', 'enigma2-locale-lv'])
+        if pathExists('/usr/share/enigma2/po/mk'):
+            self.packagelist.append(['locale-mk', 'enigma2-locale-mk'])
         if pathExists('/usr/share/enigma2/po/nb'):
             self.packagelist.append(['locale-nb', 'enigma2-locale-nb'])
         if pathExists('/usr/share/enigma2/po/nl'):
