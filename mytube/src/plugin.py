@@ -438,7 +438,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 			self.currList = "status"
 			self["videoactions"].setEnabled(False)
 			self["searchactions"].setEnabled(False)
-			self["config_actions"].setEnabled(False)
+			# self["config_actions"].setEnabled(False)
 			self["historyactions"].setEnabled(False)
 			self["statusactions"].setEnabled(True)
 			self["ButtonBlue"].hide()
@@ -837,7 +837,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 		self["ButtonBlue"].hide()
 		self["VKeyIcon"].boolean = False
 		self["statusactions"].setEnabled(False)
-		self["config_actions"].setEnabled(False)
+		# self["config_actions"].setEnabled(False)
 		self["videoactions"].setEnabled(False)
 		self["searchactions"].setEnabled(False)
 		self["suggestionactions"].setEnabled(True)
@@ -852,7 +852,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 	def switchToConfigList(self):
 		print("switchToConfigList")
 		self.currList = "configlist"
-		self["config_actions"].setEnabled(True)
+		# self["config_actions"].setEnabled(True)
 		self["historyactions"].setEnabled(False)
 		self["statusactions"].setEnabled(False)
 		self["videoactions"].setEnabled(False)
@@ -895,7 +895,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 			self["statusactions"].setEnabled(False)
 			self["historyactions"].setEnabled(False)
 			self["key_green"].show()
-			self["config_actions"].setEnabled(False)
+			# self["config_actions"].setEnabled(False)
 			if not append:
 				self[self.currList].setIndex(0)
 			self["feedlist"].updateList(self.videolist)
@@ -916,7 +916,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 		self["suggestionactions"].setEnabled(False)
 		self["searchactions"].setEnabled(False)
 		self["statusactions"].setEnabled(False)
-		self["config_actions"].setEnabled(False)
+		# self["config_actions"].setEnabled(False)
 		self["historyactions"].setEnabled(True)
 		self.HistoryWindow.activate()
 		self.HistoryWindow.instance.show()
