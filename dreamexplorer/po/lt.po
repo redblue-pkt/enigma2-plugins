@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dreamexplorer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:18+0330\n"
+"POT-Creation-Date: 2021-03-06 16:06+0330\n"
 "PO-Revision-Date: 2016-06-26 16:37+0300\n"
 "Last-Translator: \n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -36,11 +36,18 @@ msgstr "Apie"
 msgid "BZ2-package:\\n"
 msgstr "BZ2-paketas: \\n"
 
+#, fuzzy
+msgid "Bookmarks"
+msgstr "Mano mėgstami"
+
 msgid "Bootlogo-package:\\n"
 msgstr "Įkrovos logo-paketas:\\n"
 
 msgid "Cancel"
 msgstr "Atšaukti"
+
+msgid "Copy"
+msgstr ""
 
 msgid "Create new directory"
 msgstr "Sukurti katalogą"
@@ -56,6 +63,9 @@ msgstr "Sukurti naują failą..."
 
 msgid "Create softlink..."
 msgstr "Sukurti nuorodą..."
+
+msgid "Delete"
+msgstr ""
 
 msgid "Directory name error !"
 msgstr "Katalogo pavadinimo klaida!"
@@ -118,6 +128,9 @@ msgstr "Failo pavadinimo klaida!"
 msgid "GZ-package:\\n"
 msgstr "GZ-paketas: \\n"
 
+msgid "INFO"
+msgstr ""
+
 msgid "Incompatible MerlinMusicPlayer version!"
 msgstr "Nesuderinama  Merlin grotuvo versija!"
 
@@ -135,6 +148,19 @@ msgstr "Įdiegti šį paketą"
 
 msgid "List of Storage Devices"
 msgstr "Laikmenos įrenginių sąrašas"
+
+msgid "MENU"
+msgstr ""
+
+#, fuzzy
+msgid "Make a softlink"
+msgstr "Sukurti nuorodą..."
+
+msgid "Move"
+msgstr ""
+
+msgid "Move/Copy"
+msgstr ""
 
 msgid "My Bookmarks"
 msgstr "Mano mėgstami"
@@ -168,6 +194,10 @@ msgstr "Peržvelgti paveikslėlius"
 msgid "Pyo-Script:\\n"
 msgstr "Pyc scenarijus:\\n"
 
+#, fuzzy
+msgid "Rename"
+msgstr "Pervadinti failą..."
+
 msgid "Rename directory..."
 msgstr "Pervadinti katalogą..."
 
@@ -187,6 +217,9 @@ msgstr "Nustatyti archyvo režimą (644)"
 
 msgid "Set executable mode (755)"
 msgstr "Nustatyti vykdomą režimą (755)"
+
+msgid "Set name"
+msgstr ""
 
 msgid "Set start directory"
 msgstr "Nustatyti pradžios katalogą"

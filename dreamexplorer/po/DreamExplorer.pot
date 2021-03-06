@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-28 23:57+0330\n"
+"POT-Creation-Date: 2021-03-06 16:06+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,10 +32,16 @@ msgstr ""
 msgid "BZ2-package:\\n"
 msgstr ""
 
+msgid "Bookmarks"
+msgstr ""
+
 msgid "Bootlogo-package:\\n"
 msgstr ""
 
 msgid "Cancel"
+msgstr ""
+
+msgid "Copy"
 msgstr ""
 
 msgid "Create new directory"
@@ -51,6 +57,9 @@ msgid "Create new file in..."
 msgstr ""
 
 msgid "Create softlink..."
+msgstr ""
+
+msgid "Delete"
 msgstr ""
 
 msgid "Directory name error !"
@@ -113,6 +122,9 @@ msgstr ""
 msgid "GZ-package:\\n"
 msgstr ""
 
+msgid "INFO"
+msgstr ""
+
 msgid "Incompatible MerlinMusicPlayer version!"
 msgstr ""
 
@@ -129,6 +141,18 @@ msgid "Install this package"
 msgstr ""
 
 msgid "List of Storage Devices"
+msgstr ""
+
+msgid "MENU"
+msgstr ""
+
+msgid "Make a softlink"
+msgstr ""
+
+msgid "Move"
+msgstr ""
+
+msgid "Move/Copy"
 msgstr ""
 
 msgid "My Bookmarks"
@@ -161,6 +185,9 @@ msgstr ""
 msgid "Pyo-Script:\\n"
 msgstr ""
 
+msgid "Rename"
+msgstr ""
+
 msgid "Rename directory..."
 msgstr ""
 
@@ -177,6 +204,9 @@ msgid "Set archive mode (644)"
 msgstr ""
 
 msgid "Set executable mode (755)"
+msgstr ""
+
+msgid "Set name"
 msgstr ""
 
 msgid "Set start directory"

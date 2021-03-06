@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-28 23:57+0330\n"
+"POT-Creation-Date: 2021-03-06 16:06+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -409,13 +409,12 @@ msgstr ""
 msgid "You need to enter a valid city name before you can search for the location code."
 msgstr ""
 
-#, python-format
-msgid "Your %s %s is not connected to the internet, please check your network settings and try again."
+msgid "Your receiver is not connected to the internet, please check your network settings and try again."
 msgstr ""
 
 #, python-format
 msgid ""
-"Your %s %s will be restarted after the installation of service\n"
+"Your receiver will be restarted after the installation of service\n"
 "Ready to install %s ?"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:18+0330\n"
+"POT-Creation-Date: 2021-03-06 16:06+0330\n"
 "PO-Revision-Date: 2018-05-29 21:54+0200\n"
 "Last-Translator: Massimo Bambi <maxbambi@libero.it>\n"
 "Language-Team: \n"
@@ -35,11 +35,18 @@ msgstr "Informazioni"
 msgid "BZ2-package:\\n"
 msgstr "Pacchetto BZ2:\\n"
 
+#, fuzzy
+msgid "Bookmarks"
+msgstr "I miei segnalibri"
+
 msgid "Bootlogo-package:\\n"
 msgstr "Pacchetto Bootlogo:\\n"
 
 msgid "Cancel"
 msgstr "Annulla"
+
+msgid "Copy"
+msgstr ""
 
 msgid "Create new directory"
 msgstr "Crea una nuova cartella"
@@ -55,6 +62,9 @@ msgstr "Crea un nuovo file in..."
 
 msgid "Create softlink..."
 msgstr "Crea un collegamento..."
+
+msgid "Delete"
+msgstr ""
 
 msgid "Directory name error !"
 msgstr "Errore di nome della cartella!"
@@ -117,6 +127,9 @@ msgstr "Errore di nome file!"
 msgid "GZ-package:\\n"
 msgstr "Pacchetto GZ:\\n"
 
+msgid "INFO"
+msgstr ""
+
 msgid "Incompatible MerlinMusicPlayer version!"
 msgstr "Versione di MerlinMusicPlayer non compatibile!"
 
@@ -134,6 +147,19 @@ msgstr "Installa questo pacchetto"
 
 msgid "List of Storage Devices"
 msgstr "Elenco dei dispositivi di archiviazione"
+
+msgid "MENU"
+msgstr ""
+
+#, fuzzy
+msgid "Make a softlink"
+msgstr "Crea un collegamento..."
+
+msgid "Move"
+msgstr ""
+
+msgid "Move/Copy"
+msgstr ""
 
 msgid "My Bookmarks"
 msgstr "I miei segnalibri"
@@ -167,6 +193,10 @@ msgstr "Mostra anteprima di tutte le immagini"
 msgid "Pyo-Script:\\n"
 msgstr "Pyc-Script:\\n"
 
+#, fuzzy
+msgid "Rename"
+msgstr "Rinomina file..."
+
 msgid "Rename directory..."
 msgstr "Rinomina cartella..."
 
@@ -186,6 +216,9 @@ msgstr "Imposta modo per file archivio (644)"
 
 msgid "Set executable mode (755)"
 msgstr "Imposta modo per file eseguibile (755)"
+
+msgid "Set name"
+msgstr ""
 
 msgid "Set start directory"
 msgstr "Imposta la cartella di partenza"

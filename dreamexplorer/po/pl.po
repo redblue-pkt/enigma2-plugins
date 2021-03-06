@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:18+0330\n"
+"POT-Creation-Date: 2021-03-06 16:06+0330\n"
 "PO-Revision-Date: 2017-06-02 20:32+0200\n"
 "Last-Translator: hawkeye116477 <hawkeye116477@gmail.com>\n"
 "Language-Team: \n"
@@ -30,11 +30,18 @@ msgstr "O wtyczce"
 msgid "BZ2-package:\\n"
 msgstr "Paczka bz2:\\n"
 
+#, fuzzy
+msgid "Bookmarks"
+msgstr "Moje zakładki"
+
 msgid "Bootlogo-package:\\n"
 msgstr "Paczka bootlogo:\\n"
 
 msgid "Cancel"
 msgstr "Anuluj"
+
+msgid "Copy"
+msgstr ""
 
 msgid "Create new directory"
 msgstr "Utwórz nowy katalog"
@@ -50,6 +57,9 @@ msgstr "Utwórz nowy plik w..."
 
 msgid "Create softlink..."
 msgstr "Utwórz dowiązanie miękkie (symboliczne)..."
+
+msgid "Delete"
+msgstr ""
 
 msgid "Directory name error !"
 msgstr "Błąd w nazwie katalogu!"
@@ -112,6 +122,9 @@ msgstr "Błąd w nazwie pliku !"
 msgid "GZ-package:\\n"
 msgstr "Paczka gz:\\n"
 
+msgid "INFO"
+msgstr ""
+
 msgid "Incompatible MerlinMusicPlayer version!"
 msgstr "Niekompatybilna wersja wtyczki MerlinMusicPlayer"
 
@@ -129,6 +142,19 @@ msgstr "Zainstaluj ten pakiet"
 
 msgid "List of Storage Devices"
 msgstr "Lista nośników danych"
+
+msgid "MENU"
+msgstr ""
+
+#, fuzzy
+msgid "Make a softlink"
+msgstr "Utwórz dowiązanie miękkie (symboliczne)..."
+
+msgid "Move"
+msgstr ""
+
+msgid "Move/Copy"
+msgstr ""
 
 msgid "My Bookmarks"
 msgstr "Moje zakładki"
@@ -162,6 +188,10 @@ msgstr "Podgląd wszystkich zdjęć"
 msgid "Pyo-Script:\\n"
 msgstr "Skrypt pyc:\\n"
 
+#, fuzzy
+msgid "Rename"
+msgstr "Zmień nazwę pliku..."
+
 msgid "Rename directory..."
 msgstr "Zmień nazwę katalogu..."
 
@@ -181,6 +211,9 @@ msgstr "Ustaw tryb archiwum (644)"
 
 msgid "Set executable mode (755)"
 msgstr "Ustaw tryb wykonywalny (755)"
+
+msgid "Set name"
+msgstr ""
 
 msgid "Set start directory"
 msgstr "Ustaw katalog startowy"

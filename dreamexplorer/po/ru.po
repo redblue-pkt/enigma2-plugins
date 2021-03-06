@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:18+0330\n"
+"POT-Creation-Date: 2021-03-06 16:06+0330\n"
 "PO-Revision-Date: 2015-10-07 18:57+0300\n"
 "Last-Translator: Dimitrij <Dima-73@inbox.lv>\n"
 "Language-Team: openpli.org\n"
@@ -35,11 +35,18 @@ msgstr "Информация"
 msgid "BZ2-package:\\n"
 msgstr "BZ2-пакет:\\n"
 
+#, fuzzy
+msgid "Bookmarks"
+msgstr "Мои закладки"
+
 msgid "Bootlogo-package:\\n"
 msgstr "Bootlogo-пакет:\\n"
 
 msgid "Cancel"
 msgstr "Отмена"
+
+msgid "Copy"
+msgstr ""
 
 msgid "Create new directory"
 msgstr "Создать новую директорию"
@@ -55,6 +62,9 @@ msgstr "Создать новый файл в..."
 
 msgid "Create softlink..."
 msgstr "Создать символьную ссылку..."
+
+msgid "Delete"
+msgstr ""
 
 msgid "Directory name error !"
 msgstr "Ошибка имени директории !"
@@ -118,6 +128,9 @@ msgstr "Ошибка имени файла !"
 msgid "GZ-package:\\n"
 msgstr "GZ-пакет:\\n"
 
+msgid "INFO"
+msgstr ""
+
 msgid "Incompatible MerlinMusicPlayer version!"
 msgstr "Несовместимая версия MerlinMusicPlayer!"
 
@@ -135,6 +148,19 @@ msgstr "Инсталлировать этот пакет"
 
 msgid "List of Storage Devices"
 msgstr "Список устройств хранения"
+
+msgid "MENU"
+msgstr ""
+
+#, fuzzy
+msgid "Make a softlink"
+msgstr "Создать символьную ссылку..."
+
+msgid "Move"
+msgstr ""
+
+msgid "Move/Copy"
+msgstr ""
 
 msgid "My Bookmarks"
 msgstr "Мои закладки"
@@ -168,6 +194,10 @@ msgstr "Превью всех фотографий"
 msgid "Pyo-Script:\\n"
 msgstr "Pyc-скрипт:\\n"
 
+#, fuzzy
+msgid "Rename"
+msgstr "Переименование файла..."
+
 msgid "Rename directory..."
 msgstr "Переименование директории..."
 
@@ -187,6 +217,9 @@ msgstr "Установить права чтения (644)"
 
 msgid "Set executable mode (755)"
 msgstr "Установить права выполнения (755)"
+
+msgid "Set name"
+msgstr ""
 
 msgid "Set start directory"
 msgstr "Установить как стартовую директорию"
