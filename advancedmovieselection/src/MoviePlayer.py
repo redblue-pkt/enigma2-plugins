@@ -365,7 +365,7 @@ class MoviePlayerExtended(CutListSupport, MoviePlayer, PlayerBase):
                     return
                 else:
                     self.returnanddeleteConfirmed(True)
-            elif answer in("quitanddeleteconfirmed", "returnanddeleteconfirmed"):
+            elif answer in ("quitanddeleteconfirmed", "returnanddeleteconfirmed"):
                 self.delete(ref)
 #                offline = serviceHandler.offlineOperations(ref)
 #                if offline.deleteFromDisk(0):
