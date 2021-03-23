@@ -455,7 +455,6 @@ class AutoTimerAddOrEditAutoTimerResource(AutoTimerBaseResource):
 		return self.returnResult(req, True, message)
 
 
-
 class AutoTimerChangeResource(AutoTimerBaseResource):
 	def render(self, req):
 		def get(name, default=None):
