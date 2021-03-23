@@ -482,8 +482,10 @@ class AutoTimerChangeResource(AutoTimerBaseResource):
 		# Enabled
 		enabled = get("enabled")
 		if enabled is not None:
-			try: enabled = int(enabled)
-			except ValueError: enabled = enabled == "yes"
+			try:
+				enabled = int(enabled)
+			except ValueError:
+				enabled = enabled == "yes"
 			timer.enabled = enabled
 
 		message = _("AutoTimer was changed successfully")
