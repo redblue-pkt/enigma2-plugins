@@ -8,7 +8,7 @@ from Components.ActionMap import ActionMap
 from Components.config import *
 from Components.ConfigList import *
 from Components.Sources.StaticText import StaticText
-from enigma import getBoxType
+from Components.SystemInfo import BoxInfo
 import xml.dom.minidom
 from xml.dom.minidom import Node
 from xml.dom import EMPTY_NAMESPACE
@@ -17,7 +17,7 @@ from Tools.XMLTools import elementsWithTag, mergeText
 from socket import gethostbyname_ex
 from dreamIRCTools import *
 
-model = getBoxType()
+model = BoxInfo.getItem("model")
 
 
 class dreamIRCSetupScreen(ConfigListScreen, Screen):

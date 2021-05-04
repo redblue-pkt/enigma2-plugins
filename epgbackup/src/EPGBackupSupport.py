@@ -5,7 +5,7 @@ from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Components.Console import Console
 from Components.config import config
-from enigma import eEPGCache, eTimer, getBoxType
+from enigma import eEPGCache, eTimer
 from Tools import Notifications
 from Screens.TextBox import TextBox
 from . import _
@@ -16,8 +16,9 @@ from traceback import format_exc
 from Tools.Directories import SCOPE_PLUGINS, resolveFilename
 import os
 import subprocess
+from Components.SystemInfo import BoxInfo
 
-model = getBoxType()
+model = BoxInfo.getItem("model")
 
 SH_EXEC_FILE = resolveFilename(SCOPE_PLUGINS, "Extensions/EPGBackup/EPGBackup.sh")
 SH_TMP_OUTPUT = "/tmp/.EPGBackup.sh.output"

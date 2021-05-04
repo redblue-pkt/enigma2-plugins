@@ -58,7 +58,7 @@ if fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/MerlinMusicPlayer/plugi
 	MMPavaiable = True
 else:
 	MMPavaiable = False
-from enigma import eConsoleAppContainer, eServiceReference, ePicLoad, getDesktop, eServiceCenter, getBoxType
+from enigma import eConsoleAppContainer, eServiceReference, ePicLoad, getDesktop, eServiceCenter
 from os import stat as os_stat
 from os import walk as os_walk
 from os import popen as os_popen
@@ -68,7 +68,7 @@ from os import path as os_path
 from os import listdir as os_listdir
 from time import strftime as time_strftime
 from time import localtime as time_localtime
-
+from Components.SystemInfo import BoxInfo
 
 config.plugins.DreamExplorer = ConfigSubsection()
 config.plugins.DreamExplorer.startDir = ConfigText(default="/")
@@ -177,7 +177,7 @@ class DreamExplorerII(Screen):
 		self["key_info"] = StaticText(_("INFO"))
 		self.sesion = session
 		self.altservice = self.session.nav.getCurrentlyPlayingServiceReference()
-		self.MyBox = getBoxType()
+		self.MyBox = BoxInfo.getItem("model")
 		self.commando = ["ls"]
 		self.selectedDir = "/tmp/"
 		self.booklines = []

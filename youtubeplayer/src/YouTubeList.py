@@ -33,7 +33,7 @@ from Components.ProgressBar import ProgressBar
 
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN
-from enigma import eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_VALIGN_TOP, RT_WRAP, eTimer, getBoxType
+from enigma import eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_VALIGN_TOP, RT_WRAP, eTimer
 
 from Tools.NumericalTextInput import NumericalTextInput
 
@@ -61,6 +61,7 @@ from YouTubePlayList import YouTubePlaylistScreen
 #from enigma import eServiceReference
 
 from . import _
+from Components.SystemInfo import BoxInfo
 
 
 def YouTubeEntryComponent(entry):
@@ -537,7 +538,7 @@ class YouTubeListScreen(Screen, NumericalTextInput):
 		return mrl
 
 	def tryToPlay(self):
-		if getBoxType() in ("dm8000", "dm800"):
+		if BoxInfo.getItem("model") in ("dm8000", "dm800"):
 			self.playDirect()
 		else:
 			if self.currentServer is not None:

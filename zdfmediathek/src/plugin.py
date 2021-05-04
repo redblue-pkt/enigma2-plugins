@@ -10,7 +10,7 @@ from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Pixmap import Pixmap
 from Components.PluginComponent import plugins
-from enigma import eListboxPythonMultiContent, ePicLoad, eServiceReference, eTimer, getDesktop, gFont, getBoxType
+from enigma import eListboxPythonMultiContent, ePicLoad, eServiceReference, eTimer, getDesktop, gFont
 from os import listdir, path as os_path, remove as os_remove
 from Plugins.Plugin import PluginDescriptor
 from Screens.ChoiceBox import ChoiceBox
@@ -30,6 +30,7 @@ import urllib2
 from urllib2 import Request, URLError, urlopen as urlopen2
 from socket import error
 from httplib import HTTPConnection, HTTPException
+from Components.SystemInfo import BoxInfo
 
 HTTPConnection.debuglevel = 1
 
@@ -55,7 +56,7 @@ LIST_LEFT = 0
 LIST_RIGHT = 1
 LIST_NONE = 2
 
-deviceName = getBoxType()
+deviceName = BoxInfo.getItem("model")
 
 PLAY_MP4 = True
 PLAY_WMV = False

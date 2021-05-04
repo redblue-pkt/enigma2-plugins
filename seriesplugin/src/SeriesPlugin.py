@@ -77,8 +77,8 @@ def getInstance():
 		log.debug(" ", strftime("%a, %d %b %Y %H:%M:%S", localtime()))
 
 		try:
-			from enigma import getBoxType
-			log.debug(" DeviceName " + getBoxType())
+			from Components.SystemInfo import BoxInfo
+			log.debug(" DeviceName " + BoxInfo.getItem("model"))
 		except:
 			sys.exc_clear()
 

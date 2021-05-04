@@ -42,7 +42,8 @@ from time import strftime as time_strftime
 from time import localtime as time_localtime
 from re import compile as re_compile
 from os import path as os_path, listdir
-from enigma import eConsoleAppContainer, eServiceReference, ePicLoad, getDesktop, eServiceCenter, eTimer, getBoxType
+from enigma import eConsoleAppContainer, eServiceReference, ePicLoad, getDesktop, eServiceCenter, eTimer
+from Components.SystemInfo import BoxInfo
 
 #import players like Picture player, dvd player, music palyer
 if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/PicturePlayer/plugin.pyo")):
@@ -162,7 +163,7 @@ class SubsDownloaderApplication(Screen):
 		Console().ePopen('mkdir /tmp/SubsDownloader_cache')
 		self.subsListDownloaded = 0
 		self.localConvertion = False
-		self.MyBox = getBoxType()
+		self.MyBox = BoxInfo.getItem("model")
 		self.textEXTENSIONS = {
 		        "srt": "text",
 		        "txt": "text",

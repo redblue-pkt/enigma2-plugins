@@ -37,10 +37,11 @@ from Components.Sources.StaticText import StaticText
 from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigSelection
 from Tools.Directories import fileExists, pathExists, resolveFilename, SCOPE_PLUGINS
 from Tools.LoadPixmap import LoadPixmap
-from enigma import RT_HALIGN_LEFT, eListboxPythonMultiContent, gFont, getDesktop, getBoxType
+from enigma import RT_HALIGN_LEFT, eListboxPythonMultiContent, gFont, getDesktop
 import pickle
 from Components.Console import Console
 from os import listdir as os_listdir
+from Components.SystemInfo import BoxInfo
 
 EMbaseInfoBarPlugins__init__ = None
 EMStartOnlyOneTime = False
@@ -269,7 +270,7 @@ class AddPlug(Screen):
 
 
 class EasyMediaSummary(Screen):
-	if getBoxType() == "dm800se":
+	if BoxInfo.getItem("model") == "dm800se":
 		skin = """
 			<screen position="0,0" size="96,64" id="2">
 				<eLabel text="EasyMedia:" foregroundColor="#fcc000" position="0,0" size="96,24" font="Regular;16"/>

@@ -32,7 +32,7 @@ from Screens.TimerEdit import TimerSanityConflict
 from Tools.Directories import fileExists, pathExists, SCOPE_CURRENT_SKIN, resolveFilename
 from Plugins.Plugin import PluginDescriptor
 from Components.Console import Console
-from enigma import eTimer, eEPGCache, loadPNG, eListboxPythonMultiContent, gFont, eServiceReference, eServiceCenter, iPlayableService, BT_SCALE, getBoxType
+from enigma import eTimer, eEPGCache, loadPNG, eListboxPythonMultiContent, gFont, eServiceReference, eServiceCenter, iPlayableService, BT_SCALE
 from random import randint
 from time import time, gmtime, strftime
 from twisted.web.client import getPage
@@ -41,6 +41,7 @@ from urllib import urlencode
 import timer
 import xml.etree.cElementTree
 import Screens.Standby
+from Components.SystemInfo import BoxInfo
 
 ##############################
 #####  CONFIG SETTINGS   #####
@@ -535,12 +536,11 @@ class DBUpdateStatus(Screen):
 
 		# Get Box Info
 		self.BoxID = iNetwork.getAdapterAttribute("eth0", "mac")
-		self.DeviceName = getBoxType()
+		self.DeviceName = BoxInfo.getItem("model")
 		try:
 			from enigma import getEnigmaVersionString
-			from boxbranding import getImageVersion, getImageBuild
 			self.EnigmaVersion = getEnigmaVersionString()
-			self.ImageVersion = getImageVersion() + '.' + getImageBuild()
+			self.ImageVersion = BoxInfo.getItem("imageversion") + '.' + BoxInfo.getItem("imagebuild")
 		except:
 			self.EnigmaVersion = about.getEnigmaVersionString()
 			self.ImageVersion = about.getVersionString()

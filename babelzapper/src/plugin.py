@@ -7,7 +7,7 @@ from __future__ import print_function
 #
 from RecordTimer import parseEvent
 from Plugins.Plugin import PluginDescriptor
-from enigma import eTimer, eServiceReference, eServiceCenter, iServiceInformation, eEPGCache, iTimeshiftServicePtr, getBoxType
+from enigma import eTimer, eServiceReference, eServiceCenter, iServiceInformation, eEPGCache, iTimeshiftServicePtr
 from Screens.Screen import Screen
 from Screens.Setup import SetupSummary
 from Screens.Console import Console
@@ -24,6 +24,7 @@ import keymapparser
 from struct import pack
 from keyids import KEYIDS
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from Components.SystemInfo import BoxInfo
 
 babelzapper_version = "0.9.6"
 babelzapper_plugindir = resolveFilename(SCOPE_PLUGINS, "Extensions/BabelZapper")
@@ -456,7 +457,7 @@ class BabelZapper(Screen):
 		else:
 			print("[BABELZAPPER] found unknown key %s" % keyname)
 			return
-		if getBoxType == "dm8000":
+		if BoxInfo.getItem("model") == "dm8000":
 			fp = open("/dev/input/event2", 'wb')
 		else:
 			fp = open("/dev/input/event1", 'wb')

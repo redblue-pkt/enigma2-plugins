@@ -7,14 +7,15 @@ from Components.Button import Button
 from Components.ActionMap import ActionMap
 from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigSlider
 from Components.ConfigList import ConfigListScreen
-from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, eDBoxLCD, getBoxType
+from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, eDBoxLCD
 from Components.ServiceEventTracker import ServiceEventTracker
 from Screens.InfoBar import InfoBar
 from time import localtime, time
 import Screens.Standby
+from Components.SystemInfo import BoxInfo, SystemInfo
 
 use_oled = False
-if getBoxType() in ("formuler3", "formuler4", "sh1", "h3", "h4", "h5", "lc"):
+if BoxInfo.getItem("model") in ("formuler3", "formuler4", "sh1", "h3", "h4", "h5", "lc"):
 	use_oled = True
 
 config.plugins.VFD_ini = ConfigSubsection()
@@ -362,7 +363,6 @@ def sessionstart(reason, **kwargs):
 
 
 def Plugins(**kwargs):
-	from Components.SystemInfo import SystemInfo
 	if SystemInfo["FrontpanelDisplay"]:
 		return [PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
 			PluginDescriptor(name="VFD Display Setup", description=_("Change VFD display settings"), where=PluginDescriptor.WHERE_MENU, fnc=main)]

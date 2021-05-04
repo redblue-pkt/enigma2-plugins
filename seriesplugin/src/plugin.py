@@ -43,8 +43,8 @@ ABOUT = "\n  " + NAME + " " + VERSION + "\n\n" \
 USER_AGENT = "Enigma2-" + NAME
 
 try:
-	from enigma import getBoxType
-	DEVICE = getBoxType()
+	from Components.SystemInfo import BoxInfo
+	DEVICE = BoxInfo.getItem("model")
 except:
 	DEVICE = ''
 
