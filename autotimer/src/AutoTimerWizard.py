@@ -6,7 +6,7 @@ from . import _
 
 # GUI (Screens)
 from Screens.WizardLanguage import WizardLanguage
-from Screens.Rc import Rc
+from Screens.HelpMenu import ShowRemoteControl
 from AutoTimerEditor import AutoTimerEditorBase, AutoTimerServiceEditor, \
 		AutoTimerFilterEditor
 
@@ -23,7 +23,7 @@ from Components.config import getConfigListEntry, KEY_0, KEY_DELETE, \
 from Tools import Directories
 
 
-class AutoTimerWizard(WizardLanguage, AutoTimerEditorBase, Rc):
+class AutoTimerWizard(WizardLanguage, AutoTimerEditorBase, ShowRemoteControl):
 	STEP_ID_BASIC = 2
 	STEP_ID_TIMESPAN = 5
 	STEP_ID_SERVICES = 7
@@ -55,7 +55,7 @@ class AutoTimerWizard(WizardLanguage, AutoTimerEditorBase, Rc):
 
 		WizardLanguage.__init__(self, session, showSteps=True, showStepSlider=True)
 		AutoTimerEditorBase.__init__(self, newTimer)
-		Rc.__init__(self)
+		ShowRemoteControl.__init__(self)
 
 		self.skinName = ["AutoTimerWizard", "NetworkWizard"]
 		self["wizard"] = Pixmap()
