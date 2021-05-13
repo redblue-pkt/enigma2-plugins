@@ -38,7 +38,7 @@ from GlobalActions import globalActionMap
 from Components.ActionMap import ActionMap
 
 # KeyMap
-import keymapparser
+from Components.ActionMap import ActionMap
 
 # OS
 import os.path
@@ -172,7 +172,7 @@ class AspectRatioSwitch:
 			return
 		self.unload_keymap()
 		try:
-			keymapparser.readKeymap(KEYMAPPINGS[keymap])
+			ActionMap.loadKeymap(KEYMAPPINGS[keymap])
 		except IOError as error_no_error_str:
 			(error_no, error_str) = error_no_error_str
 			config.plugins.AspectRatioSwitch.enabled.setValue(False)
@@ -185,7 +185,7 @@ class AspectRatioSwitch:
 
 	def unload_keymap(self):
 		for keymap in KEYMAPPINGS.values():
-			keymapparser.removeKeymap(keymap)
+			ActionMap.removeKeymap(keymap)
 
 		global globalActionMap
 		if 'switchAspectUp' in globalActionMap.actions:
@@ -262,8 +262,8 @@ def autostart(reason, **kwargs):
 				keymapfile = open(keymappath, "w")
 				keymapfile.write(keymaptext)
 				keymapfile.close()
-				keymapparser.removeKeymap(keymappath)
-				keymapparser.readKeymap(keymappath)
+				ActionMap.removeKeymap(keymappath)
+				ActionMap.loadKeymap(keymappath)
 		iAVSwitch = AVSwitch()
 		if config.plugins.AspectRatioSwitch.autostart_ratio_enabled.value:
 			iAVSwitch.setAspectRatio(int(config.plugins.AspectRatioSwitch.autostart_ratio.value))

@@ -44,7 +44,7 @@ from GlobalActions import globalActionMap
 from Components.Sources.StaticText import StaticText
 
 # KeynMap
-from keymapparser import readKeymap, removeKeymap
+from Components.ActionMap import loadKeymap, removeKeymap
 
 # Configuration
 from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigSelection, ConfigText, ConfigNumber
@@ -303,7 +303,7 @@ class ShowClockMain():
 		self.timer = eTimer() # check timer
 		self.timer.callback.append(self.ShowHide)
 		global globalActionMap
-		readKeymap(resolveFilename(SCOPE_PLUGINS, "Extensions/ShowClock/keymap.xml"))
+		loadKeymap(resolveFilename(SCOPE_PLUGINS, "Extensions/ShowClock/keymap.xml"))
 		self.dialog = session.instantiateDialog(ShowClock)
 		globalActionMap.actions['showClock'] = self.ShowHide
 

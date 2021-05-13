@@ -19,7 +19,7 @@ from Tools.Directories import fileExists, resolveFilename, SCOPE_LANGUAGE, SCOPE
 from Tools.KeyBindings import addKeyBinding
 import os
 import gettext
-import keymapparser
+from Components.ActionMap import ActionMap
 
 ##############################################
 
@@ -238,8 +238,8 @@ if config.plugins.Seekbar.overwrite_left_right.value:
 ##############################################
 # This hack maps the keys left and right to seekbarRight and seekbarLeft in the InfobarSeekActions-context
 
-KeymapError = keymapparser.KeymapError
-ParseKeys = keymapparser.parseKeys
+KeymapError = ActionMap.KeymapError
+ParseKeys = ActionMap.parseKeys
 
 
 def parseKeys(context, filename, actionmap, device, keys):
@@ -282,9 +282,9 @@ def parseKeys(context, filename, actionmap, device, keys):
 
 
 if config.plugins.Seekbar.overwrite_left_right.value:
-	keymapparser.parseKeys = parseKeys
-	keymapparser.removeKeymap(config.usage.keymap.value)
-	keymapparser.readKeymap(config.usage.keymap.value)
+	ActionMap.parseKeys = parseKeys
+	ActionMap.removeKeymap(config.usage.keymap.value)
+	ActionMap.loadKeymap(config.usage.keymap.value)
 
 ##############################################
 

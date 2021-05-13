@@ -20,7 +20,7 @@ from Tools.Directories import *
 from GlobalActions import globalActionMap
 from Components.config import config, ConfigSubsection, ConfigInteger
 import os
-import keymapparser
+from Components.ActionMap import ActionMap
 from struct import pack
 from keyids import KEYIDS
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
@@ -116,8 +116,8 @@ class BabelzapperConfiguration(Screen, ConfigListScreen):
 			text = text.replace("babelzapperMute", "volumeMute")
 		keymapfile.write(text)
 		keymapfile.close()
-		keymapparser.removeKeymap("/usr/share/enigma2/keymap.xml")
-		keymapparser.readKeymap("/usr/share/enigma2/keymap.xml")
+		ActionMap.removeKeymap("/usr/share/enigma2/keymap.xml")
+		ActionMap.loadKeymap("/usr/share/enigma2/keymap.xml")
 		self.close(True)
 
 	def cancel(self):

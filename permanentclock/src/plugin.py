@@ -14,7 +14,7 @@ from Screens.MessageBox import MessageBox
 from Screens.ChoiceBox import ChoiceBox
 from enigma import ePoint, eTimer, getDesktop
 from GlobalActions import globalActionMap
-from keymapparser import readKeymap, removeKeymap
+from Components.ActionMap import loadKeymap, removeKeymap
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LIBDIR
@@ -240,7 +240,7 @@ class PermanentClock():
 	def start_key(self):
 		if config.plugins.PermanentClock.show_hide.value and not self.clockey:
 			if 'showClock' not in globalActionMap.actions:
-				readKeymap(resolveFilename(SCOPE_PLUGINS, "Extensions/PermanentClock/keymap.xml"))
+				loadKeymap(resolveFilename(SCOPE_PLUGINS, "Extensions/PermanentClock/keymap.xml"))
 				globalActionMap.actions['showClock'] = self.ShowHideKey
 			self.clockey = True
 
