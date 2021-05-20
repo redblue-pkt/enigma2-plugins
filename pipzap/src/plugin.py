@@ -8,7 +8,7 @@ from Plugins.Plugin import PluginDescriptor
 from Components.ActionMap import HelpableActionMap
 from Components.ChoiceList import ChoiceEntryComponent
 from Components.config import config, ConfigSubsection, ConfigEnableDisable
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from Components.ParentalControl import parentalControl
 from enigma import ePoint, eServiceReference, getDesktop
 from Screens.ChannelSelection import ChannelContextMenu, ChannelSelection, ChannelSelectionBase
@@ -300,7 +300,7 @@ def InfoBarShowMovies__init__(self):
 
 def InfoBarPiP__init__(self):
 	baseMethods.InfoBarPiP__init__(self)
-	if SystemInfo.get("NumVideoDecoders", 1) > 1 and self.allowPiP:
+	if BoxInfo.getItem("NumVideoDecoders", 1) > 1 and self.allowPiP:
 		self.addExtension((self.getTogglePipzapName, self.togglePipzap, self.pipzapAvailable), "red")
 		if config.plugins.pipzap.enable_hotkey.value:
 			self["pipzapActions"] = HelpableActionMap(self, "pipzapActions",
@@ -440,7 +440,7 @@ def PictureInPicture_move(self, *args, **kwargs):
 
 
 try:
-	if SystemInfo.get("NumVideoDecoders", 1) > 1:
+	if BoxInfo.getItem("NumVideoDecoders", 1) > 1:
 		from Plugins.SystemPlugins.MPHelp import registerHelp, XMLHelpReader
 		from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 		file = open(resolveFilename(SCOPE_PLUGINS, "Extensions/pipzap/mphelp.xml"), 'r')
@@ -615,7 +615,7 @@ config.plugins.pipzap.show_label.addNotifier(showHideNotifier, initial_call=Fals
 
 def Plugins(**kwargs):
 	# do not add any entry if only one (or less :P) video decoders present
-	if SystemInfo.get("NumVideoDecoders", 1) < 2:
+	if BoxInfo.getItem("NumVideoDecoders", 1) < 2:
 		return []
 
 	l = [

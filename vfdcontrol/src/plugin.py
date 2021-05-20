@@ -12,7 +12,7 @@ from Components.ServiceEventTracker import ServiceEventTracker
 from Screens.InfoBar import InfoBar
 from time import localtime, time
 import Screens.Standby
-from Components.SystemInfo import BoxInfo, SystemInfo
+from Components.SystemInfo import BoxInfo
 
 use_oled = False
 if BoxInfo.getItem("model") in ("formuler3", "formuler4", "sh1", "h3", "h4", "h5", "lc"):
@@ -363,7 +363,7 @@ def sessionstart(reason, **kwargs):
 
 
 def Plugins(**kwargs):
-	if SystemInfo["FrontpanelDisplay"]:
+	if BoxInfo.getItem("FrontpanelDisplay"):
 		return [PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
 			PluginDescriptor(name="VFD Display Setup", description=_("Change VFD display settings"), where=PluginDescriptor.WHERE_MENU, fnc=main)]
 	return []

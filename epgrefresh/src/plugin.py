@@ -12,7 +12,7 @@ from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
 from Tools.BoundFunction import boundFunction
 
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from Components.NimManager import nimmanager
 
 # Error-print
@@ -60,7 +60,7 @@ config.plugins.epgrefresh.parse_autotimer = ConfigSelection(choices=[
 config.plugins.epgrefresh.erase = ConfigYesNo(default=False)
 
 adapter_choices = [("main", _("Main Picture"))]
-if SystemInfo.get("NumVideoDecoders", 1) > 1:
+if BoxInfo.getItem("NumVideoDecoders", 1) > 1:
 	adapter_choices.append(("pip", _("Picture in Picture")))
 	adapter_choices.append(("pip_hidden", _("Picture in Picture (hidden)")))
 if len(nimmanager.nim_slots) > 1:

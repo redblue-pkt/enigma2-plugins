@@ -6,7 +6,7 @@ from Components.ConfigList import ConfigListScreen
 from Components.ActionMap import NumberActionMap
 from Components.Button import Button
 from Components.Label import Label, MultiColorLabel
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from enigma import eTimer
 from Plugins.Plugin import PluginDescriptor
 from Screens import Standby
@@ -44,7 +44,7 @@ class AudioRestart():
 
     def restartAudio(self):
         self.activateTimer.stop()
-        if self.audioIsAC3() and SystemInfo["CanDownmixAC3"] and (config.av.downmix_ac3.value == False):
+        if self.audioIsAC3() and BoxInfo.getItem("CanDownmixAC3") and (config.av.downmix_ac3.value == False):
             config.av.downmix_ac3.value = True
             config.av.downmix_ac3.save()
             config.av.downmix_ac3.value = False

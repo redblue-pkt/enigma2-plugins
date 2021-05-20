@@ -17,7 +17,7 @@ from Components.MenuList import MenuList
 from skin import parseColor, parseFont
 
 from Components.ActionMap import HelpableActionMap, ActionMap
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from Components.Sources.StaticText import StaticText
 
 from xml.etree.cElementTree import parse as cet_parse
@@ -231,9 +231,9 @@ class SortableMenu(Menu, HelpableScreen):
 		requires = node.get("requires")
 		if requires:
 			if requires[0] == '!':
-				if SystemInfo.get(requires[1:], False):
+				if BoxInfo.getItem(requires[1:], False):
 					return
-			elif not SystemInfo.get(requires, False):
+			elif not BoxInfo.getItem(requires, False):
 				return
 		MenuTitle = _(node.get("text", "??").encode("UTF-8"))
 		entryID = node.get("entryID", "undefined")
