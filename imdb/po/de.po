@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma 2 IMDb Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2015-02-11 21:14+0100\n"
 "Last-Translator: daTa deVil <http://opena.tv>\n"
 "Language-Team: openATV\n"
@@ -34,9 +34,6 @@ msgstr "Abbrechen"
 
 msgid "Cast: "
 msgstr "Darsteller: "
-
-msgid "Channel Selection"
-msgstr "Kanalliste"
 
 msgid "Content:"
 msgstr "Inhalt:"
@@ -118,9 +115,6 @@ msgstr "IMDb-Suche"
 msgid "IMDb setup"
 msgstr "IMDb-Einstellungen"
 
-msgid "Lookup"
-msgstr "Suchen"
-
 msgid "Menu"
 msgstr "Menü"
 
@@ -185,9 +179,6 @@ msgstr "suche Trailer"
 
 msgid "Search for details from the Internet Movie Database"
 msgstr "Suche in der Internet Movie Database nach Filminfos"
-
-msgid "Select from EPG"
-msgstr "Aus EPG wählen"
 
 msgid "Settings for Internet Movie Database searches"
 msgstr "Einstellungen für die Suche in der Internet Movie Database"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-06 16:06+0330\n"
+"POT-Creation-Date: 2021-06-13 10:39+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,9 +30,6 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Cast: "
-msgstr ""
-
-msgid "Channel Selection"
 msgstr ""
 
 msgid "Content:"
@@ -114,9 +111,6 @@ msgstr ""
 msgid "IMDb setup"
 msgstr ""
 
-msgid "Lookup"
-msgstr ""
-
 msgid "Menu"
 msgstr ""
 
@@ -180,9 +174,6 @@ msgid "Search Trailer"
 msgstr ""
 
 msgid "Search for details from the Internet Movie Database"
-msgstr ""
-
-msgid "Select from EPG"
 msgstr ""
 
 msgid "Settings for Internet Movie Database searches"

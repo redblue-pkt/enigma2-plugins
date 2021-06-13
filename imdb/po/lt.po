@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: IMDb-VTi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2018-07-07 07:24+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -32,9 +32,6 @@ msgstr "Atšaukti"
 
 msgid "Cast: "
 msgstr "Vaidina: "
-
-msgid "Channel Selection"
-msgstr "Kanalo pasirinkimas"
 
 msgid "Content:"
 msgstr "Turinys:"
@@ -115,9 +112,6 @@ msgstr "IMDb paieška"
 msgid "IMDb setup"
 msgstr "IMDb sąranka"
 
-msgid "Lookup"
-msgstr "Ieškoti"
-
 msgid "Menu"
 msgstr "Meniu"
 
@@ -182,9 +176,6 @@ msgstr "Ieškoti anonso"
 
 msgid "Search for details from the Internet Movie Database"
 msgstr "Užklausti detaliau internetinėje filmų duomenų bazėje"
-
-msgid "Select from EPG"
-msgstr "Pasirinkti iš EPG"
 
 msgid "Settings for Internet Movie Database searches"
 msgstr "Internetinės filmų duomenų bazės nustatymai"

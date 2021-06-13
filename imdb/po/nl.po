@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma 2 IMDb Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2018-04-24 21:43+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blackburn/Rob van der Does\n"
@@ -34,9 +34,6 @@ msgstr "Annuleren"
 
 msgid "Cast: "
 msgstr "Cast: "
-
-msgid "Channel Selection"
-msgstr "Zenderkeuze"
 
 msgid "Content:"
 msgstr "Inhoud:"
@@ -117,9 +114,6 @@ msgstr "IMDb-zoeken"
 msgid "IMDb setup"
 msgstr "IMDb-instellingen"
 
-msgid "Lookup"
-msgstr "Opzoeken"
-
 msgid "Menu"
 msgstr "IMDb-menu"
 
@@ -184,9 +178,6 @@ msgstr "Zoek trailer"
 
 msgid "Search for details from the Internet Movie Database"
 msgstr "Internet Movie Database informatie raadplegen"
-
-msgid "Select from EPG"
-msgstr "Selecteer uit de EPG"
 
 msgid "Settings for Internet Movie Database searches"
 msgstr "Internet Movie Database zoekopdracht instellingen"

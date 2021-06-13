@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma2 FritzCall Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:18+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2020-10-22 16:35+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad - مساعد الجعيد\n"
@@ -400,9 +400,6 @@ msgstr "إتصال الماسنجر لإظهار (مفصولة بـ ،)"
 msgid "Mailbox"
 msgstr "علبه البريد"
 
-msgid "Make it more skin friendly"
-msgstr "اجعله أكثر ملاءمة للسكن"
-
 #. TRANSLATORS: keep it short, this is a button
 msgid "Missed"
 msgstr "المفوتة"
@@ -440,12 +437,6 @@ msgstr "لا يوجد صندوق بريد نشط"
 
 msgid "No phonebook"
 msgstr "لا يوجد دليل هاتف"
-
-msgid "No result from LDIF"
-msgstr "لا توجد نتيجة من LDIF"
-
-msgid "No result from Outlook export"
-msgstr "لا توجد نتيجة من تصدير البريد الالكتروني"
 
 msgid "No result from reverse lookup"
 msgstr "لا توجد نتيجة من البحث العكسي"
@@ -557,12 +548,6 @@ msgstr "البحث (حالة غير حساسة)"
 
 msgid "Search phonebook"
 msgstr "بحث دليل الهاتف"
-
-msgid "Searching in LDIF..."
-msgstr "البحث في LDIF..."
-
-msgid "Searching in Outlook export..."
-msgstr "البحث في تصدير البريد الالكتروني..."
 
 msgid "Setting..."
 msgstr "جار الضبط ..."
@@ -699,9 +684,6 @@ msgstr ""
 
 msgid "before 05.27"
 msgstr "قبل 05.27"
-
-msgid "business"
-msgstr "الاعمال"
 
 msgid "call diversions active"
 msgstr "استدعاء التحويلات النشطة"

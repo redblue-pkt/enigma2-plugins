@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 IMDb Plugin Turkish locale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2009-09-22 13:17+0200\n"
 "Last-Translator: esmos <kucukogul@gmail.com>\n"
 "Language-Team: http://hobiagaci.com <z.veyisoglu@hobiagaci.com>\n"
@@ -32,9 +32,6 @@ msgstr "Çıkış"
 
 msgid "Cast: "
 msgstr "Oyuncular: "
-
-msgid "Channel Selection"
-msgstr "Kanal Seçimi"
 
 msgid "Content:"
 msgstr ""
@@ -123,9 +120,6 @@ msgstr "IMDb eşleşmesi yok:"
 msgid "IMDb setup"
 msgstr "IMDb Kurulumu"
 
-msgid "Lookup"
-msgstr "Sorgula"
-
 msgid "Menu"
 msgstr ""
 
@@ -192,9 +186,6 @@ msgstr "Fragmanı Ara"
 #, fuzzy
 msgid "Search for details from the Internet Movie Database"
 msgstr "İnternet Film Veritabanından sorgu detayları"
-
-msgid "Select from EPG"
-msgstr "EPG'den seç"
 
 #, fuzzy
 msgid "Settings for Internet Movie Database searches"

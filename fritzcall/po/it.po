@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2  - FRITZ!Box\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2015-04-14 23:22+0200\n"
 "Last-Translator: Spaeleus <spaeleus@croci.org>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
@@ -400,9 +400,6 @@ msgstr "MSN da mostrare (separare con ,)"
 msgid "Mailbox"
 msgstr "Casella di posta"
 
-msgid "Make it more skin friendly"
-msgstr ""
-
 #. TRANSLATORS: keep it short, this is a button
 msgid "Missed"
 msgstr "Ch. perse"
@@ -440,12 +437,6 @@ msgstr "Nessuna casella di posta attiva"
 
 msgid "No phonebook"
 msgstr "Nessuna rubrica"
-
-msgid "No result from LDIF"
-msgstr "Ricerca in LDIF: nessun risultato!"
-
-msgid "No result from Outlook export"
-msgstr "Ricerca in Outlook  export: nessun risultato!"
 
 msgid "No result from reverse lookup"
 msgstr "Ricerca identificativo chiamante: nessun risultato!"
@@ -557,12 +548,6 @@ msgstr "Ricerca (non distingue Maiusc-minusc)"
 
 msgid "Search phonebook"
 msgstr "Ricerca su rubrica"
-
-msgid "Searching in LDIF..."
-msgstr "Ricerca in LDIF..."
-
-msgid "Searching in Outlook export..."
-msgstr "Ricerca in Outlook  export..."
 
 msgid "Setting..."
 msgstr "impostazioni..."
@@ -697,9 +682,6 @@ msgstr ""
 
 msgid "before 05.27"
 msgstr "anteriore a 05.27"
-
-msgid "business"
-msgstr ""
 
 msgid "call diversions active"
 msgstr ""

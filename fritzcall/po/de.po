@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma2 FritzCall Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2019-01-21 08:53+0100\n"
 "Last-Translator: Michael Schmidt <michael@schmidt-schmitten.com>\n"
 "Language-Team: german <de@li.org>\n"
@@ -399,9 +399,6 @@ msgstr "anzuzeigende MSNs (getrennt durch ,)"
 msgid "Mailbox"
 msgstr "Anrufbeantworter"
 
-msgid "Make it more skin friendly"
-msgstr "Mehr Möglichkeiten für Skins"
-
 #. TRANSLATORS: keep it short, this is a button
 msgid "Missed"
 msgstr "Verpasst"
@@ -439,12 +436,6 @@ msgstr "Kein Anrufbeantworter aktiv"
 
 msgid "No phonebook"
 msgstr "Kein Telefonbuch"
-
-msgid "No result from LDIF"
-msgstr "Kein Ergebnis von LDIF"
-
-msgid "No result from Outlook export"
-msgstr "Kein Ergebnis von Outlook-Export"
 
 msgid "No result from reverse lookup"
 msgstr "Kein Ergebnis von Rückwärtssuche"
@@ -556,12 +547,6 @@ msgstr "Suche Zeichenfolge (groß/klein egal)"
 
 msgid "Search phonebook"
 msgstr "Telefonbuchsuche"
-
-msgid "Searching in LDIF..."
-msgstr "Suche in LDIF..."
-
-msgid "Searching in Outlook export..."
-msgstr "Suche in Outlook-Export..."
 
 msgid "Setting..."
 msgstr "Setze..."
@@ -699,9 +684,6 @@ msgstr ""
 
 msgid "before 05.27"
 msgstr "vor 05.27"
-
-msgid "business"
-msgstr ""
 
 msgid "call diversions active"
 msgstr "Rufumleitungen aktiv"

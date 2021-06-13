@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma 2 IMDb Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2021-06-09 10:53+0430\n"
 "PO-Revision-Date: 2009-09-10 20:30+0100\n"
 "Last-Translator: maja <jovanovic@gmx.ch>\n"
 "Language-Team: veselin & majevica CRNABERZA <jovanovic@gmx.ch>\n"
@@ -32,9 +32,6 @@ msgstr ""
 
 msgid "Cast: "
 msgstr "Uloge: "
-
-msgid "Channel Selection"
-msgstr "Izbor kanala"
 
 msgid "Content:"
 msgstr ""
@@ -119,9 +116,6 @@ msgstr "Nema IMDb pogodaka."
 msgid "IMDb setup"
 msgstr ""
 
-msgid "Lookup"
-msgstr "Pregledanje"
-
 msgid "Menu"
 msgstr ""
 
@@ -188,9 +182,6 @@ msgstr ""
 #, fuzzy
 msgid "Search for details from the Internet Movie Database"
 msgstr "Upit za detalje sa Internet filmske baze podataka"
-
-msgid "Select from EPG"
-msgstr ""
 
 #, fuzzy
 msgid "Settings for Internet Movie Database searches"
