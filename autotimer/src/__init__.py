@@ -34,7 +34,7 @@ config.plugins.autotimer.autopoll = ConfigEnableDisable(default=True)
 config.plugins.autotimer.delay = ConfigNumber(default=3)
 config.plugins.autotimer.editdelay = ConfigNumber(default=3)
 
-default_unit = "hour"
+default_unit = "minute"
 config.plugins.autotimer.unit = ConfigSelection(choices=[
 		("hour", _("Hour")),
 		("minute", _("Minute"))

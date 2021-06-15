@@ -136,8 +136,6 @@ autotimer/src/WebChilds/Makefile
 autotimer/src/WebComponents/Makefile
 autotimer/src/WebComponents/Sources/Makefile
 autotimer/src/web-data/Makefile
-autotimer/src/web/Makefile
-autotimer/src/WebScreens/Makefile
 
 babelzapper/etc/Makefile
 babelzapper/Makefile
