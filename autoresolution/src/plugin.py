@@ -108,6 +108,7 @@ def setDeinterlacer(mode):
 	except:
 		print("[AutoRes] failed switch deinterlacer mode to %s" % mode)
 
+
 def setHdmiHdrType(mode):
 	try:
 		f = open("/proc/stb/video/hdmi_hdrtype", "r")
@@ -123,6 +124,7 @@ def setHdmiHdrType(mode):
 			print("[AutoRes] switch hdmi_hdrtype mode to %s" % mode)
 		except:
 			print("[AutoRes] failed switch hdmi_hdrtype mode to %s" % mode)
+
 
 def setColorimetry(mode):
 	try:
