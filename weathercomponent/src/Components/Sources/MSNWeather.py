@@ -41,14 +41,14 @@ class MSNWeather(Source):
 
 	def getObservationPoint(self):
 		skey = "-1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			return weathermsn.weatherData.weatherItems[skey].observationpoint
 		else:
 			return _("n/a")
 
 	def getObservationTime(self):
 		skey = "-1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			item = weathermsn.weatherData.weatherItems[skey]
 			if item.observationtime != "":
 				c = time.strptime(item.observationtime, "%H:%M:%S")
@@ -62,7 +62,7 @@ class MSNWeather(Source):
 		skey = str(key)
 		if skey == "-1":
 			skey = "1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			item = weathermsn.weatherData.weatherItems[skey]
 			highTemp = item.high
 			return "%s°%s" % (highTemp, weathermsn.weatherData.degreetype)
@@ -73,7 +73,7 @@ class MSNWeather(Source):
 		skey = str(key)
 		if skey == "-1":
 			skey = "1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			item = weathermsn.weatherData.weatherItems[skey]
 			lowTemp = item.low
 			return "%s°%s" % (lowTemp, weathermsn.weatherData.degreetype)
@@ -84,7 +84,7 @@ class MSNWeather(Source):
 		skey = str(key)
 		if skey == "-1":
 			skey = "1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			item = weathermsn.weatherData.weatherItems[skey]
 			highTemp = item.high
 			high = "%s°%s" % (highTemp, weathermsn.weatherData.degreetype)
@@ -95,7 +95,7 @@ class MSNWeather(Source):
 
 	def getTemperature_Text(self, key):
 		skey = str(key)
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			item = weathermsn.weatherData.weatherItems[skey]
 			if skey == "-1":
 				return item.skytext
@@ -106,28 +106,28 @@ class MSNWeather(Source):
 
 	def getTemperature_Current(self):
 		skey = "-1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			return "%s°%s" % (weathermsn.weatherData.weatherItems[skey].temperature, weathermsn.weatherData.degreetype)
 		else:
 			return _("n/a")
 
 	def getFeelslike(self):
 		skey = "-1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			return weathermsn.weatherData.weatherItems[skey].feelslike
 		else:
 			return _("n/a")
 
 	def getHumidity(self):
 		skey = "-1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			return weathermsn.weatherData.weatherItems[skey].humidity
 		else:
 			return _("n/a")
 
 	def getWinddisplay(self):
 		skey = "-1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			return weathermsn.weatherData.weatherItems[skey].winddisplay
 		else:
 			return _("n/a")
@@ -136,7 +136,7 @@ class MSNWeather(Source):
 		skey = str(key)
 		if skey == "-1":
 			skey = "1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			item = weathermsn.weatherData.weatherItems[skey]
 			if short:
 				return item.shortday
@@ -149,7 +149,7 @@ class MSNWeather(Source):
 		skey = str(key)
 		if skey == "-1":
 			skey = "1"
-		if weathermsn.weatherData.weatherItems.has_key(skey):
+		if skey in weathermsn.weatherData.weatherItems:
 			item = weathermsn.weatherData.weatherItems[skey]
 			c = time.strptime(item.date, "%Y-%m-%d")
 			return time.strftime("%d. %b", c)
@@ -157,13 +157,13 @@ class MSNWeather(Source):
 			return _("n/a")
 
 	def getWeatherIconFilename(self, key):
-		if weathermsn.weatherData.weatherItems.has_key(str(key)):
+		if str(key) in weathermsn.weatherData.weatherItems:
 			return weathermsn.weatherData.weatherItems[str(key)].iconFilename
 		else:
 			return ""
 
 	def getCode(self, key):
-		if weathermsn.weatherData.weatherItems.has_key(str(key)):
+		if str(key) in weathermsn.weatherData.weatherItems:
 			return weathermsn.weatherData.weatherItems[str(key)].code
 		else:
 			return ""
