@@ -27,7 +27,8 @@ def _(txt):
 		return gettext.gettext(txt)
 
 
-language.addCallback(localeInit())
+localeInit()
+language.addCallback(localeInit)
 
 config.plugins.autotimer = ConfigSubsection()
 config.plugins.autotimer.autopoll = ConfigEnableDisable(default=True)

@@ -27,7 +27,8 @@ def _(txt):
 		return gettext.gettext(txt)
 
 
-language.addCallback(localeInit())
+localeInit()
+language.addCallback(localeInit)
 
 config.plugins.epgsearch = ConfigSubsection()
 config.plugins.epgsearch.showinplugins = ConfigYesNo(default=False)

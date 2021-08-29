@@ -22,7 +22,8 @@ def _(txt):
 		return gettext.gettext(txt)
 
 
-language.addCallback(localeInit())
+localeInit()
+language.addCallback(localeInit)
 
 from plugin import *
 from MPHelp import HelpPage
