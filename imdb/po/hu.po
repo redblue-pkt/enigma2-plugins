@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: IMDb v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
 "PO-Revision-Date: 2018-04-19 17:35+0200\n"
 "Last-Translator: Alec <alex1vagyok@gmail.com>\n"
 "Language-Team: alec <alex1vagyok@gmail.com>\n"
@@ -148,6 +148,9 @@ msgstr "Filmelőzetes lejátszása"
 
 msgid "Please select the matching entry"
 msgstr "Kérjük, válassza ki a megfelelő bejegyzést"
+
+msgid "Plot Keywords"
+msgstr ""
 
 msgid "Plot Outline"
 msgstr ""

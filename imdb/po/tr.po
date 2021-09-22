@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 IMDb Plugin Turkish locale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
 "PO-Revision-Date: 2009-09-22 13:17+0200\n"
 "Last-Translator: esmos <kucukogul@gmail.com>\n"
 "Language-Team: http://hobiagaci.com <z.veyisoglu@hobiagaci.com>\n"
@@ -150,6 +150,9 @@ msgstr "Fragmanı Oynat"
 
 msgid "Please select the matching entry"
 msgstr "Lütfen eşleşen girişi seçin"
+
+msgid "Plot Keywords"
+msgstr ""
 
 msgid "Plot Outline"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 - imdb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
 "PO-Revision-Date: 2011-09-20 21:42+0100\n"
 "Last-Translator: Spaeleus <spaeleus@croci.org>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
@@ -145,6 +145,9 @@ msgstr "Riprodurre trailer"
 
 msgid "Please select the matching entry"
 msgstr "Selezionare la voce di confronto"
+
+msgid "Plot Keywords"
+msgstr ""
 
 msgid "Plot Outline"
 msgstr ""

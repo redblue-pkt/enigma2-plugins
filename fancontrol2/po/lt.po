@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FanControl2-VTi\n"
+"Project-Id-Version: FanControl2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Vytenis P.\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
+"PO-Revision-Date: 2021-09-15 09:28+0300\n"
+"Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #, python-format
@@ -19,35 +19,35 @@ msgid "%s   %02d C"
 msgstr "%s   %02d °C"
 
 msgid "."
-msgstr ","
+msgstr "."
 
 msgid "3Pin"
-msgstr "3Pin"
+msgstr "3 kont."
 
 msgid "4Pin"
-msgstr "4Pin"
+msgstr "4 kont."
 
 msgid "4Pin (PID)"
-msgstr "4Pin (PID)"
+msgstr "4 kont. (PID)"
 
 msgid "Action in case of Fan failure"
-msgstr "Veiksmas, kai aušintuvas neveikia"
+msgstr "Veiksmas, sugedus aušintuvui"
 
 msgid "Auto-Delete Data older than (Days)"
 msgstr "Automatiškai ištrinti duomenis, senesnius nei (dienų)"
 
 #, python-format
 msgid "Auto-Delete older %s Days"
-msgstr "Auto-šalinti senesnius, nei %s dienų"
+msgstr "Automatiškai ištrinti senesnius, nei %s dienų"
 
 msgid "Box Shutdown"
 msgstr "Išjungti"
 
 msgid "Box has no fancontrol hardware -> FC2 deactivated"
-msgstr "Aparatas neturi įskiepiui skirtos aparatūros -> FC2 išjungta"
+msgstr "Aparatas neturi aušinimo valdymo įrangos -> FC2 išjungta"
 
 msgid "Box shutdown at Temperature (C)"
-msgstr "Išjungti, pasiekus temp.(°C)"
+msgstr "Išjungti, pasiekus temp. (°C)"
 
 msgid "Cancel"
 msgstr "Atšaukti"
@@ -59,7 +59,7 @@ msgid "Choose path"
 msgstr "Pasirinkite kelią"
 
 msgid "Control disabled"
-msgstr "Valdymo išjungtas"
+msgstr "Valdymas išjungtas"
 
 #, python-format
 msgid "Current rpm  %4d"
@@ -73,7 +73,7 @@ msgid "Delete"
 msgstr "Pašalinti"
 
 msgid "Delete older 48h"
-msgstr "Šalinti senesnius 48 val."
+msgstr "Šalinti senesnius, nei 48 val."
 
 #, python-format
 msgid "Disk free : %d MByte"
@@ -82,8 +82,9 @@ msgstr "Laisvos vietos : %d MB"
 msgid "Download"
 msgstr "Parsisiųsti"
 
+#, fuzzy
 msgid "Enable Console Logging"
-msgstr "Įjungti konsolės registravimą"
+msgstr "Įjungti įvykių registravimą"
 
 msgid "Enable Data Logging"
 msgstr "Įjungti registravimą"
@@ -92,7 +93,7 @@ msgid "Enable Event Logging"
 msgstr "Įjungti įvykių registravimą"
 
 msgid "Enable Thread use"
-msgstr "Įjungti gijos naudojimą"
+msgstr ""
 
 msgid "End temperature C"
 msgstr "Pabaigos temperatūra °C"
@@ -100,18 +101,17 @@ msgstr "Pabaigos temperatūra °C"
 msgid "Extended Control Range"
 msgstr "Išplėstinis kontrolės diapazonas"
 
-#, fuzzy
 msgid "Fan Control"
-msgstr "išjungti DMM aušintuvo valdymą"
+msgstr "Aušintuvo valdymas"
 
 msgid "Fan Control 2"
-msgstr ""
+msgstr "Aušintuvo valdymas 2"
 
 msgid "Fan Control 2 - Monitor"
-msgstr ""
+msgstr "Aušintuvo valdymas 2 - langas"
 
 msgid "Fan is not working!"
-msgstr "Ventiliatorius neveikia!"
+msgstr "Aušintuvas neveikia!"
 
 msgid "Fan off in Idle Mode"
 msgstr "Aušintuvą išjungti laukimo režime"
@@ -128,7 +128,7 @@ msgstr "Failo %s nėra"
 
 #, python-format
 msgid "Filesize : %d %sByte"
-msgstr "Failo dydis: % d%sBaitų"
+msgstr "Failo dydis: % d%s Baitų"
 
 msgid ""
 "GUI needs a restart to apply the changes.\n"
@@ -154,7 +154,7 @@ msgstr "Kelias iki žurnalo"
 
 #, python-format
 msgid "Logging-Path: %s"
-msgstr "Logging-Verzeichnis: %s"
+msgstr "Kelias iki žurnalo: %s"
 
 #, python-format
 msgid "Max Fan %d rpm at PWM=255 (%s)"
@@ -182,15 +182,15 @@ msgstr "Min. aušintuvo paleidimas %d aps./min. prie VLT=%d ir PWM=0"
 
 #, python-format
 msgid "Min Fan Stop %d rpm at PWM=%d (%s)"
-msgstr "Min. aušintuvo sustabdymas %d aps./min. prie PWM=%d (%s)"
+msgstr "Min. aušintuvo išjungimas %d aps./min. prie PWM=%d (%s)"
 
 #, python-format
 msgid "Min Fan Stop %d rpm at VLT=%d (%s)"
-msgstr "Min. aušintuvo sustabdymas %d aps./min. prie VLT=%d (%s)"
+msgstr "Min. aušintuvo išjungimas %d aps./min. prie VLT=%d (%s)"
 
 #, python-format
 msgid "Min Fan Stop %d rpm at VLT=%d and PWM=0 (%s)"
-msgstr "Min. aušintuvo sustabdymas %d aps./min. prie VLT=%d ir PWM=0 (%s)"
+msgstr "Min. aušintuvo išjungimas %d aps./min. prie VLT=%d ir PWM=0 (%s)"
 
 msgid "Number of WebIF-Log-Entries"
 msgstr "WebIF žurnalo įrašų skaičius"
@@ -249,10 +249,10 @@ msgid "Voltage  %03d"
 msgstr "Įtampa %03d"
 
 msgid "active"
-msgstr "aktyvus"
+msgstr "veikia"
 
 msgid "auto"
-msgstr "auto"
+msgstr "automatiškai"
 
 msgid "below Tunerslot 4"
 msgstr "po 4 imtuvo lizdu"
@@ -271,13 +271,13 @@ msgid "do nothing"
 msgstr "nieko nedaryti"
 
 msgid "increases overheating protection to (C)"
-msgstr "padidina apsaugą nuo perkaitimo iki (°C)"
+msgstr "Padidins apsaugą nuo perkaitimo iki (°C)"
 
 msgid "left near Card-Slot"
-msgstr "kairėje prie kortelės lizdo"
+msgstr "kairėje, prie kortelės lizdo"
 
 msgid "left near Front-CI"
-msgstr "kairėje prie priekinio CI"
+msgstr "kairėje, prie priekinio CI"
 
 msgid "left of the Battery"
 msgstr "kairėje nuo baterijos"
@@ -298,25 +298,25 @@ msgid "no"
 msgstr "ne"
 
 msgid "not active"
-msgstr "neaktyvus"
+msgstr "neveikia"
 
 msgid "over Security Card"
-msgstr "virš Security Card"
+msgstr "virš SC laikmenos"
 
 msgid "please set fan type (3Pin or 4Pin)"
-msgstr "Pasirinkite aušintuvo tipą (3, ar 4 kontaktų)"
+msgstr "Pasirinkite, aušintuvas 3, ar 4 kontaktų"
 
 msgid "please wait (until 3min)..."
 msgstr "palaukite (iki 3min.)..."
 
 msgid "press Info for HDD-Temp"
-msgstr "spauskite 'Info' HDD temperatūrai sužinoti"
+msgstr "HDD temperatūrai sužinoti, spauskite 'Info'"
 
 msgid "read HDD-Temperature in HDD-Standby-Mode"
-msgstr "skaityti HDD temperatūrą HDD budėjimo režime"
+msgstr "Tikrinti HDD temperatūrą HDD budėjimo režime"
 
 msgid "setup Fancontol inStandby mode"
-msgstr ""
+msgstr "Aušintuvo darbas budėjimo būsenoje"
 
 msgid "turn off"
 msgstr "išjungti"
@@ -325,10 +325,10 @@ msgid "turn on"
 msgstr "įjungti"
 
 msgid "under the Fan"
-msgstr "prie aušintuvo"
+msgstr "po aušintuvu"
 
 msgid "under the WLAN"
-msgstr "prie WLAN"
+msgstr "po WLAN"
 
 msgid "yes"
 msgstr "taip"

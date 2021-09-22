@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-plugins 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
 "PO-Revision-Date: 2012-08-25 12:58+0300\n"
 "Last-Translator: rimas\n"
 "Language-Team: rimas\n"
@@ -149,6 +149,9 @@ msgstr "Esita treiler"
 
 msgid "Please select the matching entry"
 msgstr "Vali sobiv vaste"
+
+msgid "Plot Keywords"
+msgstr ""
 
 msgid "Plot Outline"
 msgstr ""

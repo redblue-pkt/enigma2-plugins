@@ -1,3 +1,4 @@
+# Copyright (C) 2012 THE enigma2-plugins'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the enigma2-plugins package.
 # Automatically generated, 2012.
 #
@@ -5,44 +6,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-AutoResolution\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
-"PO-Revision-Date: 2016-02-20 10:05+0200\n"
-"Last-Translator: Vytenis P.\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
+"PO-Revision-Date: 2021-09-12 11:43+0300\n"
+"Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis Pulokas <vytemiui@gmail.com>\n"
 "Language: lt_LT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "Alternative resolution when native not supported"
-msgstr ""
+msgstr "Alternatyvioji raiška, jei nepalaikoma numatytoji"
 
 msgid "Ask before changing videomode"
-msgstr ""
+msgstr "Klausti, prieš keičiant vaizdo režimą"
 
+#, fuzzy
 msgid "Auto frame rate (refresh need 'multi')"
-msgstr ""
+msgstr "Automatinis kadrų dažnis (skleistinė t.b. 'multi/auto')"
 
 msgid "Autoresolution"
-msgstr ""
+msgstr "Automatinė raiška"
 
 #, python-format
 msgid ""
 "Autoresolution Plugin Testmode:\n"
 "Is %s OK?"
 msgstr ""
+"Automatinės raiškos įskiepio bandomasis režimas:\n"
+"Ar %s tinka?"
 
 msgid "Autoresolution Switch"
-msgstr ""
+msgstr "Automatinės raiškos perjungimas"
 
 msgid "Autoresolution is not working in Scart/DVI-PC Mode"
-msgstr ""
+msgstr "Automatinė raiška neveikia SCART/DVI-PC režimuose"
 
 msgid "Autoresolution videomode setup"
-msgstr ""
+msgstr "Automatinės raiškos vaizdo režimo sąranka"
 
 msgid "Cancel"
 msgstr "Atšaukti"
@@ -53,171 +57,169 @@ msgid ""
 "Current framerate: %s\n"
 "New framerate: %s\n"
 msgstr ""
+"Keisti šio kanalo kadrų dažnį?\n"
+"Dabartinis kadrų dažnis: %s\n"
+"Naujasis kadrų dažnis: %s\n"
 
 msgid "Deinterlacer mode for interlaced content"
-msgstr ""
+msgstr "Dvieilio pynimo turinio išpynimas"
 
 msgid "Deinterlacer mode for progressive content"
-msgstr ""
+msgstr "Pilnaeilio turinio išpynimas"
 
 msgid "Delay x seconds after service started"
-msgstr ""
+msgstr "Atvėrus kanalą, uždelsti X sekundžių"
 
 msgid "Enable 1080p24 Mode"
-msgstr ""
+msgstr "Įjungti 1080p24 režimą"
 
 msgid "Enable 1080p25 Mode"
-msgstr ""
+msgstr "Įjungti 1080p25 režimą"
 
 msgid "Enable 1080p30 Mode"
-msgstr ""
+msgstr "Įjungti 1080p30 režimą"
 
 msgid "Enable 2160p24 Mode"
-msgstr ""
+msgstr "Įjungti 2160p24 režimą"
 
 msgid "Enable 2160p25 Mode"
-msgstr ""
+msgstr "Įjungti 2160p25 režimą"
 
 msgid "Enable 2160p30 Mode"
-msgstr ""
+msgstr "Įjungti 2160p30 režimą"
 
 msgid "Enable 720p24 Mode"
-msgstr ""
+msgstr "Įjungti 720p24 režimą"
 
 msgid "Enable 720p50 Mode"
-msgstr ""
+msgstr "Įjungti 720p50 režimą"
 
 msgid "Enable Autoresolution"
-msgstr ""
+msgstr "Įjungti automatinę raišką"
 
 msgid "Exit"
-msgstr ""
+msgstr "Uždaryti"
 
-#
-#, fuzzy
 msgid "FHD 50/60HZ Progressive Mode"
-msgstr "UHD pilnaeilis (progressive) režimas"
+msgstr "FHD 50/60HZ pilnaeilis režimas"
 
-#
-#, fuzzy
+msgid "Force set progressive for stream/video content"
+msgstr "Transliacijai/video priverstinai jungti pilnaeilį režimą"
+
 msgid "HD Interlace Mode"
-msgstr "UHD dvieilio pynimo (interlace) režimas"
+msgstr "HD dvieilio pynimo (interlace) režimas"
 
-#
-#, fuzzy
 msgid "HD Progressive Mode"
-msgstr "UHD pilnaeilis (progressive) režimas"
+msgstr "HD pilnaeilis (progressive) režimas"
 
 msgid "Lock timeout"
-msgstr ""
+msgstr "Fiksavimo laikas"
 
 msgid "Manual resolution"
-msgstr ""
+msgstr "Rankinė raiška"
 
 msgid "Manual resolution is not working in Scart/DVI-PC mode!"
-msgstr ""
+msgstr "Rankinė raiška neveikia SCART/DVI-PC režimuose!"
 
 msgid "Message timeout"
-msgstr ""
+msgstr "Pranešimą rodyti (sek.):"
 
 msgid "Mode"
-msgstr ""
+msgstr "Režimas"
 
 msgid "OK"
 msgstr "Gerai"
 
 msgid "Please select a resolution..."
-msgstr ""
+msgstr "Pasirinkite rezoliuciją..."
 
 msgid "Refresh Rate"
-msgstr ""
+msgstr "Skleistinės dažnis"
 
 msgid "Return back without confirmation after 10 sec."
-msgstr ""
+msgstr "Po 10 sek. atkursime ankstesnę be patvirtinimo"
 
 msgid "Running in testmode"
-msgstr ""
+msgstr "Veikia bandomuoju režimu"
 
-#
-#, fuzzy
 msgid "SD 24HZ Progressive mode"
-msgstr "UHD pilnaeilis (progressive) režimas"
+msgstr "SD 30/60HZ pilnaeilis režimas"
 
-#
-#, fuzzy
 msgid "SD 25/50HZ Interlace Mode"
-msgstr "UHD dvieilio pynimo (interlace) režimas"
+msgstr "SD 25/50HZ dvieilio pynimo režimas"
 
-#
-#, fuzzy
 msgid "SD 25/50HZ Progressive Mode"
-msgstr "UHD pilnaeilis (progressive) režimas"
+msgstr "SD 25/50HZ pilnaeilis režimas"
 
-#
-#, fuzzy
 msgid "SD 30/60HZ Interlace Mode"
-msgstr "UHD dvieilio pynimo (interlace) režimas"
+msgstr "SD 30/60HZ dvieilio pynimo režimas"
 
-#
-#, fuzzy
 msgid "SD 30/60HZ Progressive Mode"
-msgstr "UHD pilnaeilis (progressive) režimas"
+msgstr "SD 30/60HZ pilnaeilis režimas"
+
+msgid "Separate colorimetry for HDR (set 'auto' HDMI Colorimetry)"
+msgstr "Atskirti HDR (plataus dinaminio diapazono) (nustatykite 'auto' HDMI kolorimetrijai)"
 
 msgid "Show 'Manual resolution' in extensions menu"
-msgstr ""
+msgstr "Meniu plėtiniuose rodyti \"Rankinė raiška\""
 
 msgid "Show info screen"
-msgstr ""
+msgstr "Rodyti informacinį pranešimą"
+
+msgid "Smart HDR type (set 'auto' HDMI HDR type)"
+msgstr "Išmanusis HDR (nustatykite 'auto' HDMI HDR tipą)"
 
 msgid "This resolution is OK?"
-msgstr ""
+msgstr "Ar ši rezoliucija tinkama?"
 
-#
 msgid "UHD Interlace Mode"
-msgstr "UHD dvieilio pynimo (interlace) režimas"
+msgstr "UHD dvieilio pynimo režimas"
 
-#
 msgid "UHD Progressive Mode"
-msgstr "UHD pilnaeilis (progressive) režimas"
+msgstr "UHD pilnaeilis režimas"
 
 msgid "Use 60HZ instead 30HZ"
-msgstr ""
+msgstr "Vietoje 30Hz naudoti 60Hz"
 
 msgid "Video: "
-msgstr ""
+msgstr "Vaizdo režimas: "
 
 #, python-format
 msgid "Videocontent: %sx%s%s %sHZ"
-msgstr ""
+msgstr "Vaizdo turinys: %sx%s%s %sHZ"
 
 #, python-format
 msgid "Videomode: %s"
-msgstr ""
+msgstr "Vaizdo režimas: %s"
 
 #, python-format
 msgid "Videomode: %s %s %s"
-msgstr ""
+msgstr "Vaizdo režimas: %s %s %s"
 
 msgid "auto"
-msgstr ""
+msgstr "automatinis"
 
 msgid "bob"
 msgstr ""
 
 msgid "default"
-msgstr ""
+msgstr "numatyta"
 
+#, fuzzy
 msgid "manual"
-msgstr ""
+msgstr "Rankinis"
+
+msgid "no"
+msgstr "ne"
 
 msgid "off"
-msgstr ""
+msgstr "išjungti"
 
 msgid "on"
-msgstr ""
+msgstr "įjungti"
 
 msgid "second"
-msgstr ""
+msgstr "sekundę"
 
 msgid "seconds"
-msgstr ""
+msgstr "sek."

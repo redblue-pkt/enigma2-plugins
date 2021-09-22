@@ -1,19 +1,27 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: Podcast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
-"PO-Revision-Date: \n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
+"PO-Revision-Date: 2021-09-15 17:00+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
-"Language-Team: Nabil Hanna <nabil1978@web.de>\n"
+"Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 2.0.2\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Poedit-SearchPath-0: /home/aliabdul/dream/ali/enigma2/ali-image/usr/lib/enigma2/python/Plugins/Extensions/Podcast\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: /Users/fk/Desktop/PluginSort/locale/de/LC_MESSAGES\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-SearchPath-0: ../src\n"
 
 msgid "Buffer device:"
 msgstr "Talpyklos įrenginys:"
@@ -29,25 +37,26 @@ msgstr "Pašalinti šį filmą?"
 
 #, python-format
 msgid "Downloading movie: %s"
-msgstr "Parsisiunčiamas filmas: %s"
+msgstr "Parsiunčiamas filmas: %s"
 
 msgid "Error getting movies"
 msgstr "Filmų įkėlimo klaida"
 
 msgid "Feedly OPML"
-msgstr "Feedly OPML"
+msgstr ""
 
 msgid "Help"
-msgstr "Pagalba"
+msgstr ""
 
 msgid "Length"
 msgstr "Ilgis"
 
+#, fuzzy
 msgid "No Feedly configuration"
-msgstr "Feedly nesukonfigūruotas"
+msgstr "konfigūracija"
 
 msgid "Podcast"
-msgstr "Podcast"
+msgstr "Podcast (saugykla)"
 
 msgid "Save"
 msgstr "Išsaugoti"
@@ -56,7 +65,7 @@ msgid "Select"
 msgstr "Pasirinkti"
 
 msgid "Stop playing this movie?"
-msgstr "Nutraukti šį filmą ?"
+msgstr "Nutraukti šio filmo peržiūrą?"
 
 msgid "Type"
 msgstr "Tipas"
@@ -74,4 +83,4 @@ msgid "from xml"
 msgstr "iš XML"
 
 msgid "keep on device"
-msgstr "laikyti įrenginyje"
+msgstr "saugoti įrenginyje"

@@ -1,20 +1,17 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: IMDb-VTi\n"
+"Project-Id-Version: IMDb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
-"PO-Revision-Date: 2018-07-07 07:24+0300\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
+"PO-Revision-Date: 2021-09-15 12:42+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -37,14 +34,14 @@ msgid "Content:"
 msgstr "Turinys:"
 
 msgid "Could't get event name"
-msgstr "Pavadinimo nerasta"
+msgstr "Nepavyko gauti įvykio pavadinimo"
 
 msgid "Details"
 msgstr "Išsamiau"
 
 #, python-format
 msgid "Downloading Movie Poster: %s..."
-msgstr "Parsisiunčiamas filmo plakatas: %s..."
+msgstr "Parsiunčiamas filmo plakatas: %s..."
 
 msgid "Enable this to be able to access IMDb search setup from within the plugin browser."
 msgstr "Kai čia įjungta, IMDb sąranką matysite įskiepių naršyklėje."
@@ -74,10 +71,10 @@ msgid "Genre:"
 msgstr "Žanras:"
 
 msgid "IMDb Details parsed"
-msgstr "IMDb išsami informacija apdorota"
+msgstr "IMDb informacija apdorota"
 
 msgid "IMDb Download completed"
-msgstr "IMDb parsisiuntimas baigtas"
+msgstr "IMDb parsiuntimas baigtas"
 
 msgid "IMDb Download failed"
 msgstr "IMDb atsisiųsti nepavyko"
@@ -89,19 +86,19 @@ msgid "IMDb Plugin"
 msgstr "IMDb įskiepis"
 
 msgid "IMDb Re-Download completed"
-msgstr "IMDb parsisiųstas iš naujo"
+msgstr "IMDb parsiųstas iš naujo"
 
 msgid "IMDb Save - Download completed"
-msgstr "IMDb informacija parsiųsta ir išsaugota"
+msgstr "IMDb parsiųstas ir išsaugotas"
 
 msgid "IMDb Setup"
 msgstr "IMDb sąranka"
 
 msgid "IMDb can not get Movie Information to write to .jpg and .txt files!"
-msgstr "IMDb neranda informacijos apie filmą, kad išsaugoti ją .jpg ir .txt failuose!"
+msgstr "Nepavyksta gauti informacijos apie filmą, kad išsaugoti ją .jpg ir .txt failuose!"
 
 msgid "IMDb can not get Movie Information to write to .txt file!"
-msgstr "IMDb neranda informacijos apie filmą, kad išsaugoti .txt faile!"
+msgstr "Nepavyksta gauti informacijos apie filmą, kad išsaugoti ją .txt faile!"
 
 msgid "IMDb query failed!"
 msgstr "IMDb užklausa nepavyko!"
@@ -116,13 +113,13 @@ msgid "Menu"
 msgstr "Meniu"
 
 msgid "No IMDb match."
-msgstr "IMDb atitikimo nėra."
+msgstr "Nėra atitikimo IMDb."
 
 msgid "No IMDb match:"
 msgstr "Nėra atitikimo IMDb:"
 
 msgid "No cast list found in the database."
-msgstr "Aktorių sąrašo duomenų bazėje nerasta."
+msgstr "Aktorių sąrašas duomenų bazėje nerastas."
 
 msgid "No details found."
 msgstr "Išsamaus aprašymo nėra."
@@ -141,6 +138,9 @@ msgstr "Žiūrėti anonsą"
 
 msgid "Please select the matching entry"
 msgstr "Pasirinkite atitinkantį įrašą"
+
+msgid "Plot Keywords"
+msgstr ""
 
 msgid "Plot Outline"
 msgstr "Siužetas trumpai"
@@ -166,7 +166,7 @@ msgid "Save current Details as .html for offline use"
 msgstr "Išsaugoti šį aprašymą .html faile, kad skaityti be interneto"
 
 msgid "Save current Details as .txt"
-msgstr "Išsaugoti šį aprašymą tekstiniame faile"
+msgstr "Išsaugoti šiuos duomenis tekstiniame faile"
 
 msgid "Save current Poster and Details as .txt"
 msgstr "Išsaugoti šį plakatą ir aprašymą tekstiniame faile"
@@ -178,7 +178,7 @@ msgid "Search for details from the Internet Movie Database"
 msgstr "Užklausti detaliau internetinėje filmų duomenų bazėje"
 
 msgid "Settings for Internet Movie Database searches"
-msgstr "Internetinės filmų duomenų bazės nustatymai"
+msgstr "Internetinės filmų duomenų bazės paieškos nustatymai"
 
 msgid "Setup"
 msgstr "Sąranka"
@@ -187,7 +187,7 @@ msgid "Show episode and year information for cast when available. Takes effect a
 msgstr "Kada tai įmanoma, aktorių sąraše rodyti epizodo ir metų informaciją. Įsigalioja sekančioje išsamioje užklausoje."
 
 msgid "Show episode and year information in cast list"
-msgstr "Vaidinusių sąraše rodyti epizodo ir metų informaciją"
+msgstr "Aktorių sąraše rodyti epizodo ir metų informaciją"
 
 msgid "Show full movie or series name in title menu"
 msgstr "Rodyti pilną filmo ar serijos pavadinimą antraštės meniu"
@@ -211,13 +211,13 @@ msgid "Show setup in plugin browser"
 msgstr "Rodyti sąranką įskiepių naršyklėje"
 
 msgid "Show the whole IMDb title information for a movie or series, including, for example, alternative names and whether it's a series. Takes effect after the next search of IMDb for a show name."
-msgstr "Rodyti pilną filmo ar serijos pavadinimą antraštės meniu, įskaitant, pavyzdžiui, alternatyvų pavadinimą ir ar tai serija/serialas. Įsigalioja tik sekančioje IMDb įvykio pavadinimo paieškoje."
+msgstr "Rodyti pilną IMDb filmo, ar serijos pavadinimo informaciją antraštės meniu, įskaitant, pavyzdžiui, alternatyvų pavadinimą ir ar tai serija/serialas. Įsigalioja tik sekančioje IMDb įvykio pavadinimo paieškoje."
 
 msgid "The Internet Movie Database"
 msgstr "Internetinė filmų duomenų bazė"
 
 msgid "This option allows you add words/phrases for IMDb to ignore when searching. Please separate the words/phrases with commas."
-msgstr "Ši parinktis į IMDb paiešką leidžia įtraukti ignoruotinus žodžius ir frazes. Atskirkite juos kableliais."
+msgstr "Ši parinktis leidžia įtraukti IMDb paieškoje ignoruotinus žodžius ir frazes. Atskirkite juos kableliais."
 
 msgid "Title Menu"
 msgstr "Pavadinimų meniu"
@@ -232,4 +232,4 @@ msgid "Words / phrases to ignore "
 msgstr "Ignoruotini žodžiai ir frazės "
 
 msgid "no user rating yet"
-msgstr "vartotojai dar nereitingavo"
+msgstr "vertinimų dar nėra"

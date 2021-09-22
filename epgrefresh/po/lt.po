@@ -7,39 +7,42 @@ msgstr ""
 "Project-Id-Version: EPGRefresh\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-16 14:25+0330\n"
-"PO-Revision-Date: 2017-07-10 15:43+0300\n"
+"PO-Revision-Date: 2021-09-15 07:44+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#, python-format
+#, fuzzy, python-format
 msgid "%d more services"
-msgstr "dar %d kanalų."
+msgstr "...dar %d kanalas"
 
+#, fuzzy
 msgid "After a successful refresh the AutoTimer will automatically search for new matches if this is enabled. The options 'Ask*' has only affect on a manually refresh. If EPG-Refresh was called in background the default-Answer will be executed!"
-msgstr "Jei čia įjungta, po sėkmingo atnaujinimo, autolaikmatis automatiškai ieškos naujų atitikimų. Funkcijos 'klausti*' įtakos tik rankinio atnaujinimo atveju. Jei EPG atnaujinimas vyko fone, bus vykdomas numatytasis atsakymas!"
+msgstr "Jei čia įjungta, po sėkmingo atnaujinimo autolaikmatis automatiškai ieškos naujų atitikimų."
 
+#, fuzzy
 msgid "An automated refresh will start after this time of day, but before the time specified in next setting."
-msgstr "Autoatnaujinimas prasidės po šio dienos laiko, bet iki laiko, nurodyto sekančiame nustatyme."
+msgstr "Autoatnaujinimas pasileis po šio laiko, bet iki laiko, nurodyto sekančiame nustatyme."
 
+#, fuzzy
 msgid "An automated refresh will start before this time of day, but after the time specified in previous setting."
-msgstr "Autoatnaujinimas prasidės iki šio laiko, bet po laiko, nurodyto ankstesniame nustatyme."
+msgstr "Autoatnaujinimas pasileis iki šio laiko, bet po laiko, nurodyto ankstesniame nustatyme."
 
 msgid "Ask default No"
-msgstr "Klausti, numatytasis 'ne'"
+msgstr ""
 
 msgid "Ask default Yes"
-msgstr "Klausti, numatytasis 'taip'"
+msgstr ""
 
 #, python-format
 msgid "AutoTimer failed with error %s"
-msgstr "Autolaikmatis atsakė, klaida %s"
+msgstr ""
 
 msgid "Automatically refresh EPG"
 msgstr "Automatiškai atnaujinti EPG"
@@ -57,28 +60,31 @@ msgid "Channels"
 msgstr "Kanalai"
 
 msgid "Close and forget changes"
-msgstr "Uždaryti ir atmesti pakeitimus"
+msgstr ""
 
 msgid "Close and save changes"
-msgstr "Uždaryti, išsaugant pakeitimus"
+msgstr ""
 
+#, fuzzy
 msgid "Delay if not in standby (minutes)"
 msgstr "Delsa, jei ne budėjimo būsenoje (min.)"
 
+#, fuzzy
 msgid "Delete"
 msgstr "šalinti"
 
 msgid "Display more Options"
-msgstr "Rodyti daugiau parinkčių"
+msgstr ""
 
+#, fuzzy
 msgid "Duration to stay on service (seconds)"
-msgstr "Veikimo užlaikymo trukmė (sek.)"
+msgstr "Atviro kanalo užlaikymo trukmė (sek.)"
 
 msgid "EPG refresh auto-start earliest (hh:mm)"
-msgstr "Ankstyviausias EPG atnaujinimo autopaleidimas (hh:mm)"
+msgstr "Ankstyviausias EPG atnaujinimo auto-paleidimas (hh:mm)"
 
 msgid "EPG refresh auto-start latest (hh:mm)"
-msgstr "Vėliausias EPG atnaujinimo autopaleidimas (hh:mm)"
+msgstr "Vėliausias EPG atnaujinimo auto-paleidimas (hh:mm)"
 
 msgid "EPG refresh finished."
 msgstr "EPG atnaujinimas baigtas."
@@ -87,8 +93,6 @@ msgid ""
 "EPG refresh finished.\n"
 "Should AutoTimer be search for new matches?"
 msgstr ""
-"EPG atnaujinimas baigtas.\n"
-"Ar autolaikmačiui ieškoti naujų atitikimų?"
 
 msgid "EPG refresh started in background."
 msgstr "EPG atnaujinimas pradėtas fone."
@@ -102,31 +106,32 @@ msgstr "EPG atnaujinimo kanalai"
 
 #, fuzzy
 msgid "EPG-Refresh_Refresh now"
-msgstr "EPG atnaujinimo kanalai"
+msgstr "Atnaujinti EPG dabar"
 
 #, fuzzy
 msgid "EPG-Refresh_SetUp"
-msgstr "EPG atnaujinimo kanalai"
+msgstr "EPG atnaujinimo pagalba"
 
 #, fuzzy
 msgid "EPG-Refresh_Stop Refresh"
 msgstr "EPG atnaujinimo kanalai"
 
 msgid "EPGREFRESH_NOTIFICATION_DOMAIN"
-msgstr "EPG ATNAUJINIMO PRANEŠIMO DOMENAS"
+msgstr ""
 
-#, fuzzy
 msgid "EPGRefresh"
-msgstr "įtraukti į EPG atnaujinimą"
+msgstr "EPG atnaujinimas"
 
 msgid "EPGRefresh Configuration"
 msgstr "EPG atnaujinimo konfigūravimas"
 
+#, fuzzy
 msgid "EPGRefresh Configuration Help"
-msgstr "EPG atnaujinimo konfigūravimo pagalba"
+msgstr "EPG atnaujinimo konfigūravimas"
 
+#, fuzzy
 msgid "EPGRefresh Functions"
-msgstr "EPG atnaujinimo funkcijos"
+msgstr "EPG atnaujinimo konfigūravimas"
 
 msgid "EPGRefresh Services"
 msgstr "EPG atnaujinimo kanalai"
@@ -141,48 +146,52 @@ msgid "Editing"
 msgstr "Redagavimas"
 
 msgid "Enable this item to flush all EPG data before starting a new EPG refresh cycle"
-msgstr ""
+msgstr "Įjunkite čia, kad prieš pradedant naują EPG atnaujinimo ciklą, būtų išvalyti seni EPG duomenys"
 
+#, fuzzy
 msgid "Enable this to be able to access the EPGRefresh configuration from within the extension menu."
-msgstr "Kai čia įjungta, turėsite prieigą prie EPG atnaujinimo konfigūravimo iš plėtinių naršyklės."
+msgstr "Įjunkite čia, jei norite turėti prieigą prie EPG atnaujinimo konfigūravimo iš plėtinių meniu."
 
 #, fuzzy
 msgid "Enable this to be able to access the EPGRefresh configuration from within the plugin menu."
-msgstr "Kai čia įjungta, turėsite prieigą prie EPG atnaujinimo konfigūravimo iš plėtinių naršyklės."
+msgstr "Įjunkite čia, jei norite turėti prieigą prie EPG atnaujinimo konfigūravimo iš plėtinių meniu."
 
+#, fuzzy
 msgid "Enable this to be able to start the EPGRefresh from within the extension menu."
-msgstr "Kai čia įjungta, turėsite galimybę pradėti EPG atnaujinimą iš plėtinių lango."
+msgstr "Įjunkite čia, jei norite turėti prieigą prie EPG atnaujinimo konfigūravimo iš plėtinių meniu."
 
 msgid "Extend the list of services to refresh by those your AutoTimers use?"
 msgstr "Ar išplėsti atnaujintinų kanalų sąrašą naudojamais autolaikmačio?"
 
 msgid "Fake recording"
-msgstr "Netikras įrašymas"
+msgstr "Pseudo įrašymas"
 
 msgid "Flush EPG before refresh"
-msgstr ""
+msgstr "Prieš EPG atnaujinimą, išvalyti"
 
 msgid "Following Services have to be scanned:"
-msgstr "Šie kanalai, turi būti patikrinti:"
+msgstr "Šie kanalai, turi būti nuskaityti:"
 
+#, fuzzy
 msgid "Force scan even if receiver is in use."
-msgstr "Paleisti skenavimą, net jei imtuvas užimtas"
+msgstr "Paleisti nuskaitymą, net jei imtuvas užimtas"
 
 msgid "Foreground also"
-msgstr "Ir pirmąjame plane"
+msgstr "Viršus taip pat"
 
 msgid "Functions"
-msgstr "Funkcijos"
+msgstr ""
 
 msgid "General Help"
-msgstr "Bendroji pagalba"
+msgstr ""
 
 msgid "If the receiver currently isn't in standby, this is the duration which EPGRefresh will wait before retry."
-msgstr "Jei imtuvas dabar ne budėjimo būsenoje, tai yra trukmė, kiek EPG atnaujinimas lauks prieš kartojimą."
+msgstr ""
 
 msgid "If this is enabled, the plugin will wake up the receiver from standby if possible. Otherwise it needs to be switched on already."
-msgstr "Kai čia įjungta, įskiepis prižadins imtuvą, jei įmanoma, iš išjungtos būsenos. Kitaip, jis turi būti įjungtas iš anksto."
+msgstr ""
 
+#, fuzzy
 msgid "If you want to refresh the EPG in background, you can choose the method which best suits your needs here, e.g. hidden, fake reocrding or regular Picture in Picture."
 msgstr "Jei norite atnaujinti EPG fone, čia galite pasirinkti geriausiai jūsų poreikius atitinkantį metodą, t.y. slaptą, netikrą įrašymą, ar įprastą vaizdą vaizde."
 
@@ -190,7 +199,7 @@ msgid "Inherit Services from AutoTimer"
 msgstr "Perimti kanalus iš autolaikmačio"
 
 msgid "Key Help"
-msgstr "Mygtukų pagalba"
+msgstr ""
 
 #, python-format
 msgid "Last refresh was %s"
@@ -200,22 +209,23 @@ msgid "Main Picture"
 msgstr "Pagrindinis vaizdas"
 
 msgid "Move page down"
-msgstr "Puslapiu žemyn"
+msgstr ""
 
 msgid "Move page up"
-msgstr "Puslapiu aukštyn"
+msgstr ""
 
 msgid "New"
 msgstr "Naujas"
 
 msgid "No"
-msgstr "ne"
+msgstr ""
 
 msgid "OK"
 msgstr "Gerai"
 
+#, fuzzy
 msgid "Pending Services"
-msgstr "Laukia kanalai"
+msgstr "Redaguoti kanalus"
 
 msgid "PiP available now."
 msgstr "PiP dabar galimas."
@@ -226,8 +236,9 @@ msgstr "Vaizdas vaizde (PIP)"
 msgid "Picture in Picture (hidden)"
 msgstr "Vaizdas vaizde (paslėptas)"
 
+#, fuzzy
 msgid "Please don't use PiP meanwhile!"
-msgstr "Kol kas nenaudokite PiP!"
+msgstr "Kurį laiką nenaudokite PiP!"
 
 msgid "Really close without saving settings?"
 msgstr "Tikrai uždaryti neišsaugant nustatymų?"
@@ -254,33 +265,38 @@ msgid "Select channel to refresh"
 msgstr "Pasirinkite kanalą atnaujinimui"
 
 msgid "Should protected services be skipped if refresh was started in interactive-mode?"
-msgstr "Ar praleisti apsaugotus kanalus, jei atnaujinimas vyksta interaktyviame režime?"
-
-msgid "Show 'EPGRefresh Start now' in extension menu."
-msgstr "Rodyti 'EPG atnaujinti dabar' plėtinių naršyklėje"
-
-msgid "Show Advanced Options"
-msgstr "Rodyti išplėstines parinktis"
-
-msgid "Show Setup in extension menu"
-msgstr "Rodyti plėtinių naršyklėje"
+msgstr ""
 
 #, fuzzy
-msgid "Show Setup in plugins"
-msgstr "Rodyti plėtinių naršyklėje"
+msgid "Show 'EPGRefresh Start now' in extension menu."
+msgstr "Rodyti 'Atnaujinti EPG dabar' pagrindiniame meniu"
 
+msgid "Show Advanced Options"
+msgstr ""
+
+#, fuzzy
+msgid "Show Setup in extension menu"
+msgstr "Rodyti tarp plėtinių meniu"
+
+msgid "Show Setup in plugins"
+msgstr ""
+
+#, fuzzy
 msgid "Show last EPGRefresh - Time"
-msgstr "Rodyti paskutinį EPG atnaujinimo laiką"
+msgstr "Rodyti 'įtraukti į EPG atnaujinimą' tarp"
 
 msgid "Show more Functions"
-msgstr "Rodyti daugiau funkcijų"
+msgstr ""
 
+#, fuzzy
 msgid "Show popup when refresh starts and ends."
-msgstr "Rodyti iškylantį pranešimą, kai atnaujinimas prasideda ir baigiasi"
+msgstr "Atnaujinimui prasidedant ir baigiantis, rodyti pranešimą"
 
+#, fuzzy
 msgid "Show the pending Services for refresh"
-msgstr "Rodyti atnaujintinus kanalus"
+msgstr "Redaguoti atnaujintinus kanalus"
 
+#, fuzzy
 msgid "Shutdown after EPG refresh."
 msgstr "Po EPG atnaujinimo, išjungti"
 
@@ -288,47 +304,51 @@ msgid "Skip protected Services"
 msgstr "Praleisti apsaugotus kanalus"
 
 msgid "Start EPGrefresh immediately"
-msgstr "Atnaujinti EPG dabar pat"
+msgstr ""
 
 msgid "Stop Running EPG-refresh"
 msgstr "Nutraukti EPG atnaujinimą"
 
+#, fuzzy
 msgid "Stop running refresh"
-msgstr "Nutraukti atnaujinimą"
+msgstr "Nutraukti EPG atnaujinimą"
 
 msgid "There is still a refresh running. The Operation isn't allowed at this moment."
-msgstr "Veiksmas šiuo metu negalimas - vis dar vyksta atnaujinimas."
+msgstr ""
 
+#, fuzzy
 msgid "This is the duration each service/channel will stay active during a refresh."
-msgstr "Tai trukmė, kiek kiekviena paslauga, kanalas atnaujinimo metu išliks aktyvūs."
+msgstr "Tai trukmė, kiek kiekviena paslauga, kanalas atnaujinimo metu išliks įjungti."
 
+#, fuzzy
 msgid "This setting controls whether or not an informational message will be shown at start and completion of refresh."
 msgstr "Šis parametras nustato, ar bus rodomi informaciniai pranešimai atnaujinimo pradžioje ir pabaigoje."
 
 msgid "This setting controls whether or not the refresh will be initiated even though the receiver is active (either not in standby or currently recording)."
-msgstr "Šis parametras nustato, bus pradedamas naujinimas, ar ne, netgi jei imtuvas veikia (arba ne budėjimo, ar įrašymo būsenoje)."
+msgstr ""
 
+#, fuzzy
 msgid "This setting controls whether the receiver should be set to standby after refresh is completed."
-msgstr "Šis parametras nustato, ar po atnaujinimo pabaigos imtuvas bus pervestas į budėjimo režimą."
+msgstr "Šis parametras nustato, ar po atnaujinimo imtuvas pereis į gilų budėjimą."
 
 msgid ""
 "To apply your Changes the GUI has to be restarted.\n"
 "Do you want to restart the GUI now?"
 msgstr ""
-"Pakeitimams įsigalioti, grafinę aplinką reikia\n"
-"paleisti iš naujo. Paleisti iš naujo dabar?"
 
+#, fuzzy
 msgid "Unless this is enabled, EPGRefresh won't automatically run but needs to be explicitly started by the yellow button in this menu."
-msgstr "Kol čia neįjungta, EPG atnaujinimas nepasileis automatiškai, bet turi būti paleistas tiesiogiai, paspaudus 'GELTONĄ' šio meniu mygtuką."
+msgstr "Kol čia neįjungta, EPG atnaujinimas nepasileis automatiškai, bet turi būti paleistas tiesiogiai, paspaudus 'GELTONĄ' šio meniu mygtuką"
 
 msgid "Version"
 msgstr "Versija"
 
+#, fuzzy
 msgid "Wake up from standby for EPG refresh."
-msgstr "Prižadinti EPG atnaujinimui"
+msgstr "Prižadinti iš gilaus budėjimo"
 
 msgid "Yes"
-msgstr "taip"
+msgstr ""
 
 msgid "add to EPGRefresh"
 msgstr "įtraukti į EPG atnaujinimą"

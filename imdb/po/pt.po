@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
 "PO-Revision-Date: 2016-10-31 20:36+0000\n"
 "Last-Translator: nunigaia\n"
 "Language-Team: BH Team\n"
@@ -148,6 +148,9 @@ msgstr "Reproduzir Excerto"
 
 msgid "Please select the matching entry"
 msgstr "Por favor, selecionar entrada correspondente"
+
+msgid "Plot Keywords"
+msgstr ""
 
 msgid "Plot Outline"
 msgstr ""

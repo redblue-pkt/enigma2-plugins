@@ -1,0 +1,322 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: MerlinEPGCenter\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-22 13:15+0330\n"
+"PO-Revision-Date: 2021-09-15 14:26+0300\n"
+"Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
+"Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "<unknown>"
+msgstr "<nežinomas>"
+
+msgid "Add"
+msgstr "Pridėti"
+
+msgid "Add timer"
+msgstr "Įtraukti laikmatį"
+
+msgid "Adjust font size:"
+msgstr ""
+
+msgid "Adjust service name column width:"
+msgstr ""
+
+msgid "Amount of recordings left:"
+msgstr ""
+
+#, fuzzy
+msgid "AutoTimer timer"
+msgstr "Žiūrimiausias laikas:"
+
+msgid "Bouquets:"
+msgstr ""
+
+msgid "Don't stop current event but disable coming events"
+msgstr ""
+
+msgid "Edit Off"
+msgstr "Redagav. išjungtas"
+
+msgid "Edit On"
+msgstr "Redagav. įjungtas"
+
+msgid "Embed volume slider:"
+msgstr ""
+
+msgid "Event Info"
+msgstr "Informacija apie įvykį"
+
+msgid "Excluded days:"
+msgstr ""
+
+msgid "Exit on TV <-> Radio switch:"
+msgstr "Užverti TV <-> Radijo paspaudimu:"
+
+msgid "Friday"
+msgstr "penktadienis"
+
+msgid "General"
+msgstr "Bendras"
+
+msgid "IMDb"
+msgstr ""
+
+msgid "Included days:"
+msgstr ""
+
+msgid "Increase list item height:"
+msgstr "Padidinti sąrašo elementų aukštį:"
+
+msgid "Keys"
+msgstr ""
+
+msgid "Limit search results to bouquet services:"
+msgstr "Apriboti paieškos rezultatus bukieto kanalais:"
+
+msgid "List style:"
+msgstr "Sąrašo stilius:"
+
+msgid "Lists"
+msgstr "Sąrašai"
+
+#, fuzzy
+msgid "Location:"
+msgstr "Rodyti trukmę:"
+
+msgid "Match title:"
+msgstr ""
+
+#, fuzzy
+msgid "Merlin EPG Center"
+msgstr "MerlinEPG centras"
+
+msgid "Monday"
+msgstr "pirmadienis"
+
+msgid "More than just an EPG..."
+msgstr "Daugiau, nei tik EPG..."
+
+msgid "New Search"
+msgstr "Nauja paieška"
+
+msgid "Now"
+msgstr "Dabar"
+
+msgid "Number of upcoming events to show:"
+msgstr "Rodomų artėjančių įvykių skaičius:"
+
+msgid "OK"
+msgstr "Gerai"
+
+msgid "Outdated off"
+msgstr "Pasenę išjungti"
+
+msgid "Outdated on"
+msgstr "Pasenę įjungti"
+
+msgid "Please select a timer type to add:"
+msgstr ""
+
+msgid "Prime Time"
+msgstr "Žiūrimiausias laikas"
+
+msgid "Prime time:"
+msgstr "Žiūrimiausias laikas:"
+
+msgid "Progress bar style:"
+msgstr "Eigos juostos stilius:"
+
+msgid "Record a maximum of x times:"
+msgstr ""
+
+msgid "Record or zap timer"
+msgstr ""
+
+msgid "Remember last tab:"
+msgstr "Įsiminti paskutinį skirtuką:"
+
+msgid "Remove"
+msgstr "Pašalinti"
+
+msgid "Remove timer"
+msgstr "Pašalinti laikmatį"
+
+msgid "Repeating event currently recording... What do you want to do?"
+msgstr ""
+
+msgid "Replace ChannelSelection key down to start with tab:"
+msgstr ""
+
+msgid "Replace ChannelSelection key up to start with tab:"
+msgstr ""
+
+msgid "Replace EventView key to start with tab:"
+msgstr ""
+
+msgid "Replace InfoBar single and multi EPG:"
+msgstr "Pakeisti infojuostos kanalo ir daugiakanalį EPG:"
+
+msgid "Return to main tab with exit:"
+msgstr ""
+
+msgid "Saturday"
+msgstr "šeštadienis"
+
+msgid "Search"
+msgstr "Paieška"
+
+msgid "Search for:"
+msgstr "Ieškoti:"
+
+#, fuzzy
+msgid "Search type:"
+msgstr "Ieškoti:"
+
+msgid "Select running service on start:"
+msgstr "Pasirinkite kanalą startuojant:"
+
+msgid "Services:"
+msgstr ""
+
+msgid "Set search term"
+msgstr "Paieškos terminas"
+
+#, fuzzy
+msgid "Show begin/remain times:"
+msgstr "Rodyti skirtingų spalvų pradžia/liko laikus:"
+
+msgid "Show blinking picon for running timers:"
+msgstr "Veikiant laikmačiams, rodyti mirksinčią piktogramą:"
+
+msgid "Show duration:"
+msgstr "Rodyti trukmę:"
+
+msgid "Show event information:"
+msgstr "Rodyti įvykio informaciją:"
+
+msgid "Show list numbers:"
+msgstr "Rodyti sąrašo numerius:"
+
+msgid "Show multi colored begin/remain times:"
+msgstr "Rodyti skirtingų spalvų pradžia/liko laikus:"
+
+msgid "Show picons:"
+msgstr "Rodyti piktogramas:"
+
+msgid "Show service name:"
+msgstr "Rodyti kanalo pavadinimą:"
+
+msgid "Show short description:"
+msgstr "Rodyti trumpą aprašymą:"
+
+msgid "Show text input help for epg search:"
+msgstr "Rodyti teksto įvesties pagalbą EPG paieškai:"
+
+msgid "Show video picture:"
+msgstr "Rodyti vaizdo nuotrauką:"
+
+msgid "Similar"
+msgstr "Panašūs"
+
+msgid "Single"
+msgstr "Vienas"
+
+msgid "Space between columns:"
+msgstr ""
+
+msgid "Stop current event and disable coming events"
+msgstr ""
+
+msgid "Stop current event but not coming events"
+msgstr ""
+
+msgid "Sunday"
+msgstr "sekmadienis"
+
+msgid "Thursday"
+msgstr "ketvirtadienis"
+
+msgid "Timer"
+msgstr "Laikmatis"
+
+msgid "Today"
+msgstr "Šiandien"
+
+msgid "Tomorrow"
+msgstr "Rytoj"
+
+msgid "Tuesday"
+msgstr "antradienis"
+
+msgid "Upcoming"
+msgstr "Artimiausi"
+
+msgid "Use picons (50x30) from:"
+msgstr "Naudoti piktogramas (50x30) iš:"
+
+msgid "Use skin:"
+msgstr "Naudoti aplinkos temą:"
+
+msgid "Wednesday"
+msgstr "trečiadienis"
+
+msgid "about to start"
+msgstr "pradedama"
+
+msgid "disabled"
+msgstr "išjungtas"
+
+msgid "done!"
+msgstr "atlikta!"
+
+msgid "list and event info: four parts"
+msgstr ""
+
+msgid "list and event info: gradient"
+msgstr ""
+
+msgid "list and event info: percent (text)"
+msgstr ""
+
+msgid "list and event info: simple"
+msgstr ""
+
+msgid "list: off, event info: four parts"
+msgstr ""
+
+msgid "list: off, event info: gradient"
+msgstr ""
+
+msgid "list: off, event info: percent (text)"
+msgstr ""
+
+msgid "list: off, event info: simple"
+msgstr ""
+
+msgid "recording..."
+msgstr "įrašoma..."
+
+msgid "return"
+msgstr "grįžti"
+
+msgid "single line style"
+msgstr "vienos linijos stilius"
+
+msgid "waiting"
+msgstr "laukiama"
+
+msgid "with short description"
+msgstr "su trumpu aprašymu"
+
+msgid "zapped"
+msgstr "perjungta"
