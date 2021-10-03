@@ -12,7 +12,7 @@ from Screens.MessageBox import MessageBox
 from Screens.ChoiceBox import ChoiceBox
 from Components.PluginComponent import PluginComponent, plugins
 from Components.Label import Label
-from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, fileExists, SCOPE_GUISKIN, SCOPE_PLUGINS
 from Tools.BoundFunction import boundFunction
 from Screens.InfoBarGenerics import InfoBarPlugins
 from Components.config import config, ConfigSubsection, ConfigYesNo
@@ -46,7 +46,7 @@ config.plugins.pluginsort.show_help = ConfigYesNo(default=True)
 
 def MyPluginEntryComponent(plugin, backcolor_sel=None):
 	if plugin.icon is None:
-		png = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "icons/plugin.png"))
+		png = LoadPixmap(resolveFilename(SCOPE_GUISKIN, "icons/plugin.png"))
 	else:
 		png = plugin.icon
 

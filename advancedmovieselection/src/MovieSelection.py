@@ -39,7 +39,7 @@ from Screens.ChoiceBox import ChoiceBox
 from Screens.LocationBox import MovieLocationBox
 from AdvancedMovieSelectionSetup import AdvancedMovieSelectionSetup, AdvancedMovieSelectionButtonSetup
 from Tools.BoundFunction import boundFunction
-from Tools.Directories import resolveFilename, fileExists, SCOPE_HDD, SCOPE_CURRENT_SKIN
+from Tools.Directories import resolveFilename, fileExists, SCOPE_HDD, SCOPE_GUISKIN
 from enigma import eServiceReference, eSize, ePoint, eTimer, iServiceInformation
 from Screens.Console import eConsoleAppContainer
 from MoveCopy import MovieMove
@@ -683,11 +683,11 @@ class AdvancedMovieSelection_summary(Screen):
 
     def showSeperator(self):
         if TFT_8000_Present:
-            self["Seperator1"].setText(resolveFilename(SCOPE_CURRENT_SKIN, "images/sep_tft.png"))
-            self["Seperator2"].setText(resolveFilename(SCOPE_CURRENT_SKIN, "images/sep_tft.png"))
+            self["Seperator1"].setText(resolveFilename(SCOPE_GUISKIN, "images/sep_tft.png"))
+            self["Seperator2"].setText(resolveFilename(SCOPE_GUISKIN, "images/sep_tft.png"))
         else:
-            self["Seperator1"].setText(resolveFilename(SCOPE_CURRENT_SKIN, "images/sep_lcd_oled.png"))
-            self["Seperator2"].setText(resolveFilename(SCOPE_CURRENT_SKIN, "images/sep_lcd_oled.png"))
+            self["Seperator1"].setText(resolveFilename(SCOPE_GUISKIN, "images/sep_lcd_oled.png"))
+            self["Seperator2"].setText(resolveFilename(SCOPE_GUISKIN, "images/sep_lcd_oled.png"))
 
     def hideSeperator(self):
         self["Seperator1"].setText("")

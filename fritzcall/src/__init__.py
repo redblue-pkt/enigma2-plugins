@@ -16,7 +16,7 @@ from six.moves import range
 
 from Components.config import config #@UnresolvedImport
 from Components.Language import language
-from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS, SCOPE_SKIN_IMAGE #@UnresolvedImport
+from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS, SCOPE_GUISKIN #@UnresolvedImport
 from enigma import eBackgroundFileEraser
 
 lang = language.getLanguage()

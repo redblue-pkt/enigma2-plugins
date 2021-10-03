@@ -17,13 +17,13 @@ from Components.Sources.CanvasSource import CanvasSource
 from Components.Button import Button
 from Components.Label import Label
 from Components.ActionMap import ActionMap
-from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_PLUGIN, SCOPE_CURRENT_SKIN
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGIN, SCOPE_GUISKIN
 from enigma import eTimer, gFont, getDesktop, RT_HALIGN_CENTER, RT_VALIGN_CENTER
 import xml.etree.cElementTree
 import random
 
 VERSION = "0.2r0"
-SAVEFILE = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/Schiffe/Schiffe.sav")
+SAVEFILE = resolveFilename(SCOPE_PLUGIN, "Extensions/Schiffe/Schiffe.sav")
 
 XMAX = 10
 YMAX = 10
@@ -152,7 +152,7 @@ class Schiffe(Screen):
 			</screen>""" % (W, H, VERSION, CW, CH, WX, W0Y, WX, W1Y, WX, W2Y, WX, W3Y, WX, W1Y, WX, W2Y, WX, W3Y)
 
 		# get window background color - find xml for actual skin...
-		filename = resolveFilename(SCOPE_CURRENT_SKIN, "skin.xml")
+		filename = resolveFilename(SCOPE_GUISKIN, "skin.xml")
 		actualSkin = xml.etree.cElementTree.parse(filename).getroot()
 
 		# get colors from skin and write to dictionary

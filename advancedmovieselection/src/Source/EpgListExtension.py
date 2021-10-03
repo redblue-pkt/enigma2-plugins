@@ -25,11 +25,11 @@ that they, too, receive or can get the source code. And you must show them these
 """
 from Components.EpgList import EPGList
 from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN
 from MovieScanner import movieScanner
 IMAGE_PATH = 'Extensions/AdvancedMovieSelection/images/'
-av1_pixmap = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + 'movie.png'))
-av2_pixmap = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + 'blue_movieicon.png'))
+av1_pixmap = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + 'movie.png'))
+av2_pixmap = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + 'blue_movieicon.png'))
 savedPixmapForEntry = EPGList.getPixmapForEntry
 savedBuildSingleEntry = EPGList.buildSingleEntry
 savedBuildMultiEntry = EPGList.buildMultiEntry

@@ -32,7 +32,7 @@ from Source.ServiceProvider import ServiceCenter, eServiceReferenceBludisc
 from Source.CueSheetSupport import DVDCutListSupport, CutListSupport
 from Screens.MessageBox import MessageBox
 from Screens.InfoBar import MoviePlayer
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists, SCOPE_LIBDIR
+from Tools.Directories import resolveFilename, SCOPE_GUISKIN, fileExists, SCOPE_LIBDIR
 from enigma import ePoint, eTimer, iPlayableService
 from Tools import Notifications
 from Components.Sources.ServiceEvent import ServiceEvent

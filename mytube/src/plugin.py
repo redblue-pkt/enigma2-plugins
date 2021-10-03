@@ -27,7 +27,7 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Tools.BoundFunction import boundFunction
-from Tools.Directories import resolveFilename, SCOPE_HDD, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_HDD, SCOPE_PLUGIN
 from Tools.Downloader import downloadWithProgress
 
 
@@ -1251,7 +1251,7 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 		print("thumbnail-fetchFinished for:", tubeid)
 		self.pixmaps_to_load.remove(tubeid)
 		if failed:
-			thumbnailFile = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/MyTube/plugin.png")
+			thumbnailFile = resolveFilename(SCOPE_PLUGIN, "Extensions/MyTube/plugin.png")
 		else:
 			thumbnailFile = "/tmp/" + str(tubeid) + ".jpg"
 		sc = AVSwitch().getFramebufferScale()

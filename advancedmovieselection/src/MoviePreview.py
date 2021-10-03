@@ -30,7 +30,7 @@ from Source.ServiceProvider import eServiceReferenceDvd, getServiceInfoValue, Se
 from Source.ISOInfo import ISOInfo
 from enigma import iServiceInformation, eServiceReference
 from os import environ
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN
 
 nocover = None
 
@@ -48,9 +48,9 @@ class MoviePreview():
         self.onClose.append(self.__onClose)
         global nocover
         if environ["LANGUAGE"] == "de" or environ["LANGUAGE"] == "de_DE":
-            nocover = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_de.png")
+            nocover = resolveFilename(SCOPE_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_de.png")
         else:
-            nocover = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_en.png")
+            nocover = resolveFilename(SCOPE_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_en.png")
 
     def __onClose(self):
         del self.picload

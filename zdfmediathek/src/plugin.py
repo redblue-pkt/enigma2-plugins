@@ -21,7 +21,7 @@ from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from time import sleep
 from Tools.BoundFunction import boundFunction
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_PLUGIN
 from Tools.LoadPixmap import LoadPixmap
 from twisted.web.client import downloadPage, getPage
 import htmlentitydefs
@@ -466,7 +466,7 @@ def RightMenuEntryPixmap(thumbID, png_cache):
 	if png is None:
 		png = png_cache.get("missing", None)
 		if png is None:
-			png = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/ZDFMediathek/logo.png"))
+			png = LoadPixmap(resolveFilename(SCOPE_PLUGIN, "Extensions/ZDFMediathek/logo.png"))
 			png_cache["missing"] = png
 	return png
 

@@ -18,7 +18,7 @@ from Components.Sources.CanvasSource import CanvasSource
 from Components.Button import Button
 from Components.Label import Label
 from Components.ActionMap import ActionMap
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN
 from enigma import eTimer
 import xml.etree.cElementTree
 import random
@@ -48,7 +48,7 @@ class vierg(Screen):
 		self.cw = 7 * self.fsize + 2 * self.bsize
 		self.ch = 7 * self.fsize + 2 * self.bsize
 
-		layout = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/vierg/layout.png")
+		layout = resolveFilename(SCOPE_PLUGIN, "Extensions/vierg/layout.png")
 
 		# set skin...
 		vierg.skin = """

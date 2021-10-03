@@ -25,7 +25,7 @@ from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 
 from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, loadPNG, RT_WRAP, RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_VALIGN_BOTTOM
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_PLUGIN
 from twisted.web import client, error as weberror
 from twisted.internet import reactor, defer
 from urllib import urlencode
@@ -44,7 +44,7 @@ from Logger import log
 from WebChannels import WebChannels
 
 # Constants
-PIXMAP_PATH = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/SeriesPlugin/Images/")
+PIXMAP_PATH = resolveFilename(SCOPE_PLUGIN, "Extensions/SeriesPlugin/Images/")
 
 colorRed = 0xf23d21
 colorGreen = 0x389416

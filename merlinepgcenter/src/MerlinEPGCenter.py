@@ -75,7 +75,7 @@ from Screens.TimerEntry import TimerEntry, TimerLog
 from ServiceReference import ServiceReference
 from skin import parseColor, loadSkin
 from Tools.BoundFunction import boundFunction
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN, SCOPE_HDD
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN, SCOPE_HDD
 from Tools.LoadPixmap import LoadPixmap
 
 # OWN IMPORTS
@@ -513,7 +513,7 @@ class MerlinEPGCenter(TimerEditList, MerlinEPGActions, EmbeddedVolumeControl):
 			self["eventProgressImage"].hide()
 			self["eventProgressText"].hide()
 			if self.progressPixmap == None:
-				pixmapPath = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/MerlinEPGCenter/images/EventProgress.png")
+				pixmapPath = resolveFilename(SCOPE_PLUGIN, "Extensions/MerlinEPGCenter/images/EventProgress.png")
 				self.progressPixmap = LoadPixmap(cached=False, path=pixmapPath)
 			self["eventProgress"].instance.setPixmap(self.progressPixmap)
 			self["eventProgress"].show()
@@ -1352,7 +1352,7 @@ class MerlinEPGCenter(TimerEditList, MerlinEPGActions, EmbeddedVolumeControl):
 	def setEventViewPicon(self, cur, isAutoTimer=False):
 		if isAutoTimer:
 			if not self.autoTimerPixmapLarge:
-				pixmapPath = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/MerlinEPGCenter/images/AutoTimerLarge.png")
+				pixmapPath = resolveFilename(SCOPE_PLUGIN, "Extensions/MerlinEPGCenter/images/AutoTimerLarge.png")
 				self.autoTimerPixmapLarge = LoadPixmap(cached=False, path=pixmapPath)
 			if self.autoTimerPixmapLarge:
 				self["picon"].instance.setPixmap(self.autoTimerPixmapLarge)

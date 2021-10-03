@@ -38,7 +38,7 @@ import NavigationInstance
 from RecordTimer import RecordTimerEntry, AFTEREVENT
 from Screens.MessageBox import MessageBox
 import Screens.Standby
-from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import fileExists, resolveFilename, SCOPE_GUISKIN, SCOPE_PLUGIN
 from Tools.LoadPixmap import LoadPixmap
 
 
@@ -152,7 +152,7 @@ class PiconLoader():
 				if pngname == "": # no default yet in cache..
 					pngname = self.findPicon("picon_default")
 					if pngname == "":
-						pngname = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/MerlinEPGCenter/images/PiconMissing_small.png")
+						pngname = resolveFilename(SCOPE_PLUGIN, "Extensions/MerlinEPGCenter/images/PiconMissing_small.png")
 					self.nameCache["default"] = pngname
 		return pngname
 
@@ -162,7 +162,7 @@ class PiconLoader():
 	def findPicon(self, sRef):
 		pngname = config.plugins.merlinEpgCenter.epgPaths.value + sRef + ".png"
 		if not fileExists(pngname):
-			pngname = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/MerlinEPGCenter/images/PiconMissing_small.png")
+			pngname = resolveFilename(SCOPE_PLUGIN, "Extensions/MerlinEPGCenter/images/PiconMissing_small.png")
 		return pngname
 
 	def piconPathChanged(self, configElement=None):
@@ -180,7 +180,7 @@ def findDefaultPicon(serviceName):
 		pngname = (path % "picon") + serviceName + ".png"
 		if fileExists(pngname):
 			return pngname
-	return resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/MerlinEPGCenter/images/PiconMissing.png")
+	return resolveFilename(SCOPE_PLUGIN, "Extensions/MerlinEPGCenter/images/PiconMissing.png")
 
 # derived from Tools.FuzzyDate
 

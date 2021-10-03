@@ -21,7 +21,7 @@ from __future__ import print_function
 #  distributed other than under the conditions noted above.
 #
 from enigma import getDesktop
-from Tools.Directories import fileExists, resolveFilename, SCOPE_HDD, SCOPE_CURRENT_SKIN, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import fileExists, resolveFilename, SCOPE_HDD, SCOPE_GUISKIN, SCOPE_PLUGIN
 
 
 def printStackTrace():
@@ -70,7 +70,7 @@ class SkinTools():
 
 class Installed:
     def __init__(self):
-        self.GP3 = resolveFilename(SCOPE_CURRENT_PLUGIN, "Bp/geminimain/plugin.pyo")
+        self.GP3 = resolveFilename(SCOPE_PLUGIN, "Bp/geminimain/plugin.pyo")
         self.BludiscPlayer = self.pluginInstalled("BludiscPlayer")
         self.DVDPlayer = self.pluginInstalled("DVDPlayer")
         self.TMDb = self.pluginInstalled("TMDb")
@@ -85,7 +85,7 @@ class Installed:
         self.pipzap = self.pluginInstalled("pipzap")
 
     def pluginInstalled(self, name):
-        plugin_path = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/%s/plugin.pyo" % (name))
+        plugin_path = resolveFilename(SCOPE_PLUGIN, "Extensions/%s/plugin.pyo" % (name))
         return fileExists(plugin_path)
 
 

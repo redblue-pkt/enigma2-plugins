@@ -22,7 +22,7 @@ from Components.ServiceEventTracker import ServiceEventTracker
 from Components.Playlist import PlaylistIOInternal, PlaylistIOM3U, PlaylistIOPLS
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import *
-from Tools.Directories import resolveFilename, fileExists, pathExists, createDir, SCOPE_MEDIA, SCOPE_PLAYLIST, SCOPE_CURRENT_SKIN, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, fileExists, pathExists, createDir, SCOPE_MEDIA, SCOPE_PLAYLIST, SCOPE_GUISKIN, SCOPE_PLUGINS
 from MC_Filelist import FileList
 from Screens.InfoBarGenerics import InfoBarSeek
 import os
@@ -1491,7 +1491,7 @@ class MediaPixmap(Pixmap):
 					noCoverFile = value
 					break
 		if noCoverFile is None:
-			noCoverFile = resolveFilename(SCOPE_CURRENT_SKIN, "no_coverArt.png")
+			noCoverFile = resolveFilename(SCOPE_GUISKIN, "no_coverArt.png")
 		self.noCoverPixmap = LoadPixmap(noCoverFile)
 		return Pixmap.applySkin(self, desktop, screen)
 

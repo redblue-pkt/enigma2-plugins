@@ -29,7 +29,7 @@ from Screens.Screen import Screen
 from Screens.Setup import SetupSummary
 from Screens.TimerEntry import TimerEntry
 from Screens.TimerEdit import TimerSanityConflict
-from Tools.Directories import fileExists, pathExists, SCOPE_CURRENT_SKIN, resolveFilename
+from Tools.Directories import fileExists, pathExists, SCOPE_GUISKIN, resolveFilename
 from Plugins.Plugin import PluginDescriptor
 from Components.Console import Console
 from enigma import eTimer, eEPGCache, loadPNG, eListboxPythonMultiContent, gFont, eServiceReference, eServiceCenter, iPlayableService, BT_SCALE
@@ -73,7 +73,7 @@ def ChannelListEntryComponent(type, channelname, serviceref, eventid, eventname,
 	res = [(serviceref, eventid)]
 
 	# PIXMAP / PICON
-	pixmap = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
+	pixmap = resolveFilename(SCOPE_GUISKIN, "picon_default.png")
 	searchPaths = ('/usr/share/enigma2/picon/', '/media/cf/picon/', '/media/usb/picon/')
 
 	srefstring = serviceref

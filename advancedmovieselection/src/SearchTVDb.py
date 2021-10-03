@@ -24,16 +24,16 @@ from Components.ProgressBar import ProgressBar
 from os import environ
 from Source.ServiceProvider import ServiceCenter
 from Source.EventInformationTable import createEITtvdb
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN
 from SearchTMDb import InfoLoadChoice
 from Source.Globals import pluginPresent, SkinTools
 from Source.MovieDB import tvdb, downloadCover
 from Source.PicLoader import PicLoader
 temp_dir = '/tmp/TheTVDB_temp/'
 if environ['LANGUAGE'] == 'de' or environ['LANGUAGE'] == 'de_DE':
-    nocover = resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/AdvancedMovieSelection/images/nocover_de.png')
+    nocover = resolveFilename(SCOPE_PLUGIN, 'Extensions/AdvancedMovieSelection/images/nocover_de.png')
 else:
-    nocover = resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/AdvancedMovieSelection/images/nocover_en.png')
+    nocover = resolveFilename(SCOPE_PLUGIN, 'Extensions/AdvancedMovieSelection/images/nocover_en.png')
 
 
 def getImage(serie):
@@ -230,7 +230,7 @@ class TheTVDBMain(Screen, InfoLoadChoice):
         return
 
     def layoutFinished(self):
-        self['thetvdb_logo'].instance.setPixmapFromFile(resolveFilename(SCOPE_CURRENT_PLUGIN, 'Extensions/AdvancedMovieSelection/images/thetvdb_logo.png'))
+        self['thetvdb_logo'].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGIN, 'Extensions/AdvancedMovieSelection/images/thetvdb_logo.png'))
         sc = AVSwitch().getFramebufferScale()
         self.picload.setPara((self['cover'].instance.size().width(), self['cover'].instance.size().height(), sc[0], sc[1], False, 1, '#ff000000'))
         self.picload2.setPara((self['banner'].instance.size().width(), self['banner'].instance.size().height(), sc[0], sc[1], False, 1, '#ff000000'))

@@ -28,7 +28,7 @@ from Components.MultiContent import MultiContentEntryText, MultiContentEntryProg
 from Components.config import config
 from enigma import eListboxPythonMultiContent, eListbox, gFont, iServiceInformation, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, eServiceReference, RT_HALIGN_CENTER
 from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN
 import os
 from skin import parseColor
 import NavigationInstance
@@ -215,41 +215,41 @@ class MovieList(GUIComponent):
 
         if self.show_statusicon and self.show_folders:
             if config.AdvancedMovieSelection.color3.value == "yellow":
-                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "yellow_movieicon.png"))
+                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "yellow_movieicon.png"))
             elif config.AdvancedMovieSelection.color3.value == "blue":
-                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "blue_movieicon.png"))
+                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "blue_movieicon.png"))
             elif config.AdvancedMovieSelection.color3.value == "red":
-                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "red_movieicon.png"))
+                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "red_movieicon.png"))
             elif config.AdvancedMovieSelection.color3.value == "black":
-                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "black_movieicon.png"))
+                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "black_movieicon.png"))
             elif config.AdvancedMovieSelection.color3.value == "green":
-                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "green_movieicon.png"))
+                self.COLOR_MOVIE_ICON = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "green_movieicon.png"))
             else:
                 self.COLOR_MOVIE_ICON = None
         else:
             self.COLOR_MOVIE_ICON = None
 
         if config.AdvancedMovieSelection.color1.value == "yellow":
-            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "yellow_movieicon.png"))
+            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "yellow_movieicon.png"))
         elif config.AdvancedMovieSelection.color1.value == "blue":
-            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "blue_movieicon.png"))
+            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "blue_movieicon.png"))
         elif config.AdvancedMovieSelection.color1.value == "red":
-            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "red_movieicon.png"))
+            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "red_movieicon.png"))
         elif config.AdvancedMovieSelection.color1.value == "black":
-            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "black_movieicon.png"))
+            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "black_movieicon.png"))
         elif config.AdvancedMovieSelection.color1.value == "green":
-            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "green_movieicon.png"))
+            self.COLOR_PERCENT_1 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "green_movieicon.png"))
 
         if config.AdvancedMovieSelection.color2.value == "yellow":
-            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "yellow_movieicon.png"))
+            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "yellow_movieicon.png"))
         elif config.AdvancedMovieSelection.color2.value == "blue":
-            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "blue_movieicon.png"))
+            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "blue_movieicon.png"))
         elif config.AdvancedMovieSelection.color2.value == "red":
-            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "red_movieicon.png"))
+            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "red_movieicon.png"))
         elif config.AdvancedMovieSelection.color2.value == "black":
-            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "black_movieicon.png"))
+            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "black_movieicon.png"))
         elif config.AdvancedMovieSelection.color2.value == "green":
-            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "green_movieicon.png"))
+            self.COLOR_PERCENT_2 = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "green_movieicon.png"))
 
         if config.AdvancedMovieSelection.dateformat.value == "1":
             self.DATE_TIME_FORMAT = "%d.%m.%Y"
@@ -267,14 +267,14 @@ class MovieList(GUIComponent):
         from Components.Language import language
         lang = language.getLanguage()
         if lang == "de_DE" or lang == "de":
-            self.MOVIE_NEW_PNG = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "movie_de_new.png"))
-            self.NO_COVER_PNG_FILE = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_de.png")
+            self.MOVIE_NEW_PNG = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "movie_de_new.png"))
+            self.NO_COVER_PNG_FILE = resolveFilename(SCOPE_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_de.png")
         elif lang == "en":
-            self.MOVIE_NEW_PNG = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "movie_en_new.png"))
-            self.NO_COVER_PNG_FILE = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_en.png")
+            self.MOVIE_NEW_PNG = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "movie_en_new.png"))
+            self.NO_COVER_PNG_FILE = resolveFilename(SCOPE_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_en.png")
         else:
-            self.MOVIE_NEW_PNG = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "movie_new.png"))
-            self.NO_COVER_PNG_FILE = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_en.png")
+            self.MOVIE_NEW_PNG = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "movie_new.png"))
+            self.NO_COVER_PNG_FILE = resolveFilename(SCOPE_PLUGIN, "Extensions/AdvancedMovieSelection/images/nocover_en.png")
 
     def updateHotplugDevices(self):
         self.hotplugServices = hotplug.getHotplugServices()
@@ -371,21 +371,21 @@ class MovieList(GUIComponent):
             if serviceref.flags & eServiceReference.mustDescent:
                 can_show_folder_image = True
                 if isinstance(serviceref, eServiceReferenceVDir):
-                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "bookmark.png"))
+                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "bookmark.png"))
                 elif isinstance(serviceref, eServiceReferenceListAll):
                     if movieScanner.isWorking:
-                        png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "movielibrary_reload.png"))
+                        png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "movielibrary_reload.png"))
                     else:
-                        png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "movielibrary.png"))
+                        png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "movielibrary.png"))
                     can_show_folder_image = False
                 elif isinstance(serviceref, eServiceReferenceHotplug):
-                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "hotplug.png"))
+                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "hotplug.png"))
                 elif isinstance(serviceref, eServiceReferenceBackDir):
-                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "back.png"))
+                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "back.png"))
                 elif isinstance(serviceref, eServiceReferenceMarker):
-                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "location.png"))
+                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "location.png"))
                 else:
-                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "directory.png"))
+                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "directory.png"))
 
                 offset = 25
                 if can_show_folder_image and self.list_type == MovieList.LISTTYPE_EXTENDED:
@@ -419,7 +419,7 @@ class MovieList(GUIComponent):
                         res.append(MultiContentEntryText(pos=(width - 115, 4), size=(110, 30), font=1, flags=RT_HALIGN_RIGHT, text=dir_size))
 
                 if os.path.islink(serviceref.getPath()[:-1]) and can_show_folder_image:
-                    link_png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "link.png"))
+                    link_png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "link.png"))
                     res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 10, 15, 9, 10, link_png))
 
                 return res
@@ -432,16 +432,16 @@ class MovieList(GUIComponent):
                 if extension in MEDIAEXTENSIONS:
                     media_ext = MEDIAEXTENSIONS[extension]
                     if media_ext == "audio":
-                        png = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + media_ext + ".png"))
+                        png = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + media_ext + ".png"))
                     else:
                         filename = os.path.realpath(serviceref.getPath())
                         if config.AdvancedMovieSelection.shownew.value and not hasLastPosition(serviceref):
                             png = self.MOVIE_NEW_PNG
                         else:
-                            png = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + media_ext + ".png"))
+                            png = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + media_ext + ".png"))
                 else:
                     if isinstance(serviceref, eServiceReferenceDvd) or isinstance(serviceref, eServiceReferenceBludisc):
-                        png = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + "dvd_watching.png"))
+                        png = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + "dvd_watching.png"))
 
             if info is not None:
                 if _len < 0:  # recalc _len when not already done
@@ -543,7 +543,7 @@ class MovieList(GUIComponent):
                 if self.list_type != MovieList.LISTTYPE_EXTENDED:
                     ''' never enable this - on dvd structures the extension is incorrect and will crash '''
                     # if config.AdvancedMovieSelection.shownew.value and self.show_folders and not self.show_statusicon and perc > 0:
-                    #    png = LoadPixmap(resolveFilename(SCOPE_CURRENT_PLUGIN, IMAGE_PATH + MEDIAEXTENSIONS[extension] + ".png"))
+                    #    png = LoadPixmap(resolveFilename(SCOPE_PLUGIN, IMAGE_PATH + MEDIAEXTENSIONS[extension] + ".png"))
 
                     if self.show_progressbar:
                         top = int((self.l.getItemSize().height() - 6) / 2) + 1

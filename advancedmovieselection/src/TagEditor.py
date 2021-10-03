@@ -35,7 +35,7 @@ from os import path as os_path
 from Screens.Console import eConsoleAppContainer
 from Screens.TimerEntry import TimerEntry
 from Source.ServiceProvider import ServiceCenter
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN, SCOPE_CONFIG
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN, SCOPE_CONFIG
 from Source.Globals import SkinTools
 
 
@@ -83,7 +83,7 @@ class TagEditor(Screen):
 
     def defaulttaglist(self, tags):
         if not fileExists(resolveFilename(SCOPE_CONFIG, "movietags")):
-            sourceDir = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/AdvancedMovieSelection/movietags")
+            sourceDir = resolveFilename(SCOPE_PLUGIN, "Extensions/AdvancedMovieSelection/movietags")
             targetDir = resolveFilename(SCOPE_CONFIG)
             eConsoleAppContainer().execute("cp \"" + sourceDir + "\" \"" + targetDir + "\"")
             self.loadTagsFile()

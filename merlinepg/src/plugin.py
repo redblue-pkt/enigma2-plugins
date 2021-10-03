@@ -32,7 +32,7 @@ from Components.MenuList import MenuList
 from Components.Label import Label
 from Components.EpgList import EPGList, EPG_TYPE_SINGLE, Rect
 from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigInteger, getConfigListEntry
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, SCOPE_GUISKIN, fileExists, SCOPE_PLUGINS
 from Tools.LoadPixmap import LoadPixmap
 from enigma import eServiceReference, eServiceCenter, getDesktop, eTimer, gFont, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_WRAP, eEPGCache
 from RecordTimer import RecordTimerEntry, parseEvent, AFTEREVENT

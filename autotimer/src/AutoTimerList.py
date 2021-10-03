@@ -16,7 +16,7 @@ from Tools.LoadPixmap import LoadPixmap
 from ServiceReference import ServiceReference
 from Tools.FuzzyDate import FuzzyTime
 from time import localtime, time, strftime, mktime
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
+from Tools.Directories import resolveFilename, SCOPE_GUISKIN
 from skin import parseColor, parseFont
 try:
 	from Tools.TextBoundary import getTextBoundarySize
@@ -49,25 +49,25 @@ class AutoTimerList(MenuList):
 		MenuList.__init__(self, entries, False, content=eListboxPythonMultiContent)
 		self.l.setBuildFunc(self.buildListboxEntry)
 		try:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "icons/lock_off.png")
+			png = resolveFilename(SCOPE_GUISKIN, "icons/lock_off.png")
 		except:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "skin-default/icons/lock_off.png")
+			png = resolveFilename(SCOPE_GUISKIN, "skin-default/icons/lock_off.png")
 		self.iconDisabled = LoadPixmap(cached=True, path=png)
 		#currently intended that all icons have the same size
 		try:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "icons/lock_on.png")
+			png = resolveFilename(SCOPE_GUISKIN, "icons/lock_on.png")
 		except:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "skin-default/icons/lock_on.png")
+			png = resolveFilename(SCOPE_GUISKIN, "skin-default/icons/lock_on.png")
 		self.iconEnabled = LoadPixmap(cached=True, path=png)
 		try:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "icons/timer_rec.png")
+			png = resolveFilename(SCOPE_GUISKIN, "icons/timer_rec.png")
 		except:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "skin-default/icons/timer_rec.png")
+			png = resolveFilename(SCOPE_GUISKIN, "skin-default/icons/timer_rec.png")
 		self.iconRecording = LoadPixmap(cached=True, path=png)
 		try:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "icons/timer_zap.png")
+			png = resolveFilename(SCOPE_GUISKIN, "icons/timer_zap.png")
 		except:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "skin-default/icons/timer_zap.png")
+			png = resolveFilename(SCOPE_GUISKIN, "skin-default/icons/timer_zap.png")
 		self.iconZapped = LoadPixmap(cached=True, path=png)
 
 		self.ServiceNameFont = gFont("Regular", 20)
@@ -215,9 +215,9 @@ class AutoTimerList(MenuList):
 		res.append((eListboxPythonMultiContent.TYPE_TEXT, float(width) / 10 * 5.5, rowSplit1, width - float(width) / 10 * 5.5, rowHeight, 2, RT_HALIGN_RIGHT | RT_VALIGN_TOP, days))
 		res.append((eListboxPythonMultiContent.TYPE_TEXT, iconMargin, rowSplit2, width - (iconMargin * 2), rowHeight, 0, RT_HALIGN_LEFT | RT_VALIGN_TOP, channel))
 		try:
-			devide = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "div-h.png"))
+			devide = LoadPixmap(resolveFilename(SCOPE_GUISKIN, "div-h.png"))
 		except:
-			devide = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "div-h.png"))
+			devide = LoadPixmap(resolveFilename(SCOPE_GUISKIN, "div-h.png"))
 		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 0, height - 2, width, 2, devide))
 		return res
 

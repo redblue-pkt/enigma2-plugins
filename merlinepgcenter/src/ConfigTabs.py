@@ -29,7 +29,7 @@ from . import _
 # ENIGMA IMPORTS
 from Components.config import config, ConfigSubsection, getConfigListEntry, ConfigSet, ConfigClock, ConfigYesNo, ConfigInteger, ConfigSelection, ConfigText, NoSave, ConfigSelectionNumber
 from enigma import eEnv
-from Tools.Directories import SCOPE_CURRENT_PLUGIN, resolveFilename
+from Tools.Directories import SCOPE_PLUGIN, resolveFilename
 
 STYLE_SIMPLE_BAR = "0"
 STYLE_PIXMAP_BAR = "1"
@@ -43,11 +43,11 @@ STYLE_PERCENT_TEXT_LIST_OFF = "7"
 SKINDIR = "Extensions/MerlinEPGCenter/skins/"
 
 SKINLIST = [ # order is important (HD_BORDER, XD_BORDER, SD, HD, XD)!
-		(resolveFilename(SCOPE_CURRENT_PLUGIN, ''.join([SKINDIR, "HD_border.xml"])), "HD_border.xml"),
-		(resolveFilename(SCOPE_CURRENT_PLUGIN, ''.join([SKINDIR, "XD_border.xml"])), "XD_border.xml"),
-		(resolveFilename(SCOPE_CURRENT_PLUGIN, ''.join([SKINDIR, "SD_default.xml"])), "SD_default.xml"),
-		(resolveFilename(SCOPE_CURRENT_PLUGIN, ''.join([SKINDIR, "HD_default.xml"])), "HD_default.xml"),
-		(resolveFilename(SCOPE_CURRENT_PLUGIN, ''.join([SKINDIR, "XD_default.xml"])), "XD_default.xml")
+		(resolveFilename(SCOPE_PLUGIN, ''.join([SKINDIR, "HD_border.xml"])), "HD_border.xml"),
+		(resolveFilename(SCOPE_PLUGIN, ''.join([SKINDIR, "XD_border.xml"])), "XD_border.xml"),
+		(resolveFilename(SCOPE_PLUGIN, ''.join([SKINDIR, "SD_default.xml"])), "SD_default.xml"),
+		(resolveFilename(SCOPE_PLUGIN, ''.join([SKINDIR, "HD_default.xml"])), "HD_default.xml"),
+		(resolveFilename(SCOPE_PLUGIN, ''.join([SKINDIR, "XD_default.xml"])), "XD_default.xml")
 		]
 
 # check Merlin2 feature "keep outdated events in epgcache"
