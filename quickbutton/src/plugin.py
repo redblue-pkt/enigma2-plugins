@@ -86,7 +86,7 @@ def Plugins(**kwargs):
 def InfoBarPlugins__init__(self):
 	from Screens.InfoBarGenerics import InfoBarEPG
 	if isinstance(self, InfoBarEPG):
-		x = {	"green_l": (self.greenlong, _("Assign plugin to long green key pressed")),
+		x = {"green_l": (self.greenlong, _("Assign plugin to long green key pressed")),
 			"yellow_l": (self.yellowlong, _("Assign plugin to long yellow key pressed")),
 			"red_l": (self.redlong, _("Assign plugin to long red key pressed")),
 			"blue_l": (self.bluelong, _("Assign plugin to long blue key pressed"))}
@@ -154,7 +154,7 @@ def startPlugin(self, pname):
 			self.session.open(PluginBrowser)
 			no_plugin = False
 		elif pname == _("switch 4:3 content display"):
-			ar = {	"pillarbox": _("Pillarbox"),
+			ar = {"pillarbox": _("Pillarbox"),
 				"panscan": _("Pan&Scan"),
 				"scale": _("Just Scale")}
 			switch = {"pillarbox": "panscan", "panscan": "scale", "scale": "pillarbox"}
