@@ -55,7 +55,7 @@ class PESpeedUp(Screen, ConfigListScreen):
          'cancel': self.cancel,
          'back': self.cancel})
         self.packagelist = []
-        self.packagelist.append(['                                        Binaries', 'astra-sm autofs cifs-utils cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server openvision-bootlogo enigma2-plugin-bootvideos-blackwhite-720p enigma2-plugin-bootvideos-color-720p enigma2-plugin-bootvideos-glass-720p enigma2-plugin-bootvideos-marvel-720p enigma2-plugin-bootvideos-more-720p enigma2-plugin-bootvideos-nosound-720p enigma2-plugin-bootvideos-oldtv-720p enigma2-plugin-bootvideos-santa-720p enigma2-plugin-bootvideos-space-720p samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
+        self.packagelist.append(['                                        Binaries', 'astra-sm autofs cifs-utils cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server openvision-bootlogo enigma2-plugin-bootvideo-blackwhite-720p enigma2-plugin-bootvideo-color-720p enigma2-plugin-bootvideo-glass-720p enigma2-plugin-bootvideo-marvel-720p enigma2-plugin-bootvideo-more-720p enigma2-plugin-bootvideo-nosound-720p enigma2-plugin-bootvideo-oldtv-720p enigma2-plugin-bootvideo-santa-720p enigma2-plugin-bootvideo-space-720p samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
         if fileExists('/usr/sbin/automount'):
@@ -81,7 +81,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         if fileExists('/usr/share/bootlogo.mvi'):
             self.packagelist.append(['openvision-bootlogo', 'openvision-bootlogo'])
         if fileExists('/usr/share/bootlogo.mp4'):
-            self.packagelist.append(['openvision-bootvideo', 'enigma2-plugin-bootvideos-blackwhite-720p enigma2-plugin-bootvideos-color-720p enigma2-plugin-bootvideos-glass-720p enigma2-plugin-bootvideos-marvel-720p enigma2-plugin-bootvideos-more-720p enigma2-plugin-bootvideos-nosound-720p enigma2-plugin-bootvideos-oldtv-720p enigma2-plugin-bootvideos-santa-720p enigma2-plugin-bootvideos-space-720p'])
+            self.packagelist.append(['openvision-bootvideo', 'enigma2-plugin-bootvideo-blackwhite-720p enigma2-plugin-bootvideo-color-720p enigma2-plugin-bootvideo-glass-720p enigma2-plugin-bootvideo-marvel-720p enigma2-plugin-bootvideo-more-720p enigma2-plugin-bootvideo-nosound-720p enigma2-plugin-bootvideo-oldtv-720p enigma2-plugin-bootvideo-santa-720p enigma2-plugin-bootvideo-space-720p'])
         if fileExists('/usr/sbin/smbd'):
             self.packagelist.append(['samba-base', 'samba-base'])
         if fileExists('/usr/bin/shellinaboxd'):
