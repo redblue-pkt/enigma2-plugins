@@ -31,7 +31,7 @@ try:
 	from cStringIO import StringIO
 except:
 	from io import StringIO
-from OpenSSL.SSL import SSLv3_METHOD
+from OpenSSL.SSL import TLSv1_2_METHOD
 
 from email import Encoders
 from email.MIMEText import MIMEText
@@ -128,7 +128,7 @@ def sendmail(mailconf, message):
     if ssl is True:
         port = mailconf.get("port", 587)
         contextFactory = ClientContextFactory()
-        contextFactory.method = SSLv3_METHOD
+        contextFactory.method = TLSv1_2_METHOD
     else:
         port = mailconf.get("port", 25)
         contextFactory = None
