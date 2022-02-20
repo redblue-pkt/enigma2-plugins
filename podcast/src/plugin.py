@@ -29,7 +29,9 @@ from xml.etree.cElementTree import parse
 from xml.dom.minidom import parseString as xmlparseString, parse as xmlparse
 import gettext
 import re
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 
 ###################################################
 

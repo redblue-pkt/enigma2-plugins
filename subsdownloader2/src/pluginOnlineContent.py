@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import threading
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import os
 from Screens.Console import Console
 from Screens.Screen import Screen

@@ -10,7 +10,9 @@ import time
 import shutil
 import datetime
 import codecs
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 
 from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.MenuList import MenuList

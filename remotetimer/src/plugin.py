@@ -43,7 +43,9 @@ from twisted.web.client import getPage
 from xml.etree.cElementTree import fromstring as cElementTree_fromstring
 from base64 import encodestring
 
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 
 #------------------------------------------------------------------------------------------
 

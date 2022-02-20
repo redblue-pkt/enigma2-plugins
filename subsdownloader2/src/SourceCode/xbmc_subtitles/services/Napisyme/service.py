@@ -7,7 +7,9 @@
 # Credits to amet, Guilherme Jardim, and many more.
 # mrto
 
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 import re
 import string
 import sys
@@ -89,7 +91,9 @@ def search_subtitles(file_original_path, title, tvshow, year, season, episode, s
 
 
 def download_subtitles(subtitles_list, pos, zip_subs, tmp_sub_dir, sub_folder, session_id, screen_session):  #standard input
-    import urllib.request, urllib.parse, urllib.error
+    import urllib.request
+    import urllib.parse
+    import urllib.error
     f = urllib.request.urlopen(subtitles_list[pos]["link"])
     language = subtitles_list[pos]["language_name"]
 

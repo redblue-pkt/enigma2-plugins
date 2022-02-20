@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from .__init__ import _
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import datetime
 import re
 import os

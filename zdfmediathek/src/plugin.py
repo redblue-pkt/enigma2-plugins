@@ -26,7 +26,9 @@ from Tools.LoadPixmap import LoadPixmap
 from twisted.web.client import downloadPage, getPage
 import html.entities
 import re
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 from urllib.request import Request, urlopen as urlopen2
 from urllib.error import URLError
 from socket import error

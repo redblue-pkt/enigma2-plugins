@@ -1318,7 +1318,9 @@ class Transport:
         if isinstance(host, TupleType):
             host, x509 = host
 
-        import urllib.request, urllib.parse, urllib.error
+        import urllib.request
+        import urllib.parse
+        import urllib.error
         auth, host = urllib.parse.splituser(host)
 
         if auth:
@@ -1500,7 +1502,9 @@ class ServerProxy:
         # establish a "logical" server connection
 
         # get the url
-        import urllib.request, urllib.parse, urllib.error
+        import urllib.request
+        import urllib.parse
+        import urllib.error
         type, uri = urllib.parse.splittype(uri)
         if type not in ("http", "https"):
             raise IOError("unsupported XML-RPC protocol")

@@ -45,8 +45,12 @@ def getLocale():
     return config['locale']
 
 
-import urllib.request, urllib.parse, urllib.error
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.parse
+import urllib.error
+import urllib.request
+import urllib.error
+import urllib.parse
 import xml.etree.cElementTree as ElementTree
 
 

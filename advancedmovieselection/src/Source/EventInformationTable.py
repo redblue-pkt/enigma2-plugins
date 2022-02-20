@@ -32,7 +32,9 @@ Digital Video Broadcasting (DVB) Specification for Service Information (SI) in D
 """
 import os
 import time
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 from struct import unpack, pack
 from calendar import timegm
 from .MovieDB import tmdb, tvdb, downloadCover

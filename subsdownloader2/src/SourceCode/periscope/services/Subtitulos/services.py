@@ -19,8 +19,12 @@
 
 import zipfile
 import os
-import urllib.request, urllib.error, urllib.parse
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.error
+import urllib.parse
+import urllib.request
+import urllib.parse
+import urllib.error
 import logging
 import traceback
 import http.client

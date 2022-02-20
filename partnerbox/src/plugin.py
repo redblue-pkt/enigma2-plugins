@@ -44,7 +44,9 @@ from enigma import eTimer, getDesktop
 from time import localtime
 import time
 import xml.etree.cElementTree
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import socketserver
 ENIGMA_WEBSERVICE_ID = 0x1012
 from Screens.InfoBarGenerics import InfoBarAudioSelection

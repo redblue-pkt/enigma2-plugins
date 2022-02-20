@@ -6,7 +6,9 @@ import re
 import sys
 import hashlib
 #import shutil
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import codecs
 #from Screens.MessageBox import MessageBox
 

@@ -42,7 +42,9 @@ from datetime import datetime
 from Screens.TimerEntry import TimerEntry
 from Screens.MessageBox import MessageBox
 from Tools.BoundFunction import boundFunction
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 
 import xml.etree.cElementTree
 from Components.ActionMap import ActionMap

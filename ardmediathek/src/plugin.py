@@ -22,7 +22,9 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Tools.LoadPixmap import LoadPixmap
 from twisted.web.client import downloadPage, getPage
 import re
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 
 ###################################################
 

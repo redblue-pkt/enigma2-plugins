@@ -19,7 +19,9 @@ from Components.ProgressBar import ProgressBar
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import re
 import html.entities
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import os
 import gettext
 

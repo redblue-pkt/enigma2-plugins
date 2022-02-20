@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import tempfile
 import time
 import os

@@ -13,7 +13,9 @@
 
 import re
 import posixpath
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 from sys import maxsize
 from random import randint, seed
 from urllib.parse import urlencode, quote_plus

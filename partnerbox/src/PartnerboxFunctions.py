@@ -20,7 +20,9 @@
 #  GNU General Public License for more details.
 #
 
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 from time import localtime
 from timer import TimerEntry
 from twisted.internet import reactor
