@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-
 from enigma import *
 from Screens.Screen import Screen
 

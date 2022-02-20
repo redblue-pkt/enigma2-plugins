@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-
 def chardetOutputTranslation(recognizedCoding):
 	"""Function translates recognizet codepage oputputed by getSubtitleCodepade to
 	ISO nanes supported by Python.
