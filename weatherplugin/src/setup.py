@@ -35,7 +35,8 @@ from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import ConfigSubsection, ConfigText, ConfigSelection, getConfigListEntry, config, configfile
 from xml.etree.cElementTree import fromstring as cet_fromstring
 from twisted.web.client import getPage
-from urllib.parse import quote as urllib_quote
+from six.moves.urllib.parse import quote as urllib_quote
+from six import ensure_binary, ensure_str
 
 from enigma import RT_HALIGN_RIGHT
 from skin import parameters as skinparameter
@@ -179,9 +180,9 @@ class WeatherPluginEntryList(MenuList):
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
 		if skinwidth == 1280:
-		     instance.setItemHeight(25)
+			 instance.setItemHeight(25)
 		else:
-		     instance.setItemHeight(32)
+			 instance.setItemHeight(32)
 
 	def getCurrentIndex(self):
 		return self.instance.getCurrentIndex()
@@ -276,7 +277,7 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 			elif language == "no-NO": # hack
 				language = "nn-NO"
 			url = "http://weather.service.msn.com/find.aspx?src=outlook&outputview=search&weasearchstr=%s&culture=%s" % (urllib_quote(self.current.city.value), language)
-			getPage(url).addCallback(self.xmlCallback).addErrback(self.error)
+			getPage(ensure_binary(url)).addCallback(self.xmlCallback).addErrback(self.error)
 		else:
 			self.session.open(MessageBox, _("You need to enter a valid city name before you can search for the location code."), MessageBox.TYPE_ERROR)
 
@@ -343,7 +344,7 @@ class MSNWeatherPluginEntryConfigScreen(ConfigListScreen, Screen):
 			root = cet_fromstring(xmlstring)
 			for childs in root:
 				if childs.tag == "weather" and "errormessage" in childs.attrib:
-					errormessage = childs.attrib.get("errormessage").encode("utf-8", 'ignore')
+					errormessage = ensure_str(childs.attrib.get("errormessage"), errors='ignore')
 					break
 			if len(errormessage) != 0:
 				self.session.open(MessageBox, errormessage, MessageBox.TYPE_ERROR)
@@ -431,9 +432,9 @@ class MSNWeatherPluginSearchResultList(MenuList):
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
 		if skinwidth == 1280:
-		     instance.setItemHeight(44)
+			 instance.setItemHeight(44)
 		else:
-		     instance.setItemHeight(55)
+			 instance.setItemHeight(55)
 
 	def getCurrentIndex(self):
 		return self.instance.getCurrentIndex()
@@ -446,9 +447,9 @@ class MSNWeatherPluginSearchResultList(MenuList):
 		list = []
 		for childs in root:
 			if childs.tag == "weather":
-				searchlocation = childs.attrib.get("weatherlocationname").encode("utf-8", 'ignore')
-				searchresult = childs.attrib.get("weatherfullname").encode("utf-8", 'ignore')
-				weatherlocationcode = childs.attrib.get("weatherlocationcode").encode("utf-8", 'ignore')
+				searchlocation = ensure_str(childs.attrib.get("weatherlocationname"), errors='ignore')
+				searchresult = ensure_str(childs.attrib.get("weatherfullname"), errors='ignore')
+				weatherlocationcode = ensure_str(childs.attrib.get("weatherlocationcode"), errors='ignore')
 				if skinwidth == 1280:
 					x1, y1, w1, h1 = skinparameter.get("WeatherPluginSearchlocation", (5, 0, 500, 20))
 					x2, y2, w2, h2 = skinparameter.get("WeatherPluginSearchresult", (5, 22, 500, 20))
