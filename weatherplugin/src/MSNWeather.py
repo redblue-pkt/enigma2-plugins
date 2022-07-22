@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
 # WeatherPlugin E2
@@ -32,7 +31,7 @@ from os import path as os_path, mkdir as os_mkdir, remove as os_remove, listdir 
 from Components.config import config
 from Tools.Directories import resolveFilename, SCOPE_SKINS
 from six.moves.urllib.parse import quote as urllib_quote
-from six import ensure_binary, ensure_str
+import six
 
 
 class WeatherIconItem:
@@ -130,8 +129,8 @@ class MSNWeather:
 		self.callback = callback
 		self.callbackShowIcon = callbackShowIcon
 		self.callbackAllIconsDownloaded = callbackAllIconsDownloaded
-		url = "http://weather.service.msn.com/data.aspx?src=outlook&weadegreetype=%s&culture=%s&wealocations=%s" % (degreetype, language, urllib_quote(locationcode))
-		getPage(ensure_binary(url)).addCallback(self.xmlCallback).addErrback(self.error)
+		url = "http://weather.service.msn.com/data.aspx?src=windows&weadegreetype=%s&culture=%s&wealocations=%s" % (degreetype, language, urllib_quote(locationcode))
+		getPage(six.ensure_binary(url)).addCallback(self.xmlCallback).addErrback(self.error)
 
 	def getDefaultWeatherData(self, callback=None, callbackAllIconsDownloaded=None):
 		self.initialize()
@@ -161,7 +160,7 @@ class MSNWeather:
 
 	def showIcon(self, index, filename):
 		if self.callbackShowIcon is not None:
-			self.callbackShowIcon(index, filename)
+				self.callbackShowIcon(index, filename)
 
 	def finishedAllDownloadFiles(self, result):
 		if self.callbackAllIconsDownloaded is not None:
@@ -178,23 +177,23 @@ class MSNWeather:
 				errormessage = childs.attrib.get("errormessage")
 				if errormessage:
 					if self.callback is not None:
-						self.callback(self.ERROR, ensure_str(errormessage, errors='ignore'))
+						self.callback(self.ERROR, six.ensure_str(errormessage, errors='ignore'))
 					break
-				self.degreetype = ensure_str(childs.attrib.get("degreetype"), errors='ignore')
-				self.imagerelativeurl = "%slaw/" % ensure_str(childs.attrib.get("imagerelativeurl"), errors='ignore')
-				self.url = ensure_str(childs.attrib.get("url"), errors='ignore')
+				self.degreetype = six.ensure_str(childs.attrib.get("degreetype"), errors='ignore')
+				self.imagerelativeurl = "%slaw/" % six.ensure_str(childs.attrib.get("imagerelativeurl"), errors='ignore')
+				self.url = six.ensure_str(childs.attrib.get("url"), errors='ignore')
 			for items in childs:
 				if items.tag == "current":
 					currentWeather = MSNWeatherItem()
-					currentWeather.temperature = ensure_str(items.attrib.get("temperature"), errors='ignore')
-					currentWeather.skytext = ensure_str(items.attrib.get("skytext"), errors='ignore')
-					currentWeather.humidity = ensure_str(items.attrib.get("humidity"), errors='ignore')
-					currentWeather.winddisplay = ensure_str(items.attrib.get("winddisplay"), errors='ignore')
-					currentWeather.observationtime = ensure_str(items.attrib.get("observationtime"), errors='ignore')
-					currentWeather.observationpoint = ensure_str(items.attrib.get("observationpoint"), errors='ignore')
-					currentWeather.feelslike = ensure_str(items.attrib.get("feelslike"), errors='ignore')
-					currentWeather.skycode = "%s%s" % (ensure_str(items.attrib.get("skycode"), errors='ignore'), self.iconextension)
-					currentWeather.code = ensure_str(items.attrib.get("skycode"), errors='ignore')
+					currentWeather.temperature = six.ensure_str(items.attrib.get("temperature"), errors='ignore')
+					currentWeather.skytext = six.ensure_str(items.attrib.get("skytext"), errors='ignore')
+					currentWeather.humidity = six.ensure_str(items.attrib.get("humidity"), errors='ignore')
+					currentWeather.winddisplay = six.ensure_str(items.attrib.get("winddisplay"), errors='ignore')
+					currentWeather.observationtime = six.ensure_str(items.attrib.get("observationtime"), errors='ignore')
+					currentWeather.observationpoint = six.ensure_str(items.attrib.get("observationpoint"), errors='ignore')
+					currentWeather.feelslike = six.ensure_str(items.attrib.get("feelslike"), errors='ignore')
+					currentWeather.skycode = "%s%s" % (six.ensure_str(items.attrib.get("skycode"), errors='ignore'), self.iconextension)
+					currentWeather.code = six.ensure_str(items.attrib.get("skycode"), errors='ignore')
 					filename = "%s%s" % (self.iconpath, currentWeather.skycode)
 					currentWeather.iconFilename = filename
 					if not os_path.exists(filename):
@@ -206,14 +205,14 @@ class MSNWeather:
 				elif items.tag == "forecast" and index <= 4:
 					index += 1
 					weather = MSNWeatherItem()
-					weather.date = ensure_str(items.attrib.get("date"), errors='ignore')
-					weather.day = ensure_str(items.attrib.get("day"), errors='ignore')
-					weather.shortday = ensure_str(items.attrib.get("shortday"), errors='ignore')
-					weather.low = ensure_str(items.attrib.get("low"), errors='ignore')
-					weather.high = ensure_str(items.attrib.get("high"), errors='ignore')
-					weather.skytextday = ensure_str(items.attrib.get("skytextday"), errors='ignore')
-					weather.skycodeday = "%s%s" % (ensure_str(items.attrib.get("skycodeday"), errors='ignore'), self.iconextension)
-					weather.code = ensure_str(items.attrib.get("skycodeday"), errors='ignore')
+					weather.date = six.ensure_str(items.attrib.get("date"), errors='ignore')
+					weather.day = six.ensure_str(items.attrib.get("day"), errors='ignore')
+					weather.shortday = six.ensure_str(items.attrib.get("shortday"), errors='ignore')
+					weather.low = six.ensure_str(items.attrib.get("low"), errors='ignore')
+					weather.high = six.ensure_str(items.attrib.get("high"), errors='ignore')
+					weather.skytextday = six.ensure_str(items.attrib.get("skytextday"), errors='ignore')
+					weather.skycodeday = "%s%s" % (six.ensure_str(items.attrib.get("skycodeday"), errors='ignore'), self.iconextension)
+					weather.code = six.ensure_str(items.attrib.get("skycodeday"), errors='ignore')
 					filename = "%s%s" % (self.iconpath, weather.skycodeday)
 					weather.iconFilename = filename
 					if not os_path.exists(filename):
@@ -235,4 +234,4 @@ class MSNWeather:
 
 
 def download(item):
-	return downloadPage(ensure_binary(item.url), open(item.filename, 'wb'))
+	return downloadPage(six.ensure_binary(item.url), open(item.filename, 'wb'))
