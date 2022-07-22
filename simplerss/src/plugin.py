@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+from __future__ import absolute_import
 # for localized messages
 from . import _
 
@@ -150,11 +149,12 @@ def Plugins(**kwargs):
 		PluginDescriptor(
 			name="RSS Reader",
 			description=_("A simple to use RSS reader"),
+			icon="plugin.png",
 			where=PluginDescriptor.WHERE_PLUGINMENU,
 			fnc=main,
 			needsRestart=False,
 		),
- 		PluginDescriptor(
+		PluginDescriptor(
 			where=[PluginDescriptor.WHERE_SESSIONSTART, PluginDescriptor.WHERE_AUTOSTART],
 			fnc=autostart,
 			needsRestart=False,
