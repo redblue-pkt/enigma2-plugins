@@ -1,6 +1,5 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
+from __future__ import print_function
+from __future__ import absolute_import
 from Screens.Screen import Screen
 from Screens.ServiceInfo import ServiceInfoList, ServiceInfoListEntry
 from enigma import iPlayableService, eRect, eServiceReference, iServiceInformation
@@ -18,7 +17,6 @@ from .GlobalFunctions import shortname, MC_VideoInfoView, Showiframe
 import re
 import os
 from Components.Console import Console
-
 config.plugins.mc_vp = ConfigSubsection()
 config.plugins.mc_vp_sortmode = ConfigSubsection()
 sorts = [('default', _("default")), ('alpha', _("alphabet")), ('alphareverse', _("alphabet backward")), ('date', _("date")), ('datereverse', _("date backward")), ('size', _("size")), ('sizereverse', _("size backward"))]

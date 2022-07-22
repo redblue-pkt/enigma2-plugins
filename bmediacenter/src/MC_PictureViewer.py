@@ -1,6 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop, iPlayableService, eServiceReference
 from Screens.Screen import Screen
 from Screens.ServiceInfo import ServiceInfoList, ServiceInfoListEntry
@@ -286,7 +284,7 @@ class MC_PicThumbViewer(Screen, HelpableScreen):
 		self.paintFrame()
 
 	def paintFrame(self):
-		#print("index=" + str(self.index))
+		#print "index=" + str(self.index)
 		if self.maxentry < self.index or self.index < 0:
 			return
 
