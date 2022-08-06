@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from Plugins.Extensions.SubsDownloader2.SourceCode.MediaInfoDLL import *

@@ -1,9 +1,7 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 # Python OrderedSet implementation
 # taken from http://code.activestate.com/recipes/576694-orderedset/
-from __future__ import print_function
 
 try:
 	from collections.abc import MutableSet
