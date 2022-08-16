@@ -1478,7 +1478,7 @@ class MoviePlayer(MP_parent):
 		self.leavePlayer(self.de_instance)
 
 	def __onClose(self):
-		if not(self.WithoutStopClose):
+		if not (self.WithoutStopClose):
 			self.session.nav.playService(self.lastservice)
 
 
