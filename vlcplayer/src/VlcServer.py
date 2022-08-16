@@ -260,7 +260,7 @@ class VlcServer:
 		return dlg
 
 	def playFile(self, filename, videoPid, audioPid):
-		streamName = "dream" + str(randint(0, maxint))
+		streamName = "dream" + str(randint(0, maxsize))
 		transcode = []
 		parameters = ""
 		oldVLC = self.getVLCType()
