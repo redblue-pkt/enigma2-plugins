@@ -18,7 +18,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_HDD
 from threading import Thread
 from .ThreadQueue import ThreadQueue
 from xml.etree.cElementTree import fromstring as cet_fromstring
-from io import StringIO
+from six.moves import cStringIO as StringIO
 #import urllib
 from urllib.request import FancyURLopener
 import json
