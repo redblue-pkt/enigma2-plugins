@@ -98,7 +98,7 @@ def sendUrlCommand(url, contextFactory=None, timeout=50, *args, **kwargs):
 mcpath = resolveFilename(SCOPE_PLUGINS, "Extensions/BMediaCenter/")
 
 
-def PlaylistEntryComponent(serviceref):
+def PlaylistEntryComponent(serviceref, state=None):
 	res = [serviceref]
 	text = serviceref.getName()
 	if text == "":
