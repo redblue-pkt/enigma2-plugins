@@ -28,13 +28,13 @@ class AdvHdmiCecSetup(Screen, ConfigListScreen):
 			<widget name="config" position="10,0" size="560,250" scrollbarMode="showOnDemand" enableWrapAround="1" />
 			<ePixmap pixmap="div-h.png" position="0,250" zPosition="1" size="550,2" />
 			<widget source="help" render="Label" position="5,250" size="580,120" font="Regular;21" />
-			<ePixmap pixmap="buttons/red.png" position="10,430" size="140,40" transparent="1" alphatest="on" />
-			<widget render="Label" source="key_red" position="10,430" size="140,40" transparent="1" halign="center" valign="center" zPosition="2" foregroundColor="white" font="Regular;18" />
-			<ePixmap pixmap="buttons/green.png" position="180,430" size="140,40" transparent="1" alphatest="on" />
-			<widget render="Label" source="key_green" position="180,430" size="140,40" transparent="1" halign="center" valign="center" zPosition="2" foregroundColor="white" font="Regular;18" />
-			<ePixmap pixmap="buttons/yellow.png" position="350,430" size="140,40" transparent="1" alphatest="on" />
-			<widget render="Label" source="key_yellow" position="350,430" size="140,40" transparent="1" halign="center" valign="center" zPosition="2" foregroundColor="white" font="Regular;18" />
-			<ePixmap pixmap="buttons/key_info.png" position="520,440" size="40,40" transparent="1" alphatest="on" />
+			<ePixmap pixmap="buttons/red.png" position="10,430" size="140,40" transparent="1" alphaTest="on" />
+			<widget render="Label" source="key_red" position="10,430" size="140,40" transparent="1" horizontalAlignment="center" verticalAlignment="center" zPosition="2" foregroundColor="white" font="Regular;18" />
+			<ePixmap pixmap="buttons/green.png" position="180,430" size="140,40" transparent="1" alphaTest="on" />
+			<widget render="Label" source="key_green" position="180,430" size="140,40" transparent="1" horizontalAlignment="center" verticalAlignment="center" zPosition="2" foregroundColor="white" font="Regular;18" />
+			<ePixmap pixmap="buttons/yellow.png" position="350,430" size="140,40" transparent="1" alphaTest="on" />
+			<widget render="Label" source="key_yellow" position="350,430" size="140,40" transparent="1" horizontalAlignment="center" verticalAlignment="center" zPosition="2" foregroundColor="white" font="Regular;18" />
+			<ePixmap pixmap="buttons/key_info.png" position="520,440" size="40,40" transparent="1" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -188,20 +188,20 @@ class TimeSpanEntryList(MenuList):
 class TimeSpanListScreen(Screen):
 	skin = """
 		<screen name="adv_hdmi_timespan_list" position="center,center" size="645,400" title="disable chronologically" >
-			<widget name="fromwd" position="5,0" size="165,50" halign="left" font="Regular;21"/>
-			<widget name="towd" position="175,0" size="165,50" halign="left" font="Regular;21"/>
-			<widget name="begin" position="345,0" size="80,50" halign="left" font="Regular;21"/>
-			<widget name="end" position="510,0" size="80,50" halign="left" font="Regular;21"/>
+			<widget name="fromwd" position="5,0" size="165,50" horizontalAlignment="left" font="Regular;21"/>
+			<widget name="towd" position="175,0" size="165,50" horizontalAlignment="left" font="Regular;21"/>
+			<widget name="begin" position="345,0" size="80,50" horizontalAlignment="left" font="Regular;21"/>
+			<widget name="end" position="510,0" size="80,50" horizontalAlignment="left" font="Regular;21"/>
 			<widget name="entrylist" position="5,50" size="635,300" scrollbarMode="showOnDemand"/>
 
-			<widget name="key_red" position="5,350" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="red" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="key_green" position="170,350" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="green" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="key_yellow" position="335,350" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="yellow" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="key_blue" position="500,350" zPosition="5" size="140,40" valign="center" halign="center" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<ePixmap name="red" position="5,350" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<ePixmap name="green" position="170,350" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
-			<ePixmap name="yellow" position="335,350" zPosition="4" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphatest="on" />
-			<ePixmap name="blue" position="500,350" zPosition="4" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on" />
+			<widget name="key_red" position="5,350" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" backgroundColor="red" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="key_green" position="170,350" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" backgroundColor="green" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="key_yellow" position="335,350" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" backgroundColor="yellow" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="key_blue" position="500,350" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap name="red" position="5,350" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<ePixmap name="green" position="170,350" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on" />
+			<ePixmap name="yellow" position="335,350" zPosition="4" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphaTest="on" />
+			<ePixmap name="blue" position="500,350" zPosition="4" size="140,40" pixmap="buttons/blue.png" transparent="1" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -284,10 +284,10 @@ class TimeSpanConfigScreen(Screen, ConfigListScreen):
 			<ePixmap pixmap="div-h.png" position="0,210" zPosition="1" size="550,2" />
 			<widget source="help" render="Label" position="5,220" size="550,120" font="Regular;21" />
 
-			<widget source="key_red" render="Label" position="10,380" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="red" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget source="key_green" render="Label" position="180,380" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="green" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<ePixmap name="red" position="10,380" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<ePixmap name="green" position="180,380" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
+			<widget source="key_red" render="Label" position="10,380" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" backgroundColor="red" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget source="key_green" render="Label" position="180,380" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" backgroundColor="green" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap name="red" position="10,380" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<ePixmap name="green" position="180,380" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session, entry, callbackfnc=None):

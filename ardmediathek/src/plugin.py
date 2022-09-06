@@ -208,7 +208,7 @@ class ARDMediathekCache(Screen):
 	skin = """
 		<screen position="center,center" size="76,76" flags="wfNoBorder" backgroundColor="#ffffff" >
 			<eLabel position="2,2" zPosition="1" size="72,72" font="Regular;18" backgroundColor="#252525" />
-			<widget name="spinner" position="14,14" zPosition="2" size="48,48" alphatest="on" />
+			<widget name="spinner" position="14,14" zPosition="2" size="48,48" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -283,8 +283,8 @@ class ARDMediathek(Screen):
 			self.skin = """<screen position="center,center" size="720,576" title="ARD Mediathek" >"""
 		self.skin += """<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="%s" />
 				<widget name="list" position="70,100" size="580,400" backgroundColor="#064b99" backgroundColorSelected="#003579" scrollbarMode="showOnDemand" />
-				<ePixmap pixmap="buttons/key_menu.png" position="70,520" size="35,25" transparent="1" alphatest="on" />
-				<widget name="pageNavigation" position="260,520" size="380,400" halign="right" font="Regular;20" backgroundColor="#2666ad" foregroundColor="#ffffff" />
+				<ePixmap pixmap="buttons/key_menu.png" position="70,520" size="35,25" transparent="1" alphaTest="on" />
+				<widget name="pageNavigation" position="260,520" size="380,400" horizontalAlignment="right" font="Regular;20" backgroundColor="#2666ad" foregroundColor="#ffffff" />
 				<widget name="serverName" position="120,520" size="250,20" font="Regular;20" backgroundColor="#2666ad" foregroundColor="#ffffff" />
 			</screen>""" % (PNG_PATH + "background.png")
 

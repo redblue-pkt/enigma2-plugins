@@ -304,7 +304,7 @@ class EIBoxZoneScreen(Screen, ConfigListScreen):
 		skin = """
 		<screen position="center,center" size="550,450" title="E.I.B.ox" >
 			<widget name="config" position="10,420" size="530,26" zPosition="1" transparent="1" scrollbarMode="showNever" />
-			<ePixmap pixmap="%s" position="0,0" size="550,400" zPosition="-1" alphatest="on" />\n""" % (img_prefix + EIB_objects.zone_img)
+			<ePixmap pixmap="%s" position="0,0" size="550,400" zPosition="-1" alphaTest="on" />\n""" % (img_prefix + EIB_objects.zone_img)
 		offset = [12, 10] # fix up browser css spacing
 		iconsize = [32, 32]
 		self.setup_title = "E.I.B.ox"
@@ -312,7 +312,7 @@ class EIBoxZoneScreen(Screen, ConfigListScreen):
 		for EIB_object in self.EIB_objects:
 			if EIB_object.object_type == EIB_GOTO:
 				pixmap_src = (img_prefix + 'goto' + EIB_object.img.capitalize() + '.png')
-				skin += '\t\t\t<widget name="%s" pixmap="%s" position="%s" size="32,32" transparent="1" alphatest="on" borderColor="#004679" zPosition="1" />\n' % (EIB_object.object_id, pixmap_src, EIB_object.getPos(offset))
+				skin += '\t\t\t<widget name="%s" pixmap="%s" position="%s" size="32,32" transparent="1" alphaTest="on" borderColor="#004679" zPosition="1" />\n' % (EIB_object.object_id, pixmap_src, EIB_object.getPos(offset))
 				self[EIB_object.object_id] = Pixmap()
 			elif EIB_object.object_type in (EIB_SWITCH, EIB_MULTISWITCH, EIB_DIMMER):
 				if EIB_object.object_type == EIB_DIMMER or EIB_object.img == "light":
@@ -330,14 +330,14 @@ class EIBoxZoneScreen(Screen, ConfigListScreen):
 				for idx, filename in enumerate(pixmaps_sources):
 					  pixmaps_sources[idx] = img_prefix + filename
 				pixmaps_string = ','.join(pixmaps_sources)
-				skin += '\t\t\t<widget name="%s" pixmaps="%s" position="%s" size="32,32" transparent="1" alphatest="on" borderColor="#004679" zPosition="1" />\n' % (EIB_object.object_id, pixmaps_string, EIB_object.getPos(offset))
+				skin += '\t\t\t<widget name="%s" pixmaps="%s" position="%s" size="32,32" transparent="1" alphaTest="on" borderColor="#004679" zPosition="1" />\n' % (EIB_object.object_id, pixmaps_string, EIB_object.getPos(offset))
 				self[EIB_object.object_id] = MultiPixmap()
 				if EIB_object.object_type == EIB_DIMMER:
 					skin += '\t\t\t<widget source="%s_progress" render="Progress" pixmap="progress_small.png" position="%s" size="32,5" backgroundColor="#4f74BB" zPosition="1" />\n' % (EIB_object.object_id, EIB_object.getPos([offset[0], offset[1] - iconsize[1]]))
 					self[EIB_object.object_id + "_progress"] = Progress()
 					self[EIB_object.object_id + "_progress"].range = 255
 			elif EIB_object.object_type in (EIB_THERMO, EIB_TEXT):
-				skin += '\t\t\t<widget name="%s" position="%s" size="120,20" font="Regular;14" halign="left" valign="center" foregroundColors="#000000,#0000FF" transparent="1" zPosition="1" />\n' % (EIB_object.object_id, EIB_object.getPos(offset))
+				skin += '\t\t\t<widget name="%s" position="%s" size="120,20" font="Regular;14" horizontalAlignment="left" verticalAlignment="center" foregroundColors="#000000,#0000FF" transparent="1" zPosition="1" />\n' % (EIB_object.object_id, EIB_object.getPos(offset))
 				self[EIB_object.object_id] = MultiColorLabel()
 		skin += """
 		</screen>"""

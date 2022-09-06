@@ -28,21 +28,21 @@ METEOITALIA_ABOUT_TXT = "Meteo Italia Info Plugin v 0.1\n\nAuthor(s): Bacicciosa
 class meteoitMain(Screen):
 	skin = """
 	<screen position="center,center" size="720,576" flags="wfNoBorder">
-		<ePixmap pixmap="~/backg.png" position="0,0" size="720,576" alphatest="on" />
-		<widget name="lab1" position="10,100" halign="center" size="700,30" zPosition="1" font="Regular;24" valign="top" transparent="1" />
-		<widget name="lab2" position="10,130" halign="center" size="700,30" zPosition="1" font="Regular;22" valign="top" transparent="1" />
+		<ePixmap pixmap="~/backg.png" position="0,0" size="720,576" alphaTest="on" />
+		<widget name="lab1" position="10,100" horizontalAlignment="center" size="700,30" zPosition="1" font="Regular;24" verticalAlignment="top" transparent="1" />
+		<widget name="lab2" position="10,130" horizontalAlignment="center" size="700,30" zPosition="1" font="Regular;22" verticalAlignment="top" transparent="1" />
 		<widget name="lab3" position="340,180" size="40,40" zPosition="1" />
-		<widget name="lab4" position="10,220" halign="center" size="700,30" zPosition="1" font="Regular;22" valign="top" transparent="1" />
-		<widget name="lab5" position="10,260" halign="center" size="700,60" zPosition="1" font="Regular;22" valign="top" transparent="1" />
-		<widget name="lab6" position="0,370" halign="center" size="240,30" zPosition="1" font="Regular;20" valign="top" transparent="1" />
+		<widget name="lab4" position="10,220" horizontalAlignment="center" size="700,30" zPosition="1" font="Regular;22" verticalAlignment="top" transparent="1" />
+		<widget name="lab5" position="10,260" horizontalAlignment="center" size="700,60" zPosition="1" font="Regular;22" verticalAlignment="top" transparent="1" />
+		<widget name="lab6" position="0,370" horizontalAlignment="center" size="240,30" zPosition="1" font="Regular;20" verticalAlignment="top" transparent="1" />
 		<widget name="lab7" position="100,400" size="40,40" zPosition="1" />
-		<widget name="lab8" position="0,450" halign="center" size="240,80" zPosition="1" font="Regular;20" valign="top" transparent="1" />
-		<widget name="lab9" position="240,370" halign="center" size="240,30" zPosition="1" font="Regular;20" valign="top" transparent="1" />
+		<widget name="lab8" position="0,450" horizontalAlignment="center" size="240,80" zPosition="1" font="Regular;20" verticalAlignment="top" transparent="1" />
+		<widget name="lab9" position="240,370" horizontalAlignment="center" size="240,30" zPosition="1" font="Regular;20" verticalAlignment="top" transparent="1" />
 		<widget name="lab10" position="340,400" size="40,40" zPosition="1" />
-		<widget name="lab11" position="240,450" halign="center" size="240,80" zPosition="1" font="Regular;20" valign="top" transparent="1" />
-		<widget name="lab12" position="480,370" halign="center" size="240,30" zPosition="1" font="Regular;20" valign="top" transparent="1" />
+		<widget name="lab11" position="240,450" horizontalAlignment="center" size="240,80" zPosition="1" font="Regular;20" verticalAlignment="top" transparent="1" />
+		<widget name="lab12" position="480,370" horizontalAlignment="center" size="240,30" zPosition="1" font="Regular;20" verticalAlignment="top" transparent="1" />
 		<widget name="lab13" position="580,400" size="40,40" zPosition="1" />
-		<widget name="lab14" position="480,450" halign="center" size="240,80" zPosition="1" font="Regular;20" valign="top" transparent="1" />
+		<widget name="lab14" position="480,450" horizontalAlignment="center" size="240,80" zPosition="1" font="Regular;20" verticalAlignment="top" transparent="1" />
 	</screen>"""
 
 	def __init__(self, session):
@@ -264,11 +264,11 @@ class meteoitMain(Screen):
 class MeteoitSelectCity(Screen):
 	skin = """
 	<screen position="center,center" size="720,576" flags="wfNoBorder">
-		<ePixmap pixmap="~/backg.png" position="0,0" size="720,576" alphatest="on" />
+		<ePixmap pixmap="~/backg.png" position="0,0" size="720,576" alphaTest="on" />
 		<widget source="list" render="Listbox" position="40,110" zPosition="1" size="640,380" scrollbarMode="showOnDemand" transparent="1" >
 			<convert type="StringList" />
 		</widget>
-		<widget name="lab1" position="10,520" halign="center" size="700,30" zPosition="1" font="Regular;24" valign="top" foregroundColor="#639ACB" transparent="1" />
+		<widget name="lab1" position="10,520" horizontalAlignment="center" size="700,30" zPosition="1" font="Regular;24" verticalAlignment="top" foregroundColor="#639ACB" transparent="1" />
 	</screen>"""
 
 	def __init__(self, session):

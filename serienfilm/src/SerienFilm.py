@@ -41,10 +41,10 @@ class EpiSepCfg(Screen):
 
 		skincontent = """
 			<widget name="sfLabel" position="10,20" size="590,220" font="Regular;20"/>
-			<widget name="sfRedBtn" position="10,250" size="140,40" backgroundColor="red" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
-			<widget name="sfGreenBtn" position="160,250" size="140,40" backgroundColor="green" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
-			<widget name="sfYellowBtn" position="310,250" size="140,40" backgroundColor="yellow" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
-			<widget name="sfBlueBtn" position="460,250" size="140,40" backgroundColor="blue" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
+			<widget name="sfRedBtn" position="10,250" size="140,40" backgroundColor="red" verticalAlignment="center" horizontalAlignment="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
+			<widget name="sfGreenBtn" position="160,250" size="140,40" backgroundColor="green" verticalAlignment="center" horizontalAlignment="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
+			<widget name="sfYellowBtn" position="310,250" size="140,40" backgroundColor="yellow" verticalAlignment="center" horizontalAlignment="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
+			<widget name="sfBlueBtn" position="460,250" size="140,40" backgroundColor="blue" verticalAlignment="center" horizontalAlignment="center" zPosition="2"  foregroundColor="white" font="Regular;20"/>
 		</screen>"""
 
 		self.skin = "<screen position=\"130,150\" size=\"610,300\" title=\"" + _x("Configuration of the title:episode separator") + "\" >" + skincontent

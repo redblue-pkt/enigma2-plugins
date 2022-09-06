@@ -175,7 +175,7 @@ if default not in tmp:
 class MyTubeSuggestionsListScreen(Screen):
 	skin = """
 		<screen name="MyTubeSuggestionsListScreen" title="MyTube - Search" position="60,93" zPosition="6" size="610,160" flags="wfNoBorder" >
-			<ePixmap position="0,0" zPosition="-1" size="610,160" pixmap="~/suggestions_bg.png" alphatest="on" transparent="1" backgroundColor="transparent"/>
+			<ePixmap position="0,0" zPosition="-1" size="610,160" pixmap="~/suggestions_bg.png" alphaTest="on" transparent="1" backgroundColor="transparent"/>
 			<widget source="suggestionslist" render="Listbox" position="10,5" zPosition="7" size="580,150" scrollbarMode="showOnDemand" transparent="1" >
 				<convert type="TemplatedMultiContent">
 					{"template": [
@@ -293,15 +293,15 @@ class MyTubeSuggestionsListScreen(Screen):
 class MyTubeSettingsScreen(Screen, ConfigListScreen):
 	skin = """
 		<screen name="MyTubeSettingsScreen" flags="wfNoBorder" position="0,0" size="720,576" title="MyTube - Settings" >
-			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphatest="on" transparent="1" backgroundColor="transparent"/>
-			<widget name="title" position="60,50" size="600,50" zPosition="5" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphaTest="on" transparent="1" backgroundColor="transparent"/>
+			<widget name="title" position="60,50" size="600,50" zPosition="5" verticalAlignment="center" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 			<widget name="config" zPosition="2" position="60,120" size="610,370" scrollbarMode="showOnDemand" transparent="1" />
 
-			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphatest="on" transparent="1" />
-			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<ePixmap position="360,500" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
-			<widget name="key_red" position="220,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="key_green" position="360,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphaTest="on" transparent="1" />
+			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<ePixmap position="360,500" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on" />
+			<widget name="key_red" position="220,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="key_green" position="360,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 		</screen>"""
 
 	def __init__(self, session, plugin_path):
@@ -458,8 +458,8 @@ class MyTubeSettingsScreen(Screen, ConfigListScreen):
 class MyTubeTasksScreen(Screen):
 	skin = """
 		<screen name="MyTubeTasksScreen" flags="wfNoBorder" position="0,0" size="720,576" title="MyTube - Tasks" >
-			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphatest="on" transparent="1" backgroundColor="transparent"/>
-			<widget name="title" position="60,50" size="600,50" zPosition="5" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphaTest="on" transparent="1" backgroundColor="transparent"/>
+			<widget name="title" position="60,50" size="600,50" zPosition="5" verticalAlignment="center" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 			<widget source="tasklist" render="Listbox" position="60,120" size="610,370" zPosition="7" scrollbarMode="showOnDemand" transparent="1" >
 				<convert type="TemplatedMultiContent">
 					{"template": [
@@ -473,9 +473,9 @@ class MyTubeTasksScreen(Screen):
 					}
 				</convert>
 			</widget>
-			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphatest="on" transparent="1" />
-			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<widget name="key_red" position="220,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphaTest="on" transparent="1" />
+			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<widget name="key_red" position="220,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 		</screen>"""
 
 	def __init__(self, session, plugin_path, tasklist):
@@ -544,7 +544,7 @@ class MyTubeTasksScreen(Screen):
 class MyTubeHistoryScreen(Screen):
 	skin = """
 		<screen name="MyTubeHistoryScreen" position="60,93" zPosition="6" size="610,160" flags="wfNoBorder" title="MyTube - History">
-			<ePixmap position="0,0" zPosition="-1" size="610,160" pixmap="~/suggestions_bg.png" alphatest="on" transparent="1" backgroundColor="transparent"/>
+			<ePixmap position="0,0" zPosition="-1" size="610,160" pixmap="~/suggestions_bg.png" alphaTest="on" transparent="1" backgroundColor="transparent"/>
 			<widget source="historylist" render="Listbox" position="10,5" zPosition="7" size="580,150" scrollbarMode="showOnDemand" transparent="1" >
 				<convert type="TemplatedMultiContent">
 					{"template": [

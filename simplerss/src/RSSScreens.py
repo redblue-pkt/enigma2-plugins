@@ -109,7 +109,7 @@ class RSSEntryView(RSSBaseView):
 
 	skin = """
 		<screen position="center,center" size="460,420" title="Simple RSS Reader" >
-			<widget source="info" render="Label" position="0,0" size="460, 20" halign="right" font="Regular; 18" />
+			<widget source="info" render="Label" position="0,0" size="460, 20" horizontalAlignment="right" font="Regular; 18" />
 			<widget name="content" position="0,20" size="460,400" font="Regular; 22" />
 		</screen>"""
 
@@ -229,7 +229,7 @@ class RSSFeedView(RSSBaseView):
 
 	skin = """
 		<screen position="center,center" size="460,415" title="Simple RSS Reader" >
-			<widget source="info" render="Label" position="0,0" size="460,20" halign="right" font="Regular; 18" />
+			<widget source="info" render="Label" position="0,0" size="460,20" horizontalAlignment="right" font="Regular; 18" />
 			<widget source="content" render="Listbox" position="0,20" size="460,300" scrollbarMode="showOnDemand">
 				<convert type="TemplatedMultiContent">
 					{"template": [
@@ -397,7 +397,7 @@ class RSSOverview(RSSBaseView):
 
 	skin = """
 		<screen position="center,center" size="460,415" title="Simple RSS Reader" >
-			<widget source="info" render="Label" position="0,0" size="460,20" halign="right" font="Regular; 18" />
+			<widget source="info" render="Label" position="0,0" size="460,20" horizontalAlignment="right" font="Regular; 18" />
 			<widget name="content" position="0,20" size="460,300" scrollbarMode="showOnDemand" />
 			<widget source="summary" render="Label" position="0,320" size="460,95" font="Regular;16" />
 		</screen>"""

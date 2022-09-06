@@ -89,7 +89,7 @@ class RSSTickerView(Screen):
 	skin = """
 	<!--- kinda sucks because of overscan, but gives me "good enough" results -->
 	<screen position="0,536" size="720,30" flags="wfNoBorder">
-		<widget name="newsLabel" position="0,0" size="720,20" font="Regular;18" halign="left" noWrap="1"/>
+		<widget name="newsLabel" position="0,0" size="720,20" font="Regular;18" horizontalAlignment="left" noWrap="1"/>
 	</screen>"""
 
 	def __init__(self, session):

@@ -74,9 +74,9 @@ class GoogleMapsConfigScreen(ConfigListScreen, Screen):
     skin = """
         <screen position="100,100" size="550,400" title="Google Maps Setup" >
         <widget name="config" position="0,0" size="550,360" scrollbarMode="showOnDemand" />
-        <widget name="key_red" position="10,360" size="100,40" backgroundColor="red" valign="center" halign="center" zPosition="1"  foregroundColor="white" font="Regular;18"/>
-        <widget name="key_green" position="120,360" size="100,40" backgroundColor="green" valign="center" halign="center" zPosition="1"  foregroundColor="white" font="Regular;18"/>
-        <widget name="label" position="240,360" size="200,40"  valign="center" halign="center" zPosition="1"  foregroundColor="white" font="Regular;18"/>
+        <widget name="key_red" position="10,360" size="100,40" backgroundColor="red" verticalAlignment="center" horizontalAlignment="center" zPosition="1"  foregroundColor="white" font="Regular;18"/>
+        <widget name="key_green" position="120,360" size="100,40" backgroundColor="green" verticalAlignment="center" horizontalAlignment="center" zPosition="1"  foregroundColor="white" font="Regular;18"/>
+        <widget name="label" position="240,360" size="200,40"  verticalAlignment="center" horizontalAlignment="center" zPosition="1"  foregroundColor="white" font="Regular;18"/>
         </screen>"""
 
     def __init__(self, session, args=0):
@@ -120,34 +120,34 @@ class GoogleMapsConfigScreen(ConfigListScreen, Screen):
 class GoogleMapsMainScreen(Screen, HelpableScreen):
     raw_skin = """
             <screen position="{screen.position}" size="{screen.size}" title="GoogleMaps" flags="wfNoBorder">
-    <!-- widget  name="pic1b" position="{pixmap1.pos}" size="{pixmap.size}" zPosition="0" alphatest="blend"//-->
-    <widget  name="pic1" position="{pixmap1.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic1o" position="{pixmap1.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic2" position="{pixmap2.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic2o" position="{pixmap2.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic3" position="{pixmap3.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic3o" position="{pixmap3.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic4" position="{pixmap4.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic4o" position="{pixmap4.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic5" position="{pixmap5.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic5o" position="{pixmap5.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic6" position="{pixmap6.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic6o" position="{pixmap6.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic7" position="{pixmap7.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic7o" position="{pixmap7.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic8" position="{pixmap8.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic8o" position="{pixmap8.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
-    <widget name="pic9" position="{pixmap9.pos}" size="{pixmap.size}" zPosition="1" alphatest="blend"/>
-    <widget name="pic9o" position="{pixmap9.pos}" size="{pixmap.size}" zPosition="2" alphatest="blend"/>
+    <!-- widget  name="pic1b" position="{pixmap1.pos}" size="{pixmap.size}" zPosition="0" alphaTest="blend"//-->
+    <widget  name="pic1" position="{pixmap1.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic1o" position="{pixmap1.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic2" position="{pixmap2.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic2o" position="{pixmap2.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic3" position="{pixmap3.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic3o" position="{pixmap3.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic4" position="{pixmap4.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic4o" position="{pixmap4.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic5" position="{pixmap5.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic5o" position="{pixmap5.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic6" position="{pixmap6.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic6o" position="{pixmap6.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic7" position="{pixmap7.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic7o" position="{pixmap7.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic8" position="{pixmap8.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic8o" position="{pixmap8.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
+    <widget name="pic9" position="{pixmap9.pos}" size="{pixmap.size}" zPosition="1" alphaTest="blend"/>
+    <widget name="pic9o" position="{pixmap9.pos}" size="{pixmap.size}" zPosition="2" alphaTest="blend"/>
 
     <!-- widget name="infopanel" position="{infopanel.pos}" size="{infopanel.size}" zPosition="0"  backgroundColor="blue" //-->
     <widget name="posx" position="{posx.pos}" size="{posx.size}" font="{font}" zPosition="1" />
     <widget name="posy" position="{posy.pos}" size="{posy.size}" font="{font}" zPosition="1" />
     <widget name="posz" position="{posz.pos}" size="{posz.size}" font="{font}" zPosition="1" />
     <widget name="placeslist" position="{placeslist.pos}" size="{placeslist.size}" zPosition="1"/>
-    <widget name="buttonmenu" position="{buttonmenu.pos}" size="{buttonmenu.size}" font="{font}" halign="center" valign="center"  zPosition="1"/>
-    <widget name="buttonsearch" position="{buttonsearch.pos}" size="{buttonsearch.size}" font="{font}" halign="center" valign="center"  zPosition="1"  backgroundColor="red"/>
-    <widget name="buttonhelp" position="{buttonhelp.pos}" size="{buttonhelp.size}" font="{font}" halign="center" valign="center"  zPosition="1"/>
+    <widget name="buttonmenu" position="{buttonmenu.pos}" size="{buttonmenu.size}" font="{font}" horizontalAlignment="center" verticalAlignment="center"  zPosition="1"/>
+    <widget name="buttonsearch" position="{buttonsearch.pos}" size="{buttonsearch.size}" font="{font}" horizontalAlignment="center" verticalAlignment="center"  zPosition="1"  backgroundColor="red"/>
+    <widget name="buttonhelp" position="{buttonhelp.pos}" size="{buttonhelp.size}" font="{font}" horizontalAlignment="center" verticalAlignment="center"  zPosition="1"/>
 
             </screen>
             """
@@ -486,8 +486,8 @@ class GoogleMapsGeoSearchScreen(InputBox):
                 <widget name="list" position="{list.position}" size="{list.size}" />
                 <widget name="infotext" position="{infotext.position}" size="{infotext.size}"   font="Regular;20"/>
 
-                <widget name="preview" position="{preview.position}" size="{preview.size}"  zPosition="1" alphatest="blend"/>
-                <widget name="previewo" position="{preview.position}" size="{preview.size}"  zPosition="2" alphatest="blend"/>
+                <widget name="preview" position="{preview.position}" size="{preview.size}"  zPosition="1" alphaTest="blend"/>
+                <widget name="previewo" position="{preview.position}" size="{preview.size}"  zPosition="2" alphaTest="blend"/>
             </screen>
             """
 

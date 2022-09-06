@@ -42,15 +42,15 @@ class FilebrowserScreen(Screen, HelpableScreen):
             <widget name="list_left" position="0,0" size="265,380" scrollbarMode="showOnDemand" />
             <widget name="list_right" position="265,0" size="265,380" scrollbarMode="showOnDemand" />
 
-            <widget name="red" position="10,390" size="120,30" valign="center" halign="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
-            <widget name="green" position="140,390" size="120,30" valign="center" halign="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
-            <widget name="yellow" position="270,390" size="120,30" valign="center" halign="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
-            <widget name="blue" position="400,390" size="120,30" valign="center" halign="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
+            <widget name="red" position="10,390" size="120,30" verticalAlignment="center" horizontalAlignment="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
+            <widget name="green" position="140,390" size="120,30" verticalAlignment="center" horizontalAlignment="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
+            <widget name="yellow" position="270,390" size="120,30" verticalAlignment="center" horizontalAlignment="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
+            <widget name="blue" position="400,390" size="120,30" verticalAlignment="center" horizontalAlignment="center" zPosition="1" transparent="1" foregroundColor="white" font="Regular;18"/>
 
-            <ePixmap name="pred" position="10,390" size="120,30" zPosition="0" pixmap="buttons/red.png" transparent="1" alphatest="on"/>
-            <ePixmap name="pgreen" position="140,390" size="120,30" zPosition="0" pixmap="buttons/green.png" transparent="1" alphatest="on"/>
-            <ePixmap name="pyellow" position="270,390" size="120,30" zPosition="0" pixmap="buttons/yellow.png" transparent="1" alphatest="on"/>
-            <ePixmap name="pblue" position="400,390" size="120,30" zPosition="0" pixmap="buttons/blue.png" transparent="1" alphatest="on"/>
+            <ePixmap name="pred" position="10,390" size="120,30" zPosition="0" pixmap="buttons/red.png" transparent="1" alphaTest="on"/>
+            <ePixmap name="pgreen" position="140,390" size="120,30" zPosition="0" pixmap="buttons/green.png" transparent="1" alphaTest="on"/>
+            <ePixmap name="pyellow" position="270,390" size="120,30" zPosition="0" pixmap="buttons/yellow.png" transparent="1" alphaTest="on"/>
+            <ePixmap name="pblue" position="400,390" size="120,30" zPosition="0" pixmap="buttons/blue.png" transparent="1" alphaTest="on"/>
         </screen>
         """
 

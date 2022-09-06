@@ -30,7 +30,7 @@ class NameZap(NumberZap):
 	STYLE_BOTH = 2
 
 	skin = """<screen name="NameZap" position="center,center" size="270,60" title="Channel">
-			<widget name="name" position="3,15" size="264,25" halign="left" font="Regular;23" />
+			<widget name="name" position="3,15" size="264,25" horizontalAlignment="left" font="Regular;23" />
 		</screen>"""
 
 	def __init__(self, *args, **kwargs):

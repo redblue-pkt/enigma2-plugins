@@ -139,24 +139,24 @@ class SubsDownloaderApplication(Screen):
 		self.skin = "<screen position=\"center," + str(int(0.078 * Skin_height)) + "\" size=\"" + str(Skin_width) + "," + str(Skin_height) + "\" title= \"Subtitle downloader\" > \
 	        <widget name=\"fileList\" position=\"" + str(widget_name_x_position) + "," + str(1 * widget_name_y_position) + "\" size=\"" + str(widget_name_width) + "," + str(widget_name_height) + "\" scrollbarMode=\"showOnDemand\" /> \
 	        <widget name=\"subsList\" position=\"" + str(widget_name_x_position) + "," + str(2 * widget_name_y_position + 1 * widget_name_height) + "\" size=\"" + str(widget_name_width) + "," + str(widget_name_height) + "\" scrollbarMode=\"showOnDemand\" /> \
-	        <widget name=\"commertialPicture\" position=\"" + str(widget_name_x_position) + "," + str(3 * widget_name_y_position + 2 * widget_name_height) + "\" size=\"" + str(int(0.98 * Skin_width)) + "," + str(widget_name_height) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget name=\"serverPicture\" position=\"" + str(widget_source_x_position) + "," + str(widget_name_x_position) + "\" size=\"" + str(int(0.252 * Skin_width)) + "," + str(int(0.0849 * Skin_height)) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_menu.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position) + "\" size=\"36,26\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget source=\"key_menu\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_help.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget source=\"key_help\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_text.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 2) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget source=\"key_text\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 2) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_next.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 3) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget source=\"key_next\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 3) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_last.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 4) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget source=\"key_last\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 4) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_info.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 5) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget source=\"key_info\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 5) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_0.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 6) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-	        <widget source=\"key_0\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 6) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
-	        <ePixmap pixmap=\"~/pic/buttons/HD/key_blue.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 7) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-		<widget source=\"key_blue\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 7) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" halign=\"left\" valign=\"center\" transparent=\"1\" /> \
+	        <widget name=\"commertialPicture\" position=\"" + str(widget_name_x_position) + "," + str(3 * widget_name_y_position + 2 * widget_name_height) + "\" size=\"" + str(int(0.98 * Skin_width)) + "," + str(widget_name_height) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget name=\"serverPicture\" position=\"" + str(widget_source_x_position) + "," + str(widget_name_x_position) + "\" size=\"" + str(int(0.252 * Skin_width)) + "," + str(int(0.0849 * Skin_height)) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_menu.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position) + "\" size=\"36,26\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget source=\"key_menu\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_help.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget source=\"key_help\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_text.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 2) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget source=\"key_text\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 2) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_next.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 3) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget source=\"key_next\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 3) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_last.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 4) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget source=\"key_last\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 4) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_info.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 5) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget source=\"key_info\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 5) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_0.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 6) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+	        <widget source=\"key_0\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 6) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
+	        <ePixmap pixmap=\"~/pic/buttons/HD/key_blue.png\" position=\"" + str(widget_source_x_position) + "," + str(widget_source_y_position + widget_source_y_size * 7) + "\" size=\"36," + str(widget_source_y_size) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+		<widget source=\"key_blue\" render=\"Label\" position=\"" + str(widget_source_x_position + 43) + "," + str(widget_source_y_position + widget_source_y_size * 7) + "\" zPosition=\"1\" size=\"" + str(widget_source_x_size) + "," + str(widget_source_y_size) + "\" font=\"Regular;" + str(font_size) + "\" horizontalAlignment=\"left\" verticalAlignment=\"center\" transparent=\"1\" /> \
 	        </screen>"
 
 		Console().ePopen('mkdir /tmp/SubsDownloader_cache')
@@ -1102,7 +1102,7 @@ class SubsDownloaderConfig(ConfigListScreen, Screen):
 	def __init__(self, session):
 		self.skin = "<screen position=\"center,80\" size=\"" + str(int(0.644 * Skin_width)) + "," + str(int(0.644 * Skin_height)) + "\" title=\"Subtitle downloader: Configuration screen\" > \
 		<widget name=\"config\" position=\"10,10\" size=\"" + str(int(0.625 * Skin_width)) + "," + str(int(0.385 * Skin_height)) + "\" scrollbarMode=\"showOnDemand\" /> \
-		<widget name=\"extendLibMediaInfo\" position=\"" + str(int(0.0434 * Skin_width)) + "," + str(int(0.6095 * Skin_height)) + "\" size=\"" + str(int(0.6076 * Skin_width)) + ",26\" valign=\"center\" halign=\"left\" zPosition=\"2\"  foregroundColor=\"yellow\" font=\"Regular;20\"/> \
+		<widget name=\"extendLibMediaInfo\" position=\"" + str(int(0.0434 * Skin_width)) + "," + str(int(0.6095 * Skin_height)) + "\" size=\"" + str(int(0.6076 * Skin_width)) + ",26\" verticalAlignment=\"center\" horizontalAlignment=\"left\" zPosition=\"2\"  foregroundColor=\"yellow\" font=\"Regular;20\"/> \
 		</screen>"
 		self.session = session
 		Screen.__init__(self, session)
@@ -1305,8 +1305,8 @@ class MviExplorer(Screen):
 class PictureExplorerII(Screen):
 	def __init__(self, session, whatPic=None, whatDir=None):
 		self.skin = '<screen flags="wfNoBorder" position="0,0" size="' + str(Screen_width) + ',' + str(Screen_height) + '" title="Picture-Explorer" backgroundColor="#00121214"> \
-		<widget name="Picture" position="0,0" size="' + str(Screen_width) + ',' + str(Screen_height) + '" zPosition="1" alphatest="on" /> \
-		<widget name="State" font="Regular;20" halign="center" position="0,' + str(int(0.904 * 720)) + '" size="' + str(Screen_width) + ',70" backgroundColor="#01080911" foregroundColor="#fcc000" transparent="0" zPosition="9"/> \
+		<widget name="Picture" position="0,0" size="' + str(Screen_width) + ',' + str(Screen_height) + '" zPosition="1" alphaTest="on" /> \
+		<widget name="State" font="Regular;20" horizontalAlignment="center" position="0,' + str(int(0.904 * 720)) + '" size="' + str(Screen_width) + ',70" backgroundColor="#01080911" foregroundColor="#fcc000" transparent="0" zPosition="9"/> \
 		</screen>'
 		Screen.__init__(self, session)
 		self.session = session
@@ -1499,10 +1499,10 @@ class MoviePlayer_4_MusicExploret(MP_parent):
 class MusicExplorer(MoviePlayer_4_MusicExploret):
 	skin = """
 	<screen backgroundColor="#50070810" flags="wfNoBorder" name="MusicExplorer" position="center,center" size="720,30">
-		<widget font="Regular;24" halign="right" position="50,0" render="Label" size="100,30" source="session.CurrentService" transparent="1" valign="center" zPosition="1">
+		<widget font="Regular;24" horizontalAlignment="right" position="50,0" render="Label" size="100,30" source="session.CurrentService" transparent="1" verticalAlignment="center" zPosition="1">
 			<convert type="ServicePosition">Remaining</convert>
 		</widget>
-		<widget font="Regular;24" position="170,0" render="Label" size="650,30" source="session.CurrentService" transparent="1" valign="center" zPosition="1">
+		<widget font="Regular;24" position="170,0" render="Label" size="650,30" source="session.CurrentService" transparent="1" verticalAlignment="center" zPosition="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 	</screen>"""

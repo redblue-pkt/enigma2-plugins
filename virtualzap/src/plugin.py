@@ -178,35 +178,35 @@ class VirtualZap(Screen):
 		if sz_w == 1280:
 			skin = """
 				<screen backgroundColor="#101214" flags="wfNoBorder" name="VirtualZap" position="0,505" size="1280,220" title="Virtual Zap">
-					<ePixmap alphatest="off" pixmap="~/hd.png" position="0,0" size="1280,220" zPosition="0"/>
+					<ePixmap alphaTest="off" pixmap="~/hd.png" position="0,0" size="1280,220" zPosition="0"/>
 					<widget backgroundColor="transparent" name="video" position="60,50" size="214,120" zPosition="1"/>
-					<widget backgroundColor="#101214" font="Regular;26" halign="left" name="NowChannel" position="305,60" size="887,32" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" halign="left" name="NowEPG" position="305,105" size="600,28" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" halign="left" name="NextEPG" position="305,140" size="600,28" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" halign="right" name="NowTime" position="1070,105" size="124,28" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" halign="right" name="NextTime" position="1070,140" size="124,28" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;26" horizontalAlignment="left" name="NowChannel" position="305,60" size="887,32" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" horizontalAlignment="left" name="NowEPG" position="305,105" size="600,28" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" horizontalAlignment="left" name="NextEPG" position="305,140" size="600,28" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" horizontalAlignment="right" name="NowTime" position="1070,105" size="124,28" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" horizontalAlignment="right" name="NextTime" position="1070,140" size="124,28" transparent="1" zPosition="2"/>
 				</screen>"""
 		elif sz_w == 1024:
 			skin = """
 				<screen backgroundColor="#101214" flags="wfNoBorder" name="VirtualZap" position="0,420" size="1024,176" title="Virtual Zap">
-					<ePixmap alphatest="off" pixmap="~/sd.png" position="0,0" size="1024,176" zPosition="0"/>
+					<ePixmap alphaTest="off" pixmap="~/sd.png" position="0,0" size="1024,176" zPosition="0"/>
 					<widget backgroundColor="transparent" name="video" position="50,20" size="164,92" zPosition="1"/>
-					<widget backgroundColor="#101214" font="Regular;22" halign="left" name="NowChannel" position="230,25" size="741,30" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="left" name="NowEPG" position="230,55" size="600,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="left" name="NextEPG" position="230,80" size="600,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="right" name="NowTime" position="850,55" size="124,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="right" name="NextTime" position="850,80" size="124,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;22" horizontalAlignment="left" name="NowChannel" position="230,25" size="741,30" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="left" name="NowEPG" position="230,55" size="600,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="left" name="NextEPG" position="230,80" size="600,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="right" name="NowTime" position="850,55" size="124,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="right" name="NextTime" position="850,80" size="124,25" transparent="1" zPosition="2"/>
 				</screen>"""
 		else:
 			skin = """
 				<screen backgroundColor="#101214" flags="wfNoBorder" name="VirtualZap" position="0,420" size="720,176" title="Virtual Zap">
-					<ePixmap alphatest="off" pixmap="~/sd.png" position="0,0" size="720,176" zPosition="0"/>
+					<ePixmap alphaTest="off" pixmap="~/sd.png" position="0,0" size="720,176" zPosition="0"/>
 					<widget backgroundColor="transparent" name="video" position="50,25" size="130,73" zPosition="1"/>
-					<widget backgroundColor="#101214" font="Regular;22" halign="left" name="NowChannel" position="190,25" size="480,30" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="left" name="NowEPG" position="190,55" size="360,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="left" name="NextEPG" position="190,80" size="360,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="right" name="NowTime" position="550,55" size="120,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="right" name="NextTime" position="550,80" size="120,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;22" horizontalAlignment="left" name="NowChannel" position="190,25" size="480,30" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="left" name="NowEPG" position="190,55" size="360,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="left" name="NextEPG" position="190,80" size="360,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="right" name="NowTime" position="550,55" size="120,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="right" name="NextTime" position="550,80" size="120,25" transparent="1" zPosition="2"/>
 				</screen>"""
 	else:
 		if BoxInfo.getItem("NumVideoDecoders", 1) > 1 and config.plugins.virtualzap.usepip.value and not config.plugins.virtualzap.showpipininfobar.value:
@@ -228,35 +228,35 @@ class VirtualZap(Screen):
 			skin = """
 				<screen backgroundColor="transparent" flags="wfNoBorder" name="VirtualZapNoPiP" position="0,0" size="1280,720" title="Virtual Zap">
 					<widget backgroundColor="transparent" name="video" position="%d,%d" size="%d,%d" zPosition="1"/>
-					<ePixmap alphatest="off" pixmap="~/hd.png" position="0,505" size="1280,220" zPosition="0"/>
-					<widget backgroundColor="#101214" font="Regular;26" halign="center" name="NowChannel" position="140,565" size="1000,32" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" halign="left" name="NowEPG" position="140,610" size="860,28" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" halign="left" name="NextEPG" position="140,645" size="860,28" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" halign="right" name="NowTime" position="1015,610" size="124,28" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;24" halign="right" name="NextTime" position="1015,645" size="124,28" transparent="1" zPosition="2"/>
+					<ePixmap alphaTest="off" pixmap="~/hd.png" position="0,505" size="1280,220" zPosition="0"/>
+					<widget backgroundColor="#101214" font="Regular;26" horizontalAlignment="center" name="NowChannel" position="140,565" size="1000,32" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" horizontalAlignment="left" name="NowEPG" position="140,610" size="860,28" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" horizontalAlignment="left" name="NextEPG" position="140,645" size="860,28" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" foregroundColor="#fcc000" horizontalAlignment="right" name="NowTime" position="1015,610" size="124,28" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;24" horizontalAlignment="right" name="NextTime" position="1015,645" size="124,28" transparent="1" zPosition="2"/>
 				</screen>""" % (x, y, w, h)
 		elif sz_w == 1024:
 			skin = """
 				<screen backgroundColor="transparent" flags="wfNoBorder" name="VirtualZapNoPiP" position="0,0" size="1024,576" title="Virtual Zap">
 					<widget backgroundColor="transparent" name="video" position="%d,%d" size="%d,%d" zPosition="1"/>
-					<ePixmap alphatest="off" pixmap="~/sd.png" position="0,420" size="1024,176" zPosition="0"/>
-					<widget backgroundColor="#101214" font="Regular;22" halign="center" name="NowChannel" position="100,445" size="824,30" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="left" name="NowEPG" position="100,475" size="700,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="left" name="NextEPG" position="100,500" size="700,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="right" name="NowTime" position="800,475" size="124,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="right" name="NextTime" position="800,500" size="124,25" transparent="1" zPosition="2"/>
+					<ePixmap alphaTest="off" pixmap="~/sd.png" position="0,420" size="1024,176" zPosition="0"/>
+					<widget backgroundColor="#101214" font="Regular;22" horizontalAlignment="center" name="NowChannel" position="100,445" size="824,30" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="left" name="NowEPG" position="100,475" size="700,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="left" name="NextEPG" position="100,500" size="700,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="right" name="NowTime" position="800,475" size="124,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="right" name="NextTime" position="800,500" size="124,25" transparent="1" zPosition="2"/>
 				</screen>""" % (x, y, w, h)
 		else:
 
 			skin = """
 				<screen backgroundColor="transparent" flags="wfNoBorder" name="VirtualZapNoPiP" position="0,0" size="720,576" title="Virtual Zap">
 					<widget backgroundColor="transparent" name="video" position="%d,%d" size="%d,%d" zPosition="1"/>
-					<ePixmap alphatest="off" pixmap="~/sd.png" position="0,420" size="720,176" zPosition="0"/>
-					<widget backgroundColor="#101214" font="Regular;22" halign="center" name="NowChannel" position="50,445" size="620,30" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="left" name="NowEPG" position="50,475" size="500,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="left" name="NextEPG" position="50,500" size="500,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" halign="right" name="NowTime" position="550,475" size="120,25" transparent="1" zPosition="2"/>
-					<widget backgroundColor="#101214" font="Regular;20" halign="right" name="NextTime" position="550,500" size="120,25" transparent="1" zPosition="2"/>
+					<ePixmap alphaTest="off" pixmap="~/sd.png" position="0,420" size="720,176" zPosition="0"/>
+					<widget backgroundColor="#101214" font="Regular;22" horizontalAlignment="center" name="NowChannel" position="50,445" size="620,30" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="left" name="NowEPG" position="50,475" size="500,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="left" name="NextEPG" position="50,500" size="500,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" foregroundColor="#fcc000" horizontalAlignment="right" name="NowTime" position="550,475" size="120,25" transparent="1" zPosition="2"/>
+					<widget backgroundColor="#101214" font="Regular;20" horizontalAlignment="right" name="NextTime" position="550,500" size="120,25" transparent="1" zPosition="2"/>
 				</screen>""" % (x, y, w, h)
 
 	def __init__(self, session, servicelist=None):
@@ -725,12 +725,12 @@ class VirtualZapConfig(Screen, ConfigListScreen):
 
 	skin = """
 		<screen position="center,center" size="560,180" title="Virtual Zap Config" >
-			<ePixmap pixmap="buttons/red.png" position="0,0" zPosition="0" size="140,40" transparent="1" alphatest="on" />
-			<ePixmap pixmap="buttons/green.png" position="140,0" zPosition="0" size="140,40" transparent="1" alphatest="on" />
-			<ePixmap pixmap="buttons/yellow.png" position="280,0" zPosition="0" size="140,40" transparent="1" alphatest="on" />
-			<ePixmap pixmap="buttons/blue.png" position="420,0" zPosition="0" size="140,40" transparent="1" alphatest="on" />
-			<widget render="Label" source="key_red" position="0,0" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="red" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget render="Label" source="key_green" position="140,0" size="140,40" zPosition="5" valign="center" halign="center" backgroundColor="red" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap pixmap="buttons/red.png" position="0,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
+			<ePixmap pixmap="buttons/green.png" position="140,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
+			<ePixmap pixmap="buttons/yellow.png" position="280,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
+			<ePixmap pixmap="buttons/blue.png" position="420,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
+			<widget render="Label" source="key_red" position="0,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" backgroundColor="red" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget render="Label" source="key_green" position="140,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" backgroundColor="red" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 			<widget name="config" position="20,50" size="520,330" scrollbarMode="showOnDemand" />
 		</screen>"""
 

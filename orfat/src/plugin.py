@@ -75,7 +75,7 @@ class ORFatCache(Screen):
 	skin = """
 		<screen position="center,center" size="76,76" flags="wfNoBorder" backgroundColor="#ffffff" >
 			<eLabel position="2,2" zPosition="1" size="72,72" font="Regular;18" backgroundColor="#252525" />
-			<widget name="spinner" position="14,14" zPosition="2" size="48,48" alphatest="on" />
+			<widget name="spinner" position="14,14" zPosition="2" size="48,48" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -112,9 +112,9 @@ class ORFatCache(Screen):
 class ORFMain(Screen):
 	skin = """
 	<screen position="center,center" size="550,450" title="ORF.at IPTV - Server:" backgroundColor="#6699cc" >
-		<ePixmap pixmap="arrowup.png" position="256,10" size="37,70" alphatest="blend" />
+		<ePixmap pixmap="arrowup.png" position="256,10" size="37,70" alphaTest="blend" />
 		<widget name="pic" position="0,0" size="0,0" />
-		<ePixmap pixmap="arrowdown.png" position="256,370" size="37,70" alphatest="blend" />
+		<ePixmap pixmap="arrowdown.png" position="256,370" size="37,70" alphaTest="blend" />
 	</screen>"""
 
 	def __init__(self, session):

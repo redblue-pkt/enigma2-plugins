@@ -24,7 +24,7 @@ from os import path as os_path
 class MC_VideoInfoView(Screen):
 	skin = """
 		<screen position="80,130" size="560,320" title="View Video Info" >
-			<widget name="infolist" position="5,5" size="550,310" selectionDisabled="1" />
+			<widget name="infolist" position="5,5" size="550,310" selection="1" />
 		</screen>"""
 
 	def __init__(self, session, fullname, name, ref):

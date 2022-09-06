@@ -219,18 +219,18 @@ class Board(Screen):
 		skin = """
 				<screen name="Tetrisfhd" position="center,100" size="1800,940" title="Tetris" backgroundColor="#101010">
 					<ePixmap position="0,0" size="1800,940" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Tetris/pic/tetris.jpg" />
-					<widget source="canvas"  render="Canvas" position="center ,40" size="430,860" backgroundColor="#60ffffff" transparent="1" alphatest="blend" zPosition="2" />
+					<widget source="canvas"  render="Canvas" position="center ,40" size="430,860" backgroundColor="#60ffffff" transparent="1" alphaTest="blend" zPosition="2" />
 					<widget source="preview" render="Canvas" position="1230,100" size="176,174" zPosition="3" />
-					<widget name="previewtext" position="1220,30" size="210,40" valign="center" halign="center" font="Regular;34" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
-					<widget name="state"       position="241,255" size="500,80" valign="center" halign="center" font="Regular;50" foregroundColor="red" backgroundColor="#000000" transparent="1" zPosition="3" />
-					<ePixmap position="60,50" pixmap="buttons/key_green.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
-					<widget name="key_green" position="160,50" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="green" backgroundColor="black" zPosition="1" transparent="1" />
-					<ePixmap position="60,100" pixmap="buttons/key_red.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
-					<widget name="key_red" position="160,100" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="red" backgroundColor="black" zPosition="1" transparent="1" />
+					<widget name="previewtext" position="1220,30" size="210,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;34" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
+					<widget name="state"       position="241,255" size="500,80" verticalAlignment="center" horizontalAlignment="center" font="Regular;50" foregroundColor="red" backgroundColor="#000000" transparent="1" zPosition="3" />
+					<ePixmap position="60,50" pixmap="buttons/key_green.png" size="80,40" alphaTest="blend" scale="1" zPosition="2" />
+					<widget name="key_green" position="160,50" size="200,40" font="Regular;30" horizontalAlignment="left" verticalAlignment="center" foregroundColor="green" backgroundColor="black" zPosition="1" transparent="1" />
+					<ePixmap position="60,100" pixmap="buttons/key_red.png" size="80,40" alphaTest="blend" scale="1" zPosition="2" />
+					<widget name="key_red" position="160,100" size="200,40" font="Regular;30" horizontalAlignment="left" verticalAlignment="center" foregroundColor="red" backgroundColor="black" zPosition="1" transparent="1" />
 					<eLabel position="60,210" size="310,3" backgroundColor="#404040" zPosition="1" />
-					<widget name="points" position="60,230" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
-					<widget name="lines"  position="60,280" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
-					<widget name="level"  position="60,330" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
+					<widget name="points" position="60,230" size="200,40" verticalAlignment="center" horizontalAlignment="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
+					<widget name="lines"  position="60,280" size="200,40" verticalAlignment="center" horizontalAlignment="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
+					<widget name="level"  position="60,330" size="200,40" verticalAlignment="center" horizontalAlignment="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
 				</screen>
 				"""
 	else:
@@ -245,10 +245,10 @@ class Board(Screen):
 				<widget name="points" position="33,163" size="236,40" font="Regular; 24" zPosition="2" />
 				<widget name="lines" position="33,205" size="236,40" font="Regular; 22" zPosition="2" />
 				<widget name="level" position="33,248" size="236,40" font="Regular; 24" zPosition="2" />
-				<widget name="key_red" position="150,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#9f1313" />
-				<widget name="key_green" position="377,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#1f771f" />
-				<widget name="key_yellow" position="604,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#a08500" />
-				<widget name="key_blue" position="830,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#18188b" />
+				<widget name="key_red" position="150,670" size="187,37" zPosition="1" font="Regular; 16" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#00ffffff" backgroundColor="#9f1313" />
+				<widget name="key_green" position="377,670" size="187,37" zPosition="1" font="Regular; 16" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#00ffffff" backgroundColor="#1f771f" />
+				<widget name="key_yellow" position="604,670" size="187,37" zPosition="1" font="Regular; 16" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#00ffffff" backgroundColor="#a08500" />
+				<widget name="key_blue" position="830,670" size="187,37" zPosition="1" font="Regular; 16" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#00ffffff" backgroundColor="#18188b" />
 			</screen>
 			"""
 

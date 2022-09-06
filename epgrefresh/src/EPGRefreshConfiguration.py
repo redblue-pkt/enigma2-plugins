@@ -71,16 +71,16 @@ class EPGRefreshConfiguration(Screen, HelpableScreen, ConfigListScreen):
 	"""Configuration of EPGRefresh"""
 
 	skin = """<screen name="EPGRefreshConfiguration" position="center,center" size="700,450">
-		<ePixmap position="0,5" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-		<ePixmap position="140,5" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
-		<ePixmap position="280,5" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphatest="on" />
-		<ePixmap position="420,5" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on" />
-		<ePixmap position="572,15" size="35,25" pixmap="buttons/key_info.png" alphatest="on" />
+		<ePixmap position="0,5" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+		<ePixmap position="140,5" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on" />
+		<ePixmap position="280,5" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphaTest="on" />
+		<ePixmap position="420,5" size="140,40" pixmap="buttons/blue.png" transparent="1" alphaTest="on" />
+		<ePixmap position="572,15" size="35,25" pixmap="buttons/key_info.png" alphaTest="on" />
 
-		<widget source="key_red" render="Label" position="0,5" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-		<widget source="key_green" render="Label" position="140,5" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-		<widget source="key_yellow" render="Label" position="280,5" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-		<widget source="key_blue" render="Label" position="420,5" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+		<widget source="key_red" render="Label" position="0,5" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+		<widget source="key_green" render="Label" position="140,5" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+		<widget source="key_yellow" render="Label" position="280,5" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+		<widget source="key_blue" render="Label" position="420,5" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 
 		<widget name="config" position="5,50" size="690,275" scrollbarMode="showOnDemand" />
 		<ePixmap pixmap="div-h.png" position="5,335" zPosition="1" size="690,2" />

@@ -639,7 +639,7 @@ class ZDFMediathekCache(Screen):
 	skin = """
 		<screen position="center,center" size="76,76" flags="wfNoBorder" backgroundColor="#ffffff" >
 			<eLabel position="2,2" zPosition="1" size="72,72" font="Regular;18" backgroundColor="#252525" />
-			<widget name="spinner" position="14,14" zPosition="2" size="48,48" alphatest="on" />
+			<widget name="spinner" position="14,14" zPosition="2" size="48,48" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -688,7 +688,7 @@ class ZDFMediathek(Screen, HelpableScreen):
 		skin = """<screen name="ZDFMediathek" position="0,0" size="720,576" title="ZDF Mediathek" flags="wfNoBorder" backgroundColor="#252525" >
 				<ePixmap position="20,30" size="133,40" pixmap="~/logo.png" />
 				<widget name="navigationTitle" position="250,40" size="430,25" font="Regular;18" backgroundColor="#252525" foregroundColor="#f47d19" noWrap="1" />
-				<widget name="leftList" position="20,70" size="220,440" transparent="1" selectionDisabled="1" />
+				<widget name="leftList" position="20,70" size="220,440" transparent="1" selection="1" />
 				<widget source="rightList" render="Listbox" position="250,70" size="430,480" backgroundColor="#3d3c3c" backgroundColorSelected="#565656" scrollbarMode="showOnDemand">
 					<convert type="TemplatedMultiContent">
 					{"templates":
@@ -704,7 +704,7 @@ class ZDFMediathek(Screen, HelpableScreen):
 					}
 					</convert>
 				</widget>
-				<ePixmap pixmap="buttons/key_menu.png" position="20,520" size="35,25" transparent="1" alphatest="on" />
+				<ePixmap pixmap="buttons/key_menu.png" position="20,520" size="35,25" transparent="1" alphaTest="on" />
 				<widget name="serverName" position="60,520" size="160,20" font="Regular;18" backgroundColor="#252525" foregroundColor="#f47d19" />
 				<widget name="fakeList" position="0,0" size="0,0" />
 			</screen>"""
@@ -712,7 +712,7 @@ class ZDFMediathek(Screen, HelpableScreen):
 		skin = """<screen name="ZDFMediathek" position="center,center" size="900,580" title="ZDF Mediathek" backgroundColor="#252525" >
 				<ePixmap position="20,30" size="133,40" pixmap="~/logo.png" />
 				<widget name="navigationTitle" position="250,40" size="430,25" font="Regular;18" backgroundColor="#252525" foregroundColor="#f47d19" noWrap="1" />
-				<widget name="leftList" position="20,70" size="220,440" transparent="1" selectionDisabled="1" />
+				<widget name="leftList" position="20,70" size="220,440" transparent="1" selection="1" />
 				<widget source="rightList" render="Listbox" position="250,70" size="600,496" backgroundColor="#3d3c3c" backgroundColorSelected="#565656" scrollbarMode="showOnDemand">
 					<convert type="TemplatedMultiContent">
 					{"templates":
@@ -728,7 +728,7 @@ class ZDFMediathek(Screen, HelpableScreen):
 					}
 					</convert>
 				</widget>
-				<ePixmap pixmap="buttons/key_menu.png" position="20,540" size="35,25" transparent="1" alphatest="on" />
+				<ePixmap pixmap="buttons/key_menu.png" position="20,540" size="35,25" transparent="1" alphaTest="on" />
 				<widget name="serverName" position="60,540" size="160,20" font="Regular;18" backgroundColor="#252525" foregroundColor="#f47d19" />
 				<widget name="fakeList" position="0,0" size="0,0" />
 			</screen>"""

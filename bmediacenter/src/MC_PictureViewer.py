@@ -215,20 +215,20 @@ class MC_PicThumbViewer(Screen, HelpableScreen):
 			absY = self.spaceTop + self.spaceY + (posY * (self.spaceY + self.picY))
 			self.positionlist.append((absX, absY))
 			skincontent += "<widget name=\"label" + str(x) + "\" position=\"" + str(absX + 5) + "," + str(absY + self.picY - textsize) + "\" size=\"" + str(self.picX - 10) + "," + str(textsize) + "\" font=\"Regular;14\" zPosition=\"2\" transparent=\"1\" noWrap=\"1\" foregroundColor=\"" + self.textcolor + "\" />"
-			skincontent += "<widget name=\"thumb" + str(x) + "\" position=\"" + str(absX + 5) + "," + str(absY + 5) + "\" size=\"" + str(self.picX - 10) + "," + str(self.picY - (textsize * 2)) + "\" zPosition=\"2\" transparent=\"1\" alphatest=\"on\" />"
+			skincontent += "<widget name=\"thumb" + str(x) + "\" position=\"" + str(absX + 5) + "," + str(absY + 5) + "\" size=\"" + str(self.picX - 10) + "," + str(self.picY - (textsize * 2)) + "\" zPosition=\"2\" transparent=\"1\" alphaTest=\"on\" />"
 		# Screen, buttons, backgroundlabel and MovingPixmap
 		self.skin = "<screen position=\"0,0\" size=\"" + str(size_w) + "," + str(size_h) + "\" flags=\"wfNoBorder\" > \
 			<ePixmap name=\"mb_bg\" position=\"0,0\" zPosition=\"1\" size=\"" + str(size_w) + "," + str(size_h) + "\" pixmap=\"" + mcpath + "skins/defaultHD/images/background.png\" /> \
-			<ePixmap pixmap=\"" + mcpath + "icons/key-red.png\" position=\"60," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphatest=\"on\" /> \
-			<ePixmap pixmap=\"" + mcpath + "icons/key-green.png\" position=\"210," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphatest=\"on\" /> \
-			<ePixmap pixmap=\"" + mcpath + "icons/key-yellow.png\" position=\"360," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphatest=\"on\" /> \
-			<ePixmap pixmap=\"" + mcpath + "icons/key-blue.png\" position=\"510," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphatest=\"on\" /> \
-			<widget name=\"key_red\" position=\"60," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" valign=\"center\" halign=\"center\" backgroundColor=\"#9f1313\" transparent=\"1\" /> \
-			<widget name=\"key_green\" position=\"210," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" valign=\"center\" halign=\"center\" backgroundColor=\"#1f771f\" transparent=\"1\" /> \
-			<widget name=\"key_yellow\" position=\"360," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" valign=\"center\" halign=\"center\" backgroundColor=\"#a08500\" transparent=\"1\" /> \
-			<widget name=\"key_blue\" position=\"510," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" valign=\"center\" halign=\"center\" backgroundColor=\"#18188b\" transparent=\"1\" /> \
+			<ePixmap pixmap=\"" + mcpath + "icons/key-red.png\" position=\"60," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphaTest=\"on\" /> \
+			<ePixmap pixmap=\"" + mcpath + "icons/key-green.png\" position=\"210," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphaTest=\"on\" /> \
+			<ePixmap pixmap=\"" + mcpath + "icons/key-yellow.png\" position=\"360," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphaTest=\"on\" /> \
+			<ePixmap pixmap=\"" + mcpath + "icons/key-blue.png\" position=\"510," + str(self.ButtonPosY) + "\" zPosition=\"2\" size=\"140,40\" transparent=\"1\" alphaTest=\"on\" /> \
+			<widget name=\"key_red\" position=\"60," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" verticalAlignment=\"center\" horizontalAlignment=\"center\" backgroundColor=\"#9f1313\" transparent=\"1\" /> \
+			<widget name=\"key_green\" position=\"210," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" verticalAlignment=\"center\" horizontalAlignment=\"center\" backgroundColor=\"#1f771f\" transparent=\"1\" /> \
+			<widget name=\"key_yellow\" position=\"360," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" verticalAlignment=\"center\" horizontalAlignment=\"center\" backgroundColor=\"#a08500\" transparent=\"1\" /> \
+			<widget name=\"key_blue\" position=\"510," + str(self.ButtonPosY) + "\" zPosition=\"3\" size=\"140,40\" font=\"Regular;20\" verticalAlignment=\"center\" horizontalAlignment=\"center\" backgroundColor=\"#18188b\" transparent=\"1\" /> \
 			<eLabel position=\"0,0\" zPosition=\"0\" size=\"" + str(size_w) + "," + str(size_h) + "\" backgroundColor=\"" + self.color + "\" /> \
-			<widget name=\"frame\" position=\"35,30\" size=\"" + str(self.picX + 1) + "," + str(self.picY + 10) + "\" pixmap=\"pic_frame.png\" zPosition=\"3\" alphatest=\"on\" />" + skincontent + "</screen>"
+			<widget name=\"frame\" position=\"35,30\" size=\"" + str(self.picX + 1) + "," + str(self.picY + 10) + "\" pixmap=\"pic_frame.png\" zPosition=\"3\" alphaTest=\"on\" />" + skincontent + "</screen>"
 		Screen.__init__(self, session)
 
 		self["actions"] = HelpableActionMap(self, "MC_PictureViewerActions",
@@ -387,10 +387,10 @@ class MC_PicView(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Helpabl
 		size_h = getDesktop(0).size().height()
 
 		self.skin = "<screen position=\"0,0\" size=\"" + str(size_w) + "," + str(size_h) + "\" flags=\"wfNoBorder\" > \
-			<eLabel position=\"0,0\" zPosition=\"0\" size=\"" + str(size_w) + "," + str(size_h) + "\" backgroundColor=\"" + self.bgcolor + "\" /><widget name=\"pic\" position=\"" + str(space) + "," + str(space) + "\" size=\"" + str(size_w - (space * 2)) + "," + str(size_h - (space * 2)) + "\" zPosition=\"1\" alphatest=\"on\" /> \
-			<widget name=\"point\" position=\"" + str(space + 5) + "," + str(space + 2) + "\" size=\"20,20\" zPosition=\"2\" pixmap=\"icons/record.png\" alphatest=\"on\" /> \
-			<widget name=\"play_icon\" position=\"" + str(space + 25) + "," + str(space + 2) + "\" size=\"20,20\" zPosition=\"2\" pixmap=\"icons/ico_mp_play.png\"  alphatest=\"on\" /> \
-			<widget name=\"file\" position=\"" + str(space + 45) + "," + str(space) + "\" size=\"" + str(size_w - (space * 2) - 50) + ",25\" font=\"Regular;20\" halign=\"left\" foregroundColor=\"" + self.textcolor + "\" zPosition=\"2\" noWrap=\"1\" transparent=\"1\" /></screen>"
+			<eLabel position=\"0,0\" zPosition=\"0\" size=\"" + str(size_w) + "," + str(size_h) + "\" backgroundColor=\"" + self.bgcolor + "\" /><widget name=\"pic\" position=\"" + str(space) + "," + str(space) + "\" size=\"" + str(size_w - (space * 2)) + "," + str(size_h - (space * 2)) + "\" zPosition=\"1\" alphaTest=\"on\" /> \
+			<widget name=\"point\" position=\"" + str(space + 5) + "," + str(space + 2) + "\" size=\"20,20\" zPosition=\"2\" pixmap=\"icons/record.png\" alphaTest=\"on\" /> \
+			<widget name=\"play_icon\" position=\"" + str(space + 25) + "," + str(space + 2) + "\" size=\"20,20\" zPosition=\"2\" pixmap=\"icons/ico_mp_play.png\"  alphaTest=\"on\" /> \
+			<widget name=\"file\" position=\"" + str(space + 45) + "," + str(space) + "\" size=\"" + str(size_w - (space * 2) - 50) + ",25\" font=\"Regular;20\" horizontalAlignment=\"left\" foregroundColor=\"" + self.textcolor + "\" zPosition=\"2\" noWrap=\"1\" transparent=\"1\" /></screen>"
 
 		Screen.__init__(self, session)
 		InfoBarBase.__init__(self)
@@ -558,7 +558,7 @@ class MC_PicView(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Helpabl
 class Pic_Exif(Screen):
 	def __init__(self, session, exiflist):
 		self.skin = """<screen position="80,120" size="560,360" title="Info" >
-				<widget source="menu" render="Listbox" position="0,0" size="560,360" scrollbarMode="showOnDemand" selectionDisabled="1" >
+				<widget source="menu" render="Listbox" position="0,0" size="560,360" scrollbarMode="showOnDemand" selection="1" >
 				<convert type="TemplatedMultiContent">
 					{"template": [  MultiContentEntryText(pos = (5, 5), size = (250, 30), flags = RT_HALIGN_LEFT, text = 0), MultiContentEntryText(pos = (260, 5), size = (290, 30), flags = RT_HALIGN_LEFT, text = 1)], "fonts": [gFont("Regular", 20)], "itemHeight": 30 }
 				</convert>

@@ -151,13 +151,13 @@ class Schiffe(Screen):
         Schiffe.skin = """
             <screen position="center,center" size="%d,%d" title="Schiffe versenken %s" >
                 <widget source="Canvas" render="Canvas" position="5,20" size="%d,%d" />
-                <widget name="message" position="%d,%d" size="140,40" valign="center" halign="center" font="Regular;21"/>
-                <ePixmap name="green"    position="%d,%d"   zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
-                <ePixmap name="blue" position="%d,%d" zPosition="4" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on" />
-                <ePixmap name="red"   position="%d,%d" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-                <widget name="key_green"    position="%d,%d"   zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-                <widget name="key_blue" position="%d,%d" zPosition="5" size="140,40" valign="center" halign="center"  font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-                <widget name="key_red"   position="%d,%d" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="message" position="%d,%d" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21"/>
+                <ePixmap name="green"    position="%d,%d"   zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on" />
+                <ePixmap name="blue" position="%d,%d" zPosition="4" size="140,40" pixmap="buttons/blue.png" transparent="1" alphaTest="on" />
+                <ePixmap name="red"   position="%d,%d" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+                <widget name="key_green"    position="%d,%d"   zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="%d,%d" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center"  font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_red"   position="%d,%d" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
             </screen>""" % (W, H, VERSION, CW, CH, WX, W0Y, WX, W1Y, WX, W2Y, WX, W3Y, WX, W1Y, WX, W2Y, WX, W3Y)
 
         if isFHD():
@@ -165,18 +165,18 @@ class Schiffe(Screen):
                 <screen name="Schiffe" position="center,140" size="1800,900" title="Schiffe" backgroundColor="#101010">
                     <ePixmap position="0,0" size="1800,900" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Schiffe/pic/Schiffe.jpg" />
                     <ePixmap position="1050,170" size="130,400" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Schiffe/pic/ship.jpg" zPosition="5" />
-                    <widget name="message" position="50,10" size="350,70" valign="center" halign="center" font="Regular;40" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
-                    <widget source="Canvas" render="Canvas" position="520,150" size="1200,550" backgroundColor="#60ffffff" transparent="1" alphatest="blend" zPosition="2" />
-                    <ePixmap position="50,150" pixmap="buttons/key_green.png" size="80,40" alphatest="blend" zPosition="2" />
-                    <widget name="key_green" font="Regular;30" position="135,150" size="450,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1" />
-                    <ePixmap position="50,200" pixmap="buttons/key_red.png" size="80,40" alphatest="blend" zPosition="2" />
-                    <widget name="key_red" font="Regular;30" position="135,200" size="450,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1" />
-                    <ePixmap position="50,250" pixmap="buttons/key_blue.png" size="80,40" alphatest="blend" zPosition="2" />
-                    <widget name="key_blue" font="Regular;30" position="135,250" size="450,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1" />
+                    <widget name="message" position="50,10" size="350,70" verticalAlignment="center" horizontalAlignment="center" font="Regular;40" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
+                    <widget source="Canvas" render="Canvas" position="520,150" size="1200,550" backgroundColor="#60ffffff" transparent="1" alphaTest="blend" zPosition="2" />
+                    <ePixmap position="50,150" pixmap="buttons/key_green.png" size="80,40" alphaTest="blend" zPosition="2" />
+                    <widget name="key_green" font="Regular;30" position="135,150" size="450,40" horizontalAlignment="left" verticalAlignment="center" backgroundColor="black" zPosition="1" transparent="1" />
+                    <ePixmap position="50,200" pixmap="buttons/key_red.png" size="80,40" alphaTest="blend" zPosition="2" />
+                    <widget name="key_red" font="Regular;30" position="135,200" size="450,40" horizontalAlignment="left" verticalAlignment="center" backgroundColor="black" zPosition="1" transparent="1" />
+                    <ePixmap position="50,250" pixmap="buttons/key_blue.png" size="80,40" alphaTest="blend" zPosition="2" />
+                    <widget name="key_blue" font="Regular;30" position="135,250" size="450,40" horizontalAlignment="left" verticalAlignment="center" backgroundColor="black" zPosition="1" transparent="1" />
                     <eLabel position="50,300" size="300,3" backgroundColor="#202020" zPosition="1" />
-                    <ePixmap position="48,332" size="80,80" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Schiffe/pic/rocket.png" alphatest="blend" zPosition="1" />
-                    <widget name="result" render="Label" position="131,335" size="200,34" font="Regular;30" halign="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="3" />
-                    <widget name="movex" render="Label" position="130,375" size="200,34" font="Regular;30" halign="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="3" />
+                    <ePixmap position="48,332" size="80,80" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Schiffe/pic/rocket.png" alphaTest="blend" zPosition="1" />
+                    <widget name="result" render="Label" position="131,335" size="200,34" font="Regular;30" horizontalAlignment="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="3" />
+                    <widget name="movex" render="Label" position="130,375" size="200,34" font="Regular;30" horizontalAlignment="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="3" />
                 </screen>"""
 
         # get window background color - find xml for actual skin...

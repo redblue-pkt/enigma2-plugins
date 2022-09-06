@@ -51,16 +51,16 @@ class EcasaPictureWall(Screen, HelpableScreen, InfoBarNotifications):
 	PICS_PER_PAGE = 15
 	PICS_PER_ROW = 5
 	skin = """<screen position="center,center" size="600,380">
-		<ePixmap position="0,0" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on"/>
-		<ePixmap position="140,0" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on"/>
-		<ePixmap position="280,0" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphatest="on"/>
-		<ePixmap position="420,0" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on"/>
-		<ePixmap position="565,10" size="35,25" pixmap="buttons/key_menu.png" alphatest="on"/>
-		<widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
-		<widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
-		<widget source="key_yellow" render="Label" position="280,0" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
-		<widget source="key_blue" render="Label" position="420,0" zPosition="1" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
-		<widget name="waitingtext" position="100,179" size="400,22" valign="center" halign="center" font="Regular;22"/>
+		<ePixmap position="0,0" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on"/>
+		<ePixmap position="140,0" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on"/>
+		<ePixmap position="280,0" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphaTest="on"/>
+		<ePixmap position="420,0" size="140,40" pixmap="buttons/blue.png" transparent="1" alphaTest="on"/>
+		<ePixmap position="565,10" size="35,25" pixmap="buttons/key_menu.png" alphaTest="on"/>
+		<widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+		<widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+		<widget source="key_yellow" render="Label" position="280,0" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+		<widget source="key_blue" render="Label" position="420,0" zPosition="1" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+		<widget name="waitingtext" position="100,179" size="400,22" verticalAlignment="center" horizontalAlignment="center" font="Regular;22"/>
 		<widget name="image0"  position="30,50"   size="90,90"/>
 		<widget name="image1"  position="140,50"  size="90,90"/>
 		<widget name="image2"  position="250,50"  size="90,90"/>
@@ -499,14 +499,14 @@ class EcasaFeedview(EcasaPictureWall):
 class EcasaAlbumview(Screen, HelpableScreen, InfoBarNotifications):
 	"""Displays albums."""
 	skin = """<screen position="center,center" size="560,420">
-		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" transparent="1" alphatest="on" />
-		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" transparent="1" alphatest="on" />
-		<ePixmap pixmap="buttons/yellow.png" position="280,0" size="140,40" transparent="1" alphatest="on" />
-		<ePixmap pixmap="buttons/blue.png" position="420,0" size="140,40" transparent="1" alphatest="on" />
-		<widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" font="Regular;20" valign="center" halign="center" backgroundColor="#1f771f" transparent="1" />
-		<widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" font="Regular;20" valign="center" halign="center" backgroundColor="#1f771f" transparent="1" />
-		<widget source="key_yellow" render="Label" position="280,0" zPosition="1" size="140,40" font="Regular;20" valign="center" halign="center" backgroundColor="#1f771f" transparent="1" />
-		<widget source="key_blue" render="Label" position="420,0" zPosition="1" size="140,40" font="Regular;20" valign="center" halign="center" backgroundColor="#1f771f" transparent="1" />
+		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" transparent="1" alphaTest="on" />
+		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" transparent="1" alphaTest="on" />
+		<ePixmap pixmap="buttons/yellow.png" position="280,0" size="140,40" transparent="1" alphaTest="on" />
+		<ePixmap pixmap="buttons/blue.png" position="420,0" size="140,40" transparent="1" alphaTest="on" />
+		<widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" font="Regular;20" verticalAlignment="center" horizontalAlignment="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" font="Regular;20" verticalAlignment="center" horizontalAlignment="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="key_yellow" render="Label" position="280,0" zPosition="1" size="140,40" font="Regular;20" verticalAlignment="center" horizontalAlignment="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="key_blue" render="Label" position="420,0" zPosition="1" size="140,40" font="Regular;20" verticalAlignment="center" horizontalAlignment="center" backgroundColor="#1f771f" transparent="1" />
 		<widget source="list" render="Listbox" position="0,50" size="560,360" scrollbarMode="showAlways">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -628,10 +628,10 @@ class EcasaPicture(Screen, HelpableScreen, InfoBarNotifications):
 		size_h = getDesktop(0).size().height()
 		self.skin = """<screen position="0,0" size="{size_w},{size_h}" flags="wfNoBorder">
 			<widget name="pixmap" position="0,0" size="{size_w},{size_h}" backgroundColor="black" zPosition="2"/>
-			<widget source="title" render="Label" position="25,20" zPosition="1" size="{labelwidth},40" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
-			<widget source="summary" render="Label" position="25,60" zPosition="1" size="{labelwidth},100" valign="top" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
-			<widget source="keywords" render="Label" position="25,160" zPosition="1" size="{labelwidth},40" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
-			<widget source="camera" render="Label" position="25,180" zPosition="1" size="{labelwidth},40" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+			<widget source="title" render="Label" position="25,20" zPosition="1" size="{labelwidth},40" verticalAlignment="center" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+			<widget source="summary" render="Label" position="25,60" zPosition="1" size="{labelwidth},100" verticalAlignment="top" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+			<widget source="keywords" render="Label" position="25,160" zPosition="1" size="{labelwidth},40" verticalAlignment="center" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
+			<widget source="camera" render="Label" position="25,180" zPosition="1" size="{labelwidth},40" verticalAlignment="center" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1"/>
 		</screen>""".format(size_w=size_w, size_h=size_h, labelwidth=size_w - 50)
 		Screen.__init__(self, session)
 		HelpableScreen.__init__(self)

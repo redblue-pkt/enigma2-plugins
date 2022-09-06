@@ -202,9 +202,9 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 	#(entry, Title, Description, TubeID, thumbnail, PublishedDate,Views,duration,ratings )
 	skin = """
 		<screen name="MyTubePlayerMainScreen" flags="wfNoBorder" position="0,0" size="720,576" title="MyTube - Browser" >
-			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphatest="on" transparent="1" backgroundColor="transparent"/>
+			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphaTest="on" transparent="1" backgroundColor="transparent"/>
 			<widget name="config" zPosition="2" position="60,60" size="600,50" scrollbarMode="showNever" transparent="1" />
-			<widget name="result" position="300,60" zPosition="3" size="350,50" font="Regular;21" transparent="1" backgroundColor="transparent" halign="right"/>
+			<widget name="result" position="300,60" zPosition="3" size="350,50" font="Regular;21" transparent="1" backgroundColor="transparent" horizontalAlignment="right"/>
 			<widget source="feedlist" render="Listbox" position="49,110" size="628,385" zPosition="1" scrollbarMode="showOnDemand" transparent="1" backgroundPixmap="~/list_bg.png" selectionPixmap="~/list_sel.png" >
 				<convert type="TemplatedMultiContent">
 				{"templates":
@@ -227,21 +227,21 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 				</convert>
 			</widget>
 
-			<ePixmap pixmap="buttons/key_info.png" position="50,500" zPosition="4" size="35,25" alphatest="on" transparent="1" />
-			<ePixmap pixmap="buttons/key_menu.png" position="50,520" zPosition="4" size="35,25" alphatest="on" transparent="1" />
-			<ePixmap position="90,500" size="100,40" zPosition="4" pixmap="~/plugin.png" alphatest="on" transparent="1" />
-			<ePixmap position="190,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<ePixmap position="330,500" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
-			<ePixmap position="470,500" zPosition="4" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphatest="on" />
-			<widget name="key_red" position="190,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="key_green" position="330,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="key_yellow" position="470,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="ButtonBlue" pixmap="buttons/button_blue.png" position="610,510" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<widget source="VKeyIcon" render="Pixmap" pixmap="vkey_icon.png" position="620,495" zPosition="10" size="60,48" transparent="1" alphatest="on">
+			<ePixmap pixmap="buttons/key_info.png" position="50,500" zPosition="4" size="35,25" alphaTest="on" transparent="1" />
+			<ePixmap pixmap="buttons/key_menu.png" position="50,520" zPosition="4" size="35,25" alphaTest="on" transparent="1" />
+			<ePixmap position="90,500" size="100,40" zPosition="4" pixmap="~/plugin.png" alphaTest="on" transparent="1" />
+			<ePixmap position="190,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<ePixmap position="330,500" zPosition="4" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on" />
+			<ePixmap position="470,500" zPosition="4" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphaTest="on" />
+			<widget name="key_red" position="190,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="key_green" position="330,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="key_yellow" position="470,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="ButtonBlue" pixmap="buttons/button_blue.png" position="610,510" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<widget source="VKeyIcon" render="Pixmap" pixmap="vkey_icon.png" position="620,495" zPosition="10" size="60,48" transparent="1" alphaTest="on">
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget name="thumbnail" position="0,0" size="100,75" alphatest="on"/> # fake entry for dynamic thumbnail resizing, currently there is no other way doing this.
-			<widget name="HelpWindow" position="160,255" zPosition="1" size="1,1" transparent="1" alphatest="on" />
+			<widget name="thumbnail" position="0,0" size="100,75" alphaTest="on"/> # fake entry for dynamic thumbnail resizing, currently there is no other way doing this.
+			<widget name="HelpWindow" position="160,255" zPosition="1" size="1,1" transparent="1" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session, l2key):
@@ -1293,11 +1293,11 @@ class MyTubePlayerMainScreen(Screen, ConfigListScreen):
 class MyTubeVideoInfoScreen(Screen):
 	skin = """
 		<screen name="MyTubeVideoInfoScreen" flags="wfNoBorder" position="0,0" size="720,576" title="MyTube - Video Info" >
-			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphatest="on" transparent="1" backgroundColor="transparent"/>
-			<widget name="title" position="60,50" size="600,50" zPosition="5" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="starsbg" pixmap="~/starsbar_empty.png" position="560,220" zPosition="5" size="100,20" transparent="1" alphatest="on" />
+			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphaTest="on" transparent="1" backgroundColor="transparent"/>
+			<widget name="title" position="60,50" size="600,50" zPosition="5" verticalAlignment="center" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="starsbg" pixmap="~/starsbar_empty.png" position="560,220" zPosition="5" size="100,20" transparent="1" alphaTest="on" />
 			<widget name="stars" pixmap="~/starsbar_filled.png" position="560,220" zPosition="6" size="100,20"  transparent="1" />
-			<widget source="infolist" render="Listbox" position="50,110" size="620,110" zPosition="6" scrollbarMode="showNever" selectionDisabled="1" transparent="1">
+			<widget source="infolist" render="Listbox" position="50,110" size="620,110" zPosition="6" scrollbarMode="showNever" selection="1" transparent="1">
 				<convert type="TemplatedMultiContent">
 				{"templates":
 					{"default": (110,[
@@ -1315,16 +1315,16 @@ class MyTubeVideoInfoScreen(Screen):
 				}
 				</convert>
 			</widget>
-			<widget name="author" position="60,220" size="300,20" zPosition="10" font="Regular;21" transparent="1" halign="left" valign="top" />
-			<widget name="duration" position="370,220" size="200,20" zPosition="10" font="Regular;21" transparent="1" halign="left" valign="top" />
-			<widget name="published" position="60,245" size="300,20" zPosition="10" font="Regular;21" transparent="1" halign="left" valign="top" />
-			<widget name="views" position="370,245" size="200,20" zPosition="10" font="Regular;21" transparent="1" halign="left" valign="top" />
-			<widget name="tags" position="60,270" size="600,20" zPosition="10" font="Regular;21" transparent="1" halign="left" valign="top" />
-			<widget name="detailtext" position="60,300" size="610,200" zPosition="10" font="Regular;21" transparent="1" halign="left" valign="top"/>
-			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphatest="on" transparent="1" />
-			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<widget name="key_red" position="220,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="thumbnail" position="0,0" size="130,98" alphatest="on"/> # fake entry for dynamic thumbnail resizing, currently there is no other way doing this.
+			<widget name="author" position="60,220" size="300,20" zPosition="10" font="Regular;21" transparent="1" horizontalAlignment="left" verticalAlignment="top" />
+			<widget name="duration" position="370,220" size="200,20" zPosition="10" font="Regular;21" transparent="1" horizontalAlignment="left" verticalAlignment="top" />
+			<widget name="published" position="60,245" size="300,20" zPosition="10" font="Regular;21" transparent="1" horizontalAlignment="left" verticalAlignment="top" />
+			<widget name="views" position="370,245" size="200,20" zPosition="10" font="Regular;21" transparent="1" horizontalAlignment="left" verticalAlignment="top" />
+			<widget name="tags" position="60,270" size="600,20" zPosition="10" font="Regular;21" transparent="1" horizontalAlignment="left" verticalAlignment="top" />
+			<widget name="detailtext" position="60,300" size="610,200" zPosition="10" font="Regular;21" transparent="1" horizontalAlignment="left" verticalAlignment="top"/>
+			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphaTest="on" transparent="1" />
+			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<widget name="key_red" position="220,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="thumbnail" position="0,0" size="130,98" alphaTest="on"/> # fake entry for dynamic thumbnail resizing, currently there is no other way doing this.
 		</screen>"""
 
 	def __init__(self, session, plugin_path, videoinfo=None):
@@ -1503,12 +1503,12 @@ class MyTubeVideoInfoScreen(Screen):
 class MyTubeVideoHelpScreen(Screen):
 	skin = """
 		<screen name="MyTubeVideoHelpScreen" flags="wfNoBorder" position="0,0" size="720,576" title="MyTube - Help" >
-			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphatest="on" transparent="1" backgroundColor="transparent"/>
-			<widget name="title" position="60,50" size="600,50" zPosition="5" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="detailtext" position="60,120" size="610,370" zPosition="10" font="Regular;21" transparent="1" halign="left" valign="top"/>
-			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphatest="on" transparent="1" />
-			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<widget name="key_red" position="220,500" zPosition="5" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<ePixmap position="0,0" zPosition="-1" size="720,576" pixmap="~/mytubemain_bg.png" alphaTest="on" transparent="1" backgroundColor="transparent"/>
+			<widget name="title" position="60,50" size="600,50" zPosition="5" verticalAlignment="center" horizontalAlignment="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+			<widget name="detailtext" position="60,120" size="610,370" zPosition="10" font="Regular;21" transparent="1" horizontalAlignment="left" verticalAlignment="top"/>
+			<ePixmap position="100,500" size="100,40" zPosition="0" pixmap="~/plugin.png" alphaTest="on" transparent="1" />
+			<ePixmap position="220,500" zPosition="4" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<widget name="key_red" position="220,500" zPosition="5" size="140,40" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 		</screen>"""
 
 	def __init__(self, session, plugin_path, wantedinfo=None, wantedtitle=None):
@@ -1563,22 +1563,22 @@ class MyTubePlayer(Screen, InfoBarNotifications, InfoBarSeek):
 
 	skin = """<screen name="MyTubePlayer" flags="wfNoBorder" position="0,380" size="720,160" title="InfoBar" backgroundColor="transparent">
 		<ePixmap position="0,0" pixmap="info-bg_mp.png" zPosition="-1" size="720,160" />
-		<ePixmap position="29,40" pixmap="screws_mp.png" size="665,104" alphatest="on" />
-		<ePixmap position="48,70" pixmap="icons/mp_buttons.png" size="108,13" alphatest="on" />
-		<ePixmap pixmap="icons/icon_event.png" position="207,78" size="15,10" alphatest="on" />
+		<ePixmap position="29,40" pixmap="screws_mp.png" size="665,104" alphaTest="on" />
+		<ePixmap position="48,70" pixmap="icons/mp_buttons.png" size="108,13" alphaTest="on" />
+		<ePixmap pixmap="icons/icon_event.png" position="207,78" size="15,10" alphaTest="on" />
 		<widget source="session.CurrentService" render="Label" position="230,73" size="360,40" font="Regular;20" backgroundColor="#263c59" shadowColor="#1d354c" shadowOffset="-1,-1" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="580,73" size="90,24" font="Regular;20" halign="right" backgroundColor="#4e5a74" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="580,73" size="90,24" font="Regular;20" horizontalAlignment="right" backgroundColor="#4e5a74" transparent="1">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="205,129" size="100,20" font="Regular;18" halign="center" valign="center" backgroundColor="#06224f" shadowColor="#1d354c" shadowOffset="-1,-1" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="205,129" size="100,20" font="Regular;18" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#06224f" shadowColor="#1d354c" shadowOffset="-1,-1" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<widget source="session.CurrentService" render="PositionGauge" position="300,133" size="270,10" zPosition="2" pointer="position_pointer.png:540,0" transparent="1" foregroundColor="#20224f">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="576,129" size="100,20" font="Regular;18" halign="center" valign="center" backgroundColor="#06224f" shadowColor="#1d354c" shadowOffset="-1,-1" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="576,129" size="100,20" font="Regular;18" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#06224f" shadowColor="#1d354c" shadowOffset="-1,-1" transparent="1">
 			<convert type="ServicePosition">Remaining</convert>
 		</widget>
 		</screen>"""

@@ -177,10 +177,10 @@ class MovieSelectionButtonSetup(ConfigListScreen, Screen):
 	skin = """
 		<screen position="center,center" size="550,400" title="MovieSelection QuickButton Setup" >
 			<widget name="config" position="20,10" size="510,330" scrollbarMode="showOnDemand" />
-			<widget name="key_red" position="0,350" size="140,40" valign="center" halign="center" zPosition="5" transparent="1" foregroundColor="white" font="Regular;18"/>
-			<widget name="key_green" position="140,350" size="140,40" valign="center" halign="center" zPosition="5" transparent="1" foregroundColor="white" font="Regular;18"/>
-			<ePixmap name="red" pixmap="buttons/red.png" position="0,350" size="140,40" zPosition="4" transparent="1" alphatest="on"/>
-			<ePixmap name="green" pixmap="buttons/green.png" position="140,350" size="140,40" zPosition="4" transparent="1" alphatest="on"/>
+			<widget name="key_red" position="0,350" size="140,40" verticalAlignment="center" horizontalAlignment="center" zPosition="5" transparent="1" foregroundColor="white" font="Regular;18"/>
+			<widget name="key_green" position="140,350" size="140,40" verticalAlignment="center" horizontalAlignment="center" zPosition="5" transparent="1" foregroundColor="white" font="Regular;18"/>
+			<ePixmap name="red" pixmap="buttons/red.png" position="0,350" size="140,40" zPosition="4" transparent="1" alphaTest="on"/>
+			<ePixmap name="green" pixmap="buttons/green.png" position="140,350" size="140,40" zPosition="4" transparent="1" alphaTest="on"/>
 		</screen>"""
 
 	def __init__(self, session, args=None):
