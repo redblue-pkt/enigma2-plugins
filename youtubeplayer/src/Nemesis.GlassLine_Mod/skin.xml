@@ -1,13 +1,13 @@
 <skin>
 <!--
-		<ePixmap name="red" position="10,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/red.png" alphatest="on" />
-		<ePixmap name="green" position="140,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/green.png" alphatest="on" />
-		<ePixmap name="yellow" position="280,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/yellow.png" alphatest="on" />
-		<ePixmap name="blue" position="420,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/blue.png" alphatest="on" />
-		<widget name="key_red" position="40,10" size="115,21" halign="left" valign="center" font="Regular;20" />
-		<widget name="key_green" position="170,10" size="115,21" halign="left" valign="center" font="Regular;20" />
-		<widget name="key_yellow" position="310,10" size="115,21" halign="left" valign="center" font="Regular;20" />
-		<widget name="key_blue" position="450,10" size="115,21" halign="left" valign="center" font="Regular;20" />
+		<ePixmap name="red" position="10,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/red.png" alphaTest="on" />
+		<ePixmap name="green" position="140,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/green.png" alphaTest="on" />
+		<ePixmap name="yellow" position="280,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/yellow.png" alphaTest="on" />
+		<ePixmap name="blue" position="420,10" size="21,21" pixmap="Nemesis.GlassLine_Mod/blue.png" alphaTest="on" />
+		<widget name="key_red" position="40,10" size="115,21" horizontalAlignment="left" verticalAlignment="center" font="Regular;20" />
+		<widget name="key_green" position="170,10" size="115,21" horizontalAlignment="left" verticalAlignment="center" font="Regular;20" />
+		<widget name="key_yellow" position="310,10" size="115,21" horizontalAlignment="left" verticalAlignment="center" font="Regular;20" />
+		<widget name="key_blue" position="450,10" size="115,21" horizontalAlignment="left" verticalAlignment="center" font="Regular;20" />
 -->
 	<!-- YouTube-Player -->
 	<screen name = "YouTubeVideoDetailsScreen" position = "80,85" size = "560,410" title = "Video Details" transparent = "0">
