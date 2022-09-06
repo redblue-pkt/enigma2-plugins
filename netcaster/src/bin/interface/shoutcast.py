@@ -57,7 +57,7 @@ try:
 	import pickle as pickle
 except:
 	import pickle
-from urllib.request import FancyURLopener
+from six.moves.urllib.request import FancyURLopener
 from xml.sax import parseString
 from xml.sax.handler import ContentHandler
 from os import stat, mkdir
