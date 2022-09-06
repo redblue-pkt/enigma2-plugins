@@ -220,7 +220,7 @@ class ShowClockSetup(Screen, ConfigListScreen): # config
 		)
 
 	def startPositioner(self, answer):
- 		self.session.open(ShowClockPositioner)
+        		self.session.open(ShowClockPositioner)
 
 ##############################################################################
 

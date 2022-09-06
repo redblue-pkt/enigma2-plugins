@@ -133,7 +133,7 @@ class LogoManagerScreen(Screen):
         """ show the currently selected MVI of the list """
         sel = self["filelist"].getCurrent()
         if sel is not None:
-          self.showMVI(sel[1])
+            self.showMVI(sel[1])
 
     def openMenu(self):
         """ opens up the Main Menu """
@@ -181,7 +181,7 @@ class LogoManagerScreen(Screen):
         """ build the menulist with givven files """
         list = []
         for i in filelist:
-                list.append((i.split("/")[-1], i))
+            list.append((i.split("/")[-1], i))
         self["filelist"].l.setList(list)
 
     def showMVI(self, mvifile):

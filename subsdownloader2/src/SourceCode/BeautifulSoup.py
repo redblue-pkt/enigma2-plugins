@@ -92,9 +92,9 @@ import types
 import re
 import sgmllib
 try:
-  from html.entities import name2codepoint
+    from html.entities import name2codepoint
 except ImportError as e:
-  name2codepoint = {}
+    name2codepoint = {}
 try:
     set
 except NameError:
@@ -937,9 +937,9 @@ class SoupStrainer:
                 markupAttrMap = None
                 for attr, matchAgainst in list(self.attrs.items()):
                     if not markupAttrMap:
-                         if hasattr(markupAttrs, 'get'):
+                        if hasattr(markupAttrs, 'get'):
                             markupAttrMap = markupAttrs
-                         else:
+                        else:
                             markupAttrMap = {}
                             for k, v in markupAttrs:
                                 markupAttrMap[k] = v
@@ -1420,27 +1420,27 @@ class BeautifulStoneSoup(Tag, SGMLParser):
                 pass
 
         if not data and self.convertXMLEntities:
-                data = self.XML_ENTITIES_TO_SPECIAL_CHARS.get(ref)
+            data = self.XML_ENTITIES_TO_SPECIAL_CHARS.get(ref)
 
         if not data and self.convertHTMLEntities and \
             not self.XML_ENTITIES_TO_SPECIAL_CHARS.get(ref):
-                # TODO: We've got a problem here. We're told this is
-                # an entity reference, but it's not an XML entity
-                # reference or an HTML entity reference. Nonetheless,
-                # the logical thing to do is to pass it through as an
-                # unrecognized entity reference.
-                #
-                # Except: when the input is "&carol;" this function
-                # will be called with input "carol". When the input is
-                # "AT&T", this function will be called with input
-                # "T". We have no way of knowing whether a semicolon
-                # was present originally, so we don't know whether
-                # this is an unknown entity or just a misplaced
-                # ampersand.
-                #
-                # The more common case is a misplaced ampersand, so I
-                # escape the ampersand and omit the trailing semicolon.
-                data = "&amp;%s" % ref
+            # TODO: We've got a problem here. We're told this is
+            # an entity reference, but it's not an XML entity
+            # reference or an HTML entity reference. Nonetheless,
+            # the logical thing to do is to pass it through as an
+            # unrecognized entity reference.
+            #
+            # Except: when the input is "&carol;" this function
+            # will be called with input "carol". When the input is
+            # "AT&T", this function will be called with input
+            # "T". We have no way of knowing whether a semicolon
+            # was present originally, so we don't know whether
+            # this is an unknown entity or just a misplaced
+            # ampersand.
+            #
+            # The more common case is a misplaced ampersand, so I
+            # escape the ampersand and omit the trailing semicolon.
+            data = "&amp;%s" % ref
         if not data:
             # This case is different from the one above, because we
             # haven't already gone through a supposedly comprehensive
@@ -1460,12 +1460,12 @@ class BeautifulStoneSoup(Tag, SGMLParser):
         declaration as a CData object."""
         j = None
         if self.rawdata[i:i + 9] == '<![CDATA[':
-             k = self.rawdata.find(']]>', i)
-             if k == -1:
-                 k = len(self.rawdata)
-             data = self.rawdata[i + 9:k]
-             j = k + 3
-             self._toStringSubclass(data, CData)
+            k = self.rawdata.find(']]>', i)
+            if k == -1:
+                k = len(self.rawdata)
+            data = self.rawdata[i + 9:k]
+            j = k + 3
+            self._toStringSubclass(data, CData)
         else:
             try:
                 j = SGMLParser.parse_declaration(self, i)
@@ -1807,12 +1807,12 @@ class UnicodeDammit:
         for proposedEncoding in overrideEncodings:
             u = self._convertFrom(proposedEncoding)
             if u:
-              break
+                break
         if not u:
             for proposedEncoding in (documentEncoding, sniffedEncoding):
                 u = self._convertFrom(proposedEncoding)
                 if u:
-                  break
+                    break
 
         # If no luck and we have auto-detection library, try that:
         if not u and chardet and not isinstance(self.markup, str):
@@ -1823,11 +1823,11 @@ class UnicodeDammit:
             for proposed_encoding in ("utf-8", "windows-1252"):
                 u = self._convertFrom(proposed_encoding)
                 if u:
-                  break
+                    break
 
         self.str = u
         if not u:
-          self.originalEncoding = None
+            self.originalEncoding = None
 
     def _subMSChar(self, orig):
         """Changes a MS smart quote character to an XML or HTML
@@ -1967,7 +1967,7 @@ class UnicodeDammit:
 
     def _codec(self, charset):
         if not charset:
-          return charset
+            return charset
         codec = None
         try:
             codecs.lookup(charset)
