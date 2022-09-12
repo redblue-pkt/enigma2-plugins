@@ -2,9 +2,9 @@ name: enigma2plugins
 
 on:
   push:
-    branches: [ python3 ]
+    branches: [ master ]
   pull_request:
-    branches: [ python3 ]
+    branches: [ master ]
 
 jobs:
   build:
