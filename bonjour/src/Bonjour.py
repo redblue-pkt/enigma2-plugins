@@ -28,8 +28,9 @@ class Bonjour:
 				'\t\t<port>%s</port>\n' % (service['port'])
 				]
 		text = service.get('text', None)
-		if text:
-			if isinstance(text, (str)):
+		if text:	
+			from six import string_types
+			if isinstance(text, (string_types)):
 				lines.append('\t\t<txt-record>%s</txt-record>\n' % (text))
 			else:
 				for txt in text:
@@ -45,7 +46,8 @@ class Bonjour:
 		if not dict:
 			return '\0'
 		parts = []
-		for name, value in dict.items():
+		from six import iteritems
+		for name, value in dict.iteritems():
 			if value is None:
 				item = name
 			else:

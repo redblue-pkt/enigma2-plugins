@@ -290,10 +290,12 @@ class SeriesPluginRenamer(object):
 
 		result = None
 
+		from six import string_types
+
 		if data and isinstance(data, dict):
 			result = rename(servicepath, name, short, data)
 
-		elif data and isinstance(data, str):
+		elif data and isinstance(data, string_types):
 			msg = _("Failed: %s." % (str(data)))
 			log.debug(msg)
 			self.data.append(name + ": " + msg)

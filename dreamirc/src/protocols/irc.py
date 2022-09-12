@@ -52,6 +52,11 @@ import traceback
 import socket
 
 from os import path
+from six import text_type, range
+try:
+	pybytes = types.StringType
+except NameError:
+	pybytes = bytes
 
 NUL = chr(0)
 CR = chr(0o15)
@@ -128,7 +133,7 @@ class IRC(protocol.Protocol):
 
     def sendLine(self, line):
         if self.encoding is not None:
-            if isinstance(line, str):
+            if isinstance(line, text_type):
                 line = line.encode(self.encoding)
         self.transport.write("%s%s%s" % (line, CR, LF))
 
@@ -933,7 +938,7 @@ class IRCClient(basic.LineReceiver):
                 del self._pings[byValue[i][1]]
 
     def dccSend(self, user, file):
-        if isinstance(file, bytes):
+        if isinstance(file, pybytes):
             file = open(file, 'r')
 
         size = fileSize(file)
@@ -1550,7 +1555,7 @@ class DccSendProtocol(protocol.Protocol, styles.Ephemeral):
     connected = 0
 
     def __init__(self, file):
-        if isinstance(file, bytes):
+        if isinstance(file, pybytes):
             self.file = open(file, 'r')
 
     def connectionMade(self):
@@ -2023,7 +2028,7 @@ def ctcpStringify(messages):
     coded_messages = []
     for (tag, data) in messages:
         if data:
-            if not isinstance(data, bytes):
+            if not isinstance(data, pybytes):
                 try:
                     # data as list-of-strings
                     data = " ".join(map(str, data))

@@ -86,6 +86,8 @@ import struct
 import select
 import time
 
+from six import range
+
 __version__ = "0.1"
 
 # From /usr/include/linux/icmp.h; your milage may vary.

@@ -6,10 +6,10 @@
 #-----------------------
 
 try:
-	#Python >= 3.10
-	from collections.abc import Sequence, Iterator
-except ImportError:
 	from collections import Sequence, Iterator
+except ImportError:
+	from collections.abc import Sequence, Iterator
+from six import range
 
 
 class PagedIterator(Iterator):
@@ -21,7 +21,7 @@ class PagedIterator(Iterator):
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def next(self):
         self._index += 1
         if self._index == self._len:
             raise StopIteration

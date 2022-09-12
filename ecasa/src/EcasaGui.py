@@ -33,13 +33,13 @@ from .FlickrApi import FlickrApi
 from enigma import ePicLoad, eTimer, getDesktop
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Tools.Notifications import AddPopup
-from collections import deque
+try:
+	from collections import deque
+except ImportError:
+	from collections.abc import deque
 from Plugins.SystemPlugins.Toolkit.SimpleThread import SimpleThread
 
-try:
-	xrange = xrange
-except NameError:
-	xrange = range
+from six import range
 
 our_print = lambda *args, **kwargs: print("[EcasaGui]", *args, **kwargs)
 
@@ -657,7 +657,7 @@ class EcasaPicture(Screen, HelpableScreen, InfoBarNotifications):
 		if prevFunc and nextFunc:
 			self["directionActions"] = HelpableActionMap(self, "DirectionActions", {
 				"left": self.previous,
-				"right": self.__next__,
+				"right": self.next,
 				}, -2)
 
 		self.picload = ePicLoad()
@@ -824,7 +824,7 @@ class EcasaPicture(Screen, HelpableScreen, InfoBarNotifications):
 			self.reloadData(self.prevFunc())
 		self['pixmap'].instance.setPixmap(None)
 
-	def __next__(self):
+	def next(self):
 		if self.nextFunc:
 			self.reloadData(self.nextFunc())
 		self['pixmap'].instance.setPixmap(None)

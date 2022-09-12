@@ -571,7 +571,8 @@ class EPGSearch(EPGSelection):
 			self.searchEPG(ret[1])
 
 	def searchEPG(self, searchString=None, searchSave=True, lastAsk=None):
-		if isinstance(searchString, str) and searchString:
+		from six import string_types
+		if isinstance(searchString, string_types) and searchString:
 			if searchSave:
 				# Maintain history
 				history = config.plugins.epgsearch.history.value
@@ -707,8 +708,8 @@ class EPGSearch(EPGSelection):
 		titleEntry = args.index("T")
 		if titleEntry < 0:
 			return []
-
-		searchFilter = reduce(lambda acc, val: acc.union(val), iter(searchFilter.values()), set())
+		from six import itervalues
+		searchFilter = reduce(lambda acc, val: acc.union(val), iter(searchFilter.itervalues()), set())
 
 		partialMatchFunc = lambda s: searchString in s
 		matchFunc = {
@@ -736,14 +737,15 @@ class EPGSearch(EPGSelection):
 	def _processBouquetServiceRefMap(self, tempServiceRefMap):
 		serviceHandler = eServiceCenter.getInstance()
 		bouquetServiceRefMap = defaultdict(set)
-		for srefId, srefDict in tempServiceRefMap.items():
+		from six import iteritems, itervalues
+		for srefId, srefDict in tempServiceRefMap.iteritems():
 			if len(srefDict) > 1 and "" in srefDict:
 				noName = srefDict[""]
 				info = serviceHandler.info(noName)
 				name = info and info.getName(noName) or ""
 				if name and name in srefDict:
 					del srefDict[""]
-			bouquetServiceRefMap[srefId[2:5]].update(sref.toString() for sref in srefDict.values())
+			bouquetServiceRefMap[srefId[2:5]].update(sref.toString() for sref in srefDict.itervalues())
 		return bouquetServiceRefMap
 
 	def _addBouquetTempServiceRefMap(self, bouquet, tempServiceRefMap):
