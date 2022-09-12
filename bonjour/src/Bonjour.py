@@ -28,7 +28,7 @@ class Bonjour:
 				'\t\t<port>%s</port>\n' % (service['port'])
 				]
 		text = service.get('text', None)
-		if text:	
+		if text:
 			from six import string_types
 			if isinstance(text, (string_types)):
 				lines.append('\t\t<txt-record>%s</txt-record>\n' % (text))
