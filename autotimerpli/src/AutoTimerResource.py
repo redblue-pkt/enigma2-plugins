@@ -5,11 +5,8 @@ from RecordTimer import AFTEREVENT
 from twisted.internet import reactor
 from twisted.web import http, resource, server
 import threading
-import six
-try:
-	from urllib import unquote
-except ImportError as ie:
-	from urllib.parse import unquote
+from six import ensure_binary, ensure_str, iteritems
+from six.moves.urllib.parse import unquote
 from ServiceReference import ServiceReference
 from Tools.XMLTools import stringToXML
 from enigma import eServiceReference
@@ -25,7 +22,7 @@ class AutoTimerBaseResource(resource.Resource):
 		req.setHeader('Content-type', 'application/xhtml+xml')
 		req.setHeader('charset', 'UTF-8')
 
-		return six.ensure_binary("""<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+		return ensure_binary("""<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
 <e2simplexmlresult>
 	<e2state>%s</e2state>
 	<e2statetext>%s</e2statetext>
@@ -252,7 +249,7 @@ class AutoTimerListAutoTimerResource(AutoTimerBaseResource):
 		req.setResponseCode(http.OK)
 		req.setHeader('Content-type', 'application/xhtml+xml')
 		req.setHeader('charset', 'UTF-8')
-		return six.ensure_binary(''.join(autotimer.getXml(webif)))
+		return ensure_binary(''.join(autotimer.getXml(webif)))
 
 
 class AutoTimerTestResource(AutoTimerBaseResource):
@@ -282,7 +279,7 @@ class AutoTimerAddXMLAutoTimerResource(AutoTimerBaseResource):
 		xml = req.args.get("xml")
 		if xml:
 			autotimer.readXml() # read current timers to ensure autotimer.timers is populated with current autotimers
-			autotimer.readXmlTimer(six.ensure_str(req.args[b'xml'][0]))
+			autotimer.readXmlTimer(ensure_str(req.args[b'xml'][0]))
 			if config.plugins.autotimer.always_write_config.value:
 				autotimer.writeXml()
 			return self.returnResult(req, True, _("AutoTimer was added successfully"))
@@ -298,7 +295,7 @@ class AutoTimerUploadXMLConfigurationAutoTimerResource(AutoTimerBaseResource):
 		req.setHeader('charset', 'UTF-8')
 		xml = req.args.get("xml")
 		if xml:
-			autotimer.readXml(xml_string=six.ensure_str([b'xml'][0]))
+			autotimer.readXml(xml_string=ensure_str([b'xml'][0]))
 			if config.plugins.autotimer.always_write_config.value:
 				autotimer.writeXml()
 			return self.returnResult(req, True, _("AutoTimers were changed successfully"))
@@ -311,14 +308,14 @@ class AutoTimerAddOrEditAutoTimerResource(AutoTimerBaseResource):
 	# TODO: allow to edit defaults?
 	def render(self, req):
 		def get(name, default=None):
-			name = six.ensure_binary(name)
+			name = ensure_binary(name)
 			ret = req.args.get(name)
-			return six.ensure_str(ret[0]) if ret else default
+			return ensure_str(ret[0]) if ret else default
 
 		def getA(name, default=None):
-			name = six.ensure_binary(name)
+			name = ensure_binary(name)
 			ret = req.args.get(name)
-			return [six.ensure_str(x) for x in ret] if ret else default
+			return [ensure_str(x) for x in ret] if ret else default
 
 		id = get("id")
 		timer = None
@@ -611,11 +608,11 @@ class AutoTimerAddOrEditAutoTimerResource(AutoTimerBaseResource):
 
 class AutoTimerChangeSettingsResource(AutoTimerBaseResource):
 	def render(self, req):
-		for key, value in six.iteritems(req.args):
-			key = six.ensure_str(key)
+		for key, value in iteritems(req.args):
+			key = ensure_str(key)
 			if value:
 				value = value[0]
-				value = six.ensure_str(value)
+				value = ensure_str(value)
 			if key == "autopoll":
 				config.plugins.autotimer.autopoll.value = True if value == "true" else False
 			elif key == "interval":
@@ -706,7 +703,7 @@ class AutoTimerSettingsResource(resource.Resource):
 		else:
 			hasSeriesPlugin = True
 
-		return six.ensure_binary("""<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+		return ensure_binary("""<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
 <e2settings>
 	<e2setting>
 		<e2settingname>config.plugins.autotimer.autopoll</e2settingname>

@@ -50,7 +50,7 @@ try:
 except ImportError as ie:
 	renameTimer = None
 
-from . import config, xrange, itervalues
+from . import config, range, itervalues
 
 XML_CONFIG = "/etc/enigma2/autotimer.xml"
 
