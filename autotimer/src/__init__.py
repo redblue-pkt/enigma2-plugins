@@ -84,8 +84,8 @@ config.plugins.autotimer.skip_during_records = ConfigYesNo(default=False)
 config.plugins.autotimer.skip_during_epgrefresh = ConfigYesNo(default=False)
 
 try:
-	iteritems = lambda d: iter(d.items())
-	itervalues = lambda d: iter(d.values())
+	iteritems = lambda d: d.iteritems()
+	itervalues = lambda d: d.itervalues()
 except NameError:
 	iteritems = lambda d: list(d.items())
 	itervalues = lambda d: list(d.values())

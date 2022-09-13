@@ -28,7 +28,7 @@ from Tools.XMLTools import stringToXML
 
 try:
 	dict.iteritems
-	iteritems = lambda d: iter(d.items())
+	iteritems = lambda d: d.iteritems()
 except AttributeError:
 	iteritems = lambda d: list(d.items())
 

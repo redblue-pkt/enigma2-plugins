@@ -11,7 +11,7 @@ from ServiceReference import ServiceReference
 from Tools.XMLTools import stringToXML
 from six.moves.urllib.parse import unquote
 try:
-	iteritems = lambda d: iter(d.items())
+	iteritems = lambda d: d.iteritems()
 except ImportError as ie:
 	iteritems = lambda d: list(d.items())
 

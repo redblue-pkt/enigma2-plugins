@@ -105,7 +105,7 @@ del pdict
 
 try:
 	dict.iteritems
-	iteritems = lambda d: iter(d.items())
+	iteritems = lambda d: d.iteritems()
 except AttributeError:
 	iteritems = lambda d: list(d.items())
 reverse = lambda map: dict((v, k) for k, v in iteritems(map))
