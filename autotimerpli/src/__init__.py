@@ -3,7 +3,7 @@ from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from os import environ as os_environ
 import gettext
-from six import PY3, range
+from six.moves import range
 
 # Config
 from Components.config import config, ConfigSubsection, ConfigOnOff, \
@@ -24,6 +24,7 @@ def _(txt):
 
 
 def removeBad(val):
+	from six import PY3
 	if PY3:
 		return val.replace('\x86', '').replace('\x87', '')
 	else:
