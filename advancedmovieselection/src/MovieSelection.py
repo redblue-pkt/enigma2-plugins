@@ -72,6 +72,14 @@ try:
 except ImportError:
     from .TagEditor import MovieTagEditor as TagEditor
 
+import sys
+import inspect
+if sys.version_info[0] == 2:  # getargspec is deprecated in Py3 in favour of getfullargspec
+	__getargs = inspect.getargspec
+else:
+	__getargs = inspect.getfullargspec
+
+
 if pluginPresent.IMDb:
     from Plugins.Extensions.IMDb.plugin import IMDB
 if pluginPresent.OFDb:
@@ -533,8 +541,7 @@ class MovieContextMenu(Screen):
     def execPlugin(self, plugin):
         if not (self.service.flags & eServiceReference.mustDescent):
             print("Starting plugin:", plugin.description)
-            import inspect
-            params = inspect.getargspec(plugin.__call__)
+            params = __getargs(plugin.__call__)
             print("Params:", params)
             if len(self.csel.list.multiSelection) > 0 and len(params[0]) >= 3:
                 plugin(self.session, self.service, self.csel.list.multiSelection)
