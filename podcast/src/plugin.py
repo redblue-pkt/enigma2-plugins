@@ -22,7 +22,7 @@ from Screens.TextBox import TextBox
 from Screens.Screen import Screen
 from Tools.BoundFunction import boundFunction
 from Tools.Directories import fileExists, resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
-from Tools.Downloader import downloadWithProgress
+from Tools.Downloader import DownloadWithProgress
 from twisted.web.client import getPage
 from xml.etree.cElementTree import parse
 from xml.dom.minidom import parseString as xmlparseString, parse as xmlparse
@@ -132,7 +132,7 @@ class BufferThread():
 		self.progress = 0
 		self.downloading = True
 		self.error = ""
-		self.download = downloadWithProgress(url, file)
+		self.download = DownloadWithProgress(url, file)
 		self.download.addProgress(self.httpProgress)
 		self.download.start().addCallback(self.httpFinished).addErrback(self.httpFailed)
 

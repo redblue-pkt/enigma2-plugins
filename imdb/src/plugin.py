@@ -4,7 +4,7 @@
 from . import _
 
 from Plugins.Plugin import PluginDescriptor
-from Tools.Downloader import downloadWithProgress
+from Tools.Downloader import DownloadWithProgress
 from enigma import ePicLoad, eServiceCenter
 from Screens.Screen import Screen
 from Screens.HelpMenu import HelpableScreen
@@ -342,7 +342,7 @@ class IMDB(Screen, HelpableScreen):
 			localfile = "/tmp/imdbquery2.html"
 			fetchurl = "https://www.imdb.com/title/" + link
 			print("[IMDB] showDetails() downloading query " + fetchurl + " to " + localfile)
-			download = downloadWithProgress(fetchurl, localfile)
+			download = DownloadWithProgress(fetchurl, localfile)
 			download.start().addCallback(self.IMDBquery2).addErrback(self.http_failed)
 			self.fetchurl = fetchurl
 			self["menu"].hide()
@@ -406,7 +406,7 @@ class IMDB(Screen, HelpableScreen):
 			if self.savingpath is not None:
 				isave = self.savingpath + ".imdbquery2.html"
 				if self.fetchurl is not None:
-					download = downloadWithProgress(self.fetchurl, isave)
+					download = DownloadWithProgress(self.fetchurl, isave)
 					download.start().addCallback(self.IMDBsave).addErrback(self.http_failed)
 		except Exception as e:
 			print('[IMDb] saveHtmlDetails exception failure: ', str(e))
@@ -519,7 +519,7 @@ class IMDB(Screen, HelpableScreen):
 						posterurl = posterurl.group(1)
 						postersave = self.savingpath + ".poster.jpg"
 #						print("[IMDB] downloading poster " + posterurl + " to " + postersave)
-						download = downloadWithProgress(posterurl, postersave)
+						download = DownloadWithProgress(posterurl, postersave)
 						download.start().addErrback(self.http_failed)
 				except Exception as e:
 					print('[IMDb] IMDBsavetxt exception failure in get poster: ', str(e))
@@ -601,7 +601,7 @@ class IMDB(Screen, HelpableScreen):
 				localfile = "/tmp/imdbquery.html"
 				fetchurl = "https://www.imdb.com/find?q=" + quoteEventName(self.eventName) + "&s=tt&site=aka"
 #				print("[IMDB] getIMDB() Downloading Query " + fetchurl + " to " + localfile)
-				download = downloadWithProgress(fetchurl, localfile)
+				download = DownloadWithProgress(fetchurl, localfile)
 				download.start().addCallback(self.IMDBquery).addErrback(self.http_failed)
 
 			else:
@@ -682,7 +682,7 @@ class IMDB(Screen, HelpableScreen):
 					localfile = "/tmp/imdbquery2.html"
 					fetchurl = "https://www.imdb.com/title/" + self.resultlist[0][1]
 					self.fetchurl = fetchurl
-					download = downloadWithProgress(fetchurl, localfile)
+					download = DownloadWithProgress(fetchurl, localfile)
 					download.start().addCallback(self.IMDBquery2).addErrback(self.http_failed)
 				elif Len > 1:
 					self.Page = 1
@@ -698,7 +698,7 @@ class IMDB(Screen, HelpableScreen):
 					# event_quoted = quoteEventName(self.eventName)
 					localfile = "/tmp/imdbquery.html"
 					fetchurl = "https://www.imdb.com/find?q=" + quoteEventName(self.eventName) + "&s=tt&site=aka"
-					download = downloadWithProgress(fetchurl, localfile)
+					download = DownloadWithProgress(fetchurl, localfile)
 					download.start().addCallback(self.IMDBquery).addErrback(self.http_failed)
 				else:
 					self["detailslabel"].setText(_("IMDb query failed!"))
@@ -814,7 +814,7 @@ class IMDB(Screen, HelpableScreen):
 				self["statusbar"].setText(_("Downloading Movie Poster: %s...") % (posterurl))
 				localfile = "/tmp/poster.jpg"
 #				print("[IMDB] downloading poster " + posterurl + " to " + localfile)
-				download = downloadWithProgress(posterurl, localfile)
+				download = DownloadWithProgress(posterurl, localfile)
 				download.start().addCallback(self.IMDBPoster).addErrback(self.http_failed)
 			else:
 				self.IMDBPoster("No  Poster Art")

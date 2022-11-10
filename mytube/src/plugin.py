@@ -27,7 +27,7 @@ from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Tools.BoundFunction import boundFunction
 from Tools.Directories import resolveFilename, SCOPE_HDD, SCOPE_PLUGIN
-from Tools.Downloader import downloadWithProgress
+from Tools.Downloader import DownloadWithProgress
 
 
 from enigma import eTimer, ePoint, RT_HALIGN_LEFT, RT_VALIGN_CENTER, gFont, ePicLoad, eServiceReference, iPlayableService
@@ -177,7 +177,7 @@ class downloadTask(Task):
 
 	def run(self, callback):
 		self.callback = callback
-		self.download = downloadWithProgress(self.url, self.local)
+		self.download = DownloadWithProgress(self.url, self.local)
 		self.download.addProgress(self.http_progress)
 		self.download.start().addCallback(self.http_finished).addErrback(self.http_failed)
 
