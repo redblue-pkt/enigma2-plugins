@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 #
 #  SHOUTcast E2
 #
@@ -22,44 +21,42 @@
 #  distributed other than under the conditions noted above.
 #
 
+from __future__ import print_function
+from os import path, mkdir, unlink
+from re import compile, findall, S, I
+from requests import get, exceptions
+from skin import parameters
+from six import ensure_binary, ensure_str
+from six.moves.urllib.parse import quote, urlparse
+from twisted.internet import reactor
+from twisted.web.client import HTTPClientFactory
+from twisted.internet.reactor import callInThread
+from xml.etree.cElementTree import fromstring
+from enigma import eServiceReference, eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_VALIGN_CENTER, getDesktop, iPlayableService, iServiceInformation, eTimer, eConsoleAppContainer, ePicLoad
+from Components.Label import Label
+from Components.Input import Input
+from Components.Pixmap import Pixmap
+from Components.FileList import FileList
+from Components.ActionMap import ActionMap
+from Components.SystemInfo import BoxInfo
+from Components.GUIComponent import GUIComponent
+from Components.ConfigList import ConfigListScreen
+from Components.Sources.StaticText import StaticText
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigDirectory, ConfigYesNo, Config, ConfigInteger, ConfigSubList, ConfigText, ConfigNumber, getConfigListEntry, configfile
 from Plugins.Plugin import PluginDescriptor
-from six.moves.urllib.parse import urlparse, quote
 from Screens.Screen import Screen
 from Screens.InfoBar import InfoBar
-from Components.SystemInfo import BoxInfo
-from Components.ActionMap import ActionMap
-from Components.Label import Label
-from enigma import eServiceReference, eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_VALIGN_CENTER, getDesktop, iPlayableService, iServiceInformation, eTimer, eConsoleAppContainer, ePicLoad
-from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
-import xml.etree.cElementTree
-from twisted.internet import reactor, defer
-from twisted.web import client
-from twisted.web.client import HTTPClientFactory
-from Components.Pixmap import Pixmap
-from Components.ScrollLabel import ScrollLabel
-import string
-import os
-import re
-import skin
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigDirectory, ConfigYesNo, Config, ConfigInteger, ConfigSubList, ConfigText, ConfigNumber, getConfigListEntry, configfile
-from Components.ConfigList import ConfigListScreen
-from Screens.MessageBox import MessageBox
-from Components.GUIComponent import GUIComponent
-from Components.Sources.StaticText import StaticText
-from twisted.web.client import downloadPage
-from Screens.ChoiceBox import ChoiceBox
-from Screens.VirtualKeyBoard import VirtualKeyBoard
-from Components.Input import Input
 from Screens.InputBox import InputBox
-from Components.FileList import FileList
-# for localized messages
-from . import _
+from Screens.ChoiceBox import ChoiceBox
+from Screens.MessageBox import MessageBox
+from Screens.VirtualKeyBoard import VirtualKeyBoard
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
+from . import _  # for localized messages
 
 coverfiles = ("/tmp/.cover.ping", "/tmp/.cover.pong")
 containerStreamripper = None
 config.plugins.shoutcast = ConfigSubsection()
-config.plugins.shoutcast.showcover = ConfigYesNo(default=True)
+config.plugins.shoutcast.showcover = ConfigYesNo(default=False)
 config.plugins.shoutcast.showinextensions = ConfigYesNo(default=False)
 config.plugins.shoutcast.streamingrate = ConfigSelection(default="0", choices=[("0", _("All")), ("64", _(">= 64 kbps")), ("128", _(">= 128 kbps")), ("192", _(">= 192 kbps")), ("256", _(">= 256 kbps"))])
 config.plugins.shoutcast.reloadstationlist = ConfigSelection(default="0", choices=[("0", _("Off")), ("1", _("every minute")), ("3", _("every three minutes")), ("5", _("every five minutes"))])
@@ -71,6 +68,8 @@ config.plugins.shoutcast.cover_width = ConfigNumber(default=200)
 config.plugins.shoutcast.cover_height = ConfigNumber(default=300)
 
 devid = "fa1jo93O_raeF0v9"
+
+_VALID_URI = compile(br"\A[\x21-\x7e]+\Z")
 
 
 class SHOUTcastGenre:
@@ -102,14 +101,14 @@ class Favorite:
 
 
 class myHTTPClientFactory(HTTPClientFactory):
-	def __init__(self, url, method='GET', postdata=None, headers=None,
-			agent="Mozilla/5.0 (Windows NT 6.1; rv:17.0) Gecko/20100101 Firefox/17.0", timeout=0, cookies=None,
+	def __init__(self, url, method=b'GET', postdata=None, headers=None,
+			agent=b"Mozilla/5.0 (Windows NT 6.1; rv:17.0) Gecko/20100101 Firefox/17.0", timeout=0, cookies=None,
 			followRedirect=1, lastModified=None, etag=None):
 		HTTPClientFactory.__init__(self, url, method=method, postdata=postdata,
 		headers=headers, agent=agent, timeout=timeout, cookies=cookies, followRedirect=followRedirect)
 
 	def clientConnectionLost(self, connector, reason):
-		lostreason = ("Connection was closed cleanly" in vars(reason))
+		lostreason = (b"Connection was closed cleanly" in vars(reason))
 		if lostreason == None:
 			print("[SHOUTcast] Lost connection, reason: %s ,trying to reconnect!" % reason)
 			connector.connect()
@@ -126,8 +125,9 @@ def sendUrlCommand(url, contextFactory=None, timeout=60, *args, **kwargs):
 	port = parsed.port or (443 if scheme == 'https' else 80)
 	path = parsed.path or '/'
 
+	url = ensure_binary(url)
 	factory = myHTTPClientFactory(url, *args, **kwargs)
-	# print("scheme=%s host=%s port=%s path=%s\n" % (scheme, host, port, path))
+	print("scheme=%s host=%s port=%s path=%s\n" % (scheme, host, port, path))
 	reactor.connectTCP(host, port, factory, timeout=timeout)
 	return factory.deferred
 
@@ -137,7 +137,7 @@ def main(session, **kwargs):
 
 
 def Plugins(**kwargs):
-	list = [PluginDescriptor(name="SHOUTcast", description=_("listen to shoutcast internet-radio"), where=[PluginDescriptor.WHERE_PLUGINMENU], icon="plugin.png", fnc=main)] # always show in plugin menu
+	list = [PluginDescriptor(name="SHOUTcast", description=_("listen to shoutcast internet-radio"), where=[PluginDescriptor.WHERE_PLUGINMENU], icon="plugin.png", fnc=main)]  # always show in plugin menu
 	if config.plugins.shoutcast.showinextensions.value:
 		list.append(PluginDescriptor(name="SHOUTcast", description=_("listen to shoutcast internet-radio"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU], fnc=main))
 	return list
@@ -182,26 +182,25 @@ class SHOUTcastWidget(Screen):
 			<widget name="station" position="115,%d" zPosition="1" size="%d,40" font="Regular;18" transparent="1"  backgroundColor="#00000000"/>
 			<widget name="console" position="115,%d" zPosition="1" size="%d,40" font="Regular;18" transparent="1"  backgroundColor="#00000000"/>
 			<widget name="cover" zPosition="2" position="5,%d" size="102,110" alphaTest="blend" />
-			<ePixmap position="%d,41" zPosition="4" size="120,35" pixmap="~/shoutcast-logo1-fs8.png" transparent="1" alphaTest="on" />
+			<ePixmap position="%d,41" zPosition="4" size="120,35" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/SHOUTcast/shoutcast-logo1-fs8.png" transparent="1" alphaTest="on" />
 		</screen>""" % (
-			sz_w, sz_h, # size
-			sz_w - 135, # size headertext
-			sz_w - 100, # size statustext
-			sz_w - 10, sz_h - 205, # size list
-			sz_h - 105, # position titel
-			sz_w - 125, # size titel
-			sz_h - 70, # position station
-			sz_w - 125, # size station
-			sz_h - 25, # position console
-			sz_w - 125, # size console
-			sz_h - 105, # position cover
-			sz_w - 125, # position logo
+			sz_w, sz_h,  # size
+			sz_w - 135,  # size headertext
+			sz_w - 100,  # size statustext
+			sz_w - 10, sz_h - 205,  # size list
+			sz_h - 105,  # position titel
+			sz_w - 125,  # size titel
+			sz_h - 70,  # position station
+			sz_w - 125,  # size station
+			sz_h - 25,  # position console
+			sz_w - 125,  # size console
+			sz_h - 105,  # position cover
+			sz_w - 125,  # position logo
 			)
 
 	def __init__(self, session):
 		self.session = session
 		Screen.__init__(self, session)
-		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/SHOUTcast")
 		self.oldtitle = None
 		self.currentcoverfile = 0
 		self.currentGoogle = None
@@ -239,9 +238,9 @@ class SHOUTcastWidget(Screen):
 		self.favoriteListIndex = 0
 
 		self.favoriteConfig = Config()
-		if os.path.exists(self.FAVORITE_FILE):
+		if path.exists(self.FAVORITE_FILE):
 			self.favoriteConfig.loadFromFile(self.FAVORITE_FILE)
-		elif os.path.exists(self.FAVORITE_FILE_OLD):
+		elif path.exists(self.FAVORITE_FILE_OLD):
 			self.favoriteConfig.loadFromFile(self.FAVORITE_FILE_OLD)
 		else:
 			self.favoriteConfig.loadFromFile(self.FAVORITE_FILE_DEFAULT)
@@ -433,6 +432,7 @@ class SHOUTcastWidget(Screen):
 		self["key_red"].setText(_("Record"))
 
 	def streamripperDataAvail(self, data):
+		data = ensure_str(data)
 		sData = data.replace('\n', '')
 		self["console"].setText(sData)
 
@@ -443,15 +443,15 @@ class SHOUTcastWidget(Screen):
 	def reloadStationListTimerTimeout(self):
 		self.stopReloadStationListTimer()
 		if self.mode == self.STATIONLIST:
-			# print("[SHOUTcast] reloadStationList: %s " % self.stationListURL)
+			# print "[SHOUTcast] reloadStationList: %s " % self.stationListURL
 			sendUrlCommand(self.stationListURL, None, 10).addCallback(self.callbackStationList).addErrback(self.callbackStationListError)
 
 	def InputBoxStartRecordingCallback(self, returnValue=None):
 		if returnValue:
 			recordingLength = int(returnValue) * 60
-			if not os.path.exists(config.plugins.shoutcast.dirname.value):
+			if not path.exists(config.plugins.shoutcast.dirname.value):
 				try:
-					os.mkdir(config.plugins.shoutcast.dirname.value)
+					mkdir(config.plugins.shoutcast.dirname.value)
 				except:
 					self.session.open(MessageBox, _("Error create directory %s!") % config.plugins.shoutcast.dirname.value, MessageBox.TYPE_ERROR, timeout=10)
 					return
@@ -560,6 +560,7 @@ class SHOUTcastWidget(Screen):
 		sendUrlCommand(url, None, 10).addCallback(self.callbackGenreList).addErrback(self.callbackGenreListError)
 
 	def callbackGenreList(self, xmlstring):
+		xmlstring = ensure_str(xmlstring)
 		self["headertext"].setText(_("SHOUTcast genre list"))
 		self.genreListIndex = 0
 		self.mode = self.GENRELIST
@@ -580,9 +581,9 @@ class SHOUTcastWidget(Screen):
 
 	def fillGenreList(self, xmlstring):
 		genreList = []
-		# print("[SHOUTcast] fillGenreList\n%s" % xmlstring)
+		# print "[SHOUTcast] fillGenreList\n%s" % xmlstring
 		try:
-			root = xml.etree.cElementTree.fromstring(xmlstring)
+			root = fromstring(xmlstring)
 		except:
 			return []
 		data = root.find("data")
@@ -595,7 +596,7 @@ class SHOUTcastWidget(Screen):
 				gid = childs.get("id")
 				gparentid = childs.get("parentid")
 				ghaschilds = childs.get("haschildren")
-				#print("[SHOUTcast] Genre %s id=%s parent=%s haschilds=%s\n" % (gn, gid, gparentid, ghaschilds))
+				#print "[SHOUTcast] Genre %s id=%s parent=%s haschilds=%s\n" % (gn, gid, gparentid, ghaschilds)
 				genreList.append(SHOUTcastGenre(name=gn, id=gid, parentid=gparentid, haschilds=ghaschilds))
 				if ghaschilds == "true":
 					for childlist in childs.findall("genrelist"):
@@ -604,7 +605,7 @@ class SHOUTcastWidget(Screen):
 							gid = genre.get("id")
 							gparentid = genre.get("parentid")
 							ghaschilds = genre.get("haschildren")
-							# print("[SHOUTcast]   Genre %s id=%s parent=%s haschilds=%s\n" % (gn, gid, gparentid, ghaschilds))
+							# print "[SHOUTcast]   Genre %s id=%s parent=%s haschilds=%s\n" % (gn, gid, gparentid, ghaschilds)
 							genreList.append(SHOUTcastGenre(name=gn, id=gid, parentid=gparentid, haschilds=ghaschilds))
 		return genreList
 
@@ -680,12 +681,13 @@ class SHOUTcastWidget(Screen):
 		self.session.nav.stopService()
 
 	def callbackPLS(self, result):
+		result = ensure_str(result)
 		self["headertext"].setText(self.headerTextString)
 		found = False
-		parts = string.split(result, "\n")
+		parts = result.split("\n")
 		for lines in parts:
 			if lines.find("File1=") != -1:
-				line = string.split(lines, "File1=")
+				line = lines.split("File1=")
 				found = True
 				self.playServiceStream(line[-1].rstrip().strip())
 
@@ -704,13 +706,14 @@ class SHOUTcastWidget(Screen):
 		self["statustext"].setText(_("Getting %s") % self.headerTextString)
 		self["list"].hide()
 		if len(devid) > 8:
-			self.stationListURL = self.SC + "/station/advancedsearch&f=xml&k=%s&search=%s" % (devid, genre)
+			self.stationListURL = self.SC + "/station/advancedsearch&f=xml&k=%s&search=%s" % (devid, quote(genre))
 		else:
-			self.stationListURL = "http://207.200.98.1/sbin/newxml.phtml?genre=%s" % genre
+			self.stationListURL = "http://207.200.98.1/sbin/newxml.phtml?genre=%s" % quote(genre)
 		self.stationListIndex = 0
 		sendUrlCommand(self.stationListURL, None, 10).addCallback(self.callbackStationList).addErrback(self.callbackStationListError)
 
 	def callbackStationList(self, xmlstring):
+		xmlstring = ensure_str(xmlstring)
 		self.searchSHOUTcastString = ""
 		self.stationListXML = xmlstring
 		self["headertext"].setText(self.headerTextString)
@@ -728,7 +731,7 @@ class SHOUTcastWidget(Screen):
 	def fillStationList(self, xmlstring):
 		stationList = []
 		try:
-			root = xml.etree.cElementTree.fromstring(xmlstring)
+			root = fromstring(xmlstring)
 		except:
 			return []
 		config_bitrate = int(config.plugins.shoutcast.streamingrate.value)
@@ -875,7 +878,7 @@ class SHOUTcastWidget(Screen):
 
 	def Error(self, error=None):
 		if error is not None:
-			# print("[SHOUTcast] Error: %s\n" % error)
+			print("[SHOUTcast] Error: %s\n" % error)
 			try:
 				self["list"].hide()
 				self["statustext"].setText(str(error.getErrorMessage()))
@@ -892,7 +895,7 @@ class SHOUTcastWidget(Screen):
 		global coverfiles
 		for f in coverfiles:
 			try:
-				os.unlink(f)
+				unlink(f)
 			except:
 				pass
 		self.stopReloadStationListTimer()
@@ -922,9 +925,16 @@ class SHOUTcastWidget(Screen):
 			sendUrlCommand(self.currentGoogle, None, 10).addCallback(self.GoogleImageCallback).addErrback(self.Error)
 			return
 		self.currentGoogle = None
-		r = re.findall('murl&quot;:&quot;(http.*?)&quot', result, re.S | re.I)
+		result = ensure_str(result)
+		r = findall('murl&quot;:&quot;(http.*?)&quot', result, S | I)
 		if r:
 			url = r[nr]
+			# FIXME loop
+			_url = ensure_binary(url)
+			if not _VALID_URI.match(_url):
+				nr += 1
+				url = r[nr]
+			# FIXME nr max
 			print("[SHOUTcast] fetch cover first try:%s" % (url))
 			for link in bad_link:
 				if url.startswith(link):
@@ -953,12 +963,26 @@ class SHOUTcastWidget(Screen):
 			if validurl:
 				self.currentcoverfile = (self.currentcoverfile + 1) % len(coverfiles)
 				try:
-					os.unlink(coverfiles[self.currentcoverfile - 1])
+					unlink(coverfiles[self.currentcoverfile - 1])
 				except:
 					pass
 				coverfile = coverfiles[self.currentcoverfile]
 				print("[SHOUTcast] downloading cover from %s to %s numer%s" % (url, coverfile, str(nr)))
-				downloadPage(url, coverfile).addCallback(self.coverDownloadFinished, coverfile).addErrback(self.coverDownloadFailed)
+				callInThread(self.threadDownloadPage, url, coverfile, (self.coverDownloadFinished, coverfile), self.coverDownloadFailed)
+
+# FIXME [SHOUTcast] cover download failed: [Failure instance: Traceback: <class 'OpenSSL.SSL.Error'>: [('SSL routines', 'ssl3_read_bytes', 'sslv3 alert handshake failure')]
+
+	def threadDownloadPage(self, link, file, success, fail=None):
+		link = ensure_binary(link.encode('ascii', 'xmlcharrefreplace').decode().replace(' ', '%20').replace('\n', ''))
+		try:
+			response = get(link)
+			response.raise_for_status()
+			with open(file, "wb") as f:
+				f.write(response.content)
+			success(file)
+		except exceptions.RequestException as error:
+			if fail is not None:
+				fail(error)
 
 	def coverDownloadFailed(self, result):
 		print("[SHOUTcast] cover download failed:", result)
@@ -1117,9 +1141,9 @@ class SHOUTcastList(GUIComponent, object):
 	def buildEntry(self, item):
 		width = self.l.getItemSize().width()
 		res = [None]
-		if self.mode == 0: # GENRELIST
+		if self.mode == 0:  # GENRELIST
 			print("[SHOUTcast] list name=%s haschilds=%s opened=%s\n" % (item.name, item.haschilds, item.opened))
-			if item.parentid == "0": # main genre
+			if item.parentid == "0":  # main genre
 				if item.haschilds == "true":
 					if item.opened == "true":
 						iname = "- %s" % item.name
@@ -1130,12 +1154,12 @@ class SHOUTcastList(GUIComponent, object):
 			else:
 				iname = "     %s" % item.name
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 0, width, self.pard, 0, RT_HALIGN_LEFT | RT_VALIGN_CENTER, iname))
-		elif self.mode == 1: # STATIONLIST
+		elif self.mode == 1:  # STATIONLIST
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 3, width, self.para, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, item.name))
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, self.parb, width, self.para, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, item.ct))
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, self.parc, width / 2, self.para, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, _("Audio: %s") % item.mt))
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, width / 2, self.parc, width / 2, self.para, 1, RT_HALIGN_RIGHT | RT_VALIGN_CENTER, _("Bit rate: %s kbps") % item.br))
-		elif self.mode == 2: # FAVORITELIST
+		elif self.mode == 2:  # FAVORITELIST
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 3, width, self.para, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, item.configItem.name.value))
 			res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, self.parb, width, self.para, 1, RT_HALIGN_LEFT | RT_VALIGN_CENTER, "%s (%s)" % (item.configItem.text.value, item.configItem.type.value)))
 			if len(item.configItem.audio.value) != 0:
@@ -1147,15 +1171,15 @@ class SHOUTcastList(GUIComponent, object):
 	def __init__(self):
 		GUIComponent.__init__(self)
 		self.l = eListboxPythonMultiContent()
-		self.fontsize0, self.fontsize1, self.cenrylist, self.favlist, self.para, self.parb, self.parc, self.pard = skin.parameters.get("SHOUTcastListItem", (20, 18, 22, 69, 20, 23, 43, 22))
+		self.fontsize0, self.fontsize1, self.cenrylist, self.favlist, self.para, self.parb, self.parc, self.pard = parameters.get("SHOUTcastListItem", (20, 18, 22, 69, 20, 23, 43, 22))
 		self.onSelectionChanged = []
 		self.mode = 0
 
 	def setMode(self, mode):
 		self.mode = mode
-		if mode == 0: # GENRELIST
+		if mode == 0:  # GENRELIST
 			self.l.setItemHeight(self.cenrylist)
-		elif mode == 1 or mode == 2: # STATIONLIST OR FAVORITELIST
+		elif mode == 1 or mode == 2:  # STATIONLIST OR FAVORITELIST
 			self.l.setItemHeight(self.favlist)
 
 	def connectSelChanged(self, fnc):
