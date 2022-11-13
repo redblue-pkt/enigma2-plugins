@@ -1,31 +1,26 @@
 # -*- coding: utf-8 -*-
-
-from Screens.Screen import Screen
+from __future__ import print_function, absolute_import
+from os import remove as os_remove
+from os.path import exists as os_path_exists
+from datetime import datetime
+from requests import get, exceptions
+from six import ensure_binary
+from six.moves.urllib.parse import quote as urllib_quote
+from twisted.internet.reactor import callInThread
+from xml.etree.cElementTree import fromstring as cElementTree_fromstring
+from enigma import eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, ePicLoad, eTimer
 from Components.Sources.List import List
 from Components.Button import Button
 from Components.Label import Label
 from Components.ActionMap import ActionMap
-from Screens.InputBox import InputBox
 from Components.Input import Input
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Pixmap import Pixmap
 from Components.AVSwitch import AVSwitch
+from Screens.Screen import Screen
+from Screens.InputBox import InputBox
 from Tools.BoundFunction import boundFunction
-
-from enigma import eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, ePicLoad, eTimer
-
 from .PictureScreen import PictureScreen
-
-from twisted.web.client import getPage, downloadPage
-#from twisted.internet import reactor
-
-from xml.etree.cElementTree import fromstring as cElementTree_fromstring
-
-from os import remove as os_remove
-from os.path import exists as os_path_exists
-from datetime import datetime
-
-from six.moves.urllib.parse import quote as urllib_quote
 #########################################
 
 
@@ -92,7 +87,7 @@ class TravelWebcamviewer(Screen):
 		self["key_yellow"] = Button(_("search"))
 		self["key_blue"] = Button(_("hdkfjhg"))
 
-		self["key_blue"].hide() #not used at the moment
+		self["key_blue"].hide()  # not used at the moment
 
 		self["actions"] = ActionMap(["WizardActions", "MenuActions", "DirectionActions", "ShortcutActions"],
 			{
@@ -135,9 +130,9 @@ class TravelWebcamviewer(Screen):
 
 	def onSearchkeyEntered(self, value):
 		if value is not None and self.finish_loading != False:
-			self.timer_status.start(1)
-			WebcamTravelerAPI().search(self.onDataLoaded, value)
-			self.finish_loading = False
+ 			self.timer_status.start(1)
+ 			WebcamTravelerAPI().search(self.onDataLoaded, value)
+ 			self.finish_loading = False
 
 	def loadData(self):
 		if self.finish_loading != False:
@@ -160,7 +155,20 @@ class TravelWebcamviewer(Screen):
 	def downloadThumbnails(self):
 		for cam in self.list:
 			self.pixmaps_to_load.append(cam.webcamid)
-			downloadPage(cam.thumbnail_url, "/tmp/" + str(cam.webcamid) + "_thumb.jpg").addCallback(self.fetchFinished, cam.webcamid).addErrback(self.fetchFailed, cam.webcamid)
+#			downloadPage(six.ensure_binary(cam.thumbnail_url), "/tmp/" + str(cam.webcamid) + "_thumb.jpg").addCallback(self.fetchFinished, cam.webcamid).addErrback(self.fetchFailed, cam.webcamid)
+			callInThread(self.threadDownloadPage, cam.thumbnail_url, "/tmp/%s_thumb.jpg" % cam.webcamid, boundFunction(self.fetchFinished, cam.webcamid), boundFunction(self.fetchFailed, cam.webcamid))
+
+	def threadDownloadPage(self, link, file, success, fail=None):
+		link = ensure_binary(link.encode('ascii', 'xmlcharrefreplace').decode().replace(' ', '%20').replace('\n', ''))
+		try:
+			response = get(link)
+			response.raise_for_status()
+			with open(file, "wb") as f:
+				f.write(response.content)
+			success(file)
+		except exceptions.RequestException as error:
+			if fail is not None:
+				fail(error)
 
 	def fetchFailed(self, string, webcamid):
 		print("fetchFailed", webcamid, string.getErrorMessage())
@@ -274,11 +282,22 @@ class WebcamTravelerAPI:
 			print(key, kwargs[key])
 			url += "&" + str(key) + "=" + str(kwargs[key])
 		print(url)
-		cb = getPage(url).addCallback(callback)
+#		cb = getPage(six.ensure_binary(url)).addCallback(callback)
+		cb = callInThread(self.threadGetPage, url, callback)
 		if errorback != None:
 			cb.addErrback(errorback)
 		else:
 			cb.addErrback(self.loadingFailed)
+
+	def threadGetPage(self, link, success, fail=None):
+		link = ensure_binary(link.encode('ascii', 'xmlcharrefreplace').decode().replace(' ', '%20').replace('\n', ''))
+		try:
+			response = get(ensure_binary(link))
+			response.raise_for_status()
+			success(response.content)
+		except exceptions.RequestException as error:
+			if fail is not None:
+				fail(error)
 
 	def loadingFailed(self, reason):
 		print("loadingFailed", reason)

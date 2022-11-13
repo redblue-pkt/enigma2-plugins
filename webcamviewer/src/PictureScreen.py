@@ -1,26 +1,23 @@
 # -*- coding: utf-8 -*-
-
-
+from __future__ import print_function, absolute_import
+from twisted.web.client import HTTPDownloader
+from twisted.internet import reactor
+from six import ensure_binary
+from six.moves.urllib.parse import urlparse, urlunparse
 from enigma import ePicLoad, eTimer, getDesktop
-
-from Screens.Screen import Screen
 from Components.AVSwitch import AVSwitch
 from Components.config import config
 from Components.Pixmap import Pixmap
 from Components.ActionMap import ActionMap
-
+from Screens.Screen import Screen
 from .FTPDownloader import FTPDownloader
-from twisted.web.client import HTTPDownloader
-from twisted.internet import reactor
-from six.moves.urllib.parse import urlparse, urlunparse
 
 
 def _parse(url, defaultPort=None):
 	url = url.strip()
 	parsed = urlparse(url)
 	scheme = parsed[0]
-	path = urlunparse(('', '') + parsed[2:])
-
+	filepath = urlunparse((b'', b'') + (parsed[2:]))
 	if defaultPort is None:
 		if scheme == 'https':
 			defaultPort = 443
@@ -31,9 +28,9 @@ def _parse(url, defaultPort=None):
 
 	host, port = parsed[1], defaultPort
 
-	if '@' in host:
+	if b'@' in host:
 		username, host = host.split('@')
-		if ':' in username:
+		if b':' in username:
 			username, password = username.split(':')
 		else:
 			password = ""
@@ -41,25 +38,25 @@ def _parse(url, defaultPort=None):
 		username = ""
 		password = ""
 
-	if ':' in host:
+	if b':' in host:
 		host, port = host.split(':')
 		port = int(port)
 
-	if path == "":
-		path = "/"
+	if filepath == "":
+		filepath = "/"
 
-	return scheme, host, port, path, username, password
+	return scheme, host, port, filepath, username, password
 
 
 def download(url, file, contextFactory=None, *args, **kwargs):
 	"""Download a remote file from http(s) or ftp.
 
-	@param file: path to file on filesystem, or file-like object.
+	@param file: filepath to file on filesystem, or file-like object.
 
 	See HTTPDownloader to see what extra args can be passed if remote file
 	is accessible via http or https. Both Backends should offer supportPartial.
 	"""
-	scheme, host, port, path, username, password = _parse(url)
+	scheme, host, port, filepath, username, password = _parse(url)
 
 	if scheme == 'ftp':
 		if not (username and password):
@@ -69,7 +66,7 @@ def download(url, file, contextFactory=None, *args, **kwargs):
 		client = FTPDownloader(
 			host,
 			port,
-			path,
+			filepath,
 			file,
 			username,
 			password,
@@ -80,14 +77,17 @@ def download(url, file, contextFactory=None, *args, **kwargs):
 
 	# We force username and password here as we lack a satisfying input method
 	if username and password:
-		from base64 import encodestring
+		from six import PY3
+		from base64 import b64encode
 
 		# twisted will crash if we don't rewrite this ;-)
-		url = scheme + '://' + host + ':' + str(port) + path
+		url = '%s://%s:%s%s' % (scheme, host, port, filepath)
 
-		basicAuth = encodestring("%s:%s" % (username, password))
-		authHeader = "Basic " + basicAuth.strip()
-		AuthHeaders = {"Authorization": authHeader}
+		base64string = "%s:%s" % (username, password)
+		base64string = b64encode(ensure_binary(base64string))
+		if PY3:
+			base64string.decode()
+		AuthHeaders = {"Authorization": "Basic %s" % base64string}
 
 		if "headers" in kwargs:
 			kwargs["headers"].update(AuthHeaders)
@@ -108,7 +108,7 @@ def download(url, file, contextFactory=None, *args, **kwargs):
 
 class PictureScreen(Screen):
 	skin = ""
-	processing = False # if fetching or converting is active
+	processing = False  # if fetching or converting is active
 	autoreload = False
 
 	def __init__(self, session, title, filename, slideshowcallback=None, args=0):
@@ -160,7 +160,7 @@ class PictureScreen(Screen):
 	def do(self):
 		if self.processing:
 			pass
-		elif self.filename.startswith(("http://", "https://", "ftp://")):
+		elif self.filename.startswith((ensure_binary("http://"), ensure_binary("https://"), ensure_binary("ftp://"))):
 			self.fetchFile(self.filename)
 		else:
 			self.sourcefile = self.filename
@@ -172,9 +172,9 @@ class PictureScreen(Screen):
 
 	def cleanUP(self):
 		try:
-			if os.path.exists("/tmp/loadedfile"):
-				os.remove("/tmp/loadedfile")
-		except:## OSerror??
+			if exists("/tmp/loadedfile"):
+				remove("/tmp/loadedfile")
+		except:  # OSerror??
 			pass
 
 	def fetchFile(self, url):
@@ -186,7 +186,7 @@ class PictureScreen(Screen):
 
 	def fetchFailed(self, string):
 		print("fetch failed", string)
-		self.setTitle("fetch failed: " + string)
+		self.setTitle("fetch failed: %s" % string)
 
 	def fetchFinished(self, string):
 		print("fetching finished")
@@ -196,7 +196,7 @@ class PictureScreen(Screen):
 		if not self.paused:
 			self.setTitle(self.screentitle)
 		else:
-			self.setTitle(_("pause") + ":" + self.screentitle)
+			self.setTitle("%s:%s" % (_("pause"), self.screentitle))
 		self.picload.startDecode(string)
 
 	def setPictureCB(self, picInfo=None):
@@ -222,7 +222,7 @@ class PictureScreen(Screen):
 			self.closetimer.stop()
 			self.paused = True
 
-			self.setTitle(_("pause") + ":" + self.filename.split("/")[-1])
+			self.setTitle("%s:%s" % (_("pause"), self.filename.split("/")[-1]))
 		else:
 			self.paused = False
 
