@@ -126,11 +126,7 @@ config.plugins.autotimer.max_search_events_match = ConfigSelection(choices=[
 )
 config.plugins.autotimer.clear_memory = ConfigYesNo(default=False)
 
-try:
-	iteritems = lambda d: iteritems(d)
-	itervalues = lambda d: d.values()
-except NameError:
-	iteritems = lambda d: d.items()
-	itervalues = lambda d: d.values()
+iteritems = lambda d: d.items()
+itervalues = lambda d: d.values()
 
 __all__ = ['_', 'config', 'iteritems', 'itervalues', 'range']
