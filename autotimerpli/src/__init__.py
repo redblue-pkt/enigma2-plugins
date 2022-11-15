@@ -128,7 +128,7 @@ config.plugins.autotimer.clear_memory = ConfigYesNo(default=False)
 
 try:
 	iteritems = lambda d: iteritems(d)
-	itervalues = lambda d: itervalues(d)
+	itervalues = lambda d: d.values()
 except NameError:
 	iteritems = lambda d: d.items()
 	itervalues = lambda d: d.values()
