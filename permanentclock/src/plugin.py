@@ -18,16 +18,21 @@ from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LIBDIR
 import gettext
-import os
+from os import system, path
 from Components.Console import Console
 from Tools.PyVerHelper import getPyExt
 
 PyExt = getPyExt()
 
-if not os.path.exists(resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Converter/PermanentClockTime.%s' % PyExt)):
-	Console().ePopen('cp %s %s') % (resolveFilename(SCOPE_PLUGINS, "Extensions/PermanentClock/PermanentClockTime.%s" % PyExt), resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Converter/PermanentClockTime.%s' % PyExt))
-if not os.path.exists(resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Renderer/PermanentClockWatches.%s' % PyExt)):
-	Console().ePopen('cp %s %s') % (resolveFilename(SCOPE_PLUGINS, "Extensions/PermanentClock/PermanentClockWatches.%s" % PyExt), resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Renderer/PermanentClockWatches.%s' % PyExt))
+PTime = resolveFilename(SCOPE_PLUGINS, "Extensions/PermanentClock/PermanentClockTime.%s" % PyExt)
+ConverterTime = resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Converter/PermanentClockTime.%s' % PyExt)
+PWatches = resolveFilename(SCOPE_PLUGINS, "Extensions/PermanentClock/PermanentClockWatches.%s" % PyExt)
+RendererWatches = resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Renderer/PermanentClockWatches.%s' % PyExt)
+
+if not path.exists(ConverterTime):
+	system("cp -f " + PTime + " " + ConverterTime)
+if not path.exists(RendererWatches):
+	system("cp -f " + PWatches + " " + RendererWatches)
 
 _session = None
 
