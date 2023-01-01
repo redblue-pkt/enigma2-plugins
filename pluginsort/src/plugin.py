@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 from . import _
 
 # Plugin definition
@@ -103,11 +101,7 @@ for where in pdict:
 		WHEREMAP[where] = pdict[where]
 del pdict
 
-try:
-	dict.iteritems
-	iteritems = lambda d: d.iteritems()
-except AttributeError:
-	iteritems = lambda d: list(d.items())
+iteritems = lambda d: d.items()
 reverse = lambda map: dict((v, k) for k, v in iteritems(map))
 
 

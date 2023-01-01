@@ -3,11 +3,11 @@ from re import sub, finditer
 
 try:
 	import htmlentitydefs
-	iteritems = lambda d: d.iteritems()
 except ImportError as ie:
 	from html import entities as htmlentitydefs
-	iteritems = lambda d: d.items()
 from six import unichr
+
+iteritems = lambda d: d.items()
 
 
 def strip_readable(html):

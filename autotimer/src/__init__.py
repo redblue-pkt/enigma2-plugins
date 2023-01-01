@@ -83,11 +83,7 @@ config.plugins.autotimer.show_help = ConfigYesNo(default=True)
 config.plugins.autotimer.skip_during_records = ConfigYesNo(default=False)
 config.plugins.autotimer.skip_during_epgrefresh = ConfigYesNo(default=False)
 
-try:
-	iteritems = lambda d: d.iteritems()
-	itervalues = lambda d: d.itervalues()
-except NameError:
-	iteritems = lambda d: list(d.items())
-	itervalues = lambda d: list(d.values())
+iteritems = lambda d: d.items()
+itervalues = lambda d: d.values()
 
 __all__ = ['_', 'config', 'iteritems', 'itervalues', 'range']

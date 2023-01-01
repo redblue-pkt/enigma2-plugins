@@ -24,11 +24,7 @@ except ImportError as e:
 
 GNTP_TCP_PORT = 23053
 
-try:
-	dict.iteritems
-	iteritems = lambda d: d.iteritems()
-except AttributeError:
-	iteritems = lambda d: list(d.items())
+iteritems = lambda d: d.items()
 
 
 class GNTPPacket:

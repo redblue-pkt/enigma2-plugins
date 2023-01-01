@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 # Plugin definition
 from Plugins.Plugin import PluginDescriptor
 
@@ -26,11 +24,7 @@ except ImportError as ie:
 	ParseError = SyntaxError
 from Tools.XMLTools import stringToXML
 
-try:
-	dict.iteritems
-	iteritems = lambda d: d.iteritems()
-except AttributeError:
-	iteritems = lambda d: list(d.items())
+iteritems = lambda d: d.items()
 
 from operator import itemgetter
 from shutil import copyfile, Error

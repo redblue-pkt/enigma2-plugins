@@ -10,10 +10,8 @@ from .OrderedSet import OrderedSet
 from ServiceReference import ServiceReference
 from Tools.XMLTools import stringToXML
 from six.moves.urllib.parse import unquote
-try:
-	iteritems = lambda d: d.iteritems()
-except ImportError as ie:
-	iteritems = lambda d: list(d.items())
+
+iteritems = lambda d: d.items()
 
 API_VERSION = "1.4"
 
