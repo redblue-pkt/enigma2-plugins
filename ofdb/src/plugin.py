@@ -399,7 +399,7 @@ class OFDB(Screen):
 
 			Titeltext = self.generalinfos.group("title")
 			if len(Titeltext) > 57:
-				Titeltext = Titeltext[0:54] + "..."
+				Titeltext = "%s%s" % (Titeltext[0:54], "…")
 			self["titellabel"].setText(Titeltext)
 
 			Detailstext = ""
@@ -455,7 +455,7 @@ class OFDB(Screen):
 				posterurl = posterurl.group(1)
 				self["statusbar"].setText(_("Downloading Movie Poster: %s...") % (posterurl))
 				localfile = "/tmp/poster.jpg"
-				print("[OFDb] downloading poster " + posterurl + " to " + localfile)
+				print("[OFDb] downloading poster %s to %s" % (posterurl, localfile))
 				downloadPage(posterurl, localfile).addCallback(self.OFDBPoster).addErrback(self.fetchFailed)
 			else:
 				print("no jpg poster!")
