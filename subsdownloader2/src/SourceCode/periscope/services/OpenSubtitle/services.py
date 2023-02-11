@@ -23,10 +23,7 @@ import os
 import struct
 import traceback
 import logging
-try:
-	import commands
-except:
-	import subprocess as commands
+import subprocess as commands
 
 #from Screens.MessageBox import MessageBox
 #from Screens.Screen import Screen

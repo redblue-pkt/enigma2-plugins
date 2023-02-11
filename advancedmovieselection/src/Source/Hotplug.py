@@ -66,10 +66,7 @@ class Hotplug():
         print("[update hutplug]")
         try:
             from Components.Harddisk import Harddisk
-            try:
-                import commands
-            except:
-                import subprocess as commands
+            import subprocess as commands
             movieConfig = MovieConfig()
             lines = commands.getoutput('mount | grep /dev/sd').split('\n')
             print(lines)

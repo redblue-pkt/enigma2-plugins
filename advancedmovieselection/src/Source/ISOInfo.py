@@ -97,10 +97,7 @@ class ISORead:
         return path_table
 
 
-try:
-	import commands
-except:
-	import subprocess as commands
+import subprocess as commands
 
 
 class ISOInfo:
