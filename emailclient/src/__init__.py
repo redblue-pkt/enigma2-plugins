@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-
 '''
 Common functions for EmailClient
 '''
-from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.Language import language
 from Components.config import config
 import os
@@ -22,7 +21,7 @@ def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
 		return gettext.dgettext(PluginLanguageDomain, txt)
 	else:
-		print("[" + PluginLanguageDomain + "] fallback to default translation for " + txt)
+		print("[%s] fallback to default translation for %s" % (PluginLanguageDomain, txt))
 		return gettext.gettext(txt)
 
 
@@ -69,4 +68,4 @@ def scaleV(y2, y1):
 
 
 def scale(y2, y1, x2, x1, x):
-	return (y2 - y1) * (x - x1) / (x2 - x1) + y1
+	return int((y2 - y1) * (x - x1) / (x2 - x1) + y1)

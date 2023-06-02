@@ -6,7 +6,7 @@ from twisted.mail import imap4
 # from twisted.python import log
 # log.startLogging(open("/tmp/twisted.log","w"))
 # defer.setDebugging(True)
-from . import debug #@UnresolvedImport # pylint: disable-msg=F0401
+from . import debug  # @UnresolvedImport # pylint: disable-msg=F0401
 
 
 class SimpleIMAP4Client(imap4.IMAP4Client):
@@ -57,11 +57,11 @@ def createFactory(e2session, username, hostname, port):
 	debug("createFactory: for %s@%s:%s" % (username, hostname, port))
 
 	f2 = ssl.ClientContextFactory()
-	factory = SimpleIMAP4ClientFactory(e2session, username, f2)
+	factory = SimpleIMAP4ClientFactory(e2session, username.encode('ascii'), f2)
 	if port == 993:
-		reactor.connectSSL(hostname, port, factory, f2) #@UndefinedVariable # pylint: disable-msg=E1101
+		reactor.connectSSL(hostname, port, factory, f2)  # @UndefinedVariable # pylint: disable-msg=E1101
 	else:
-		reactor.connectTCP(hostname, port, factory) #@UndefinedVariable # pylint: disable-msg=E1101
+		reactor.connectTCP(hostname, port, factory)  # @UndefinedVariable # pylint: disable-msg=E1101
 
 	debug("createFactory: factory started")
 	return factory
