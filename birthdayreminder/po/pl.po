@@ -1,108 +1,108 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: BirthdayReminder 1.0\n"
+"Project-Id-Version: Birthday Reminder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-18 02:07+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Mr.Servo <mrservo via GitHub.com>\n"
-"Language-Team: <shaderman@dreambox-tools.info>\n"
-"Language: de_DE\n"
+"PO-Revision-Date: 2023-03-30 09:32+0200\n"
+"Last-Translator: paps\n"
+"Language-Team: paps\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #, python-format
 msgid "%s will turn %s in %s!"
-msgstr "%s wird %s in %s!"
+msgstr "%s będzie miał/a %s urodziny za %s!"
 
 msgid "1 day"
-msgstr "1 Tag"
+msgstr "1 dzień"
 
 msgid "1 week"
-msgstr "1 Woche"
+msgstr "tydzień"
 
 msgid "3 days"
-msgstr "3 Tage"
+msgstr "3 dni"
 
 msgid "Add"
-msgstr "Hinzufügen"
+msgstr "Dodaj"
 
 msgid "Add a birthday"
-msgstr "Geburtstag hinzufügen"
+msgstr "Dodaj urodziny"
 
 msgid "Add birthday"
-msgstr "Geburtstag hinzufügen"
+msgstr "Dodaj urodziny"
 
 msgid "Age"
-msgstr "Alter"
+msgstr "Wiek"
 
 msgid "Birthday"
-msgstr "Geburtstag"
+msgstr "Urodziny"
 
 msgid "Birthday Reminder"
-msgstr "Birthday Reminder"
+msgstr "Przypomnienie o urodzinach"
 
 msgid "Birthday Reminder Settings"
-msgstr "Birthday Reminder Einstellungen"
+msgstr "Ustawienia Birthday Reminder"
 
 #, python-format
 msgid "Birthday Reminder received %s birthdays from %s."
-msgstr "Birthday Reminder hat %s Geburtstage von %s empfangen."
+msgstr "Birthday Remainder odebrał %s wpisów urodzin od %s."
 
 msgid "Birthday filename:"
-msgstr "Dateiname:"
+msgstr "Nazwa pliku z urodzinami:"
 
 msgid "Birthdays"
-msgstr "Geburtstage"
+msgstr "Lista urodzin"
 
 msgid "CSV import successful!"
-msgstr "Die Daten der CSV- Datei wurden erfolgreich importiert!"
+msgstr "Pomyślnie zaimportowano plik CSV!"
 
 #, python-format
 msgid "Can't find CSV file %s!"
-msgstr "Die CSV- Datei %s konnte nicht gefunden werden!"
+msgstr "Nie można znaleźć pliku CSV: %s!"
 
 #, python-format
 msgid "Can't import CSV data from file %s."
-msgstr "Die Daten der CSV- Datei %s konnten nicht importiert werden."
+msgstr "Nie można zaimportować danych z pliku CSV: %s."
 
 #, python-format
 msgid "Can't write CSV file %s."
-msgstr "Die CSV- Datei %s konnte nicht gespeichert werden."
+msgstr "Nie można zapisać pliku CSV: %s."
 
 msgid "Date format:"
-msgstr "Datumsformat:"
+msgstr "Format daty:"
 
 msgid "Day:"
-msgstr "Tag:"
+msgstr "Dzień:"
 
 msgid "Disabled"
-msgstr "Deaktiviert"
+msgstr "Wyłączone"
 
 msgid "Distribute birthdays to other Dreamboxes"
-msgstr "Geburtstagsliste an andere Boxen verteilen"
+msgstr "Wysyłanie pliku z urodzinami do innych STB"
 
 #, python-format
 msgid "Do you really want to delete the entry for %s?"
-msgstr "Wollen Sie den Eintrag für %s wirklich löschen?"
+msgstr "Czy na pewno chcesz usunąć wpis '%s'?"
 
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "Edycja"
 
 #, fuzzy
 msgid "Edit Birthday Settings"
-msgstr "Geburtstage bearbeiten"
+msgstr "Edycja urodzin"
 
 msgid "Edit birthday"
-msgstr "Geburtstag bearbeiten"
+msgstr "Edycja urodzin"
 
 msgid "Edit birthdays"
-msgstr "Geburtstage bearbeiten"
+msgstr "Edycja urodzin"
 
 msgid "Edit the selected entry"
-msgstr "Gewählten Eintrag bearbeiten"
+msgstr "Edycja zaznaczonego wpisu"
 
 #, python-format
 msgid ""
@@ -110,9 +110,9 @@ msgid ""
 "\n"
 "Error: %s, %s"
 msgstr ""
-"Fehler beim Lesen der Datei %s.\n"
+"Błąd odczytu pliku: %s.\n"
 "\n"
-"Fehler: %s, %s"
+"Błąd: %s, %s"
 
 #, python-format
 msgid ""
@@ -120,76 +120,78 @@ msgid ""
 "\n"
 "Error: %s, %s"
 msgstr ""
-"Fehler beim Schreiben der Datei %s.\n"
+"Błąd zapisu pliku: %s.\n"
 "\n"
-"Fehler: %s, %s"
+"Błąd: %s, %s"
 
 msgid "Exit the plugin"
-msgstr "Plugin beenden"
+msgstr "Wyjście"
 
 msgid "Export CSV file"
-msgstr "CSV- Datei exportieren"
+msgstr "Eksport pliku CSV"
 
 msgid "Extras"
-msgstr "Extras"
+msgstr "Dodatki"
 
 msgid "Helps to remind of birthdays"
-msgstr "Erinnert an Geburtstage"
+msgstr "Przypomienie o urodzinach"
 
 msgid "Import CSV file"
-msgstr "CSV- Datei importieren"
+msgstr "Import pliku CSV"
 
 msgid "Invalid date!"
-msgstr "Ungültiges Datum!"
+msgstr "Niepoprawna data!"
 
 msgid "Month:"
-msgstr "Monat:"
+msgstr "Miesiąc:"
 
 msgid "Name"
-msgstr "Name"
+msgstr "Nazwisko"
 
 msgid "Name:"
-msgstr "Name:"
+msgstr "Nazwisko:"
 
 msgid "Networking port (default: 7374):"
-msgstr "Netzwerk Port (Standard: 7374):"
+msgstr "Port sieciowy (domyślnie: 7374)"
 
 msgid "Next birthday"
-msgstr "Nächstem Geburtstag"
+msgstr "Następne urodziny"
 
 msgid "Notification time:"
-msgstr "Zeit für Benachrichtigungen:"
+msgstr "Godzina przypomnienia:"
 
 msgid "Open the extras menu"
-msgstr "Extras menu öffnen"
+msgstr "Otwórz dodatkowe menu"
 
 msgid "Path to birthday file:"
-msgstr "Pfad zur Geburtstagsdatei:"
+msgstr "Ścieżka do pliku z urodzinami:"
 
 msgid "Remind before birthday:"
-msgstr "Vor Geburtstag erinnern:"
+msgstr "Przypomnij przed urodzinami:"
 
 msgid "Remove"
-msgstr "Entfernen"
+msgstr "Usuń"
 
 msgid "Remove the selected entry"
-msgstr "Gewählten Eintrag löschen"
+msgstr "Usuń zaznaczony wpis"
 
 #, fuzzy
 msgid "Select a path for the birthday file"
-msgstr "Pfad zur Geburtstagsdatei:"
+msgstr "Ścieżka do pliku z urodzinami:"
 
 msgid "Show plugin in extensions menu:"
-msgstr "Zeige Plugin im Erweiterungsmenu:"
+msgstr "Pokaż wtyczkę w rozszerzonym menu:"
 
 msgid "Sort birthdays by:"
-msgstr "Sortiere Geburtstage nach:"
+msgstr ""
+"Sortowanie listy \n"
+"urodzin:"
 
 msgid "Sorting next"
-msgstr "Sortierung vor"
+msgstr "Następne"
 
 msgid "Sorting previous"
-msgstr "Sortierung zurück"
+msgstr "Poprzednie"
 
 #, python-format
 msgid ""
@@ -197,16 +199,16 @@ msgid ""
 "\n"
 "She/he was born on %s and is now %s year(s) old."
 msgstr ""
-"Heute ist %s's Geburtstag!\n"
+"Dzisiaj %s ma urodziny!\n"
 "\n"
-"Sie/er wurde am %s geboren und ist jetzt %s Jahr(e) alt."
+"Urodził/a się w %s i ma %s lat/a."
 
 msgid "What do you want to do?"
-msgstr "Was wollen Sie tun?"
+msgstr "Co chcesz zrobić?"
 
 #, python-format
 msgid "Wrote CSV file %s."
-msgstr "Die CSV- Datei %s wurde gespeichert."
+msgstr "Zapisano plik CSV: %s."
 
 msgid "Year:"
-msgstr "Jahr:"
+msgstr "Rok:"

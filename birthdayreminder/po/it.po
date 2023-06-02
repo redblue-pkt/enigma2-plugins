@@ -2,25 +2,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 plugin - birthday reminder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
-"PO-Revision-Date: 2011-12-13 23:25+0100\n"
-"Last-Translator: Spaeleus <spaeleus@croci.org>\n"
+"POT-Creation-Date: 2023-05-18 02:07+0100\n"
+"PO-Revision-Date: 2023-03-30 11:49+0200\n"
+"Last-Translator: Mr.Servo <mrservo via GitHub.com>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
-"Language: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: /media/TREKSTOR/enigma2/BirthdayReminder/BirthdayReminder\n"
-"X-Poedit-Language: Italian\n"
-"X-Poedit-Country: Italy\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SearchPath-0: /media/TREKSTOR/enigma2/BirthdayReminder/BirthdayReminder\n"
 
 #, python-format
 msgid "%s will turn %s in %s!"
-msgstr "%s compirà %s anni fra %s."
+msgstr "%s compirà %s anni fra %s!"
 
 msgid "1 day"
 msgstr "1 giorno"
@@ -31,11 +30,8 @@ msgstr "1 settimana"
 msgid "3 days"
 msgstr "3 giorni"
 
-msgid "Accept changes"
-msgstr "Conf. modifiche"
-
 msgid "Add"
-msgstr "Agg."
+msgstr "Agg"
 
 msgid "Add a birthday"
 msgstr "Agg. compleanno"
@@ -66,11 +62,11 @@ msgid "Birthdays"
 msgstr "Compleanni"
 
 msgid "CSV import successful!"
-msgstr "Importazione CVS corretta."
+msgstr "Importazione CVS corretta!"
 
 #, python-format
 msgid "Can't find CSV file %s!"
-msgstr "Impossibile trovare file CVS %s."
+msgstr "Impossibile trovare file CVS %s!"
 
 #, python-format
 msgid "Can't import CSV data from file %s."
@@ -80,18 +76,8 @@ msgstr "Impossible importare dati dal file %s."
 msgid "Can't write CSV file %s."
 msgstr "Impossibile scrivere file CVS %s."
 
-msgid "Cancel"
-msgstr "Annullare"
-
-msgid "Change path"
-msgstr "Mod. percorso"
-
-#, fuzzy
-msgid "Choose the filename:"
-msgstr "Nome file compleanni:"
-
 msgid "Date format:"
-msgstr "Formato data"
+msgstr "Formato data:"
 
 msgid "Day:"
 msgstr "Giorno:"
@@ -100,14 +86,18 @@ msgid "Disabled"
 msgstr "Disabilitato"
 
 msgid "Distribute birthdays to other Dreamboxes"
-msgstr "Distribuire compleanni ad altri Dreambox"
+msgstr "Distribuire compleanni ad altri box"
 
 #, python-format
 msgid "Do you really want to delete the entry for %s?"
 msgstr "%s: RIMUOVERE la voce?"
 
 msgid "Edit"
-msgstr "Mod."
+msgstr "Mod"
+
+#, fuzzy
+msgid "Edit Birthday Settings"
+msgstr "Mod. compleanni"
 
 msgid "Edit birthday"
 msgstr "Modificare compleanno"
@@ -117,9 +107,6 @@ msgstr "Mod. compleanni"
 
 msgid "Edit the selected entry"
 msgstr "Mod. voce selezionata"
-
-msgid "Enter the name of the person:"
-msgstr ""
 
 #, python-format
 msgid ""
@@ -156,11 +143,8 @@ msgstr "Un aiuto per ricordare i compleanni"
 msgid "Import CSV file"
 msgstr "Importare CVS"
 
-msgid "Invalid Location"
-msgstr "estinazione non valida"
-
 msgid "Invalid date!"
-msgstr "Data non valida."
+msgstr "Data non valida!"
 
 msgid "Month:"
 msgstr "Mese:"
@@ -180,9 +164,6 @@ msgstr "Prossimo compleanno"
 msgid "Notification time:"
 msgstr "Ora notifica:"
 
-msgid "OK"
-msgstr "Ok"
-
 msgid "Open the extras menu"
 msgstr "Aprire menu extra"
 
@@ -193,13 +174,14 @@ msgid "Remind before birthday:"
 msgstr "Avvisare con un anticipo di:"
 
 msgid "Remove"
-msgstr "Rimuov."
+msgstr "Rimuov"
 
 msgid "Remove the selected entry"
 msgstr "Rimuov. voce selezionata"
 
-msgid "Save"
-msgstr "Salvare"
+#, fuzzy
+msgid "Select a path for the birthday file"
+msgstr "Percorso file compleanni:"
 
 msgid "Show plugin in extensions menu:"
 msgstr "Mostrare nel menu estensioni:"
@@ -222,9 +204,6 @@ msgstr ""
 "Oggi è il compleanno di %s!\n"
 "\n"
 "Data di nascita: %s - Età: %s."
-
-msgid "VirtualKeyBoard"
-msgstr ""
 
 msgid "What do you want to do?"
 msgstr "Cosa si desidera fare?"

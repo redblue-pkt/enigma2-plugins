@@ -22,6 +22,7 @@
 #  distributed other than under the conditions noted above.
 #
 
+# Python 3 port and cleanup by jbleyel (c) 2022
 
 # OWN IMPORTS
 from .BirthdayReminder import BirthdayReminder, BirthdayReminderSettings
@@ -29,7 +30,6 @@ from .BirthdayTimer import BirthdayTimer
 
 # ENIGMA IMPORTS
 from Components.config import config, ConfigSubsection, ConfigText, ConfigSelection, ConfigYesNo, NoSave, ConfigClock, ConfigInteger
-from Components.PluginComponent import plugins
 from Plugins.Plugin import PluginDescriptor
 
 # for localized messages
@@ -42,7 +42,7 @@ config.plugins.birthdayreminder.dateFormat = ConfigSelection(default="ddmmyyyy",
 config.plugins.birthdayreminder.broadcasts = ConfigYesNo(default=True)
 config.plugins.birthdayreminder.preremind = ConfigSelection(default="7", choices=[("-1", _("Disabled")), ("1", _("1 day")), ("3", _("3 days")), ("7", _("1 week"))])
 config.plugins.birthdayreminder.preremindChanged = NoSave(ConfigYesNo(default=False))
-config.plugins.birthdayreminder.notificationTime = ConfigClock(default=64800) # 19:00
+config.plugins.birthdayreminder.notificationTime = ConfigClock(default=64800)  # 19:00
 config.plugins.birthdayreminder.notificationTimeChanged = NoSave(ConfigYesNo(default=False))
 config.plugins.birthdayreminder.sortby = ConfigSelection(default="1", choices=[
 				("1", _("Name")),
@@ -70,9 +70,10 @@ def main(session, **kwargs):
 
 
 def Plugins(**kwargs):
-	list = []
-	list.append(PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=autostart))
-	list.append(PluginDescriptor(name="Birthday Reminder", description=_("Helps to remind of birthdays"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=settings))
+	pluginList = [
+		PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=autostart),
+		PluginDescriptor(name="Birthday Reminder", description=_("Helps to remind of birthdays"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=settings)
+	]
 	if config.plugins.birthdayreminder.showInExtensions.value:
-		list.append(PluginDescriptor(name="Birthday Reminder", description=_("Helps to remind of birthdays"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_EVENTINFO], fnc=main))
-	return list
+		pluginList.append(PluginDescriptor(name="Birthday Reminder", description=_("Helps to remind of birthdays"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_EVENTINFO], fnc=main))
+	return pluginList

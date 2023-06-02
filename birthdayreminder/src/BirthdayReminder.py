@@ -1,58 +1,28 @@
 # -*- coding: utf-8 -*-
-
-#
-#  Birthday Reminder E2 Plugin
-#
-#  $Id: BirthdayReminder.py,v 1.0 2011-08-29 00:00:00 Shaderman Exp $
-#
-#  Coded by Shaderman (c) 2011
-#  Support: www.dreambox-tools.info
-#
-#  This plugin is licensed under the Creative Commons
-#  Attribution-NonCommercial-ShareAlike 3.0 Unported
-#  License. To view a copy of this license, visit
-#  http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative
-#  Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
-#
-#  Alternatively, this plugin may be distributed and executed on hardware which
-#  is licensed by Dream Multimedia GmbH.
-
-#  This plugin is NOT free software. It is open source, you are allowed to
-#  modify it (if you keep the license), but it may not be commercially
-#  distributed other than under the conditions noted above.
-#
-
-
 # PYTHON IMPORTS
 from copy import copy
 from csv import writer as csv_writer, reader as csv_reader
 from datetime import datetime, date
-from operator import itemgetter
-from os import path as os_path
-from os.path import isfile
-from pickle import dump as pickle_dump, load as pickle_load
+from os.path import isfile, join, split
+from pickle import dump, load
 from time import mktime, strptime
 from functools import cmp_to_key
 
 # ENIGMA IMPORTS
-from Components.ActionMap import HelpableActionMap, ActionMap
-from Components.config import config, NoSave, getConfigListEntry, ConfigSubsection, ConfigText, ConfigInteger, ConfigSelection, ConfigDirectory, ConfigClock
-from Components.ConfigList import ConfigListScreen
-from Components.FileList import FileList
-from Components.GUIComponent import GUIComponent
+from Components.ActionMap import HelpableActionMap
+from Components.config import config, NoSave, ConfigText, ConfigInteger, ConfigDirectory
 from Components.Label import Label
-from Components.MultiContent import MultiContentEntryText
 from Components.Sources.List import List
-from Components.Sources.Source import Source
 from Components.Sources.StaticText import StaticText
-from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, RT_HALIGN_CENTER, RT_HALIGN_RIGHT
 from Screens.ChoiceBox import ChoiceBox
 from Screens.HelpMenu import HelpableScreen
 from Screens.MessageBox import MessageBox
-from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Screens.Screen import Screen
 from skin import parseColor
 from Tools import Notifications
+
+from Screens.LocationBox import defaultInhibitDirs, LocationBox
+from Screens.Setup import Setup
 
 # for localized messages
 from . import _
@@ -62,7 +32,7 @@ CSVFILE = "/tmp/birthdayreminder.csv"
 
 class BirthdayStore:
 	def __init__(self):
-		self.load()
+		self.loadStore()
 
 	def readRawFile(self):
 		data = None
@@ -72,8 +42,8 @@ class BirthdayStore:
 				f = open(fileName, "r")
 				data = f.read()
 				f.close()
-			except IOError as error_no_error_str:
-				(error_no, error_str) = error_no_error_str
+			except IOError as xxx_todo_changeme:
+				(error_no, error_str) = xxx_todo_changeme.args
 				print("[Birthday Reminder] ERROR reading from file %s. Error: %s, %s" % (fileName, error_no, error_str))
 				text = _("Error reading file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
 				Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
@@ -83,28 +53,27 @@ class BirthdayStore:
 	def writeRawFile(self, data):
 		fileName = config.plugins.birthdayreminder.file.value
 		try:
-			f = open(fileName, "wb")
+			f = open(fileName, "w")
 			f.write(data)
 			f.close()
-		except IOError as error_no_error_str:
-			(error_no, error_str) = error_no_error_str
+		except IOError as xxx_todo_changeme2:
+			(error_no, error_str) = xxx_todo_changeme2.args
 			print("[Birthday Reminder] ERROR writing to file %s. Error: %s, %s" % (fileName, error_no, error_str))
 			text = _("Error writing file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
 			Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
 
 	# read the birthday information from file
-	def load(self):
+	def loadStore(self):
 		fileName = config.plugins.birthdayreminder.file.value
-		print("[Birthday Reminder] reading from file", fileName)
+		print("[Birthday Reminder] reading from file %s" % fileName)
 
 		tmpList = []
 		if isfile(fileName):
 			try:
-				f = open(fileName, "r")
-				tmpList = pickle_load(f)
-				f.close()
-			except IOError as error_no_error_str:
-				(error_no, error_str) = error_no_error_str
+				with open(fileName, "rb") as f:
+					tmpList = load(f)
+			except IOError as xxx_todo_changeme1:
+				(error_no, error_str) = xxx_todo_changeme1.args
 				print("[Birthday Reminder] ERROR reading from file %s. Error: %s, %s" % (fileName, error_no, error_str))
 				text = _("Error reading file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
 				Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
@@ -116,20 +85,16 @@ class BirthdayStore:
 		self.bDayList = tmpList
 
 	# write the birthday information to file
-	def save(self, data=None):
+	def saveStore(self, data=None):
 		fileName = config.plugins.birthdayreminder.file.value
-		print("[Birthday Reminder] writing to file", fileName)
+		print("[Birthday Reminder] writing to file %s" % fileName)
 
 		try:
-			f = open(fileName, "wb")
-			if data:
-				pickle_dump(data, f)
-			else:
-				pickle_dump(self.getBirthdayList(), f)
-			f.close()
+			with open(fileName, "wb") as f:
+				dump(data if data else self.getBirthdayList(), f)
 			print("[Birthday Reminder] wrote %s birthdays to %s" % (self.getSize(), fileName))
-		except IOError as error_no_error_str:
-			(error_no, error_str) = error_no_error_str
+		except IOError as xxx_todo_changeme3:
+			(error_no, error_str) = xxx_todo_changeme3.args
 			print("[Birthday Reminder] ERROR writing to file %s. Error: %s, %s" % (fileName, error_no, error_str))
 			text = _("Error writing file %s.\n\nError: %s, %s") % (fileName, error_no, error_str)
 			Notifications.AddNotification(MessageBox, text, type=MessageBox.TYPE_ERROR)
@@ -145,18 +110,18 @@ class BirthdayStore:
 	# add a new entry to the list
 	def addEntry(self, entry):
 		self.bDayList.append(entry)
-		self.save()
+		self.saveStore()
 
 	# remove an entry from the list
 	def removeEntry(self, idx):
 		self.bDayList.pop(idx)
-		self.save()
+		self.saveStore()
 
 	# update a list entry
 	def updateEntry(self, oldEntry, newEntry):
 		idx = self.bDayList.index(oldEntry)
 		self.bDayList[idx] = newEntry
-		self.save()
+		self.saveStore()
 
 	# get a list entry
 	def getEntry(self, idx):
@@ -245,7 +210,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 
 	# add a birthday
 	def addBirthday(self):
-		self.session.openWithCallback(self.cbAddBirthday, EditBirthdayScreen)
+		self.session.openWithCallback(self.cbAddBirthday, EditBirthdaySetting)
 
 	# edit a birthday
 	def editBirthday(self):
@@ -258,7 +223,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 
 		newDate = date(*t[:3])
 		self.bDayBeforeChange = (selected[0], newDate)
-		self.session.openWithCallback(self.cbEditBirthday, EditBirthdayScreen, self.bDayBeforeChange)
+		self.session.openWithCallback(self.cbEditBirthday, EditBirthdaySetting, self.bDayBeforeChange)
 
 	# remove a birthday?
 	def removeBirthday(self):
@@ -267,7 +232,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 
 	# set the state of the buttons depending on the list size
 	def setButtonState(self):
-		if not self.birthdaytimer.getSize(): # no entries in list
+		if not self.birthdaytimer.getSize():  # no entries in list
 			self["EditActions"].setEnabled(False)
 			self["key_green"].setText("")
 			self["key_yellow"].setText("")
@@ -374,22 +339,20 @@ class BirthdayReminder(Screen, HelpableScreen):
 		if not self.birthdaytimer.getSize():
 			return
 
-		if config.plugins.birthdayreminder.sortby.value == "1": # sort by name
+		if config.plugins.birthdayreminder.sortby.value == "1":  # sort by name
 			self["name"].instance.setForegroundColor(parseColor("yellow"))
 			self["birthday"].instance.setForegroundColor(parseColor("white"))
 			self["age"].instance.setForegroundColor(parseColor("white"))
 			self.birthdaytimer.bDayList.sort(key=lambda t: tuple(t[0].lower()))
-		elif config.plugins.birthdayreminder.sortby.value == "2": # sort by upcoming birthday
+		elif config.plugins.birthdayreminder.sortby.value == "2":  # sort by upcoming birthday
 			self["name"].instance.setForegroundColor(parseColor("white"))
 			self["birthday"].instance.setForegroundColor(parseColor("yellow"))
 			self["age"].instance.setForegroundColor(parseColor("white"))
-			#self.birthdaytimer.bDayList.sort(key=itemgetter(1), cmp=self.compareDates)
 			self.birthdaytimer.bDayList.sort(key=cmp_to_key(self.compareDates))
-		else: # sort by age
+		else:  # sort by age
 			self["name"].instance.setForegroundColor(parseColor("white"))
 			self["birthday"].instance.setForegroundColor(parseColor("white"))
 			self["age"].instance.setForegroundColor(parseColor("yellow"))
-			#self.birthdaytimer.bDayList.sort(key=itemgetter(1), cmp=self.compareAges)
 			self.birthdaytimer.bDayList.sort(key=cmp_to_key(self.compareAges))
 
 		self["list"].setList(self.birthdaytimer.getBirthdayList())
@@ -405,25 +368,25 @@ class BirthdayReminder(Screen, HelpableScreen):
 
 		try:
 			bDay1 = x.replace(year=today.year)
-		except ValueError: # raised on feb 29th
+		except ValueError:  # raised on feb 29th
 			bDay1 = x.replace(year=today.year, day=x.day - 1)
 
-		if bDay1 < today: # next birthday in next year
+		if bDay1 < today:  # next birthday in next year
 			try:
 				bDay1 = x.replace(year=today.year + 1)
-			except ValueError: # raised on feb 29th
+			except ValueError:  # raised on feb 29th
 				bDay1 = x.replace(year=today.year + 1, day=x.day - 1)
 		ts1 = int(mktime(bDay1.timetuple()))
 
 		try:
 			bDay2 = y.replace(year=today.year)
-		except ValueError: # raised on feb 29th
+		except ValueError:  # raised on feb 29th
 			bDay2 = y.replace(year=today.year, day=y.day - 1)
 
-		if bDay2 < today: # next birthday in next year
+		if bDay2 < today:  # next birthday in next year
 			try:
 				bDay2 = y.replace(year=today.year + 1)
-			except ValueError: # raised on feb 29th
+			except ValueError:  # raised on feb 29th
 				bDay2 = y.replace(year=today.year + 1, day=y.day - 1)
 		ts2 = int(mktime(bDay2.timetuple()))
 
@@ -435,7 +398,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 		ageX = getAge(x)
 		ageY = getAge(y)
 
-		if ageX == ageY: # ages are the same, sort by birthday
+		if ageX == ageY:  # ages are the same, sort by birthday
 			tX = int(mktime(x.timetuple()))
 			tY = int(mktime(y.timetuple()))
 			return tX - tY
@@ -443,9 +406,9 @@ class BirthdayReminder(Screen, HelpableScreen):
 			return ageX - ageY
 
 	def saveCSV(self):
-		print("[Birthday Reminder] exporting CSV file", CSVFILE)
+		print("[Birthday Reminder] exporting CSV file %s" % CSVFILE)
 		try:
-			csvFile = open(CSVFILE, "wb")
+			csvFile = open(CSVFILE, "w")
 			writer = csv_writer(csvFile)
 			writer.writerows(self.birthdaytimer.getBirthdayList())
 			csvFile.close()
@@ -454,7 +417,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 			self.session.open(MessageBox, _("Can't write CSV file %s.") % CSVFILE, MessageBox.TYPE_ERROR)
 
 	def loadCSV(self):
-		print("[Birthday Reminder] importing CSV file", CSVFILE)
+		print("[Birthday Reminder] importing CSV file %s" % CSVFILE)
 
 		if not isfile(CSVFILE):
 			text = _("Can't find CSV file %s!") % CSVFILE
@@ -463,8 +426,8 @@ class BirthdayReminder(Screen, HelpableScreen):
 
 		try:
 			csvFile = open(CSVFILE, "r")
-		except IOError as error_no_error_str:
-			(error_no, error_str) = error_no_error_str
+		except IOError as xxx_todo_changeme4:
+			(error_no, error_str) = xxx_todo_changeme4.args
 			text = _("Error reading file %s.\n\nError: %s, %s") % (CSVFILE, error_no, error_str)
 			self.session.open(MessageBox, text, MessageBox.TYPE_ERROR)
 			return
@@ -491,7 +454,7 @@ class BirthdayReminder(Screen, HelpableScreen):
 		# the critical part is done, now update the lists and timers
 
 		self.birthdaytimer.bDayList = copy(csvList)
-		self.birthdaytimer.save()
+		self.birthdaytimer.saveStore()
 		self["list"].setList(self.birthdaytimer.getBirthdayList())
 		self.setListSorted()
 		self.setButtonState()
@@ -539,279 +502,86 @@ class BirthdayList(List):
 			return None
 
 
-class EditBirthdayScreen(Screen, ConfigListScreen, HelpableScreen):
-	skin = """
-		<screen position="center,center" size="560,320" >
-			<ePixmap pixmap="buttons/red.png" position="0,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/green.png" position="140,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/yellow.png" position="280,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/blue.png" position="420,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<widget render="Label" source="key_red" position="0,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget render="Label" source="key_green" position="140,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="config" position="5,45" size="550,235" scrollbarMode="showOnDemand" />
-			<widget name="error" position="5,285" size="550,30" zPosition="5" font="Regular;21" transparent="1" horizontalAlignment="center" verticalAlignment="center" foregroundColor="red" />
-		</screen>"""
-
+class EditBirthdaySetting(Setup):
 	def __init__(self, session, entry=None):
-		self.session = session
-		Screen.__init__(self, session)
+		(name, birthday) = entry if entry is not None else ("", date(*strptime("1.1.1900", "%d.%m.%Y")[:3]))
+		config.plugins.birthdayreminder.name = NoSave(ConfigText(default=name, fixed_size=False, visible_width=40))
+		config.plugins.birthdayreminder.day = NoSave(ConfigInteger(default=birthday.day, limits=(1, 31)))
+		config.plugins.birthdayreminder.month = NoSave(ConfigInteger(default=birthday.month, limits=(1, 12)))
+		config.plugins.birthdayreminder.year = NoSave(ConfigInteger(default=birthday.year, limits=(1900, 2050)))
+		Setup.__init__(self, session, "EditBirthdaySetting", plugin="Extensions/BirthdayReminder", PluginLanguageDomain="BirthdayReminder")
+		self.setTitle(_("Add birthday") if entry is None else _("Edit birthday"))
 
-		if entry == None:
-			self.setTitle(_("Add birthday"))
-			config.plugins.birthdayreminder.name = NoSave(ConfigText(default="", fixed_size=False, visible_width=40))
-			config.plugins.birthdayreminder.day = NoSave(ConfigInteger(default=1, limits=(1, 31)))
-			config.plugins.birthdayreminder.month = NoSave(ConfigInteger(default=1, limits=(1, 12)))
-			config.plugins.birthdayreminder.year = NoSave(ConfigInteger(default=1900, limits=(1900, 2050)))
-		else:
-			self.setTitle(_("Edit birthday"))
-			(name, birthday) = entry
-			config.plugins.birthdayreminder.name = NoSave(ConfigText(default=name, fixed_size=False, visible_width=40))
-			config.plugins.birthdayreminder.day = NoSave(ConfigInteger(default=birthday.day, limits=(1, 31)))
-			config.plugins.birthdayreminder.month = NoSave(ConfigInteger(default=birthday.month, limits=(1, 12)))
-			config.plugins.birthdayreminder.year = NoSave(ConfigInteger(default=birthday.year, limits=(1900, 2050)))
-
-		self["key_red"] = StaticText(_("Cancel"))
-		self["key_green"] = StaticText(_("Save"))
-		self["error"] = Label(_("Invalid date!"))
-		self["error"].hide()
-
-		list = []
-		list.append(getConfigListEntry(_("Name:"), config.plugins.birthdayreminder.name))
-		if config.plugins.birthdayreminder.dateFormat.value == "mmddyyyy":
-			list.append(getConfigListEntry(_("Month:"), config.plugins.birthdayreminder.month))
-			list.append(getConfigListEntry(_("Day:"), config.plugins.birthdayreminder.day))
-		else:
-			list.append(getConfigListEntry(_("Day:"), config.plugins.birthdayreminder.day))
-			list.append(getConfigListEntry(_("Month:"), config.plugins.birthdayreminder.month))
-		list.append(getConfigListEntry(_("Year:"), config.plugins.birthdayreminder.year))
-
-		ConfigListScreen.__init__(self, list)
-		HelpableScreen.__init__(self)
-
-		self["OkCancelActions"] = HelpableActionMap(self, "OkCancelActions",
-		{
-			"cancel": (self.cancel, _("Cancel")),
-			'ok': (self.ok, _("VirtualKeyBoard")),
-		}, -1)
-
-		self["ColorActions"] = HelpableActionMap(self, "ColorActions",
-		{
-			"red": (self.cancel, _("Cancel")),
-			"green": (self.accept, _("Accept changes")),
-		}, -1)
-
-	# close this screen
-	def cancel(self):
+	def keyCancel(self):
 		self.close(None, None)
 
-	# open VirtualKeyBoard
-	def ok(self):
-		text = self["config"].getCurrent()[1].value
-		if text == config.plugins.birthdayreminder.name.value:
-			title = _("Enter the name of the person:")
-			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title=title, text=text)
-		else:
-			pass
-
-	# VirtualKeyBoard callback
-	def VirtualKeyBoardCallBack(self, callback):
-		try:
-			if callback:
-				self["config"].getCurrent()[1].value = callback
-			else:
-				pass
-		except:
-			pass
-
-	# close the screen if we've got a valid date, otherwise show a warning
-	def accept(self):
+	def keySave(self):
 		try:
 			birthdayDt = datetime(config.plugins.birthdayreminder.year.value, config.plugins.birthdayreminder.month.value, config.plugins.birthdayreminder.day.value)
 			birthday = datetime.date(birthdayDt)
 			self.close(config.plugins.birthdayreminder.name.value, birthday)
 		except ValueError:
-			self["error"].show()
+			self["footnote"].setText(_("Invalid date!"))
 
 
-class BirthdayReminderSettings(Screen, ConfigListScreen, HelpableScreen):
-	skin = """
-		<screen position="center,center" size="560,320" title="%s" >
-			<ePixmap pixmap="buttons/red.png" position="0,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/green.png" position="140,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/yellow.png" position="280,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/blue.png" position="420,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<widget render="Label" source="key_red" position="0,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget render="Label" source="key_green" position="140,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget render="Label" source="key_blue" position="420,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="config" position="5,45" size="550,270" scrollbarMode="showOnDemand" />
-		</screen>""" % _("Birthday Reminder Settings")
-
+class BirthdayReminderSettings(Setup):
 	def __init__(self, session, birthdaytimer):
-		self.session = session
 		self.birthdaytimer = birthdaytimer
-		Screen.__init__(self, session)
-
-		self["key_red"] = StaticText(_("Cancel"))
-		self["key_green"] = StaticText(_("Save"))
-		self["key_blue"] = StaticText(_("Birthdays"))
-
-		path, filename = os_path.split(config.plugins.birthdayreminder.file.value)
+		path, filename = split(config.plugins.birthdayreminder.file.value)
 		self.path = NoSave(ConfigDirectory(default=path))
 		self.filename = NoSave(ConfigText(default=filename, visible_width=50, fixed_size=False))
-
-		list = []
-		list.append(getConfigListEntry(_("Path to birthday file:"), self.path))
-		list.append(getConfigListEntry(_("Birthday filename:"), self.filename))
-		list.append(getConfigListEntry(_("Date format:"), config.plugins.birthdayreminder.dateFormat))
-		list.append(getConfigListEntry(_("Remind before birthday:"), config.plugins.birthdayreminder.preremind))
-		list.append(getConfigListEntry(_("Notification time:"), config.plugins.birthdayreminder.notificationTime))
-		list.append(getConfigListEntry(_("Sort birthdays by:"), config.plugins.birthdayreminder.sortby))
-		list.append(getConfigListEntry(_("Show plugin in extensions menu:"), config.plugins.birthdayreminder.showInExtensions))
-		list.append(getConfigListEntry(_("Networking port (default: 7374):"), config.plugins.birthdayreminder.broadcastPort))
-
-		ConfigListScreen.__init__(self, list)
-		HelpableScreen.__init__(self)
-
-		self["OkCancelActions"] = HelpableActionMap(self, "OkCancelActions",
-		{
-			"cancel": (self.cancel, _("Cancel")),
-			"ok": (self.keySelect, _("Change path")),
-		}, -1)
-
-		self["ColorActions"] = HelpableActionMap(self, "ColorActions",
-		{
-			"red": (self.cancel, _("Cancel")),
-			"green": (self.save, _("Save")),
-			"blue": (self.editBirthdays, _("Edit birthdays")),
-		}, -1)
-
-		# save the setting value on start for comparison if the user changed it
 		self.preremind = config.plugins.birthdayreminder.preremind.value
 		self.notificationTime = copy(config.plugins.birthdayreminder.notificationTime.value)
+		Setup.__init__(self, session, "BirthdayReminderSettings", plugin="Extensions/BirthdayReminder", PluginLanguageDomain="BirthdayReminder")
+		self.setTitle(_("Birthday Reminder Settings"))
+		self["key_blue"] = StaticText(_("Birthdays"))
+		self["blueActions"] = HelpableActionMap(self, ["ColorActions"], {
+			"blue": (self.editBirthdays, _("Edit birthdays"))
+		}, prio=0)
 
 	def keySelect(self):
-		text = self["config"].getCurrent()[1].value
-		if text == self.path.value:
-			self.session.openWithCallback(self.pathSelected, PathSelectionScreen, self.path.value)
-		elif text == self.filename.value:
-			title = _("Choose the filename:")
-			self.session.openWithCallback(self.VirtualKeyBoardCallBack, VirtualKeyBoard, title=title, text=text)
-		else:
-			pass
+		if self.getCurrentItem() == self.path:
+			self.session.openWithCallback(self.keySelectCallback, BirthdayReminderLocationBox, initDir=self.path.value)
+			return
+		Setup.keySelect(self)
 
-	def pathSelected(self, res):
-		if res is not None:
-			self.path.value = res
+	def keySelectCallback(self, path):
+		if path is not None:
+			path = join(path, "")
+			self.path.value = path
+		self["config"].invalidateCurrent()
+		self.changedEntry()
 
-	# VirtualKeyBoard callback
-	def VirtualKeyBoardCallBack(self, callback):
-		try:
-			if callback:
-				self["config"].getCurrent()[1].value = callback
-			else:
-				pass
-		except:
-			pass
-
-	# save the config changes
-	def save(self):
-		for x in self["config"].list:
-			x[1].save()
-
-		config.plugins.birthdayreminder.file.value = os_path.join(self.path.value, self.filename.value)
+	def keySave(self):
+		config.plugins.birthdayreminder.file.value = join(self.path.value, self.filename.value)
 		config.plugins.birthdayreminder.file.save()
 		config.plugins.birthdayreminder.file.changed()
-
 		if config.plugins.birthdayreminder.preremind.value != self.preremind:
 			if self.preremind == "-1":
-				config.plugins.birthdayreminder.preremindChanged.setValue(True) # there are no preremind timers, add new timers
+				config.plugins.birthdayreminder.preremindChanged.setValue(True)  # there are no preremind timers, add new timers
 			else:
-				config.plugins.birthdayreminder.preremindChanged.setValue(False) # change existing preremind timers
+				config.plugins.birthdayreminder.preremindChanged.setValue(False)  # change existing preremind timers
 
 		if config.plugins.birthdayreminder.notificationTime.value != self.notificationTime:
 			config.plugins.birthdayreminder.notificationTimeChanged.setValue(True)
-
-		self.close()
-
-	# don't save any config changes
-	def cancel(self):
-		for x in self["config"].list:
-			x[1].cancel()
-		self.close()
+		Setup.keySave(self)
 
 	def editBirthdays(self):
 		self.session.open(BirthdayReminder, self.birthdaytimer)
 
 
-class PathSelectionScreen(Screen):
-	skin = """
-		<screen position="center,center" size="560,320" title="%s" >
-			<ePixmap pixmap="buttons/red.png" position="0,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/green.png" position="140,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/yellow.png" position="280,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<ePixmap pixmap="buttons/blue.png" position="420,0" zPosition="0" size="140,40" transparent="1" alphaTest="on" />
-			<widget render="Label" source="key_red" position="0,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget render="Label" source="key_green" position="140,0" size="140,40" zPosition="5" verticalAlignment="center" horizontalAlignment="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
-			<widget name="target" position="5,45" size="550,30" verticalAlignment="center" font="Regular;21" />
-			<widget name="filelist" position="5,80" size="550,235" scrollbarMode="showOnDemand" zPosition="5" />
-		</screen>""" % ("Select a path for the birthday file")
-
+class BirthdayReminderLocationBox(LocationBox):
 	def __init__(self, session, initDir):
-		Screen.__init__(self, session)
-		inhibitDirs = ["/bin", "/boot", "/dev", "/tmp", "/lib", "/proc", "/sbin", "/sys", "/usr", "/var"]
-		inhibitMounts = []
-
-		self["filelist"] = FileList(initDir, showDirectories=True, showFiles=False, inhibitMounts=inhibitMounts, inhibitDirs=inhibitDirs)
-		self["target"] = Label(initDir + "/")
-
-		self["actions"] = ActionMap(["WizardActions", "DirectionActions", "ColorActions", "EPGSelectActions"],
-		{
-			"back": self.cancel,
-			"left": self.left,
-			"right": self.right,
-			"up": self.up,
-			"down": self.down,
-			"ok": self.ok,
-			"green": self.green,
-			"red": self.cancel
-		}, -1)
-
-		self["key_red"] = StaticText(_("Cancel"))
-		self["key_green"] = StaticText(_("OK"))
-
-	def cancel(self):
-		self.close(None)
-
-	def green(self):
-		self.close(self["filelist"].getSelection()[0])
-
-	def up(self):
-		self["filelist"].up()
-		self.updateTarget()
-
-	def down(self):
-		self["filelist"].down()
-		self.updateTarget()
-
-	def left(self):
-		self["filelist"].pageUp()
-		self.updateTarget()
-
-	def right(self):
-		self["filelist"].pageDown()
-		self.updateTarget()
-
-	def ok(self):
-		if self["filelist"].canDescent():
-			self["filelist"].descent()
-			self.updateTarget()
-
-	def updateTarget(self):
-		currFolder = self["filelist"].getSelection()[0]
-		if currFolder is not None:
-			self["target"].setText(currFolder)
-		else:
-			self["target"].setText(_("Invalid Location"))
+		inhibit = defaultInhibitDirs
+		inhibit.remove("/etc")
+		LocationBox.__init__(
+			self,
+			session,
+			text=_("Select a path for the birthday file"),
+			currDir=join(initDir, ""),
+			inhibitDirs=inhibit,
+		)
+		self.skinName = ["WeatherSettingsLocationBox", "LocationBox"]
 
 
 def getAge(birthday):
@@ -820,7 +590,7 @@ def getAge(birthday):
 	# take care of feb 29th, use feb 28th if necessary
 	try:
 		bDay = birthday.replace(year=today.year)
-	except ValueError: # raised on feb 29th
+	except ValueError:  # raised on feb 29th
 		bDay = birthday.replace(year=today.year, day=birthday.day - 1)
 
 	age = today.year - birthday.year
