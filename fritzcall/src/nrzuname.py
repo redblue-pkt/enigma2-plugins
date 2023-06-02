@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-$Id: nrzuname.py 1587 2021-04-23 10:19:26Z michael $
+$Id: nrzuname.py 1633 2023-01-07 14:58:24Z michael $
 $Author: michael $
-$Revision: 1587 $
-$Date: 2021-04-23 12:19:26 +0200 (Fri, 23 Apr 2021) $
+$Revision: 1633 $
+$Date: 2023-01-07 15:58:24 +0100 (Sat, 07 Jan 2023) $
 '''
 
 # C0111 (Missing docstring)
@@ -19,12 +19,14 @@ $Date: 2021-04-23 12:19:26 +0200 (Fri, 23 Apr 2021) $
 # C0410 multiple-imports
 # pylint: disable=C0111,C0103,C0301,W0603,C0302
 
-
+from __future__ import print_function
 import re
 import sys
 import os
 import six
 from xml.dom.minidom import parse
+from six import unichr
+from six.moves import html_entities
 
 try:
 	import logging
@@ -48,7 +50,7 @@ except ValueError:
 		if debugVal:
 			print(message)
 
-from twisted.web.client import getPage  # @UnresolvedImport
+from . import getPage  # @UnresolvedImport
 from twisted.internet import reactor  # @UnresolvedImport
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
@@ -82,9 +84,8 @@ def html2unicode(in_html):
 	for x in entities:
 		# debug("mask: found %s" %repr(x.group(2)))
 		entitydict[x.group(1)] = x.group(2)
-	for key, name in list(entitydict.items()):
+	for key, name in entitydict.items():
 		try:
-			from six.moves import html_entities
 			entitydict[key] = html_entities.name2codepoint[str(name)]
 		except KeyError:
 			warning("KeyError " + key + "/" + name)
@@ -94,9 +95,8 @@ def html2unicode(in_html):
 	for x in entities:
 		# debug("found %s" %x.group(1))
 		entitydict[x.group(1)] = x.group(2)
-	for key, codepoint in list(entitydict.items()):
+	for key, codepoint in entitydict.items():
 		try:
-			from six import unichr
 			uml = unichr(int(codepoint))
 			debug("replace %s with %s in %s", repr(key), repr(uml), repr(in_html[0:20] + '...'))
 			in_html = in_html.replace(key, uml)
@@ -259,7 +259,7 @@ class ReverseLookupAndNotifier(object):
 		info("Url to query: %s", url)
 		url = url.encode("UTF-8", "replace")
 		self.currentWebsite = website
-		getPage(url, agent="Mozilla/5.0 (Windows; U; Windows NT 6.0; de; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5").addCallback(self._gotPage).addErrback(self._gotError)
+		getPage(url).addCallback(self._gotPage).addErrback(self._gotError)
 
 	def _gotPage(self, page):
 		def cleanName(text):
@@ -288,7 +288,7 @@ class ReverseLookupAndNotifier(object):
 				newitem = item.replace("  ", " ")
 			return newitem.strip()
 
-		page = six.ensure_text(page)
+		page = six.ensure_text(page.content)
 		debug("")
 
 		#=======================================================================

@@ -37,7 +37,7 @@ import logging
 import re
 import six
 from hashlib import md5
-from twisted.web.client import getPage
+from . import getPage
 import xml.etree.ElementTree as ET
 
 from Components.config import config
@@ -85,8 +85,8 @@ class FritzAction(object):
 	exception = logger.exception
 
 	header = {'soapaction': '',
-			  'content-type': 'text/xml',
-			  'charset': 'utf-8'}
+			'content-type': 'text/xml',
+			'charset': 'utf-8'}
 	envelope = """
 		<?xml version="1.0" encoding="utf-8"?>
 		<s:Envelope s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
@@ -95,24 +95,24 @@ class FritzAction(object):
 		"""
 	header_initchallenge_template = """
 		<s:Header>
- 			<h:InitChallenge
+			<h:InitChallenge
 				xmlns:h="http://soap-authentication.org/digest/2001/10/"
- 				s:mustUnderstand="1">
- 			<UserID>%s</UserID>
- 			</h:InitChallenge >
- 		</s:Header>
+				s:mustUnderstand="1">
+			<UserID>%s</UserID>
+			</h:InitChallenge >
+		</s:Header>
 		"""
 	header_clientauth_template = """
 		<s:Header>
- 			<h:ClientAuth
- 				xmlns:h="http://soap-authentication.org/digest/2001/10/"
- 				s:mustUnderstand="1">
- 			<Nonce>%s</Nonce>
- 			<Auth>%s</Auth>
- 			<UserID>%s</UserID>
- 			<Realm>%s</Realm>
- 			</h:ClientAuth>
- 		</s:Header>
+			<h:ClientAuth
+				xmlns:h="http://soap-authentication.org/digest/2001/10/"
+				s:mustUnderstand="1">
+			<Nonce>%s</Nonce>
+			<Auth>%s</Auth>
+			<UserID>%s</UserID>
+			<Realm>%s</Realm>
+			</h:ClientAuth>
+		</s:Header>
 		"""
 	body_template = """
 		<s:Body>
@@ -152,7 +152,7 @@ class FritzAction(object):
 			# self.debug(repr(kwargs))
 			arguments = [
 				self.argument_template % {'name': k, 'value': v}
-				for k, v in list(kwargs.items())
+				for k, v in kwargs.items()
 			]
 			p['arguments'] = ''.join(arguments)
 		body = self.body_template.strip() % p
@@ -186,13 +186,13 @@ class FritzAction(object):
 
 	def _okExecute(self, content, callback, **kwargs):
 		# self.debug("")
-		content = six.ensure_text(content)
+		content = six.ensure_text(content.content)
 		if self.logger.getEffectiveLevel() == logging.DEBUG:
 			linkP = open("/tmp/FritzCall_okExecute.xml", "w")
 			linkP.write(content)
 			linkP.close()
 		root = ET.fromstring(content)
-		if root.find(".//Nonce") != None and root.find(".//Realm") != None:
+		if root.find(".//Nonce") is not None and root.find(".//Realm") is not None:
 			nonce = root.find(".//Nonce").text
 			realm = root.find(".//Realm").text
 			secret = md5(six.ensure_binary(config.plugins.FritzCall.username.value + ":" +
@@ -205,7 +205,7 @@ class FritzAction(object):
 																response,
 																config.plugins.FritzCall.username.value,
 																realm)
-		else: # Anmeldung im Heimnetz ohne Passwort
+		else:  # Anmeldung im Heimnetz ohne Passwort
 			self.debug("Anmeldung im Heimnetz ohne Passwort!")
 			header_clientauth = ""
 
@@ -244,7 +244,7 @@ class FritzAction(object):
 		TODO: boolean and signed integers data-types from tr64 responses
 		"""
 		# self.debug("")
-		response = six.ensure_text(response)
+		response = six.ensure_text(response.content)
 		if self.logger.getEffectiveLevel() == logging.DEBUG:
 			linkP = open("/tmp/FritzCall_parse_response.xml", "w")
 			linkP.write(response)
@@ -259,7 +259,7 @@ class FritzAction(object):
 				self.error("ErrorCode: %s, errorDescription: %s", repr(errorCode.text), repr(errorDescription.text))
 			else:
 				self.error("ErrorCode: %s, no errorDescription", repr(errorCode.text))
-		for argument in list(self.arguments.values()):
+		for argument in self.arguments.values():
 			# self.debug("Argument: " + argument.name)
 			try:
 				value = root.find('.//%s' % argument.name).text
@@ -277,7 +277,8 @@ class FritzAction(object):
 					# raised in case that value is None. Should also not happen.
 					value = None
 			result[argument.name] = value
-		callback(result)
+		if callback:
+			callback(result)
 
 
 class FritzActionArgument(object):
@@ -342,11 +343,11 @@ class FritzXmlParser(object):
 				source = 'http://{0}:{1}/{2}'.format(address, port, filename)
 			self.debug("source: %s", source)
 			getPage(six.ensure_binary(source),
- 				method=six.ensure_binary("GET"),).addCallback(self._okInit).addErrback(self._errorInit)
+				method=six.ensure_binary("GET"),).addCallback(self._okInit).addErrback(self._errorInit)
 
 	def _okInit(self, source):
 		# self.debug("")
-		self.root = ET.fromstring(source)
+		self.root = ET.fromstring(source.content)
 		self.namespace = namespace(self.root)
 		if self.service:
 			self.callback(self.service, self)
@@ -417,7 +418,7 @@ class FritzSCDPParser(FritzXmlParser):
 		if filename is None:
 			# access the FritzBox
 			super(FritzSCDPParser, self).__init__(address, port,
-												  service.scpd_url, service=service, callback=callback)
+												service.scpd_url, service=service, callback=callback)
 		else:
 			# for testing read the xml-data from a file
 			super(FritzSCDPParser, self).__init__(None, None, filename=filename, callback=callback)
@@ -443,8 +444,8 @@ class FritzSCDPParser(FritzXmlParser):
 		nodes = self.root.iterfind('.//' + self.namespace + 'action')
 		for node in nodes:
 			action = FritzAction(self.service.service_type,
-								 self.service.control_url,
-								 action_parameters)
+								self.service.control_url,
+								action_parameters)
 			action.name = node.find(self.nodename('name')).text
 			# self.debug("node: " + action.name)
 			action.arguments = self._get_arguments(node)
@@ -490,10 +491,10 @@ class FritzConnection(object):
 	exception = logger.exception
 
 	def __init__(self, address=FRITZ_IP_ADDRESS,
-					   port=FRITZ_TCP_PORT,
-					   user=FRITZ_USERNAME,
-					   password='',
-					   servicesToGet=None):
+					port=FRITZ_TCP_PORT,
+					user=FRITZ_USERNAME,
+					password='',
+					servicesToGet=None):
 		# self.debug("")
 		if password and isinstance(password, list):
 			password = password[0]
@@ -558,7 +559,7 @@ class FritzConnection(object):
 		actions = parser.get_actions(self.action_parameters)
 		# not in Python 2.6
 		# try:
-			# service.actions = {action.name: action for action in actions}
+		#	 service.actions = {action.name: action for action in actions}
 		# except:
 		service.actions = dict((action.name, action) for action in actions)
 		# self.debug("Service: " + repr(service))
@@ -616,7 +617,7 @@ class FritzConnection(object):
 		':1' will get added by default.
 		"""
 		# self.debug("")
-		if not ':' in service_name:
+		if ':' not in service_name:
 			service_name += ':1'
 		action = self._get_action(service_name, action_name)
 		action.execute(callback, **kwargs)

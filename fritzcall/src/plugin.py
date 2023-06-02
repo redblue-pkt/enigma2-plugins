@@ -2,10 +2,11 @@
 '''
 Update rev
 $Author: michael $
-$Revision: 1591 $
-$Date: 2021-04-29 16:52:10 +0200 (Thu, 29 Apr 2021) $
-$Id: plugin.py 1591 2021-04-29 14:52:10Z michael $
+$Revision: 1639 $
+$Date: 2023-01-11 12:21:40 +0100 (Wed, 11 Jan 2023) $
+$Id: plugin.py 1639 2023-01-11 11:21:40Z michael $
 '''
+
 
 # C0111 (Missing docstring)
 # C0103 (Invalid name)
@@ -20,14 +21,14 @@ $Id: plugin.py 1591 2021-04-29 14:52:10Z michael $
 # E501 line too long (85 > 79 characters)
 # pylint: disable=C0111,C0103,C0301,W0603,C0302
 
-
+from __future__ import division, absolute_import
 import re
 import time
 import os
 import traceback
 import json
 import base64
-from six import ensure_text, ensure_str, PY3
+import six
 import logging
 import binascii
 import locale
@@ -62,8 +63,7 @@ from Components.config import config, ConfigSubsection, ConfigSelection, ConfigD
 from Plugins.Plugin import PluginDescriptor
 from Tools import Notifications
 from Tools.NumericalTextInput import NumericalTextInput
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CONFIG, SCOPE_GUISKIN, \
-	SCOPE_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CONFIG, SCOPE_PLUGIN
 from Tools.LoadPixmap import LoadPixmap
 from GlobalActions import globalActionMap  # for muting
 
@@ -75,13 +75,23 @@ from .nrzuname import ReverseLookupAndNotifier  # @UnresolvedImport
 from . import __  # @UnresolvedImport # pylint: disable=W0611,F0401
 try:
 	from enigma import eMediaDatabase  # @UnresolvedImport @UnusedImport
-except:
+except ImportError as ie:
 	from . import _  # @UnresolvedImport
 
-if PY3:
+if six.PY3:
 	import codecs
-	encode = lambda x: codecs.encode(x, "rot13")
-	decode = lambda x: codecs.decode(x, "rot13")
+
+	def encode(x):
+		if x is not None:
+			return codecs.encode(x, "rot13")
+		else:
+			return ""
+
+	def decode(x):
+		if x is not None:
+			return codecs.decode(x, "rot13")
+		else:
+			return ""
 else:
 	def encode(x):
 		return base64.b64encode(''.join(chr(ord(c) ^ ord(k)) for c, k in zip(x, cycle('secret key')))).strip()
@@ -165,7 +175,7 @@ config.plugins.FritzCall.showShortcut = ConfigYesNo(default=False)
 config.plugins.FritzCall.showVanity = ConfigYesNo(default=False)
 config.plugins.FritzCall.prefix = ConfigText(default="", fixed_size=False)
 config.plugins.FritzCall.prefix.setUseableChars('0123456789')
-config.plugins.FritzCall.connectionVerbose = ConfigSelection(choices=[("on", _("on")), ("failed", _("only failed")), ("off", _("off"))])
+config.plugins.FritzCall.connectionVerbose = ConfigSelection(default="failed", choices=[("on", _("on")), ("failed", _("only failed")), ("off", _("off"))])
 config.plugins.FritzCall.ignoreUnknown = ConfigYesNo(default=False)
 config.plugins.FritzCall.reloadPhonebookTime = ConfigInteger(default=8, limits=(0, 99))
 config.plugins.FritzCall.FritzExtendedSearchFaces = ConfigYesNo(default=False)
@@ -232,9 +242,9 @@ def initAvon():
 	if os.path.exists(avonFileName):
 		for line in open(avonFileName):
 			try:
-				line = ensure_text(line)
+				line = six.ensure_text(line)
 			except UnicodeDecodeError:
-				line = ensure_text(line, "iso-8859-1")  # to deal with old avon.dat
+				line = six.ensure_text(line, "iso-8859-1")  # to deal with old avon.dat
 			if line[0] == '#':
 				continue
 			parts = line.split(':')
@@ -262,7 +272,7 @@ def resolveNumberWithAvon(number, countrycode):
 
 
 def handleReverseLookupResult(name):
-	name = ensure_text(name)
+	name = six.ensure_text(name)
 	found = re.match("NA: ([^;]*);VN: ([^;]*);STR: ([^;]*);HNR: ([^;]*);PLZ: ([^;]*);ORT: ([^;]*)", name)
 	if found:
 		(name, firstname, street, streetno, zipcode, city) = (found.group(1),
@@ -376,8 +386,8 @@ class FritzAbout(Screen):
 		self["text"] = Label(
 							"FritzCall Plugin" + "\n\n" +
 							"$Author: michael $"[1:-2] + "\n" +
-							"$Revision: 1591 $"[1:-2] + "\n" +
-							"$Date: 2021-04-29 16:52:10 +0200 (Thu, 29 Apr 2021) $"[1:23] + "\n"
+							"$Revision: 1639 $"[1:-2] + "\n" +
+							"$Date: 2023-01-11 12:21:40 +0100 (Wed, 11 Jan 2023) $"[1:23] + "\n"
 							)
 		self["url"] = Label("http://wiki.blue-panel.com/index.php/FritzCall")
 		self.onLayoutFinish.append(self.setWindowTitle)
@@ -886,19 +896,19 @@ class FritzMenu(Screen, HelpableScreen):
 				self["FBFInfo"].setText(_("Refreshing..."))
 			else:
 				if boxInfo:
-					self["FBFInfo"].setText(ensure_str(boxInfo))
+					self["FBFInfo"].setText(six.ensure_str(boxInfo))
 				else:
 					self["FBFInfo"].setText('BoxInfo ' + _('Status not available'))
 
 			if ipAddress:
 				if upTime:
-					self["FBFInternet"].setText('Internet ' + _('IP Address:') + ' ' + ipAddress + '\n' + _('Connected since') + ' ' + ensure_str(upTime))
+					self["FBFInternet"].setText('Internet ' + _('IP Address:') + ' ' + six.ensure_str(ipAddress) + '\n' + _('Connected since') + ' ' + six.ensure_str(upTime))
 				else:
 					self["FBFInternet"].setText('Internet ' + _('IP Address:') + ' ' + ipAddress)
 				self["internet_inactive"].hide()
 				self["internet_active"].show()
 			elif upTime:
-				self["FBFInternet"].setText(_('Connected since') + ' ' + ensure_str(upTime))
+				self["FBFInternet"].setText(_('Connected since') + ' ' + six.ensure_str(upTime))
 				self["internet_inactive"].hide()
 				self["internet_active"].show()
 			else:
@@ -915,7 +925,7 @@ class FritzMenu(Screen, HelpableScreen):
 						message = "DSL"
 					if dslState[1]:
 						message = message + ' ' + dslState[1]
-					self["FBFDsl"].setText(ensure_str(message))
+					self["FBFDsl"].setText(six.ensure_str(message))
 				else:
 					self["dsl_active"].hide()
 					self["dsl_inactive"].show()
@@ -942,7 +952,7 @@ class FritzMenu(Screen, HelpableScreen):
 							message = message + ', ' + wlanState[2] + ' ' + _('devices active')
 					if len(wlanState) == 4:
 						message = message + ", " + wlanState[3]
-					self["FBFWlan"].setText(ensure_str(message))
+					self["FBFWlan"].setText(six.ensure_str(message))
 				else:
 					self["wlan_active"].hide()
 					self["wlan_inactive"].show()
@@ -1020,12 +1030,14 @@ class FritzMenu(Screen, HelpableScreen):
 				self["gast_inactive"].show()
 				self["FBFGast"].setText(_('Guest access not active'))
 
-			if guestAccess and (guestAccess.find('WLAN') != -1 or guestAccess.find('WIFI') != -1):
-				# TRANSLATORS: keep it short, this is a button
-				self["key_yellow"].setText(_("Deactivate WLAN guest access"))
-			else:
-				# TRANSLATORS: keep it short, this is a button
-				self["key_yellow"].setText(_("Activate WLAN guest access"))
+			if guestAccess is not None:
+				guestAccess = six.ensure_str(guestAccess)
+				if (guestAccess.find('WLAN') != -1 or guestAccess.find('WIFI') != -1):
+					# TRANSLATORS: keep it short, this is a button
+					self["key_yellow"].setText(_("Deactivate WLAN guest access"))
+				else:
+					# TRANSLATORS: keep it short, this is a button
+					self["key_yellow"].setText(_("Activate WLAN guest access"))
 
 		except KeyError:
 			error("[FritzCallFBF] _fillMenu: %s", traceback.format_exc())
@@ -1274,7 +1286,7 @@ class FritzDisplayCalls(Screen, HelpableScreen):
 			return direct
 
 		# debug("[FritzDisplayCalls] %s" %repr(listOfCalls))
-		self.list = [(number, date[:6] + ' ' + date[9:14], pixDir(direct), ensure_str(remote), length, ensure_str(here)) for (number, date, direct, remote, length, here) in listOfCalls]
+		self.list = [(number, date[:6] + ' ' + date[9:14], pixDir(direct), six.ensure_str(remote), length, six.ensure_str(here)) for (number, date, direct, remote, length, here) in listOfCalls]
 		# debug("[FritzDisplayCalls] %s" %repr(self.list))
 		self["entries"].setList(self.list)
 		#=======================================================================
@@ -1296,7 +1308,7 @@ class FritzDisplayCalls(Screen, HelpableScreen):
 				fullname = phonebook.search(cur[0])
 				if fullname:
 					# we have a name for this number
-					name = ensure_str(fullname)
+					name = six.ensure_str(fullname)
 					self.session.open(FritzOfferAction, self, number, name)
 				elif cur[3]:
 					name = cur[3]
@@ -1305,7 +1317,7 @@ class FritzDisplayCalls(Screen, HelpableScreen):
 					# we don't
 					fullname = resolveNumberWithAvon(number, config.plugins.FritzCall.countrycode.value)
 					if fullname:
-						name = ensure_str(fullname)
+						name = six.ensure_str(fullname)
 						self.session.open(FritzOfferAction, self, number, name)
 					else:
 						self.session.open(FritzOfferAction, self, number)
@@ -1500,7 +1512,7 @@ class FritzCallPhonebook(object):
 		if not config.plugins.FritzCall.enable.value:
 			return
 
-		phonebookFilenameOld = os.path.join(config.plugins.FritzCall.phonebookLocation.value, "PhoneBook.txt")
+		# phonebookFilenameOld = os.path.join(config.plugins.FritzCall.phonebookLocation.value, "PhoneBook.txt")
 		phonebookFilename = os.path.join(config.plugins.FritzCall.phonebookLocation.value, "PhoneBook.json")
 		if config.plugins.FritzCall.phonebook.value:
 			if os.path.exists(phonebookFilename):
@@ -1508,7 +1520,7 @@ class FritzCallPhonebook(object):
 				debug("[FritzCallPhonebook] read %s", phonebookFilename)
 
 				try:
-					for k, v in list(json.loads(ensure_text(open(phonebookFilename).read())).items()):
+					for k, v in json.loads(six.ensure_text(open(phonebookFilename).read())).items():
 						# TODO if we change the value to a list of lines, we have to adapt this here
 						self.phonebook[k] = v
 				except (ValueError, UnicodeError, IOError) as e:
@@ -1585,7 +1597,7 @@ class FritzCallPhonebook(object):
 						info("[FritzCallPhonebook] empty Phonebook.json created")
 
 					phonebookTmp = {}
-					for k, v in list(json.loads(ensure_text(open(phonebookFilename).read())).items()):
+					for k, v in json.loads(six.ensure_text(open(phonebookFilename).read())).items():
 						phonebookTmp[k] = v
 					phonebookTmp[number] = name
 					json.dump(phonebookTmp, open(phonebookFilename, "w"), ensure_ascii=False, indent=0, separators=(',', ': '), sort_keys=True)
@@ -1623,7 +1635,7 @@ class FritzCallPhonebook(object):
 						return True
 
 					phonebookTmp = {}
-					for k, v in list(json.loads(ensure_text(open(phonebookFilename).read())).items()):
+					for k, v in json.loads(six.ensure_text(open(phonebookFilename).read())).items():
 						phonebookTmp[k] = v
 					if number in phonebookTmp:
 						del phonebookTmp[number]
@@ -1790,14 +1802,13 @@ class FritzCallPhonebook(object):
 			debug("[FritzDisplayPhonebook]")
 			self.sortlist = []
 			# Beware: strings in phonebook.phonebook are utf-8!
-			from six import iteritems
-			sortlistHelp = sorted(((name.lower(), name, number) for (number, name) in iteritems(phonebook.phonebook)), key=lambda x: locale.strxfrm(x[0]))
+			sortlistHelp = sorted(((name.lower(), name, number) for (number, name) in six.iteritems(phonebook.phonebook)), key=lambda x: locale.strxfrm(x[0]))
 			for (low, name, number) in sortlistHelp:
 				if number == "01234567890":
 					continue
-				low = ensure_str(low)
-				name = ensure_str(name).strip()
-				number = ensure_str(number).strip()
+				low = six.ensure_str(low)
+				name = six.ensure_str(name).strip()
+				number = six.ensure_str(number).strip()
 
 				if filterNumber:
 					filterNumber = filterNumber.lower()
@@ -2157,7 +2168,7 @@ class FritzCallSetup(Screen, ConfigListScreen, HelpableScreen):
 
 	def setWindowTitle(self):
 		# TRANSLATORS: this is a window title.
-		self.setTitle(_("FritzCall Setup") + " (" + "$Revision: 1591 $"[1:-1] + "$Date: 2021-04-29 16:52:10 +0200 (Thu, 29 Apr 2021) $"[7:23] + ")")
+		self.setTitle(_("FritzCall Setup") + " (" + "$Revision: 1639 $"[1:-1] + "$Date: 2023-01-11 12:21:40 +0100 (Wed, 11 Jan 2023) $"[7:23] + ")")
 
 	def keyLeft(self):
 		ConfigListScreen.keyLeft(self)
@@ -2353,7 +2364,7 @@ class FritzCallList(object):
 		# build screen from call list
 		text = "\n"
 
-		if not self.callList: # why is this happening at all?!?!
+		if not self.callList:  # why is this happening at all?!?!
 			text = _("no calls")
 			debug("[FritzCallList] %s", text)
 			return
@@ -2634,13 +2645,13 @@ def registerUserAction(fun):
 mutedOnConnID = None
 
 
-def notifyCall(event, date, number, caller, phone, connID): # @UnusedVariable # pylint: disable=W0613
-	event = ensure_str(event)
-	date = ensure_str(date)
-	number = ensure_str(number)
-	caller = ensure_str(caller)
-	phone = ensure_str(phone)
-	connID = ensure_str(connID)
+def notifyCall(event, date, number, caller, phone, connID):  # @UnusedVariable # pylint: disable=W0613
+	event = six.ensure_str(event)
+	date = six.ensure_str(date)
+	number = six.ensure_str(number)
+	caller = six.ensure_str(caller)
+	phone = six.ensure_str(phone)
+	connID = six.ensure_str(connID)
 	if Standby.inStandby is None or config.plugins.FritzCall.afterStandby.value == "each":
 		if event == "RING":
 			text = _("Incoming Call on %(date)s at %(time)s from\n---------------------------------------------\n%(number)s\n%(caller)s\n---------------------------------------------\nto: %(phone)s") % {'date': date[:8], 'time': date[9:], 'number': number, 'caller': caller, 'phone': phone}
@@ -2731,7 +2742,7 @@ class FritzReverseLookupAndNotifier(object):
 
 class FritzProtocol(LineReceiver):  # pylint: disable=W0223
 	def __init__(self):
-		info("[FritzProtocol] %s%s starting", "$Revision: 1591 $"[1:-1], "$Date: 2021-04-29 16:52:10 +0200 (Thu, 29 Apr 2021) $"[7:23])
+		info("[FritzProtocol] %s%s starting", "$Revision: 1639 $"[1:-1], "$Date: 2023-01-11 12:21:40 +0100 (Wed, 11 Jan 2023) $"[7:23])
 		global mutedOnConnID
 		mutedOnConnID = None
 		self.number = '0'
@@ -2770,7 +2781,7 @@ class FritzProtocol(LineReceiver):  # pylint: disable=W0223
 # 15.07.06 00:38:58;DISCONNECT;1;0;
 # 15.07.06 00:39:22;RING;0;<from/extern>;<to/our msn>;
 # 15.07.06 00:39:27;DISCONNECT;0;0;
-		anEvent = ensure_str(line).split(';')
+		anEvent = six.ensure_str(line).split(';')
 		(self.date, self.event) = anEvent[0:2]
 		self.connID = anEvent[2]
 
