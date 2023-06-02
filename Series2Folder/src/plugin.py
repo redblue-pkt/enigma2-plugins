@@ -654,9 +654,9 @@ class Series2FolderConfig(ConfigListScreen, Screen):
 <screen name="Series2FolderConfig" position="center,center" size="640,376" title="Configure Series To Folder" >
     <widget name="config" position="20,10" size="600,250" />
     <widget name="description" position="20,e-106" size="600,66" font="Regular;18" foregroundColor="grey" horizontalAlignment="left" verticalAlignment="top" />
-    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="skin_default/buttons/button_red.png" alphaTest="blend" />
-    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="skin_default/buttons/button_green.png" alphaTest="blend" />
-    <widget source="VKeyIcon" position="470,e-28" size="15,16" render="Pixmap" pixmap="skin_default/buttons/button_blue.png" alphaTest="blend" zPosition="1" >
+    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="buttons/button_red.png" alphaTest="blend" />
+    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="buttons/button_green.png" alphaTest="blend" />
+    <widget source="VKeyIcon" position="470,e-28" size="15,16" render="Pixmap" pixmap="buttons/button_blue.png" alphaTest="blend" zPosition="1" >
         <convert type="ConditionalShowHide" />
     </widget>
     <widget name="key_red" position="40,e-30" size="150,25" verticalAlignment="top" horizontalAlignment="left" font="Regular;20" />
