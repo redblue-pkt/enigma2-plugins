@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-import Plugins.Plugin
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigInteger, ConfigSubList, ConfigSubDict, ConfigText, configfile, ConfigYesNo
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigInteger, ConfigSubList, ConfigText, ConfigYesNo
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-import os
-import gettext
+from gettext import bindtextdomain, dgettext, gettext
 
 currentmcversion = "099"
 currentmcplatform = "sh4"
@@ -22,21 +20,19 @@ config.plugins.mc_globalsettings.currentplatform = ConfigText(default=currentmcp
 config.plugins.mc_globalsettings.currentversion.value = currentmcversion
 config.plugins.mc_globalsettings.currentplatform.value = currentmcplatform
 
-PluginLanguageDomain = "HDMUMediaCenter"
+PluginLanguageDomain = "BMediaCenter"
 PluginLanguagePath = "Extensions/BMediaCenter/locale"
 # Load Language
 
 
 def localeInit():
-	lang = language.getLanguage()[:2]
-	os.environ["LANGUAGE"] = lang
-	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
+	bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
 
 
 def _(txt):
-	t = gettext.dgettext(PluginLanguageDomain, txt)
+	t = dgettext(PluginLanguageDomain, txt)
 	if t == txt:
-		t = gettext.gettext(txt)
+		t = gettext(txt)
 	return t
 
 

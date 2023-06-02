@@ -155,18 +155,14 @@ bitrateviewer/meta/Makefile
 bitrateviewer/src/Makefile
 
 bmediacenter/Makefile
-bmediacenter/meta/Makefile
 bmediacenter/po/Makefile
-bmediacenter/src/converter/Makefile
-bmediacenter/src/icons/70x70/Makefile
-bmediacenter/src/icons/Makefile
 bmediacenter/src/Makefile
+bmediacenter/src/icons/Makefile
 bmediacenter/src/radio/Makefile
-bmediacenter/src/renderer/Makefile
 bmediacenter/src/saver/Makefile
-bmediacenter/src/skins/defaultHD/images/Makefile
-bmediacenter/src/skins/defaultHD/Makefile
 bmediacenter/src/skins/Makefile
+bmediacenter/src/skins/defaultHD/Makefile
+bmediacenter/src/skins/defaultHD/images/Makefile
 
 bonjour/Makefile
 bonjour/meta/Makefile
