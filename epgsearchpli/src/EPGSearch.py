@@ -817,7 +817,7 @@ class EPGSearch(EPGSelection):
 				(_("Export selected as AutoTimer"), self.exportAutoTimer),
 			))
 		if isPluginInstalled("TMBD"):
-			options.append((_("Search for TMDb info"), self.opentmdb))
+			options.append((_("Search for TMBD info"), self.opentmbd))
 		if isPluginInstalled("IMDb"):
 			options.append((_("Open selected in IMDb"), self.openImdb))
 		history = config.plugins.epgsearch.history.value
@@ -939,12 +939,12 @@ class EPGSearch(EPGSelection):
 			except:
 				pass
 
-	def opentmdb(self):
+	def opentmbd(self):
 		cur = self['list'].getCurrent()
 		event = cur[0]
 		if event:
 			try:
-				from Plugins.Extensions.TMDb.plugin import TMDbMain
+				from Plugins.Extensions.TMBD.plugin import TMDbMain
 				self.session.open(TMDbMain, event.getEventName())
 			except ImportError as ie:
 				pass
