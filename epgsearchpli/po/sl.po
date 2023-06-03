@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma 2 EPGSearch Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2014-11-22 20:46+0100\n"
 "Last-Translator: ims <ims21@users.sourceforge.net>\n"
 "Language-Team: www.linux-sprejemniki.info\n"
@@ -152,6 +152,10 @@ msgstr "Iskanje"
 
 msgid "Search EPG by title event"
 msgstr ""
+
+#, fuzzy
+msgid "Search event"
+msgstr "EPG iskanje"
 
 #, fuzzy
 msgid "Search event in EPG"

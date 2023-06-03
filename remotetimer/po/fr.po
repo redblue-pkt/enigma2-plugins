@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:19+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2018-07-31 21:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -80,8 +80,9 @@ msgstr "Programmation distante"
 msgid "Remote Timer - WebIf Port"
 msgstr "Programmation distante"
 
-msgid "Remote-Timer digest"
-msgstr "Remote-Timer résumé"
+#, fuzzy
+msgid "Remote-Timer"
+msgstr "Programmation distante"
 
 msgid "Remote-Timer settings"
 msgstr "Remote-Timer paramètres"
@@ -101,11 +102,9 @@ msgstr "Réglages"
 msgid "error parsing incoming data."
 msgstr "erreur d'analyse des données entrantes....."
 
-msgid "fetching remote data..."
+#, fuzzy
+msgid "fetched remote data..."
 msgstr "récupération des données à distance....."
-
-msgid "finish fetching remote data..."
-msgstr "terminer l'extraction des données à distance....."
 
 msgid "not configured yet. please do so in the settings."
 msgstr "pas encore configuré. Veuillez le faire dans les paramètres."

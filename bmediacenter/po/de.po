@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BMediaCenter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 02:07+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2023-01-13 14:14+0100\n"
 "Last-Translator: Masta2002\n"
 "Language-Team: bonkel\n"
@@ -94,6 +94,16 @@ msgstr "Arabic"
 msgid "Asian"
 msgstr "Asian"
 
+msgid "Audio Player"
+msgstr ""
+
+#, fuzzy
+msgid "Audioplayer Settings"
+msgstr "Bild Einstellungen"
+
+msgid "BMedia Center Menu"
+msgstr ""
+
 msgid "Bigband"
 msgstr "Bigband"
 
@@ -136,6 +146,10 @@ msgstr "Comedy"
 msgid "Country"
 msgstr "Country"
 
+#, fuzzy
+msgid "DMC Settings"
+msgstr "Einstellungen"
+
 msgid "Dance"
 msgstr "Dance"
 
@@ -144,6 +158,10 @@ msgstr "Datum aufsteigend"
 
 msgid "Date descending"
 msgstr "Datum absteigend"
+
+#, fuzzy
+msgid "Delete"
+msgstr "Film löschen"
 
 msgid "Delete Movie"
 msgstr "Film löschen"
@@ -183,6 +201,9 @@ msgstr "Willst du diesen Ordner samt den Inhalt wirklich löschen?"
 
 msgid "Do you really want to delete this file ?"
 msgstr "Willst du die Datei wirklich löschen?"
+
+msgid "Download"
+msgstr ""
 
 msgid "Downtempo"
 msgstr "Downtempo"
@@ -258,6 +279,9 @@ msgstr ""
 msgid "Eurodance"
 msgstr "Eurodance"
 
+msgid "Favorite Folders"
+msgstr ""
+
 msgid "File Browser"
 msgstr "Dateibrowser"
 
@@ -306,6 +330,9 @@ msgstr "Hardrock"
 msgid "Hiphop"
 msgstr "Hiphop"
 
+msgid "Home"
+msgstr ""
+
 msgid "House"
 msgstr "House"
 
@@ -345,6 +372,12 @@ msgstr "Lounge"
 msgid "Lyrics"
 msgstr "Songtexte"
 
+msgid "Media Center - VLC Favorites"
+msgstr ""
+
+msgid "Media Center - VLC Player - Serverlist"
+msgstr ""
+
 msgid "Metal"
 msgstr "Metal"
 
@@ -356,6 +389,10 @@ msgstr "Film"
 
 msgid "Music"
 msgstr "Musik"
+
+#, fuzzy
+msgid "Music Playlist"
+msgstr "Wiedergabeliste speichern"
 
 msgid "Musical"
 msgstr "Musical"
@@ -384,6 +421,9 @@ msgstr "Name:"
 msgid "No lyrics found"
 msgstr "Keine Songtexte gefunden"
 
+msgid "OK / Play"
+msgstr ""
+
 msgid "Oldies"
 msgstr "Oldies"
 
@@ -396,11 +436,25 @@ msgstr "Überblick"
 msgid "Overwrite TXT"
 msgstr "Überblick TXT"
 
+msgid "Pic Viewer"
+msgstr ""
+
 msgid "Picture Settings"
 msgstr "Bild Einstellungen"
 
+#, fuzzy
+msgid "Picture Viewer"
+msgstr "Bild Einstellungen"
+
+#, fuzzy
+msgid "Play / Pause"
+msgstr "DVD abspielen als:"
+
 msgid "Play DVD as:"
 msgstr "DVD abspielen als:"
+
+msgid "Playlist/Filelist"
+msgstr ""
 
 msgid "Please enter filename (empty = use current date)"
 msgstr "Bitte gib den Dateinamen ein (leer= benutz aktuelles Datum)"
@@ -590,11 +644,32 @@ msgstr "Urban"
 msgid "Usa"
 msgstr "Usa"
 
+msgid "VLC Favorites"
+msgstr ""
+
+msgid "VLC Player - Medialist"
+msgstr ""
+
+msgid "VLC Player - Serverlist"
+msgstr ""
+
 msgid "Various"
 msgstr "Various"
 
+msgid "Video Player"
+msgstr ""
+
+msgid "Video Player Settings"
+msgstr ""
+
+msgid "VideoPlayerSettings"
+msgstr ""
+
 msgid "Wave"
 msgstr "Wave"
+
+msgid "Web Download"
+msgstr ""
 
 msgid "Web Radio"
 msgstr "Web Radio"
@@ -619,6 +694,10 @@ msgid ""
 msgstr ""
 "Ihr %s %s wird nach der Installation des Dienstes neu gestartet\n"
 "Bereit, %s zu installieren?"
+
+#, fuzzy
+msgid "Zur Playlist"
+msgstr "Wiedergabeliste speichern"
 
 msgid "add all files in directory to playlist"
 msgstr "Alle Dateien im Ordner zur Wiedergabeliste hinzufügen"

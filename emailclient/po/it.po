@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 - emailclient\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-08 13:42+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2009-12-04 15:54+0100\n"
 "Last-Translator: Spaeleus <spaeleus@croci.org>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
@@ -20,6 +20,10 @@ msgstr ""
 #, python-format
 msgid "%(name)s (%(user)s@%(server)s)"
 msgstr "%(name)s (%(user)s@%(server)s)"
+
+#, fuzzy
+msgid "Account Setup"
+msgstr "Elenco account"
 
 msgid "Accounts list"
 msgstr "Elenco account"

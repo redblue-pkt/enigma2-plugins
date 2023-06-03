@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-22 17:52+0430\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -931,6 +931,33 @@ msgstr ""
 msgid "zap and record"
 msgstr ""
 
+msgid "Autotimer Settings"
+msgstr ""
+
+msgid "If this is selected, the tag 'AutoTimer' will be given to timers created by this plugin."
+msgstr ""
+
+msgid "Include 'AutoTimer' in tags"
+msgstr ""
+
+msgid "Poll Interval (in mins)"
+msgstr ""
+
+msgid "Support 'Fast Scan'?"
+msgstr ""
+
+msgid "This is the delay in minutes that the AutoTimer will wait after a search to search the EPG again."
+msgstr ""
+
+msgid "This is the delay in minutes that the AutoTimer will wait on initial launch to not delay enigma2 startup time."
+msgstr ""
+
+msgid "Unless this is enabled AutoTimer will NOT automatically look for events matching your AutoTimers but only when you leave the GUI with the green button."
+msgstr ""
+
+msgid "When supporting 'Fast Scan' the service type is ignored. You don't need to enable this unless your Image supports 'Fast Scan' and you are using it."
+msgstr ""
+
 msgid "Abort this Wizard."
 msgstr ""
 
@@ -1034,33 +1061,6 @@ msgid "Wizard or Classic Editor?"
 msgstr ""
 
 msgid "You now know almost everything there is to know about the AutoTimer-Plugin./n/nAs a final hint I can't stress how important it is to take a look at the help texts that are shown in the setup dialogs as they cover the most frequently asked questions. Surprisingly even after the hints were added ;-)."
-msgstr ""
-
-msgid "Autotimer Settings"
-msgstr ""
-
-msgid "If this is selected, the tag 'AutoTimer' will be given to timers created by this plugin."
-msgstr ""
-
-msgid "Include 'AutoTimer' in tags"
-msgstr ""
-
-msgid "Poll Interval (in mins)"
-msgstr ""
-
-msgid "Support 'Fast Scan'?"
-msgstr ""
-
-msgid "This is the delay in minutes that the AutoTimer will wait after a search to search the EPG again."
-msgstr ""
-
-msgid "This is the delay in minutes that the AutoTimer will wait on initial launch to not delay enigma2 startup time."
-msgstr ""
-
-msgid "Unless this is enabled AutoTimer will NOT automatically look for events matching your AutoTimers but only when you leave the GUI with the green button."
-msgstr ""
-
-msgid "When supporting 'Fast Scan' the service type is ignored. You don't need to enable this unless your Image supports 'Fast Scan' and you are using it."
 msgstr ""
 
 msgid "AutoTimer FAQ"

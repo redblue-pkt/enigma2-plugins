@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-06 16:06+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2017-06-02 20:32+0200\n"
 "Last-Translator: hawkeye116477 <hawkeye116477@gmail.com>\n"
 "Language-Team: \n"
@@ -183,6 +183,10 @@ msgstr "Odtwarzacz zdjęć jest niedostępny!"
 
 msgid "Preview all pictures"
 msgstr "Podgląd wszystkich zdjęć"
+
+#, fuzzy
+msgid "Pyc-Script:\\n"
+msgstr "Skrypt pyc:\\n"
 
 #, fuzzy
 msgid "Pyo-Script:\\n"

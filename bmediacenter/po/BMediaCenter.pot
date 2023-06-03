@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the BMediaCenter package.
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BMediaCenter\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 02:11+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,9 +95,6 @@ msgid "Blues"
 msgstr ""
 
 msgid "Breakbeat"
-msgstr ""
-
-msgid "Cache Thumbnails"
 msgstr ""
 
 msgid "Checking Feeds"
@@ -245,9 +242,6 @@ msgstr ""
 msgid "Folk"
 msgstr ""
 
-msgid "Frame size in full view"
-msgstr ""
-
 msgid "France"
 msgstr ""
 
@@ -329,9 +323,6 @@ msgstr ""
 msgid "Movie"
 msgstr ""
 
-msgid "Music"
-msgstr ""
-
 msgid "Musical"
 msgstr ""
 
@@ -369,9 +360,6 @@ msgid "Overview"
 msgstr ""
 
 msgid "Overwrite TXT"
-msgstr ""
-
-msgid "Picture Settings"
 msgstr ""
 
 msgid "Play DVD as:"
@@ -456,9 +444,6 @@ msgstr ""
 msgid "Save as TXT"
 msgstr ""
 
-msgid "Scaling Mode"
-msgstr ""
-
 msgid "Schlager"
 msgstr ""
 
@@ -469,9 +454,6 @@ msgid "Screensaver Interval"
 msgstr ""
 
 msgid "Screensaver Style:"
-msgstr ""
-
-msgid "Select music"
 msgstr ""
 
 msgid "Series"
@@ -496,9 +478,6 @@ msgid "Size descending"
 msgstr ""
 
 msgid "Ska"
-msgstr ""
-
-msgid "Slideshow Interval (sec.)"
 msgstr ""
 
 msgid "Smooth_jazz"
@@ -536,12 +515,6 @@ msgstr ""
 
 #, python-format
 msgid "This Dreambox can't decode %s video streams!"
-msgstr ""
-
-msgid "Thumbnail Height"
-msgstr ""
-
-msgid "Thumbnail Width"
 msgstr ""
 
 msgid "Title: "
@@ -605,9 +578,6 @@ msgstr ""
 msgid "add file to playlist and play"
 msgstr ""
 
-msgid "backgroundcolor"
-msgstr ""
-
 msgid "better"
 msgstr ""
 
@@ -665,17 +635,119 @@ msgstr ""
 msgid "save playlist"
 msgstr ""
 
-msgid "show Infoline"
+msgid "simple"
 msgstr ""
 
-msgid "simple"
+msgid "yellow"
+msgstr ""
+
+msgid "Audio Player"
+msgstr ""
+
+msgid "Audioplayer Settings"
+msgstr ""
+
+msgid "BMedia Center Menu"
+msgstr ""
+
+msgid "DMC Settings"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Favorite Folders"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Media Center - VLC Favorites"
+msgstr ""
+
+msgid "Media Center - VLC Player - Serverlist"
+msgstr ""
+
+msgid "Music Playlist"
+msgstr ""
+
+msgid "OK / Play"
+msgstr ""
+
+msgid "Pic Viewer"
+msgstr ""
+
+msgid "Picture Viewer"
+msgstr ""
+
+msgid "Play / Pause"
+msgstr ""
+
+msgid "Playlist/Filelist"
+msgstr ""
+
+msgid "VLC Favorites"
+msgstr ""
+
+msgid "VLC Player - Medialist"
+msgstr ""
+
+msgid "VLC Player - Serverlist"
+msgstr ""
+
+msgid "Video Player"
+msgstr ""
+
+msgid "Video Player Settings"
+msgstr ""
+
+msgid "VideoPlayerSettings"
+msgstr ""
+
+msgid "Web Download"
+msgstr ""
+
+msgid "Zur Playlist"
+msgstr ""
+
+msgid "Cache Thumbnails"
+msgstr ""
+
+msgid "Frame size in full view"
+msgstr ""
+
+msgid "Music"
+msgstr ""
+
+msgid "Picture Settings"
+msgstr ""
+
+msgid "Scaling Mode"
+msgstr ""
+
+msgid "Select music"
+msgstr ""
+
+msgid "Slideshow Interval (sec.)"
+msgstr ""
+
+msgid "Thumbnail Height"
+msgstr ""
+
+msgid "Thumbnail Width"
+msgstr ""
+
+msgid "backgroundcolor"
+msgstr ""
+
+msgid "show Infoline"
 msgstr ""
 
 msgid "slide picture in loop"
 msgstr ""
 
 msgid "textcolor"
-msgstr ""
-
-msgid "yellow"
 msgstr ""

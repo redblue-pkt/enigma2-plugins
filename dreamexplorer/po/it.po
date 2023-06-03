@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-06 16:06+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2018-05-29 21:54+0200\n"
 "Last-Translator: Massimo Bambi <maxbambi@libero.it>\n"
 "Language-Team: \n"
@@ -188,6 +188,10 @@ msgstr "Picture-Player non disponibile!"
 
 msgid "Preview all pictures"
 msgstr "Mostra anteprima di tutte le immagini"
+
+#, fuzzy
+msgid "Pyc-Script:\\n"
+msgstr "Pyc-Script:\\n"
 
 #, fuzzy
 msgid "Pyo-Script:\\n"

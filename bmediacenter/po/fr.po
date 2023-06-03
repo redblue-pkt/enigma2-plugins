@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BMediaCenter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 02:07+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2014-10-29 13:01+0100\n"
 "Last-Translator: OEA\n"
 "Language-Team: french\n"
@@ -91,6 +91,16 @@ msgstr ""
 msgid "Asian"
 msgstr ""
 
+msgid "Audio Player"
+msgstr ""
+
+#, fuzzy
+msgid "Audioplayer Settings"
+msgstr "Paramètres"
+
+msgid "BMedia Center Menu"
+msgstr ""
+
 msgid "Bigband"
 msgstr ""
 
@@ -133,6 +143,10 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
+#, fuzzy
+msgid "DMC Settings"
+msgstr "Paramètres"
+
 msgid "Dance"
 msgstr ""
 
@@ -141,6 +155,10 @@ msgstr ""
 
 msgid "Date descending"
 msgstr ""
+
+#, fuzzy
+msgid "Delete"
+msgstr "effacer fichier"
 
 #, fuzzy
 msgid "Delete Movie"
@@ -179,6 +197,9 @@ msgstr "Voulez-vous vraiment effacer ce répertoire et son contenu?"
 
 msgid "Do you really want to delete this file ?"
 msgstr "Voulez-vous vraiment effacer ce ficher?"
+
+msgid "Download"
+msgstr ""
 
 msgid "Downtempo"
 msgstr ""
@@ -254,6 +275,9 @@ msgstr ""
 msgid "Eurodance"
 msgstr ""
 
+msgid "Favorite Folders"
+msgstr ""
+
 msgid "File Browser"
 msgstr ""
 
@@ -302,6 +326,9 @@ msgstr ""
 msgid "Hiphop"
 msgstr ""
 
+msgid "Home"
+msgstr ""
+
 msgid "House"
 msgstr ""
 
@@ -341,6 +368,12 @@ msgstr ""
 msgid "Lyrics"
 msgstr "Paroles"
 
+msgid "Media Center - VLC Favorites"
+msgstr ""
+
+msgid "Media Center - VLC Player - Serverlist"
+msgstr ""
+
 msgid "Metal"
 msgstr ""
 
@@ -353,6 +386,10 @@ msgstr ""
 #, fuzzy
 msgid "Music"
 msgstr "Ma Musique"
+
+#, fuzzy
+msgid "Music Playlist"
+msgstr "Sauvegarder la liste de lecture"
 
 #, fuzzy
 msgid "Musical"
@@ -382,6 +419,9 @@ msgstr ""
 msgid "No lyrics found"
 msgstr "Aucune parole trouvée"
 
+msgid "OK / Play"
+msgstr ""
+
 msgid "Oldies"
 msgstr ""
 
@@ -394,11 +434,24 @@ msgstr ""
 msgid "Overwrite TXT"
 msgstr ""
 
+msgid "Pic Viewer"
+msgstr ""
+
 #, fuzzy
 msgid "Picture Settings"
 msgstr "Paramètres"
 
+#, fuzzy
+msgid "Picture Viewer"
+msgstr "Paramètres"
+
+msgid "Play / Pause"
+msgstr ""
+
 msgid "Play DVD as:"
+msgstr ""
+
+msgid "Playlist/Filelist"
 msgstr ""
 
 msgid "Please enter filename (empty = use current date)"
@@ -592,10 +645,31 @@ msgstr ""
 msgid "Usa"
 msgstr ""
 
+msgid "VLC Favorites"
+msgstr ""
+
+msgid "VLC Player - Medialist"
+msgstr ""
+
+msgid "VLC Player - Serverlist"
+msgstr ""
+
 msgid "Various"
 msgstr ""
 
+msgid "Video Player"
+msgstr ""
+
+msgid "Video Player Settings"
+msgstr ""
+
+msgid "VideoPlayerSettings"
+msgstr ""
+
 msgid "Wave"
+msgstr ""
+
+msgid "Web Download"
 msgstr ""
 
 msgid "Web Radio"
@@ -619,6 +693,10 @@ msgid ""
 "Your %s %s will be restarted after the installation of service\n"
 "Ready to install %s ?"
 msgstr ""
+
+#, fuzzy
+msgid "Zur Playlist"
+msgstr "Sauvegarder la liste de lecture"
 
 msgid "add all files in directory to playlist"
 msgstr "ajouter tous les fichiers d'un répertoire dans la liste de lecture"

@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the MerlinMusicPlayer package.
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MerlinMusicPlayer\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 02:11+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -339,4 +339,40 @@ msgid "search for title"
 msgstr ""
 
 msgid "search in all of them"
+msgstr ""
+
+msgid "MERLIN  MUSIC  PLAYER"
+msgstr ""
+
+msgid "WWW.DREAMBOX-TOOLS.INFO"
+msgstr ""
+
+msgid "Songlist"
+msgstr ""
+
+msgid "MerlinMusicPlayerScreenSaver"
+msgstr ""
+
+msgid "Create iDream DB"
+msgstr ""
+
+msgid "MusicPlayer"
+msgstr ""
+
+msgid "MMP  Setup"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Music Player Lyrics"
+msgstr ""
+
+msgid "MerlinMusicPlayerTV"
+msgstr ""
+
+msgid "MMP  Path Select"
+msgstr ""
+
+msgid "Select Path"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-14 08:00+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,9 +19,6 @@ msgstr ""
 
 #, python-format
 msgid "%(name)s (%(user)s@%(server)s)"
-msgstr ""
-
-msgid "Account Setup"
 msgstr ""
 
 msgid "Accounts list"
@@ -37,9 +34,6 @@ msgid "Date"
 msgstr ""
 
 msgid "Email Client"
-msgstr ""
-
-msgid "Email setup"
 msgstr ""
 
 #, python-format
@@ -108,16 +102,7 @@ msgstr ""
 msgid "connection failed - retrying"
 msgstr ""
 
-msgid "debug"
-msgstr ""
-
 msgid "delete"
-msgstr ""
-
-msgid "display connection errors"
-msgstr ""
-
-msgid "display timeout (seconds)"
 msgstr ""
 
 msgid "edit"
@@ -215,9 +200,6 @@ msgstr ""
 msgid "select Body"
 msgstr ""
 
-msgid "show deleted entries"
-msgstr ""
-
 msgid "undelete"
 msgstr ""
 
@@ -225,4 +207,22 @@ msgid "user name"
 msgstr ""
 
 msgid "view Emails via IMAP4"
+msgstr ""
+
+msgid "Account Setup"
+msgstr ""
+
+msgid "Email setup"
+msgstr ""
+
+msgid "debug"
+msgstr ""
+
+msgid "display connection errors"
+msgstr ""
+
+msgid "display timeout (seconds)"
+msgstr ""
+
+msgid "show deleted entries"
 msgstr ""

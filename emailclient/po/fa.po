@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: email client Persian Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-03 15:01+0000\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2012-07-24 14:03+0330\n"
 "Last-Translator: mehdi <mehdi_ar_yekta@yahoo.com>\n"
 "Language-Team: Persian Professionals <persianpros@yahoo.com>\n"
@@ -21,6 +21,10 @@ msgstr ""
 #, python-format
 msgid "%(name)s (%(user)s@%(server)s)"
 msgstr ""
+
+#, fuzzy
+msgid "Account Setup"
+msgstr "لیست کاربران"
 
 msgid "Accounts list"
 msgstr "لیست کاربران"

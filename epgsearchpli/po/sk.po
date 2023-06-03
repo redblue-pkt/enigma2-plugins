@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma 2 EPGSearch Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-11 10:58+0200\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2017-03-27 14:35+0200\n"
 "Last-Translator: ims <andrej.tobola@gmail.com>\n"
 "Language-Team: PLi <ims21@users.sourceforge.net>\n"
@@ -147,6 +147,10 @@ msgstr "Hľadať"
 
 msgid "Search EPG by title event"
 msgstr "Hľadať EPG podľa názvu udalosti"
+
+#, fuzzy
+msgid "Search event"
+msgstr "Nájsť udalosť v EPG"
 
 msgid "Search event in EPG"
 msgstr "Nájsť udalosť v EPG"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EPGSearch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2016-06-23 11:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -152,6 +152,10 @@ msgstr "Paieška"
 
 msgid "Search EPG by title event"
 msgstr "EPG paieška pagal įvykio pavadinimą"
+
+#, fuzzy
+msgid "Search event"
+msgstr "Ieškoti EPG įvykio"
 
 msgid "Search event in EPG"
 msgstr "Ieškoti EPG įvykio"

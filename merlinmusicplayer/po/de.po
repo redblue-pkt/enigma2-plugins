@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MerlinMusicPlayer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 02:08+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2014-12-29 12:19+0100\n"
 "Last-Translator: husky <husky@mail.to>\n"
 "Language-Team: OpenATV\n"
@@ -129,6 +129,9 @@ msgstr "Schliessen"
 msgid "Configuration"
 msgstr "Konfiguration"
 
+msgid "Create iDream DB"
+msgstr ""
+
 msgid "Create new playlist"
 msgstr "Neue Playlist erzeugen"
 
@@ -207,6 +210,15 @@ msgstr "Ungültiger Ordner"
 msgid "Lyrics"
 msgstr ""
 
+msgid "MERLIN  MUSIC  PLAYER"
+msgstr ""
+
+msgid "MMP  Path Select"
+msgstr ""
+
+msgid "MMP  Setup"
+msgstr ""
+
 #, fuzzy
 msgid "Main Menu"
 msgstr "iDream Hauptmenü"
@@ -230,6 +242,22 @@ msgstr "Merlin Music Player"
 
 #, fuzzy
 msgid "Merlin music player"
+msgstr "Merlin Music Player"
+
+#, fuzzy
+msgid "MerlinMusicPlayerScreenSaver"
+msgstr "Merlin Music Player"
+
+#, fuzzy
+msgid "MerlinMusicPlayerTV"
+msgstr "Merlin Music Player"
+
+#, fuzzy
+msgid "Music Player Lyrics"
+msgstr "Merlin Music Player Songtexte"
+
+#, fuzzy
+msgid "MusicPlayer"
 msgstr "Merlin Music Player"
 
 msgid "No lyrics found"
@@ -277,6 +305,9 @@ msgstr "Letzten Ordner im Dateibrowser merken"
 msgid "Repeat is not available yet with cue-files!"
 msgstr "Wiederholen ist noch nicht verfügbar für Cue-Dateien!"
 
+msgid "Save"
+msgstr ""
+
 msgid "Scan path for music files and add them to database"
 msgstr "Pfad duchsuchen und Musikdateien zur Datenbank hinzufügen"
 
@@ -299,6 +330,9 @@ msgstr "Suchergebnis für \"%s\" in allen Titeln"
 msgid "Search results for \"%s\" in title, artist or album"
 msgstr "Suchergebnis für \"%s\" in allen Titeln, Interpreten und Alben"
 
+msgid "Select Path"
+msgstr ""
+
 msgid "Select path"
 msgstr ""
 
@@ -320,6 +354,9 @@ msgstr "Zeige iDream im Hauptmenü"
 msgid "Shuffle is not available yet with cue-files!"
 msgstr "Zufallswiedergabe ist noch nicht verfügbar für Cue-Dateien!"
 
+msgid "Songlist"
+msgstr ""
+
 #, python-format
 msgid "Songs (%d)"
 msgstr "Lieder (%d)"
@@ -337,6 +374,9 @@ msgstr "Ihr Receiver kann keine %s Streams decodieren!"
 
 #, python-format
 msgid "Track %s"
+msgstr ""
+
+msgid "WWW.DREAMBOX-TOOLS.INFO"
 msgstr ""
 
 msgid "Wait for screensaver (in min)"

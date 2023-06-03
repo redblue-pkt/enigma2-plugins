@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma2 FritzCall Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2020-10-22 16:35+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad - مساعد الجعيد\n"
@@ -129,6 +129,18 @@ msgstr ""
 
 msgid "Could not get call list; wrong version?"
 msgstr "تعذر الحصول على قائمة الاتصال; إصدار خاطئ؟"
+
+#, fuzzy
+msgid "Could not load barring list: "
+msgstr "تعذر تحميل دفتر الهاتف: "
+
+#, fuzzy, python-format
+msgid "Could not load barring list: %s"
+msgstr "تعذر تحميل دفتر الهاتف: %s"
+
+#, fuzzy
+msgid "Could not load deflections list: "
+msgstr "تعذر تحميل دفتر الهاتف: "
 
 msgid "Could not load phonebook: "
 msgstr "تعذر تحميل دفتر الهاتف: "

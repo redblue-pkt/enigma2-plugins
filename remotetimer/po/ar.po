@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: remotetimer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:19+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2020-11-05 17:20+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad - مساعد الجعيد\n"
@@ -80,8 +80,9 @@ msgstr "الموقت عن بعد"
 msgid "Remote Timer - WebIf Port"
 msgstr "الموقت عن بعد"
 
-msgid "Remote-Timer digest"
-msgstr "ملخص الموقت البعيد"
+#, fuzzy
+msgid "Remote-Timer"
+msgstr "الموقت عن بعد"
 
 msgid "Remote-Timer settings"
 msgstr "إعدادات الموقت البعيد"
@@ -101,11 +102,9 @@ msgstr "إعدادات"
 msgid "error parsing incoming data."
 msgstr "خطأ في تحليل البيانات الواردة ..."
 
-msgid "fetching remote data..."
+#, fuzzy
+msgid "fetched remote data..."
 msgstr "إحضار البيانات عن بعد ..."
-
-msgid "finish fetching remote data..."
-msgstr "إنهاء إحضار البيانات عن بعد ..."
 
 msgid "not configured yet. please do so in the settings."
 msgstr "لم يتم تكوينه بعد. الرجاء القيام بذلك في الإعدادات."

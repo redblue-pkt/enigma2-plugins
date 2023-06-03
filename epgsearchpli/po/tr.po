@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 EPGSearch plugin Turkish Locale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2014-11-22 20:47+0100\n"
 "Last-Translator: Zülfikar VEYİSOĞLU <z.veyisoglu@hobiagaci.com>\n"
 "Language-Team: http://hobiagaci.com <z.veyisoglu@hobiagaci.com>\n"
@@ -153,6 +153,10 @@ msgstr "Ara"
 
 msgid "Search EPG by title event"
 msgstr ""
+
+#, fuzzy
+msgid "Search event"
+msgstr "EPG'de ara"
 
 #, fuzzy
 msgid "Search event in EPG"

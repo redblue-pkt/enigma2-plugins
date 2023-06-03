@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EmailClient plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-16 19:06+0430\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2017-07-10 15:11+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -21,6 +21,10 @@ msgstr ""
 #, python-format
 msgid "%(name)s (%(user)s@%(server)s)"
 msgstr "%(name)s (%(user)s@%(server)s"
+
+#, fuzzy
+msgid "Account Setup"
+msgstr "Paskyrų sąrašas"
 
 msgid "Accounts list"
 msgstr "Paskyrų sąrašas"

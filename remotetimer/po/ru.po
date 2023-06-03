@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:19+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2016-02-03 23:25+0200\n"
 "Last-Translator: Dimitrij <Dima-73@inbox.lv>\n"
 "Language-Team: openpli.org\n"
@@ -80,8 +80,9 @@ msgstr "Дистанционный таймер"
 msgid "Remote Timer - WebIf Port"
 msgstr "Дистанционный таймер"
 
-msgid "Remote-Timer digest"
-msgstr "Дистанционный таймер - обзор"
+#, fuzzy
+msgid "Remote-Timer"
+msgstr "Дистанционный таймер"
 
 msgid "Remote-Timer settings"
 msgstr "Дистанционный таймер - настройки"
@@ -101,11 +102,9 @@ msgstr "Настройки"
 msgid "error parsing incoming data."
 msgstr "Ошибка разбора входящих данных..."
 
-msgid "fetching remote data..."
+#, fuzzy
+msgid "fetched remote data..."
 msgstr "Извлечение дистанционных данных..."
-
-msgid "finish fetching remote data..."
-msgstr "Закончено получение данных..."
 
 msgid "not configured yet. please do so in the settings."
 msgstr "Нет конфигурации. Пожалуйста, выполните настройки."

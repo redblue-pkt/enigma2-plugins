@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MerlinMusicPlayer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 02:08+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2016-06-25 07:41+0300\n"
 "Last-Translator: \n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -131,6 +131,9 @@ msgstr "Uždaryti"
 msgid "Configuration"
 msgstr "Konfigūracija"
 
+msgid "Create iDream DB"
+msgstr ""
+
 msgid "Create new playlist"
 msgstr "Kurti naują grojaraštį"
 
@@ -208,6 +211,15 @@ msgstr "Neteisinga vieta"
 msgid "Lyrics"
 msgstr "Žodžiai"
 
+msgid "MERLIN  MUSIC  PLAYER"
+msgstr ""
+
+msgid "MMP  Path Select"
+msgstr ""
+
+msgid "MMP  Setup"
+msgstr ""
+
 msgid "Main Menu"
 msgstr "Pagrindinis meniu"
 
@@ -227,6 +239,22 @@ msgid "Merlin Music Player TV"
 msgstr "Merlin muzikos grotuvo TV"
 
 msgid "Merlin music player"
+msgstr "Merlin muzikos grotuvas"
+
+#, fuzzy
+msgid "MerlinMusicPlayerScreenSaver"
+msgstr "Merlin muzikos grotuvas"
+
+#, fuzzy
+msgid "MerlinMusicPlayerTV"
+msgstr "Merlin muzikos grotuvo TV"
+
+#, fuzzy
+msgid "Music Player Lyrics"
+msgstr "Merlin muzikos grotuvo dainų tekstai"
+
+#, fuzzy
+msgid "MusicPlayer"
 msgstr "Merlin muzikos grotuvas"
 
 msgid "No lyrics found"
@@ -273,6 +301,9 @@ msgstr "Įsiminti paskutinį failų naršyklės kelią"
 msgid "Repeat is not available yet with cue-files!"
 msgstr ".cue failų pakartoti negalima!"
 
+msgid "Save"
+msgstr ""
+
 msgid "Scan path for music files and add them to database"
 msgstr "Kelias, ieškoti muzikos failų ir įtraukti juos į duomenų bazę"
 
@@ -295,6 +326,10 @@ msgstr "\"%s\" paieškos tarp pavadinimų rezultatai"
 msgid "Search results for \"%s\" in title, artist or album"
 msgstr "\"%s\" paieškos pavadinime, tarp atlikėjų, ar albumų rezultatai"
 
+#, fuzzy
+msgid "Select Path"
+msgstr "Pasirinkite kelią"
+
 msgid "Select path"
 msgstr "Pasirinkite kelią"
 
@@ -316,6 +351,9 @@ msgstr "Rodyti iDream pagrindiniame meniu"
 msgid "Shuffle is not available yet with cue-files!"
 msgstr ".cue failų sumaišyti negalima!"
 
+msgid "Songlist"
+msgstr ""
+
 #, python-format
 msgid "Songs (%d)"
 msgstr "Dainos (%d)"
@@ -334,6 +372,9 @@ msgstr "Šis aparatas negali iškoduoti %s srautų!"
 #, python-format
 msgid "Track %s"
 msgstr "Takelis %s"
+
+msgid "WWW.DREAMBOX-TOOLS.INFO"
+msgstr ""
 
 msgid "Wait for screensaver (in min)"
 msgstr "Ekrano užsklanda po (min.)"

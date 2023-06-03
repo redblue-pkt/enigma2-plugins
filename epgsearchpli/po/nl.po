@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 - epgsearch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:06+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2014-11-22 20:46+0100\n"
 "Last-Translator: Benny <Benny.DeTandt@gmail.com>\n"
 "Language-Team:  <Benny.DeTandt@gmail.com>\n"
@@ -158,6 +158,10 @@ msgstr "Zoeken"
 
 msgid "Search EPG by title event"
 msgstr ""
+
+#, fuzzy
+msgid "Search event"
+msgstr "EPG doorzoeken"
 
 #, fuzzy
 msgid "Search event in EPG"

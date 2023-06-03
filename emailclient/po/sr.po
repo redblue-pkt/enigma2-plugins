@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma2 - Plugin EmailClient\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-08 13:42+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2009-09-27 17:49+0100\n"
 "Last-Translator: maja <jovanovic@gmx.ch>\n"
 "Language-Team: veselin & majevica CRNABERZA <jovanovic@gmx.ch>\n"
@@ -21,6 +21,9 @@ msgstr ""
 
 #, python-format
 msgid "%(name)s (%(user)s@%(server)s)"
+msgstr ""
+
+msgid "Account Setup"
 msgstr ""
 
 msgid "Accounts list"

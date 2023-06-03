@@ -1,95 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Enigma 2 Filebrowser Plugin\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-22 17:52+0430\n"
-"PO-Revision-Date: 2020-05-22 18:22+0200\n"
-"Last-Translator: ims <ims21@users.sourceforge.net>\n"
-"Language-Team: PLi\n"
+"POT-Creation-Date: 2022-04-16 18:40+0000\n"
+"PO-Revision-Date: 2023-01-11 10:41+0100\n"
+"Last-Translator: Masta2002\n"
+"Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.0.6\n"
-"X-Poedit-SearchPath-0: ../src\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopieren"
 
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 msgid "Filebrowser"
-msgstr ""
+msgstr "Dateibrowser"
 
 msgid "Filebrowser Settings"
-msgstr ""
+msgstr "Dateibrowser Einstellungen"
 
 msgid "Filesystemposition list left"
-msgstr ""
+msgstr "Dateisystempositionsliste links"
 
 msgid "Filesystemposition list right"
-msgstr ""
+msgstr "Dateisystempositionsliste rechts"
 
 msgid "HELP"
-msgstr ""
+msgstr "HILFE"
 
 msgid "MENU"
-msgstr ""
+msgstr "MENÜ"
 
 msgid "Move"
-msgstr ""
+msgstr "Verschieben"
 
 msgid "Rename"
-msgstr ""
+msgstr "Umbenennen"
 
 msgid "add Plugin to Extensionmenu"
-msgstr ""
+msgstr "plugin zum Erweiterungsmenü hinzufügen"
 
 msgid "add Plugin to Mainmenu"
-msgstr ""
+msgstr "plugin zum Hauptmenü hinzufügen"
 
 msgid "copy file"
-msgstr ""
+msgstr "datei kopieren"
 
 msgid "copying file ..."
-msgstr ""
+msgstr "Kopiere Datei ..."
 
 msgid "delete file"
-msgstr ""
+msgstr "Datei löschen"
 
 msgid "deleting file ..."
-msgstr ""
+msgstr "lösche Datei ..."
 
 msgid "filebrowser buttons"
-msgstr ""
+msgstr "Dateibrowser Schaltflächen"
 
 msgid "manage local Files"
-msgstr ""
+msgstr "lokale Dateien verwalten"
 
 msgid "move file"
-msgstr ""
+msgstr "Datei verschieben"
 
 msgid "moving file ..."
-msgstr ""
+msgstr "verschiebe Datei ..."
 
 msgid "no"
-msgstr ""
+msgstr "nein"
 
 msgid "no Viewer installed for this mimetype!"
-msgstr ""
+msgstr "kein Viewer für diesen Mimetyp installiert!"
 
 msgid "rename file"
-msgstr ""
+msgstr "Datei umbennen"
 
 msgid "renaming file ..."
-msgstr ""
+msgstr "bennene Datei um ..."
 
 msgid "save Filesystemposition on exit"
-msgstr ""
+msgstr "dateisystemposition beim Beenden speichern"
 
 msgid "yes"
-msgstr ""
+msgstr "ja"

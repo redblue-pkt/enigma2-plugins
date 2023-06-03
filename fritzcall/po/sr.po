@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma2 FritzCall Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 10:53+0430\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2009-09-10 22:47+0100\n"
 "Last-Translator: maja <jovanovic@gmx.ch>\n"
 "Language-Team: veselin & majevica CRNABERZA <jovanovic@gmx.ch>\n"
@@ -127,6 +127,17 @@ msgstr ""
 "pokušavam ponovo..."
 
 msgid "Could not get call list; wrong version?"
+msgstr ""
+
+#, fuzzy
+msgid "Could not load barring list: "
+msgstr "FRITZ!Box - Ne mogu učitati pozive: %s"
+
+#, fuzzy, python-format
+msgid "Could not load barring list: %s"
+msgstr "FRITZ!Box - Ne mogu učitati pozive: %s"
+
+msgid "Could not load deflections list: "
 msgstr ""
 
 msgid "Could not load phonebook: "

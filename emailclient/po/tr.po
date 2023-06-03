@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 EmailClient plugin Turkish Locale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-16 19:06+0430\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2013-01-08 20:52+0200\n"
 "Last-Translator: Zulfikar Veyisoglu <zveyis@gmail.com>\n"
 "Language-Team: Zulfikar Veyisoglu <zveyis@gmail.com>\n"
@@ -21,6 +21,10 @@ msgstr ""
 #, python-format
 msgid "%(name)s (%(user)s@%(server)s)"
 msgstr "%(name)s (%(user)s@%(server)s)"
+
+#, fuzzy
+msgid "Account Setup"
+msgstr "Hesaplar"
 
 msgid "Accounts list"
 msgstr "Hesaplar"

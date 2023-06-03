@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MerlinMusicPlayer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 02:08+0100\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2015-10-07 18:57+0300\n"
 "Last-Translator: Dimitrij <Dima-73@inbox.lv>\n"
 "Language-Team: openpli.org\n"
@@ -125,6 +125,9 @@ msgstr "Закрыть"
 msgid "Configuration"
 msgstr "Конфигурация"
 
+msgid "Create iDream DB"
+msgstr ""
+
 msgid "Create new playlist"
 msgstr "Создать новый плейлист"
 
@@ -202,6 +205,15 @@ msgstr "Неправильное расположение"
 msgid "Lyrics"
 msgstr "Текст композиций"
 
+msgid "MERLIN  MUSIC  PLAYER"
+msgstr ""
+
+msgid "MMP  Path Select"
+msgstr ""
+
+msgid "MMP  Setup"
+msgstr ""
+
 msgid "Main Menu"
 msgstr "Главное меню"
 
@@ -222,6 +234,22 @@ msgstr "Merlin Music Player - ТВ"
 
 msgid "Merlin music player"
 msgstr "пригрыватель музыкальных файлов"
+
+#, fuzzy
+msgid "MerlinMusicPlayerScreenSaver"
+msgstr "Merlin Music Player"
+
+#, fuzzy
+msgid "MerlinMusicPlayerTV"
+msgstr "Merlin Music Player - ТВ"
+
+#, fuzzy
+msgid "Music Player Lyrics"
+msgstr "Merlin Music Player - текст композиций"
+
+#, fuzzy
+msgid "MusicPlayer"
+msgstr "Merlin Music Player"
 
 msgid "No lyrics found"
 msgstr "Не найдены тесты композиций"
@@ -267,6 +295,9 @@ msgstr "Запоминать последний путь для браузера
 msgid "Repeat is not available yet with cue-files!"
 msgstr "Повтор пока не доступен для cue-файлов!"
 
+msgid "Save"
+msgstr ""
+
 msgid "Scan path for music files and add them to database"
 msgstr "Путь сканирования для муз. файлов и добавление их в базу данных"
 
@@ -289,6 +320,10 @@ msgstr "Поиск результов для \"%s\" во всех названи
 msgid "Search results for \"%s\" in title, artist or album"
 msgstr "Поиск результов для \"%s\" в названии, исполнителе и альбоме."
 
+#, fuzzy
+msgid "Select Path"
+msgstr "Выберите путь"
+
 msgid "Select path"
 msgstr "Выберите путь"
 
@@ -310,6 +345,9 @@ msgstr "Показать iDream в главном меню"
 msgid "Shuffle is not available yet with cue-files!"
 msgstr "Перемешивание пока не доступно для cue-файлов!"
 
+msgid "Songlist"
+msgstr ""
+
 #, python-format
 msgid "Songs (%d)"
 msgstr "Композиции (%d)"
@@ -328,6 +366,9 @@ msgstr "Этот ресивер не может декодировать  %s!"
 #, python-format
 msgid "Track %s"
 msgstr "Дорожка %s"
+
+msgid "WWW.DREAMBOX-TOOLS.INFO"
+msgstr ""
 
 msgid "Wait for screensaver (in min)"
 msgstr "Ожидание для скринсейвера (в мин)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dreamexplorer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 13:15+0330\n"
+"POT-Creation-Date: 2023-06-03 11:25+0330\n"
 "PO-Revision-Date: 2021-09-13 14:21+0300\n"
 "Last-Translator: \n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -189,6 +189,10 @@ msgstr "Paveikslėlių grotuvas negalimas!"
 
 msgid "Preview all pictures"
 msgstr "Peržvelgti paveikslėlius"
+
+#, fuzzy
+msgid "Pyc-Script:\\n"
+msgstr "Pyc scenarijus:\\n"
 
 #, fuzzy
 msgid "Pyo-Script:\\n"
