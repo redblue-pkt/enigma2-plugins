@@ -122,7 +122,7 @@ def sessionstart(reason, **kwargs):
 				from twisted.python import util
 				from WebChilds.UploadResource import UploadResource
 
-				from AutoTimerResource import AutoTimerDoParseResource, \
+				from .AutoTimerResource import AutoTimerDoParseResource, \
 					AutoTimerListAutoTimerResource, AutoTimerAddOrEditAutoTimerResource, \
 					AutoTimerRemoveAutoTimerResource, AutoTimerChangeSettingsResource, \
 					AutoTimerSettingsResource, AutoTimerSimulateResource, AutoTimerTestResource, \
@@ -418,7 +418,7 @@ def parseEPGCallback(ret):
 					searchlog_txt += "\n" + "and %d searchlog-entries more ..." % (listcount - maxlistcount)
 
 	AddPopup(
-		_("Found a total of %d matching Events.\n%d Timer were added and\n%d modified,\n%d conflicts encountered,\n%d similars added.") % (ret[0], ret[1], ret[2], len(ret[4]), len(ret[5])) + "\n\n" + searchlog_txt,
+		_("Found a total of %d matching Events.\n%d Timer were added,\n%d modified,\n%d conflicts encountered,\n%d similars added.") % (ret[0], ret[0], ret[2], len(ret[4]), len(ret[5])) + "\n\n" + searchlog_txt,
 		MessageBox.TYPE_INFO,
 		config.plugins.autotimer.popup_timeout.value,
 		'AT_PopUp_ID_ParseEPGCallback'
@@ -535,6 +535,7 @@ def Plugins(**kwargs):
 		PluginDescriptor(name=_("AutoTimer"), description=_("Edit Timers and scan for new Events"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main, needsRestart=False),
 		PluginDescriptor(name=_("Add AutoTimer"), description=_("add AutoTimer"), where=PluginDescriptor.WHERE_MOVIELIST, fnc=movielist, needsRestart=False),
 		PluginDescriptor(name=_("add AutoTimer..."), where=PluginDescriptor.WHERE_EVENTINFO, fnc=eventinfo, needsRestart=False),
+		PluginDescriptor(name=_("Auto Timers"), description=_("Edit Timers and scan for new Events"), where=PluginDescriptor.WHERE_MENU, fnc=timermenu),
 	]
 	if hasSeriesPlugin:
 		l.append(PluginDescriptor(name=_("add to AutoTimer filterList"), description=_("add to AutoTimer filterList"), where=PluginDescriptor.WHERE_MOVIELIST, fnc=add_to_filterList, needsRestart=False))
@@ -544,3 +545,9 @@ def Plugins(**kwargs):
 		l.append(extDescriptor)
 		l.append(extDescriptor_scan)
 	return l
+
+
+def timermenu(menuid):
+	if menuid == "timermenu":
+		return [(_("Auto Timers"), main, "autotimer_setup", None)]
+	return []
