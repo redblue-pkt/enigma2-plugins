@@ -50,13 +50,6 @@ except Exception as e:
 
 
 def isOriginalWebifInstalled():
-	try:
-		from Tools.Directories import fileExists
-	except:
-		return False
-	pluginpath = eEnv.resolve('${libdir}/enigma2/python/Plugins/Extensions/WebInterface/plugin.py')
-	if fileExists(pluginpath) or fileExists(pluginpath + "o") or fileExists(pluginpath + "c"):
-		return True
 	return False
 
 
