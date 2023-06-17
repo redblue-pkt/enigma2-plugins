@@ -202,13 +202,13 @@ def GetFanRPM():
 	return value
 
 
-def GetBox():
-	B = Box
-	if os.path.exists("/etc/model"):
-		f = open("/etc/model")
-		B = f.readline()
-		f.close()
-	return B
+#def GetBox():
+#	B = Box
+#	if os.path.exists("/etc/model"):
+#		f = open("/etc/model")
+#		B = f.readline()
+#		f.close()
+#	return B
 
 # def isDMMdisabled():
 # 	value = False
@@ -998,7 +998,7 @@ class FanControl2(Screen):
 			os.rename(resolveFilename(SCOPE_PLUGINS, "Extensions/FanControl2/data/diagram.class.org"), resolveFilename(SCOPE_PLUGINS, "Extensions/FanControl2/data/diagram.class"))
 # 		if not isDMMdisabled() and config.plugins.FanControl.DisableDMM.value:
 # 			disableDMM()
-		Box = GetBox()
+#		Box = GetBox()
 		HDDtestTemp()
 		GetHDDtemp(False)
 		DeleteData()
@@ -1287,9 +1287,9 @@ def autostart(reason, **kwargs):
 			pass
 		root = static.File(resolveFilename(SCOPE_PLUGINS, "Extensions/FanControl2/data"))
 #			root = FC2web()
-		root.putChild("", FC2web())
-		root.putChild("log", FC2webLog())
-		root.putChild("chart", FC2webChart())
+		root.putChild(b"", FC2web())
+		root.putChild(b"log", FC2webLog())
+		root.putChild(b"chart", FC2webChart())
 		try:
 			addExternalChild(("fancontrol", root, "Fan Control 2", Version))
 			FClog("use new OpenWebIF")
