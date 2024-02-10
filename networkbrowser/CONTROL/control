@@ -1,0 +1,2 @@
+Description: Networkbrowser and Network-Mountmanager
+Depends: autofs, smbclient
