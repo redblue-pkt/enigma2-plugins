@@ -383,6 +383,12 @@ mosaic/meta/Makefile
 mosaic/po/Makefile
 mosaic/src/Makefile
 
+moviecut/Makefile
+moviecut/meta/Makefile
+moviecut/po/Makefile
+moviecut/src_cc/Makefile
+moviecut/src/Makefile
+
 movielistpreview/Makefile
 movielistpreview/meta/Makefile
 movielistpreview/po/Makefile
@@ -433,6 +439,13 @@ netcaster/src/bin/interface/Makefile
 netcaster/src/bin/Makefile
 netcaster/src/etc/Makefile
 netcaster/src/Makefile
+
+networkbrowser/Makefile
+networkbrowser/meta/Makefile
+networkbrowser/po/Makefile
+networkbrowser/src/icons/Makefile
+networkbrowser/src/lib/Makefile
+networkbrowser/src/Makefile
 
 netzkino/Makefile
 netzkino/meta/Makefile
@@ -683,6 +696,13 @@ werbezapper/Makefile
 werbezapper/meta/Makefile
 werbezapper/po/Makefile
 werbezapper/src/Makefile
+
+vps/Makefile
+vps/meta/Makefile
+vps/po/Makefile
+vps/src_cc/Makefile
+vps/src/Makefile
+vps/src/web-data/Makefile
 
 youtubeplayer/Makefile
 youtubeplayer/meta/Makefile

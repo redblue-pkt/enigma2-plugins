@@ -55,6 +55,7 @@ SUBDIRS = \
 	merlinepgcenter \
 	merlinmusicplayer \
 	mosaic \
+	moviecut \
 	movielistpreview \
 	movieretitle \
 	moviesearch \
@@ -64,6 +65,7 @@ SUBDIRS = \
 	mytube \
 	ncidclient \
 	netcaster \
+	networkbrowser \
 	netzkino \
 	ofdb \
 	orfat \
@@ -106,6 +108,7 @@ SUBDIRS = \
 	videocolorspace \
 	vierg \
 	vlcplayer \
+	vps \
 	weathercomponent \
 	weathercomponenthandler \
 	weatherplugin \
